@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="CSAPP19: shortage allocation:Basic"><meta name="keywords" content="课程,笔记"><meta name="author" content="scorpinxia"><meta name="copyright" content="scorpinxia"><title>CSAPP19: shortage allocation:Basic | wibur's blog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-动态分配内存（堆）"><span class="toc-number">1.</span> <span class="toc-text">1. 动态分配内存（堆）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-回收方式"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 回收方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-衡量标准"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 衡量标准</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-分配中的细节"><span class="toc-number">2.</span> <span class="toc-text">2. 分配中的细节</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-怎么free多少内存只靠指针"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 怎么free多少内存只靠指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-怎么跟踪这些没分配的内存"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 怎么跟踪这些没分配的内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-怎么应对格外的空间（字节对齐造成的浪费）"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 怎么应对格外的空间（字节对齐造成的浪费）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-怎么找空块去分配"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 怎么找空块去分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-如何合理释放已经分配的块"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 如何合理释放已经分配的块</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://i.loli.net/2020/02/06/PnT7myIF4lLYE3r.jpg"></div><div class="author-info__name text-center">scorpinxia</div><div class="author-info__description text-center">scorpionxia@foxmail.com</div><div class="follow-button"><a href="https://github.com/scorpinxia" target="_blank" rel="noopener">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">3</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">2</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://blog-1251750343.cos.ap-beijing.myqcloud.com/blog/blog-bg.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">wibur's blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/history">运营历史</a><a class="site-page" href="/about">关于作者</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">CSAPP19: shortage allocation:Basic</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-07</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/CSAPP/">CSAPP</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/CSAPP/shortage-allocation/">shortage allocation</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/CSAPP/shortage-allocation/Basic/">Basic</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><!-- TOC -->
+
+<ul>
+<li><a href="#1-动态分配内存堆">1. 动态分配内存（堆）</a><ul>
+<li><a href="#11-回收方式">1.1 回收方式</a></li>
+<li><a href="#12-衡量标准">1.2 衡量标准</a></li>
+</ul>
+</li>
+<li><a href="#2-分配中的细节">2. 分配中的细节</a><ul>
+<li><a href="#21-怎么free多少内存只靠指针">2.1 怎么free多少内存只靠指针</a></li>
+<li><a href="#22-怎么跟踪这些没分配的内存">2.2 怎么跟踪这些没分配的内存</a></li>
+<li><a href="#23-怎么应对格外的空间字节对齐造成的浪费">2.3 怎么应对格外的空间（字节对齐造成的浪费）</a></li>
+<li><a href="#24-怎么找空块去分配">2.4 怎么找空块去分配</a></li>
+<li><a href="#25-如何合理释放已经分配的块">2.5 如何合理释放已经分配的块</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+
+<h1 id="1-动态分配内存（堆）"><a href="#1-动态分配内存（堆）" class="headerlink" title="1. 动态分配内存（堆）"></a>1. 动态分配内存（堆）</h1><h2 id="1-1-回收方式"><a href="#1-1-回收方式" class="headerlink" title="1.1 回收方式"></a>1.1 回收方式</h2><ul>
+<li>c 显示分配 显示回收 </li>
+<li>java等 显示分配 隐式回收</li>
+</ul>
+<h2 id="1-2-衡量标准"><a href="#1-2-衡量标准" class="headerlink" title="1.2 衡量标准"></a>1.2 衡量标准</h2><ul>
+<li>吞吐量：每秒能调用多少次</li>
+<li>内存利用率：就是分配中使用的有效内存<br>  影响因素<ul>
+<li>内部碎片：字节对齐 需要标记等</li>
+<li>外部碎片： 如下图<br><img src="/2020/02/07/CSAPP19-shortage-allocation-Basic/1.png" alt></li>
+</ul>
+</li>
+</ul>
+<h1 id="2-分配中的细节"><a href="#2-分配中的细节" class="headerlink" title="2. 分配中的细节"></a>2. 分配中的细节</h1><h2 id="2-1-怎么free多少内存只靠指针"><a href="#2-1-怎么free多少内存只靠指针" class="headerlink" title="2.1 怎么free多少内存只靠指针"></a>2.1 怎么free多少内存只靠指针</h2><p>通过堆的header标识</p>
+<h2 id="2-2-怎么跟踪这些没分配的内存"><a href="#2-2-怎么跟踪这些没分配的内存" class="headerlink" title="2.2 怎么跟踪这些没分配的内存"></a>2.2 怎么跟踪这些没分配的内存</h2><p>4种方法<br><img src="/2020/02/07/CSAPP19-shortage-allocation-Basic/2.png" alt></p>
+<p><strong><em>以下以第一种方法讲解后续问题</em></strong></p>
+<h2 id="2-3-怎么应对格外的空间（字节对齐造成的浪费）"><a href="#2-3-怎么应对格外的空间（字节对齐造成的浪费）" class="headerlink" title="2.3 怎么应对格外的空间（字节对齐造成的浪费）"></a>2.3 怎么应对格外的空间（字节对齐造成的浪费）</h2><p>如下图<br><img src="/2020/02/07/CSAPP19-shortage-allocation-Basic/3.png" alt><br><strong><em>无可避免，但是可以节省</em></strong></p>
+<p>因为size的大小总是8的倍数或者16的 所以要存一些东西的时候回出现空的</p>
+<p>也因为size的大小总是8的倍数或者16的 所以不需要一个额外的word来存状态 只需存在size的 最后3位bit里面的一位 因为他们一直是0</p>
+<h2 id="2-4-怎么找空块去分配"><a href="#2-4-怎么找空块去分配" class="headerlink" title="2.4 怎么找空块去分配"></a>2.4 怎么找空块去分配</h2><ul>
+<li>first fit：从头开始找（线性时间 terrible)</li>
+<li>Next fit: 从上次找结束的地方开始够放置的就行 （也并不好）</li>
+<li>best fit：找到最好的块放置</li>
+<li>good fit：first fit + best fit 再开始的地方找一些最合适的块存放</li>
+</ul>
+<h2 id="2-5-如何合理释放已经分配的块"><a href="#2-5-如何合理释放已经分配的块" class="headerlink" title="2.5 如何合理释放已经分配的块"></a>2.5 如何合理释放已经分配的块</h2><ul>
+<li><p>直接释放 （置位释放）<br><img src="/2020/02/07/CSAPP19-shortage-allocation-Basic/4.png" alt><br>waste too much  内存会逐渐崩溃</p>
+</li>
+<li><p>连接的下一个释放<br><img src="/2020/02/07/CSAPP19-shortage-allocation-Basic/5.png" alt><br>但是处理不了上面一块</p>
+</li>
+<li><p>通过添加foot 连接的上下释放<br><img src="/2020/02/07/CSAPP19-shortage-allocation-Basic/6.png" alt><br>但是这样有点太浪费了，因为对于分配过的内存是不需要合并的。<br>可以通过利用size那最后3位都是0，拿出一位来标记上面是否是已分配的块，这样不是的话它肯定有foot， 一切一样是的话就不做操作。（tricks)</p>
+</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">scorpinxia</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://scorpinxia.github.io/2020/02/07/CSAPP19-shortage-allocation-Basic/">https://scorpinxia.github.io/2020/02/07/CSAPP19-shortage-allocation-Basic/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://scorpinxia.github.io">wibur's blog</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AF%BE%E7%A8%8B/">课程</a><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2020/02/07/CSAPP18-virtual-memory-real-system/"><span>CSAPP18: virtual memory(real system)</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://blog-1251750343.cos.ap-beijing.myqcloud.com/blog/blog-bg.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2020 By scorpinxia</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

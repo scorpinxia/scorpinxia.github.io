@@ -4,11 +4,42 @@
   
     
     <entry>
-      <title>CSAPP18-virtual-memory(real system)</title>
+      <title>CSAPP19: shortage allocation:Basic</title>
+      <link href="/2020/02/07/CSAPP19-shortage-allocation-Basic/"/>
+      <url>/2020/02/07/CSAPP19-shortage-allocation-Basic/</url>
+      
+        <content type="html"><![CDATA[<!-- TOC --><ul><li><a href="#1-动态分配内存堆">1. 动态分配内存（堆）</a><ul><li><a href="#11-回收方式">1.1 回收方式</a></li><li><a href="#12-衡量标准">1.2 衡量标准</a></li></ul></li><li><a href="#2-分配中的细节">2. 分配中的细节</a><ul><li><a href="#21-怎么free多少内存只靠指针">2.1 怎么free多少内存只靠指针</a></li><li><a href="#22-怎么跟踪这些没分配的内存">2.2 怎么跟踪这些没分配的内存</a></li><li><a href="#23-怎么应对格外的空间字节对齐造成的浪费">2.3 怎么应对格外的空间（字节对齐造成的浪费）</a></li><li><a href="#24-怎么找空块去分配">2.4 怎么找空块去分配</a></li><li><a href="#25-如何合理释放已经分配的块">2.5 如何合理释放已经分配的块</a></li></ul></li></ul><!-- /TOC --><h1 id="1-动态分配内存（堆）"><a href="#1-动态分配内存（堆）" class="headerlink" title="1. 动态分配内存（堆）"></a>1. 动态分配内存（堆）</h1><h2 id="1-1-回收方式"><a href="#1-1-回收方式" class="headerlink" title="1.1 回收方式"></a>1.1 回收方式</h2><ul><li>c 显示分配 显示回收 </li><li>java等 显示分配 隐式回收</li></ul><h2 id="1-2-衡量标准"><a href="#1-2-衡量标准" class="headerlink" title="1.2 衡量标准"></a>1.2 衡量标准</h2><ul><li>吞吐量：每秒能调用多少次</li><li>内存利用率：就是分配中使用的有效内存<br>  影响因素<ul><li>内部碎片：字节对齐 需要标记等</li><li>外部碎片： 如下图<br><img src="/2020/02/07/CSAPP19-shortage-allocation-Basic/1.png" alt></li></ul></li></ul><h1 id="2-分配中的细节"><a href="#2-分配中的细节" class="headerlink" title="2. 分配中的细节"></a>2. 分配中的细节</h1><h2 id="2-1-怎么free多少内存只靠指针"><a href="#2-1-怎么free多少内存只靠指针" class="headerlink" title="2.1 怎么free多少内存只靠指针"></a>2.1 怎么free多少内存只靠指针</h2><p>通过堆的header标识</p><h2 id="2-2-怎么跟踪这些没分配的内存"><a href="#2-2-怎么跟踪这些没分配的内存" class="headerlink" title="2.2 怎么跟踪这些没分配的内存"></a>2.2 怎么跟踪这些没分配的内存</h2><p>4种方法<br><img src="/2020/02/07/CSAPP19-shortage-allocation-Basic/2.png" alt></p><p><strong><em>以下以第一种方法讲解后续问题</em></strong></p><h2 id="2-3-怎么应对格外的空间（字节对齐造成的浪费）"><a href="#2-3-怎么应对格外的空间（字节对齐造成的浪费）" class="headerlink" title="2.3 怎么应对格外的空间（字节对齐造成的浪费）"></a>2.3 怎么应对格外的空间（字节对齐造成的浪费）</h2><p>如下图<br><img src="/2020/02/07/CSAPP19-shortage-allocation-Basic/3.png" alt><br><strong><em>无可避免，但是可以节省</em></strong></p><p>因为size的大小总是8的倍数或者16的 所以要存一些东西的时候回出现空的</p><p>也因为size的大小总是8的倍数或者16的 所以不需要一个额外的word来存状态 只需存在size的 最后3位bit里面的一位 因为他们一直是0</p><h2 id="2-4-怎么找空块去分配"><a href="#2-4-怎么找空块去分配" class="headerlink" title="2.4 怎么找空块去分配"></a>2.4 怎么找空块去分配</h2><ul><li>first fit：从头开始找（线性时间 terrible)</li><li>Next fit: 从上次找结束的地方开始够放置的就行 （也并不好）</li><li>best fit：找到最好的块放置</li><li>good fit：first fit + best fit 再开始的地方找一些最合适的块存放</li></ul><h2 id="2-5-如何合理释放已经分配的块"><a href="#2-5-如何合理释放已经分配的块" class="headerlink" title="2.5 如何合理释放已经分配的块"></a>2.5 如何合理释放已经分配的块</h2><ul><li><p>直接释放 （置位释放）<br><img src="/2020/02/07/CSAPP19-shortage-allocation-Basic/4.png" alt><br>waste too much  内存会逐渐崩溃</p></li><li><p>连接的下一个释放<br><img src="/2020/02/07/CSAPP19-shortage-allocation-Basic/5.png" alt><br>但是处理不了上面一块</p></li><li><p>通过添加foot 连接的上下释放<br><img src="/2020/02/07/CSAPP19-shortage-allocation-Basic/6.png" alt><br>但是这样有点太浪费了，因为对于分配过的内存是不需要合并的。<br>可以通过利用size那最后3位都是0，拿出一位来标记上面是否是已分配的块，这样不是的话它肯定有foot， 一切一样是的话就不做操作。（tricks)</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> CSAPP </category>
+          
+          <category> shortage allocation </category>
+          
+          <category> Basic </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 课程 </tag>
+            
+            <tag> 笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CSAPP18: virtual memory(real system)</title>
       <link href="/2020/02/07/CSAPP18-virtual-memory-real-system/"/>
       <url>/2020/02/07/CSAPP18-virtual-memory-real-system/</url>
       
-        <content type="html"><![CDATA[<h1 id="1-symple-system-memory-address-translastion"><a href="#1-symple-system-memory-address-translastion" class="headerlink" title="1 symple system memory address translastion"></a>1 symple system memory address translastion</h1><p><img src="/2020/02/07/CSAPP18-virtual-memory-real-system/1.png" alt><br>步骤如下</p><ol><li>得到一个VA 拆解成VPN VPO</li><li>VPN=TLBI+TLBT 去look看TLBI上hit了没</li><li>hit 直接得到PPN 然后VPO和PPO是完全相等的</li><li>再去Cache里面找  CI 找 然后匹配tag 然后取出CO位置</li></ol><p><img src="/2020/02/07/CSAPP18-virtual-memory-real-system/1.png" alt><br>步骤如下</p><ol><li>得到一个VA 拆解成VPN VPO</li><li>VPN=TLBI+TLBT 去look看TLBI上hit了没</li><li>没有hit 得去PTE里面找了 发现在里面 没有page falut </li><li>得到了PPN </li><li>再去Cache里面找  CI 找 然后匹配tag 然后取出CO位置</li></ol><h1 id="2-i7-linux-memory-system"><a href="#2-i7-linux-memory-system" class="headerlink" title="2 i7 linux memory system"></a>2 i7 linux memory system</h1><p><img src="/2020/02/07/CSAPP18-virtual-memory-real-system/3.png" alt><br>Key  Point</p><ul><li>L1:4 cycle L2:10 cycle L3: 40-50 cyclce ps:L3是四核共用</li><li>有d-cache 和i-cache d-TLB 和 i-TLB</li><li>为什么不把L2 L1 合并原因有: d i占比不一定一样 还有就是缓存的限制大小<br>具体流程<br><img src="/2020/02/07/CSAPP18-virtual-memory-real-system/4.png" alt></li></ul><p>技巧可以VPO=PPO=CI+CO先找到对应的位置在等tag（translation）匹配<br><img src="/2020/02/07/CSAPP18-virtual-memory-real-system/6.png" alt></p><p>linux 把VM看做一个链表类似<br><img src="/2020/02/07/CSAPP18-virtual-memory-real-system/8.png" alt></p><h1 id="3-memory-mapping"><a href="#3-memory-mapping" class="headerlink" title="3 memory mapping"></a>3 memory mapping</h1><p>两种分享方式</p><ol><li><p>共享地址<br><img src="/2020/02/07/CSAPP18-virtual-memory-real-system/9.png" alt></p></li><li><p>私密的共享（such as fork and execve)<br><img src="/2020/02/07/CSAPP18-virtual-memory-real-system/11.png" alt></p></li></ol>]]></content>
+        <content type="html"><![CDATA[<!-- TOC --><ul><li><a href="#1-symple-system-memory-address-translastion">1 symple system memory address translastion</a></li><li><a href="#2-i7-linux-memory-system">2 i7 linux memory system</a></li><li><a href="#3-memory-mapping">3 memory mapping</a></li></ul><!-- /TOC --><h1 id="1-symple-system-memory-address-translastion"><a href="#1-symple-system-memory-address-translastion" class="headerlink" title="1 symple system memory address translastion"></a>1 symple system memory address translastion</h1><p><img src="/2020/02/07/CSAPP18-virtual-memory-real-system/1.png" alt><br>步骤如下</p><ol><li>得到一个VA 拆解成VPN VPO</li><li>VPN=TLBI+TLBT 去look看TLBI上hit了没</li><li>hit 直接得到PPN 然后VPO和PPO是完全相等的</li><li>再去Cache里面找  CI 找 然后匹配tag 然后取出CO位置</li></ol><p><img src="/2020/02/07/CSAPP18-virtual-memory-real-system/1.png" alt><br>步骤如下</p><ol><li>得到一个VA 拆解成VPN VPO</li><li>VPN=TLBI+TLBT 去look看TLBI上hit了没</li><li>没有hit 得去PTE里面找了 发现在里面 没有page falut </li><li>得到了PPN </li><li>再去Cache里面找  CI 找 然后匹配tag 然后取出CO位置</li></ol><h1 id="2-i7-linux-memory-system"><a href="#2-i7-linux-memory-system" class="headerlink" title="2 i7 linux memory system"></a>2 i7 linux memory system</h1><p><img src="/2020/02/07/CSAPP18-virtual-memory-real-system/3.png" alt><br>Key  Point</p><ul><li>L1:4 cycle L2:10 cycle L3: 40-50 cyclce ps:L3是四核共用</li><li>有d-cache 和i-cache d-TLB 和 i-TLB</li><li>为什么不把L2 L1 合并原因有: d i占比不一定一样 还有就是缓存的限制大小<br>具体流程<br><img src="/2020/02/07/CSAPP18-virtual-memory-real-system/4.png" alt></li></ul><p>技巧可以VPO=PPO=CI+CO先找到对应的位置在等tag（translation）匹配<br><img src="/2020/02/07/CSAPP18-virtual-memory-real-system/6.png" alt></p><p>linux 把VM看做一个链表类似<br><img src="/2020/02/07/CSAPP18-virtual-memory-real-system/8.png" alt></p><h1 id="3-memory-mapping"><a href="#3-memory-mapping" class="headerlink" title="3 memory mapping"></a>3 memory mapping</h1><p>两种分享方式</p><ol><li><p>共享地址<br><img src="/2020/02/07/CSAPP18-virtual-memory-real-system/9.png" alt></p></li><li><p>私密的共享（such as fork and execve)<br><img src="/2020/02/07/CSAPP18-virtual-memory-real-system/11.png" alt></p></li></ol>]]></content>
       
       
       <categories>
@@ -35,11 +66,11 @@
     
     
     <entry>
-      <title>CSAPP17: virtual memory</title>
-      <link href="/2020/02/05/CSAPP17-virtual-memory/"/>
-      <url>/2020/02/05/CSAPP17-virtual-memory/</url>
+      <title>CSAPP17: virtual memory concept</title>
+      <link href="/2020/02/05/CSAPP17-virtual-memory-concept/"/>
+      <url>/2020/02/05/CSAPP17-virtual-memory-concept/</url>
       
-        <content type="html"><![CDATA[<!-- TOC --><ul><li><a href="#1what-is-virtual-memory">1.what is virtual memory</a></li><li><a href="#2why-vm">2.why VM</a><ul><li><a href="#21-for-cache">2.1 for cache</a><ul><li><a href="#211-overview">2.1.1 overview</a></li><li><a href="#212-pte">2.1.2 PTE</a></li></ul></li><li><a href="#22-for-memory-management">2.2 for memory management</a></li><li><a href="#23-for-memory-protection">2.3 for memory protection</a></li></ul></li><li><a href="#3-detail-va-virtual-address">3 detail VA virtual address</a></li><li><a href="#4-summary">4 Summary</a></li></ul><!-- /TOC --><h1 id="1-what-is-virtual-memory"><a href="#1-what-is-virtual-memory" class="headerlink" title="1.what is virtual memory"></a>1.what is virtual memory</h1><p>cpu访问的都是虚拟内存通过MMU</p><h1 id="2-why-VM"><a href="#2-why-VM" class="headerlink" title="2.why VM"></a>2.why VM</h1><h2 id="2-1-for-cache"><a href="#2-1-for-cache" class="headerlink" title="2.1 for cache"></a>2.1 for cache</h2><h3 id="2-1-1-overview"><a href="#2-1-1-overview" class="headerlink" title="2.1.1 overview"></a>2.1.1 overview</h3><p>如下图<br><img src="https://i.loli.net/2020/02/05/yc96l5gPtokXm7O.png" alt="image.png"><br><strong>注意</strong> ：</p><ul><li>virtual pages代表着磁盘上的地址 </li><li>有些被缓存了 </li><li>有些没有还在磁盘上 </li><li>有些未分配代表连磁盘上都没</li></ul><p>DRAM slower than SRAM 10x</p><p>Disk slower 10000x than DRAM</p><p>so</p><ul><li>page sizes 4KB to 4MB</li><li>全相缓存 （尽管要很久搜索）</li></ul><h3 id="2-1-2-PTE"><a href="#2-1-2-PTE" class="headerlink" title="2.1.2 PTE"></a>2.1.2 PTE</h3><p>使用Page table entries 去map VP 到 PP<br><img src="https://i.loli.net/2020/02/05/qPa5F8gHERhOb61.png" alt="image.png"></p><p>如果CPU给的VP没有page hit 会有page falut 然后和缓存一样替代进去</p><h2 id="2-2-for-memory-management"><a href="#2-2-for-memory-management" class="headerlink" title="2.2 for memory management"></a>2.2 for memory management</h2><p><strong>关键点</strong> 每个进程都有独立的虚拟地址从0开始 似乎都有独立的空间 共享库也得益于此 每个进程似乎<br>单独拥有一个共享库函数代码<br><img src="https://i.loli.net/2020/02/05/1E94grucImyD2YR.png" alt="image.png"></p><h2 id="2-3-for-memory-protection"><a href="#2-3-for-memory-protection" class="headerlink" title="2.3 for memory protection"></a>2.3 for memory protection</h2><p>在PTE上对每个PP 有4个bit位<br>intel 虚拟内存是48位的 剩下的地址有些只能内核去用 高位<br><img src="https://i.loli.net/2020/02/05/IQbFqrRsKTo8mNV.png" alt="image.png"></p><h1 id="3-detail-VA-virtual-address"><a href="#3-detail-VA-virtual-address" class="headerlink" title="3 detail VA virtual address"></a>3 detail VA virtual address</h1><p><img src="https://i.loli.net/2020/02/05/GnjrcmY6t2JWH9L.png" alt="image.png"><br><img src="https://i.loli.net/2020/02/06/qcUxJmFO3vaWLdb.png" alt="2.png"><br><img src="https://i.loli.net/2020/02/06/7f5OK1IrH9FkqTd.png" alt="3.png"></p><h1 id="4-Summary"><a href="#4-Summary" class="headerlink" title="4 Summary"></a>4 Summary</h1><ul><li>程序角度角度 VM<ul><li>每个进程有独立空间 不会被其他进程打乱</li></ul></li><li>系统角度 VM<ul><li>使得内存 更好缓存 （局部性是关键）</li><li>简化了内存管理 </li><li>内存保护</li></ul></li></ul>]]></content>
+        <content type="html"><![CDATA[<!-- TOC --><ul><li><a href="#1what-is-virtual-memory">1.what is virtual memory</a></li><li><a href="#2why-vm">2.why VM</a><ul><li><a href="#21-for-cache">2.1 for cache</a><ul><li><a href="#211-overview">2.1.1 overview</a></li><li><a href="#212-pte">2.1.2 PTE</a></li></ul></li><li><a href="#22-for-memory-management">2.2 for memory management</a></li><li><a href="#23-for-memory-protection">2.3 for memory protection</a></li></ul></li><li><a href="#3-detail-va-virtual-address">3 detail VA virtual address</a></li><li><a href="#4-summary">4 Summary</a></li></ul><!-- /TOC --><h1 id="1-What-is-virtual-memory"><a href="#1-What-is-virtual-memory" class="headerlink" title="1. What is virtual memory"></a>1. What is virtual memory</h1><p>cpu访问的都是虚拟内存通过MMU</p><h1 id="2-Why-VM"><a href="#2-Why-VM" class="headerlink" title="2.Why VM"></a>2.Why VM</h1><h2 id="2-1-for-cache"><a href="#2-1-for-cache" class="headerlink" title="2.1 for cache"></a>2.1 for cache</h2><h3 id="2-1-1-overview"><a href="#2-1-1-overview" class="headerlink" title="2.1.1 overview"></a>2.1.1 overview</h3><p>如下图<br><img src="https://i.loli.net/2020/02/05/yc96l5gPtokXm7O.png" alt="image.png"><br><strong>注意</strong> ：</p><ul><li>virtual pages代表着磁盘上的地址 </li><li>有些被缓存了 </li><li>有些没有还在磁盘上 </li><li>有些未分配代表连磁盘上都没</li></ul><p>DRAM slower than SRAM 10x</p><p>Disk slower 10000x than DRAM</p><p>so</p><ul><li>page sizes 4KB to 4MB</li><li>全相缓存 （尽管要很久搜索）</li></ul><h3 id="2-1-2-PTE"><a href="#2-1-2-PTE" class="headerlink" title="2.1.2 PTE"></a>2.1.2 PTE</h3><p>使用Page table entries 去map VP 到 PP<br><img src="https://i.loli.net/2020/02/05/qPa5F8gHERhOb61.png" alt="image.png"></p><p>如果CPU给的VP没有page hit 会有page falut 然后和缓存一样替代进去</p><h2 id="2-2-for-memory-management"><a href="#2-2-for-memory-management" class="headerlink" title="2.2 for memory management"></a>2.2 for memory management</h2><p><strong>关键点</strong> 每个进程都有独立的虚拟地址从0开始 似乎都有独立的空间 共享库也得益于此 每个进程似乎<br>单独拥有一个共享库函数代码<br><img src="https://i.loli.net/2020/02/05/1E94grucImyD2YR.png" alt="image.png"></p><h2 id="2-3-for-memory-protection"><a href="#2-3-for-memory-protection" class="headerlink" title="2.3 for memory protection"></a>2.3 for memory protection</h2><p>在PTE上对每个PP 有4个bit位<br>intel 虚拟内存是48位的 剩下的地址有些只能内核去用 高位<br><img src="https://i.loli.net/2020/02/05/IQbFqrRsKTo8mNV.png" alt="image.png"></p><h1 id="3-detail-VA-virtual-address"><a href="#3-detail-VA-virtual-address" class="headerlink" title="3 detail VA virtual address"></a>3 detail VA virtual address</h1><p><img src="https://i.loli.net/2020/02/05/GnjrcmY6t2JWH9L.png" alt="image.png"><br><img src="https://i.loli.net/2020/02/06/qcUxJmFO3vaWLdb.png" alt="2.png"><br><img src="https://i.loli.net/2020/02/06/7f5OK1IrH9FkqTd.png" alt="3.png"></p><h1 id="4-Summary"><a href="#4-Summary" class="headerlink" title="4 Summary"></a>4 Summary</h1><ul><li>程序角度角度 VM<ul><li>每个进程有独立空间 不会被其他进程打乱</li></ul></li><li>系统角度 VM<ul><li>使得内存 更好缓存 （局部性是关键）</li><li>简化了内存管理 </li><li>内存保护</li></ul></li></ul>]]></content>
       
       
       <categories>
@@ -48,14 +79,16 @@
           
           <category> virtual memory </category>
           
+          <category> concept </category>
+          
       </categories>
       
       
         <tags>
             
-            <tag> 导航 </tag>
+            <tag> 课程 </tag>
             
-            <tag> 分享 </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
