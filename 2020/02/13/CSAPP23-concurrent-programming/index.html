@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="CSAPP23-concurrent-programming"><meta name="keywords" content="课程,笔记"><meta name="author" content="scorpinxia"><meta name="copyright" content="scorpinxia"><title>CSAPP23-concurrent-programming | wibur's blog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Probelms"><span class="toc-number">1.</span> <span class="toc-text">1. Probelms</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Neccessity"><span class="toc-number">2.</span> <span class="toc-text">2. Neccessity</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Approaches-for-Writing-a-concurrent-program"><span class="toc-number">3.</span> <span class="toc-text">3. Approaches for Writing a concurrent program</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-Progress-based"><span class="toc-number">3.1.</span> <span class="toc-text">3.1. Progress-based</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-Features"><span class="toc-number">3.1.1.</span> <span class="toc-text">3.1.1. Features</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-Pros-and-Cons"><span class="toc-number">3.1.2.</span> <span class="toc-text">3.1.2. Pros and Cons</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Event-based"><span class="toc-number">3.2.</span> <span class="toc-text">3.2. Event-based</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-Pros-and-Cons"><span class="toc-number">3.2.1.</span> <span class="toc-text">3.2.1. Pros and Cons</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-Thread-based"><span class="toc-number">3.3.</span> <span class="toc-text">3.3. Thread-based</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-differences-and-similarities-between-process-and-thread"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.3.1. differences and similarities between process and thread</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-thread-mode"><span class="toc-number">3.3.2.</span> <span class="toc-text">3.3.2. thread mode</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Summary"><span class="toc-number">4.</span> <span class="toc-text">4. Summary</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://i.loli.net/2020/02/06/PnT7myIF4lLYE3r.jpg"></div><div class="author-info__name text-center">scorpinxia</div><div class="author-info__description text-center">scorpionxia@foxmail.com</div><div class="follow-button"><a href="https://github.com/scorpinxia" target="_blank" rel="noopener">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">13</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">3</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">21</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://blog-1251750343.cos.ap-beijing.myqcloud.com/blog/blog-bg.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">wibur's blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/history">运营历史</a><a class="site-page" href="/about">关于作者</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">CSAPP23-concurrent-programming</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-13</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/CSAPP/">CSAPP</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/CSAPP/concurrent-programming/">concurrent programming</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><!-- TOC -->
+
+<ul>
+<li><a href="#1-probelms">1. Probelms</a></li>
+<li><a href="#2-neccessity">2. Neccessity</a></li>
+<li><a href="#3-approaches-for-writing-a-concurrent-program">3. Approaches for Writing a concurrent program</a><ul>
+<li><a href="#31-progress-based">3.1. Progress-based</a><ul>
+<li><a href="#311-features">3.1.1. Features</a></li>
+<li><a href="#312-pros-and-cons">3.1.2. Pros and Cons</a></li>
+</ul>
+</li>
+<li><a href="#32-event-based">3.2. Event-based</a><ul>
+<li><a href="#321-pros-and-cons">3.2.1. Pros and Cons</a></li>
+</ul>
+</li>
+<li><a href="#33-thread-based">3.3. Thread-based</a><ul>
+<li><a href="#331-differences-and-similarities-between-process-and-thread">3.3.1. differences and similarities between process and thread</a></li>
+<li><a href="#332-thread-mode">3.3.2. thread mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4-summary">4. Summary</a></li>
+</ul>
+<!-- /TOC -->
+<h1 id="1-Probelms"><a href="#1-Probelms" class="headerlink" title="1. Probelms"></a>1. Probelms</h1><ul>
+<li>Races：结果取决于随机的调度(谁得到最后一张票,父进程在子进程加入列表前运行完了)</li>
+<li>Deadlock: 等待着一个永远不发生的信号到来（主程序printf，信号处理程序同时printf；交通谁先谁通过，但是同时到达四个，就不知道怎么走)</li>
+<li>livelock /starvations/ fairness: 两个进程内核总是安排一个</li>
+</ul>
+<h1 id="2-Neccessity"><a href="#2-Neccessity" class="headerlink" title="2. Neccessity"></a>2. Neccessity</h1><p><img src="/2020/02/13/CSAPP23-concurrent-programming/1.png" alt><br>如果不并发 客户端2 connect 就算没建立连接也会return  要等待服务端结束前一个再accept<br>再发</p>
+<h1 id="3-Approaches-for-Writing-a-concurrent-program"><a href="#3-Approaches-for-Writing-a-concurrent-program" class="headerlink" title="3. Approaches for Writing a concurrent program"></a>3. Approaches for Writing a concurrent program</h1><h2 id="3-1-Progress-based"><a href="#3-1-Progress-based" class="headerlink" title="3.1. Progress-based"></a>3.1. Progress-based</h2><h3 id="3-1-1-Features"><a href="#3-1-1-Features" class="headerlink" title="3.1.1. Features"></a>3.1.1. Features</h3><ul>
+<li>内核自动调度</li>
+<li>单独地址空间<br>如图<br><img src="/2020/02/13/CSAPP23-concurrent-programming/2.png" alt></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char **argv)!</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span> listenfd, connfd;</span><br><span class="line"><span class="keyword">socklen_t</span> clientlen;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_storage</span> <span class="title">clientaddr</span>;</span></span><br><span class="line"></span><br><span class="line">Signal(SIGCHLD, sigchld_handler);</span><br><span class="line">listenfd = Open_listenfd(argv[<span class="number">1</span>]);</span><br><span class="line"><span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">clientlen = <span class="keyword">sizeof</span>(struct sockaddr_storage);</span><br><span class="line">connfd = Accept(listenfd, (SA *) &amp;clientaddr, &amp;clientlen);</span><br><span class="line"><span class="keyword">if</span> (Fork() == <span class="number">0</span>) &#123;</span><br><span class="line">Close(listenfd); <span class="comment">/* Child closes its listening socket */</span></span><br><span class="line">echo(connfd); <span class="comment">/* Child services client */</span></span><br><span class="line">Close(connfd); <span class="comment">/* Child closes connection with client */</span></span><br><span class="line"><span class="built_in">exit</span>(<span class="number">0</span>); <span class="comment">/* Child exits */</span></span><br><span class="line">&#125;</span><br><span class="line">Close(connfd); <span class="comment">/* Parent closes connected socket (important!) */</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>在程序里需要注意</strong>：<br>每个父进程和子进程里面都有listenfd和connfd，refcnt=2 所以需要分别在父进程关闭connfd 子进程关闭listenfd</p>
+<h3 id="3-1-2-Pros-and-Cons"><a href="#3-1-2-Pros-and-Cons" class="headerlink" title="3.1.2. Pros and Cons"></a>3.1.2. Pros and Cons</h3><ul>
+<li>pros：<ul>
+<li>并发</li>
+<li>清晰的共享模式：单独的描述符，共享描述符表已经打开文件表，不共享全局变量地址</li>
+<li>简单</li>
+</ul>
+</li>
+<li>cons<ul>
+<li>额外进程开销</li>
+<li>不共享数据地址<h2 id="3-2-Event-based"><a href="#3-2-Event-based" class="headerlink" title="3.2. Event-based"></a>3.2. Event-based</h2></li>
+</ul>
+</li>
+<li>程序员调度多重的逻辑流</li>
+<li>所有流 同样的地址</li>
+<li>I/O 复用</li>
+<li>可以Debug</li>
+</ul>
+<p>对所有输入都挂起读取</p>
+<p><img src="/2020/02/13/CSAPP23-concurrent-programming/3.png" alt><br>如图现在挂起的三个输入然后又三个listenfd 也就是事件来了我再去读</p>
+<h3 id="3-2-1-Pros-and-Cons"><a href="#3-2-1-Pros-and-Cons" class="headerlink" title="3.2.1. Pros and Cons"></a>3.2.1. Pros and Cons</h3><ul>
+<li>pros：<ul>
+<li>一个逻辑流，一个地址空间，可以Debug</li>
+<li>没有进程线程控制开销，高并发数必要（Node.js, nginx, Tornado）</li>
+</ul>
+</li>
+<li>cons<ul>
+<li>难code</li>
+<li>没利用多核</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-3-Thread-based"><a href="#3-3-Thread-based" class="headerlink" title="3.3. Thread-based"></a>3.3. Thread-based</h2><ul>
+<li>内核自动调度</li>
+<li>每个flow 同样的地址</li>
+<li>混合了Progress-based Event-based</li>
+</ul>
+<p>和进程很像<br><img src="/2020/02/13/CSAPP23-concurrent-programming/4.png" alt><br><img src="/2020/02/13/CSAPP23-concurrent-programming/5.png" alt><br><img src="/2020/02/13/CSAPP23-concurrent-programming/6.png" alt><br><img src="/2020/02/13/CSAPP23-concurrent-programming/7.png" alt><br><img src="/2020/02/13/CSAPP23-concurrent-programming/8.png" alt></p>
+<h3 id="3-3-1-differences-and-similarities-between-process-and-thread"><a href="#3-3-1-differences-and-similarities-between-process-and-thread" class="headerlink" title="3.3.1. differences and similarities between process and thread"></a>3.3.1. differences and similarities between process and thread</h3><ul>
+<li>similarities <ul>
+<li>都有自己的逻辑流</li>
+<li>都是上下文交换</li>
+</ul>
+</li>
+<li>differences<ul>
+<li>thread 共享除了栈的数据 进程是不能共享全局数据</li>
+<li>thread 的开销低 一半</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-3-2-thread-mode"><a href="#3-3-2-thread-mode" class="headerlink" title="3.3.2. thread mode"></a>3.3.2. thread mode</h3><p>detached 不被其他thread打扰 内核回收<br>防止内存泄漏<br>注意分享给主thread的指针</p>
+<h1 id="4-Summary"><a href="#4-Summary" class="headerlink" title="4. Summary"></a>4. Summary</h1><ul>
+<li>process <ul>
+<li>很难共享数据但是也避免了不想要的共享</li>
+<li>建立断开开销大</li>
+</ul>
+</li>
+<li>event<ul>
+<li>难编程</li>
+<li>可调试</li>
+<li>底层</li>
+<li>没利用多核</li>
+</ul>
+</li>
+<li>thread <ul>
+<li>容易共享数据（太容易了）</li>
+<li>开销比 进程小</li>
+<li>很难debug （事件的发生不是可重复的）</li>
+</ul>
+</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">scorpinxia</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://scorpinxia.github.io/2020/02/13/CSAPP23-concurrent-programming/">https://scorpinxia.github.io/2020/02/13/CSAPP23-concurrent-programming/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://scorpinxia.github.io">wibur's blog</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AF%BE%E7%A8%8B/">课程</a><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2020/02/14/CSAPP24-synchronization-Basic/"><i class="fa fa-chevron-left">  </i><span>CSAPP24-synchronization-Basic</span></a></div><div class="next-post pull-right"><a href="/2020/02/12/Java-algorithm-HashMap/"><span>Java-algorithm-HashMap</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://blog-1251750343.cos.ap-beijing.myqcloud.com/blog/blog-bg.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2020 By scorpinxia</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
