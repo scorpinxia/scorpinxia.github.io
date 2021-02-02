@@ -1,0 +1,1789 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="WIFI5-simulation, Wibur&#39;s Blog">
+    <meta name="description" content="scorpionxia@foxmail.com">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>WIFI5-simulation | Wibur&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Wibur&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Wibur&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            scorpionxia@foxmail.com
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">WIFI5-simulation</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+	
+	#toc-content {
+		height: calc(100vh - 250px);
+		overflow: scroll;
+	}
+	
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+	
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-09-21
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="wlanVHTConfig"><a href="#wlanVHTConfig" class="headerlink" title="wlanVHTConfig"></a>wlanVHTConfig</h1><p>cfgVHT = wlanVHTConfig creates a configuration object that initializes parameters for an IEEE® 802.11™ VHT PPDU.</p>
+<ul>
+<li><p>ChannelBandwidth — Channel bandwidth of PPDU transmission<br>‘CBW80’ (default) | ‘CBW20’ | ‘CBW40’ | ‘CBW160’</p>
+</li>
+<li><p>NumUsers — Number of users<br>1 (default) | 2 | 3 | 4</p>
+</li>
+<li><p>UserPositions — User positions<br>[0 1] (default) | vector of integers</p>
+</li>
+</ul>
+<p>仅当您将NumUsers属性指定为大于1的值时，此属性才适用</p>
+<ul>
+<li><p>NumTransmitAntennas — Number of transmit antennas<br>1 (default) | positive integer</p>
+</li>
+<li><p>PreVHTCyclicShifts — Cyclic shift values of additional transmit antennas-75 (default) | integer in the interval [–200, 0] | row vector</p>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">波形的VHT前场的附加发射天线的循环移位值（以纳秒为单位）。前八个天线使用[1]的表21-10中指定的循环移位值。
+依存关系 
+要启用此属性，请将NumTransmitAntennas属性设置为大于8的值。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>NumSpaceTimeStreams —时空流的数量 1（默认）| [1，8]中的整数|区间[1，4]中的整数向量<pre class="line-numbers language-none"><code class="language-none">传输中的时空流数，指定为以下值之一： 示例：[1 3 2]是三用户传输中每个用户的时空流数量。 
+
+注意 此属性的元素之和不得超过八个。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>SpatialMapping —空间映射方案<br>‘直接’（默认）| “哈达玛” | ‘傅里叶’| “自定义” <pre class="line-numbers language-none"><code class="language-none">依存关系 
+仅当将NumTransmitAntennas和NumSpaceTimeStreams属性设置为相同的值时，默认值“ Direct”才适用<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>波束成形—启用波束成形 true或1（默认）|假或0 <pre class="line-numbers language-none"><code class="language-none">依存关系：
+仅当NumUsers属性设置为1且SpatialMapping属性设置为“自定义”时，此属性才适用<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>STBC —启用STBC <pre class="line-numbers language-none"><code class="language-none">false或0（默认）|真或1 
+启用PPDU数据字段的时空块编码（STBC），指定为数字或逻辑值1（true）或0（false）。 STBC在分配的天线之间传输数据流的多个副本。 
+
+当将此属性设置为0（假）时，STBC不会应用于数据字段。时空流的数量等于空间流的数量。 
+
+当将此属性设置为1（true）时，STBC应用于数据字段。时空流的数量是空间流的数量的两倍。 
+
+有关更多信息，请参见第22.3.10.9.4节。 
+
+依存关系 
+
+仅当NumUsers属性为1时，此属性才适用。 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>MCS —用于传输的调制和编码方案<br>0（默认）|区间[0，9]中的整数|整数向量 </li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">用于传输的调制和编码方案，指定为以下值之一： 
+
+[0，9]中的整数，当NumUsers属性为1时适用 
+
+NumUsers属性大于1时，在[0，9]区间中的整数的1×NumUsers向量。 
+
+下表显示了每个有效MCS值的调制类型和编码率： 
+
+MCS调制编码率 
+
+0二进制相移键控（BPSK）1/2 
+
+1正交相移键控（QPSK）1/2 
+
+2个QPSK 3/4 
+
+3 16点正交调幅（16-QAM）1/2 
+
+4 16-QAM 3/4 
+
+5 64-QAM 2/3 
+
+6 64-QAM 3/4 
+
+7 64-QAM 5/6 
+
+8 256-QAM 3/4 
+
+9 256-QAM 5/6 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>ChannelCoding — FEC编码类型<br>‘密件抄送’（默认）| “ LDPC” |向量的元胞数组|字符串单元格数组</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">VHT-Data字段的前向纠错（FEC）编码类型，指定为以下值之一： 
+
+“ LDPC” –低密度奇偶校验（LDPC）编码适用于传输中的所有用户 
+
+'BCC'–二进制卷积编码（BCC）适用于传输中的所有用户 
+
+包含值“ LDPC”和“ BCC”的1×NumUsers单元格数组，其中第k个元素指定用户k的信道编码
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>APEPLength-APEP长度<br>1024（默认）|非负整数|非负整数的向量</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">聚合的MPDU（A-MPDU）帧前（EOF）填充（APEP）长度，以字节为单位。 
+
+当NumUsers属性为1时，将此属性指定为间隔[0，2^20 – 1]中的非负整数。 
+
+当NumUsers属性的值不是1时，将此属性指定为间隔[0，22^0 – 1]中的整数的1×NumUsers向量。 
+
+对于空数据包（NDP），将此属性设置为0。 
+
+wlanVHTConfig对象使用此属性来确定数据字段中OFDM符号的数量。有关更多信息，请参见[1]的表21-1。 
+
+注意 
+
+该对象仅支持聚合数据传输<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>PSDULength — PSDU长度<br>区间[0，2^20 – 1]中的整数|区间[0，2^20–1]中的整数向量</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">该属性是只读的。 
+
+物理层会聚过程（PLCP）服务数据单元（PSDU）的长度（以字节为单位），指定为以下值之一： 
+
+当NumUsers属性为1时适用的间隔为[0，220 – 1]的整数。值0对应于空数据包（NDP）。 
+
+NumUsers属性大于1时，在[0，220 – 1]范围内的整数向量。 
+
+一个空数组，适用于未定义此属性的情况，例如，当属性值集无效时。 
+
+wlanVHTConfig对象根据APEPLength属性的值和其他与编码有关的属性来计算此属性。此计算的详细信息在[1]的21.4.3节中指定。 
+
+示例：[1035 4150]是wlanVHTConfig对象的PSDU长度向量，其中NumUsers属性为2，MCS属性为[0 3]。 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>GuardInterval —保护间隔（循环前缀）持续时间<br>‘长’（默认）| ‘短</p>
+</li>
+<li><p>GroupID-组标识号<br>63（默认）|区间[0，63]中的整数</p>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">组标识号，以[0，63]间隔中的整数指定。 
+
+依存关系 
+
+值0和63仅在将NumUsers属性设置为1时适用。间隔[1，62]中的值仅在将NumUsers属性设置为1以外的值时适用<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>PartialAID — PSDU接收机简写<br>275（默认值）|区间[0，511]中的整数 </li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">PSDU接收者的缩写指示，指定为[0，511]间隔中的整数。 
+
+对于上行链路传输，部分标识号是基本服务集标识符（BSSID）的后九位。 
+
+对于下行链路传输，部分标识号是将关联ID与它的服务AP的BSSID组合在一起的标识符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="/.io//1.png"></p>
+<h1 id="HE-SU-HE-EXT-SU-HE-MU-HE-TB"><a href="#HE-SU-HE-EXT-SU-HE-MU-HE-TB" class="headerlink" title="HE-SU  HE-EXT-SU HE-MU HE-TB"></a>HE-SU  HE-EXT-SU HE-MU HE-TB</h1><p><img src="/.io//2.png"></p>
+<h1 id="Recovery-and-analyze-802-11-a-802-11n-802-11ac-802-11ax"><a href="#Recovery-and-analyze-802-11-a-802-11n-802-11ac-802-11ax" class="headerlink" title="Recovery and analyze 802.11 a 802.11n 802.11ac 802.11ax"></a>Recovery and analyze 802.11 a 802.11n 802.11ac 802.11ax</h1><p>检测，解码和分析波形中的多个数据包。该示例可以解码OFDM非HT，非HT复制，HT，VHT [1]，HE MU，HE SU和HE ER SU [2]数据包格式。</p>
+<p>该示例提供了检测到的数据包的摘要，并显示了所选数据包的MAC内容，错误向量幅度（EVM），功率和信令信息</p>
+<p>接收器除了信道带宽外不知道任何传输参数，并通过解码数据包的前导字段来检索这些参数。这些测量针对检测到的数据包显示： </p>
+<ul>
+<li><p>频谱和时域样本。 </p>
+</li>
+<li><p>信令字段内容。 </p>
+</li>
+<li><p>HE波形的资源单元和用户信息。 </p>
+</li>
+<li><p>均衡数据符号的星座。 </p>
+</li>
+<li><p>信令字段的EVM。 </p>
+</li>
+<li><p>每个数据子载波的EVM在空间流和符号上平均。 </p>
+</li>
+<li><p>每个数据符号的EVM在空间流和子载波上平均。 </p>
+</li>
+<li><p>MAC帧内容：A-MPDU分解状态，地址1，地址2，帧检查序列（FCS）和帧类型。 </p>
+</li>
+</ul>
+<p>openExample(‘wlan/AnalyzePacketsExample’)</p>
+<h1 id="wifi5WaveGeneration"><a href="#wifi5WaveGeneration" class="headerlink" title="wifi5WaveGeneration"></a>wifi5WaveGeneration</h1><h1 id="wifi4WaveGeneration"><a href="#wifi4WaveGeneration" class="headerlink" title="wifi4WaveGeneration"></a>wifi4WaveGeneration</h1><p><img src="/.io//18.png"></p>
+<p><img src="/.io//19.png"></p>
+<blockquote>
+<p>常用定义<br><img src="/.io//20.png"></p>
+</blockquote>
+<p>PSDU 意义<br><img src="/.io//3.png"></p>
+<p>PreHTCyclicShift<br>前四个 用802.11的表 </p>
+<p>多的天线用这个设置值<br><img src="/.io//4.png"></p>
+<blockquote>
+<p>AggregatedMPDU</p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">MAC协议数据单元（MPDU）聚合指示符，指定为数字或逻辑1（真）或0（假）。要指定生成的数据包使用MPDU聚合，请将此属性设置为1（true）。 
+
+依存关系 
+
+当您将MCS属性设置为0时，此属性不适用 
+
+数据类型：逻辑<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>RecommendSmoothing</p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">建议对通道估计进行平滑处理，将其指定为数字或逻辑1（true）或0（false）。 
+
+如果频率曲线在整个通道中均不变化，则接收器将此属性设置为1（true）。在这种情况下，建议将频域平滑作为信道估计的一部分。 
+
+如果频率曲线在整个通道上变化，则接收器将此属性设置为0（假）。在这种情况下，不建议将频域平滑作为信道估计的一部分。 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="生成wlanLSTF"><a href="#生成wlanLSTF" class="headerlink" title="生成wlanLSTF"></a>生成wlanLSTF</h2><ul>
+<li>先验证属性正确</li>
+<li>HT或者VHT （not leagcy)</li>
+<li>根据协议设置空间移位的值（超出部分自己设置）</li>
+<li>获取带宽</li>
+<li>getOFDM配置<ul>
+<li>根据（空间流设置以及是不是传统码决定空时流）</li>
+<li>根据带宽得到FFTLen，和多少个20Mhz信道numSC  64*numSC<br><img src="/.io//5.png"></li>
+<li>得到子载波直接的旋转<br><img src="/.io//6.png"></li>
+<li>得到CP的LEN</li>
+<li>传统的STF（非HT VHT） 保护6个前载波，中间的 载波 5个后载波，加上 -21 -7 7 21 0</li>
+<li>得到归一化因子  （可能不用）<br><img src="/.io//9.png"></li>
+<li>得到每组的在算出所有组的载波</li>
+<li>计算出所有目标idx<br><img src="/.io//7.png"></li>
+<li>存入结构体<br><img src="/.io//8.png"></li>
+</ul>
+</li>
+<li>获得lstf的序列 （12个子载波）<br><img src="/.io//10.png"></li>
+<li>算出lstfMIMO（40Mhz 2×2MIMO 变成128×1×2的矩阵</li>
+<li>根据发送天线数量算不同天线移位值（比如 -200ns , -200ns/(1/(40M)=-8<br><img src="/.io//11.png"></li>
+<li>移位过程<ul>
+<li>k= -64~63</li>
+<li>用IDFT的移位性质</li>
+</ul>
+</li>
+<li>进行OFDM调制 <ul>
+<li>先进行ifftshift来还原 之前k是从-64 63 0~128</li>
+<li>再Ifft</li>
+<li>看需不需要循环前缀</li>
+</ul>
+</li>
+<li>叠加2.5个周期并乘系数<br><img src="/.io//9.png"></li>
+</ul>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><blockquote>
+<p>初步时间估计<br>STF和短训练码的互相关性可以获取峰值获取，初始时间估计<br><img src="/.io//14.png"></p>
+</blockquote>
+<p>延时会影响这个<br><img src="/.io//15.png"></p>
+<blockquote>
+<p>AGC、分组检测<br>因为重复了10个码元，可以将0.8us短码元和前一个码元相关（自相关），用于分组检测，相关值超过一定阈值就检测到一个分组。这个值还可以用来设置AGC（相对于互相关）被证明是更好的</p>
+</blockquote>
+<h2 id="生成wlanLLTF"><a href="#生成wlanLLTF" class="headerlink" title="生成wlanLLTF"></a>生成wlanLLTF</h2><ul>
+<li><p>先验证属性正确</p>
+</li>
+<li><p>HT或者VHT （not leagcy)</p>
+</li>
+<li><p>根据协议设置空间移位的值（超出部分自己设置）</p>
+</li>
+<li><p>获取带宽</p>
+</li>
+<li><p>getOFDM配置</p>
+<ul>
+<li>根据（空间流设置以及是不是传统码决定空时流）</li>
+<li>根据带宽得到FFTLen，和多少个20Mhz信道numSC  64*numSC<br><img src="/.io//5.png"></li>
+<li>得到子载波直接的旋转<br><img src="/.io//6.png"></li>
+<li>得到CP的LEN</li>
+<li>传统的STF（非HT VHT） 保护6个前载波，中间的 载波 5个后载波，加上 -21 -7 7 21 0</li>
+<li>得到归一化因子  （可能不用）<br><img src="/.io//9.png"></li>
+<li>得到每组的在算出所有组的载波</li>
+<li>计算出所有目标idx<br><img src="/.io//7.png"></li>
+<li>存入结构体<br><img src="/.io//8.png"></li>
+</ul>
+</li>
+<li><p>获得lltf的序列 （48个子载波）<br><img src="/.io//13.png"></p>
+</li>
+<li><p>算出lstfMIMO（40Mhz 2<em>2MIMO 变成128</em>1*2的矩阵 算上两个20Mhz频段之间旋转</p>
+</li>
+<li><p>根据发送天线数量算不同天线移位值（比如 -200ns , -200ns/(1/(40M)=-8<br><img src="/.io//11.png"></p>
+</li>
+<li><p>移位过程</p>
+<ul>
+<li>k= -64~63</li>
+<li>用IDFT的移位性质</li>
+<li>对第二个天线发送的移位</li>
+</ul>
+</li>
+<li><p>进行OFDM调制 </p>
+<ul>
+<li>先进行ifftshift来还原 之前k是从-64 63 0~128</li>
+<li>再Ifft</li>
+<li>看需不需要循环前缀</li>
+</ul>
+</li>
+<li><p>1.6us的循环前缀加上2个3.2us的长训练码元<br><img src="/.io//16.png"></p>
+</li>
+<li><p>归一化因子<br><img src="/.io//17.png"></p>
+<h2 id="生成wlanLSIG"><a href="#生成wlanLSIG" class="headerlink" title="生成wlanLSIG"></a>生成wlanLSIG</h2></li>
+</ul>
+<p><img src="/.io//26.png"></p>
+<ul>
+<li>计算数据字段的OFDM符号数<ul>
+<li>获取MCS 对应的数值</li>
+<li>计算数据符号数和填充空白数目<br><img src="/.io//21.png"><br><img src="/.io//22.png"></li>
+<li>总符号数等于数据符号数加上<br><img src="/.io//23.png"></li>
+<li>加上GI的时间，算出总采样数、发送时间4us*总符号</li>
+<li>速率默认设置为6MBit/s<br><img src="/.io//24.png"></li>
+<li>得到length<br><img src="/.io//25.png"></li>
+<li>化成24bit表示</li>
+<li>BCC卷积、交织</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">    交织器从其本质上来说就是一种实现最大限度的改变信息结构而不改变信息内容的器件。从传统上来 讲就是使信道传输过程中所突发产生集中的错误最大限度的分散 化。
+　　假定由一些4比特组成的消息分组，把4个相继分组中的第1个比特取出来，并让这4个第1比特组 成一个新的4比特分组，称作第一帧，4个消息分组中的比特2～4，也作同样处理。
+然后依次传送第1比特组成的帧，第2比特组成的帧，……。在传输期间，帧2丢失，如果没有交 织，那就会丢失某一整个消息分组，但采用了交织，仅每个消息分组的第2比特丢失，再利用信道编码， 全部分组中的消息仍能得以恢复，这就是 交织技术的基本原理。概括地说，交织就是把码字的b个比特分散到n个帧中，以改变比特间的邻近关系， 因此n值越大， 传输特性越好，但 传输时延也越大，所以在实际使用中必须作折衷考虑。 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<ul>
+<li>先验证属性正确</li>
+<li>HT或者VHT （not leagcy)</li>
+<li>根据协议设置空间移位的值（超出部分自己设置）</li>
+<li>获取带宽</li>
+<li>getOFDM配置<ul>
+<li>根据（空间流设置以及是不是传统码决定空时流）</li>
+<li>根据带宽得到FFTLen，和多少个20Mhz信道numSC  64*numSC<br><img src="/.io//5.png"></li>
+<li>得到子载波直接的旋转<br><img src="/.io//6.png"></li>
+<li>得到CP的LEN</li>
+<li>传统的STF（非HT VHT） 保护6个前载波，中间的 载波 5个后载波，加上 -21 -7 7 21 0</li>
+<li>得到归一化因子  （可能不用）<br><img src="/.io//9.png"></li>
+<li>得到每组的在算出所有组的载波</li>
+<li>计算出所有目标idx<br><img src="/.io//7.png"></li>
+<li>存入结构体<br><img src="/.io//8.png"></li>
+</ul>
+</li>
+<li>获得lltf的序列 （12个子载波）<br><img src="/.io//13.png"></li>
+<li>算出lstfMIMO（40Mhz 2<em>2MIMO 变成128</em>1*2的矩阵 算上两个20Mhz频段之间旋转</li>
+<li>根据发送天线数量算不同天线移位值（比如 -200ns , -200ns/(1/(40M)=-8<br><img src="/.io//11.png"></li>
+<li>移位过程<ul>
+<li>k= -64~63</li>
+<li>用IDFT的移位性质</li>
+<li>对第二个天线发送的移位</li>
+</ul>
+</li>
+<li>进行OFDM调制 <ul>
+<li>先进行ifftshift来还原 之前k是从-64 63 0~128</li>
+<li>再Ifft</li>
+<li>看需不需要循环前缀</li>
+</ul>
+</li>
+<li>1.6us的循环前缀加上2个3.2us的长训练码元<br><img src="/.io//16.png"></li>
+<li>归一化因子<br><img src="/.io//17.png"></li>
+</ul>
+<h1 id="根据SIG-VHT-SIGA配置-cfgRx"><a href="#根据SIG-VHT-SIGA配置-cfgRx" class="headerlink" title="根据SIG VHT-SIGA配置 cfgRx"></a>根据SIG VHT-SIGA配置 cfgRx</h1><blockquote>
+<p>配置之前<br><img src="/.io//27.png"></p>
+</blockquote>
+<blockquote>
+<p>配置之后<br><img src="/.io//28.png"></p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Scorpin Xia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://scorpinxia.github.io/2020/09/21/wifi5-simulation/">https://scorpinxia.github.io/2020/09/21/wifi5-simulation/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Scorpin Xia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '58EYV7U0vnoRDUeuKYjp2DTS-MdYXbMMI',
+        appKey: 'znFL8xQjdx6gKxc7f0juTPNF',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '献上你的评论把'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/09/21/data-structures-and-algorithms-chap08-disjoint-set-classs/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Data-Structures-and-Algorithms-chap08-Disjoint set classs">
+                        
+                        <span class="card-title">Data-Structures-and-Algorithms-chap08-Disjoint set classs</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JAVA/" class="post-category">
+                                    JAVA
+                                </a>
+                            
+                            <a href="/categories/JAVA/Data-Structures-and-Algorithms/" class="post-category">
+                                    Data Structures and Algorithms
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%87%AA%E5%AD%A6/">
+                        <span class="chip bg-color">自学</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/09/21/wifi5-vht/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="wifi5-VHT">
+                        
+                        <span class="card-title">wifi5-VHT</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/wifi5/" class="post-category">
+                                    wifi5
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/work/">
+                        <span class="chip bg-color">work</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('6'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Scorpin Xia</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/scorpinxia" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1044883523@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1044883523" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1044883523" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

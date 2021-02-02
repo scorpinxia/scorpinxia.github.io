@@ -1,0 +1,2106 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="DeepInJVM-part04-CodeComplieOpt-chap11-backEndCompileOpt, Wibur&#39;s Blog">
+    <meta name="description" content="scorpionxia@foxmail.com">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>DeepInJVM-part04-CodeComplieOpt-chap11-backEndCompileOpt | Wibur&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Wibur&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Wibur&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            scorpionxia@foxmail.com
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">DeepInJVM-part04-CodeComplieOpt-chap11-backEndCompileOpt</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+	
+	#toc-content {
+		height: calc(100vh - 250px);
+		overflow: scroll;
+	}
+	
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+	
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%87%AA%E5%AD%A6/">
+                                <span class="chip bg-color">自学</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JAVA/" class="post-category">
+                                JAVA
+                            </a>
+                        
+                            <a href="/categories/JAVA/JVM/" class="post-category">
+                                JVM
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-12-26
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><blockquote>
+<p>编译后端的概念</p>
+</blockquote>
+<ul>
+<li>字节码看作是程序语言的一种中间表示形式（Intermediate Representation，IR）的话，<br>那编译器无论在何时、在何种状态下把Class文件转换成与本地基础设施（硬件指令集、操作系统）相关的二进制机器码，它都可以视为整个编译过程的后端</li>
+</ul>
+<blockquote>
+<p>后端编译器的作用</p>
+</blockquote>
+<ul>
+<li>虽然提前编译器抑或即时编译器，都不是Java虚拟机必需的组成部分</li>
+<li>但是，后端编译器编译性能的好坏、代码优化质量的高低却是衡量一款商用虚拟机优秀与否的关键指标<br>之一，它们也是商业Java虚拟机中的核心，是最能体现技术水平与价值的功能。</li>
+</ul>
+<blockquote>
+<p>HotSpot虚拟机 （之后的讨论）</p>
+</blockquote>
+<ul>
+<li>但主流Java虚拟机中后端编译器的行为会有很多相似相通之处，因此对其他虚拟机来说也具备一定的类比参考价值。</li>
+</ul>
+<h1 id="即时编译器（Just-In-Time，JIT）"><a href="#即时编译器（Just-In-Time，JIT）" class="headerlink" title="即时编译器（Just In Time，JIT）"></a>即时编译器（Just In Time，JIT）</h1><blockquote>
+<p>虚拟机执行程序的方法</p>
+</blockquote>
+<ul>
+<li>目前主流的两款商用Java虚拟机（HotSpot、OpenJ9）里，Java程序最初都是通过解释器（Interpreter）进行解释执行的</li>
+</ul>
+<blockquote>
+<p>即时编译器的作用</p>
+</blockquote>
+<ul>
+<li>当虚拟机发现某个方法或代码块的运行特别频繁，就会把这些代码认定为“热点代码”（Hot Spot Code），为了提高热点代码的执行效率，在运行时，虚拟机将会把这些代码编译成本地机器码，并以各种手段尽可能地进行代码优化</li>
+<li>运行时完成这个任务的后端编译器被称为即时编译器。</li>
+</ul>
+<h2 id="解释器与编译器"><a href="#解释器与编译器" class="headerlink" title="解释器与编译器"></a>解释器与编译器</h2><blockquote>
+<p>同时共存</p>
+</blockquote>
+<ul>
+<li>目前主流的商用Java虚拟机，譬如HotSpot、OpenJ9等，内部都同时包含解释器与编译器</li>
+</ul>
+<blockquote>
+<p>解释器与编译器的优缺点</p>
+</blockquote>
+<ul>
+<li>当程序需要迅速启动和执行的时候，解释器可以首先发挥作用，省去编译的时间，立即运行。</li>
+<li>当程序启动后，随着时间的推移，编译器逐渐发挥作用，把越来越多的代码编译成本地代码，这样可以减少解释器的中间损耗，获得更高的执行效率。</li>
+<li>当程序运行环境中内存资源限制较大，可以使用解释执行<br>节约内存（如部分嵌入式系统中和大部分的JavaCard应用中就只有解释器的存在），反之可以使用编译执行来提升效率。</li>
+</ul>
+<blockquote>
+<p>解释器还可以作为编译器激进优化时后备的“逃生门”</p>
+</blockquote>
+<ul>
+<li>（如果情况允许，HotSpot虚拟机中也会采用不进行激进优化的客户端编译器充当“逃生门”的角色）<br><img src="/.io//1.png"></li>
+<li>当激进优化的假设不成立，如加载了新类以后，类型继承结构出现变化、出现“罕见陷阱”（Uncommon Trap）时可以通<br>过逆优化（Deoptimization）退回到解释状态继续执行</li>
+</ul>
+<blockquote>
+<p>HotSpot虚拟机内置的即时编译器</p>
+</blockquote>
+<ul>
+<li>“客户端编译器”（Client Compiler）或者简称为C1编译器</li>
+<li>和“服务端编译器”（Server Compiler），C2编译器</li>
+<li>JDK10加入 长期目标是代替C2的Graal编译器。（Graal编译器目前还处于实验状态）</li>
+</ul>
+<blockquote>
+<p>分层编译工作模式之前，选择编译器</p>
+</blockquote>
+<ul>
+<li>HotSpot虚拟机会根据自身版本与宿主机器的硬件性能自动选择运行模式，用户也可以使用“-client”或“-server”参数去强制指定虚拟机运行在客户端模式还是服务端模式。</li>
+</ul>
+<blockquote>
+<p>解释器与编译器搭配的执行模式</p>
+</blockquote>
+<ul>
+<li>“混合模式”（Mixed Mode）： 默认</li>
+<li>“解释模式”（Interpreted Mode）：“-Xint”强制</li>
+<li>“编译模式”（Compiled Mode）：“-Xcomp”，优先采用编译方式执行程序，但是解释器仍然要在编译无法进行的情况下介入执行过程。<br><img src="/.io//2.png"></li>
+</ul>
+<h3 id="分层编译"><a href="#分层编译" class="headerlink" title="分层编译"></a>分层编译</h3><blockquote>
+<p>分层编译的原因</p>
+</blockquote>
+<ul>
+<li>在程序启动响应速度与运行效率之间达到最佳平衡</li>
+</ul>
+<blockquote>
+<p>分层编译的层次（JDK7，虚拟机可调整）</p>
+</blockquote>
+<ul>
+<li>·第0层。程序纯解释执行，并且解释器不开启性能监控功能（Profiling）。</li>
+<li>·第1层。使用客户端编译器将字节码编译为本地代码来运行，进行简单可靠的稳定优化，不开启<br>性能监控功能。</li>
+<li>·第2层。仍然使用客户端编译器执行，仅开启方法及回边次数统计等有限的性能监控功能。</li>
+<li>·第3层。仍然使用客户端编译器执行，开启全部性能监控，除了第2层的统计信息外，还会收集如<br>分支跳转、虚方法调用版本等全部的统计信息。</li>
+<li>·第4层。使用服务端编译器将字节码编译为本地代码，相比起客户端编译器，服务端编译器会启<br>用更多编译耗时更长的优化，还会根据性能监控信息进行一些不可靠的激进优化。</li>
+</ul>
+<blockquote>
+<p>分层编译的的工作方式和好处</p>
+</blockquote>
+<ul>
+<li>解释器、客户端编译器和服务端编译器就会同时工作</li>
+<li>热点代码都可能会被多次编译，用客户端编译器获取更高的编译速度，用服务端编译器来获取更好的编译质量</li>
+<li>解释执行的时候也无须额外承担收集性能监控信息的任务</li>
+<li>而在服务端编译器采用高复杂度的优化算法时，客户端编译器可先采用简单优化来为它争取更多的编译时间。<br><img src="/.io//3.png"></li>
+</ul>
+<h2 id="编译对象与触发条件"><a href="#编译对象与触发条件" class="headerlink" title="编译对象与触发条件"></a>编译对象与触发条件</h2><blockquote>
+<p>编译对象</p>
+</blockquote>
+<ul>
+<li>热点代码主要有两类，包括：<ul>
+<li>·被多次调用的方法。</li>
+<li>·被多次执行的循环体。</li>
+</ul>
+</li>
+<li>.编译的目标对象都是整个方法体</li>
+</ul>
+<blockquote>
+<p>触发条件</p>
+</blockquote>
+<ul>
+<li>目前主流的热点探测判定方式有两种<ul>
+<li>J9·基于采样的热点探测（Sample Based Hot Spot Code Detection）。周期性地检查各个线程的调用栈顶，如果发现某个（或某些）方法经常出现在栈顶，那这个方法就是“热点方法”。<ul>
+<li>好处是实现简单高效，还可以很容易地获取方法调用关系（将调用堆栈展开即可）</li>
+<li>缺点是很难精确地确认一个方法的热度，容易因为受到线程阻塞或别的外界因素的影响而扰乱热点探测。</li>
+</ul>
+</li>
+<li>HotSpot·基于计数器的热点探测（Counter Based Hot Spot Code Detection）。为每个方法（甚至是代码块）建立计数器，统计方法的执行次数，如果执行次数超过一定的阈值就认为它是“热点方法”。<ul>
+<li>好处是它的统计结果相对来说更加精确严谨。</li>
+<li>缺点是实现起来要麻烦一些，需要为每个方法建立并维护计数器，而且不能直接获取到方法的调用关系</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>HotSpot的计数器实现</p>
+</blockquote>
+<ul>
+<li>方法调用计数器（Invocation Counter）：方法被调用的次数<ul>
+<li>它的默认阈值在客户端模式下是1500次，在服务端模式下是10000次，可参数设定</li>
+<li>是一个相对的执行频<br>率，即一段时间之内方法被调用的次数。当超过一定的时间限度，如果方法的调用次数仍然不足以让<br>它提交给即时编译器编译，那该方法的调用计数器就会被减少一半（半衰周期）<br><img src="/.io//4.png"></li>
+</ul>
+</li>
+<li>回边计数器（Back Edge Counter）：统计一个方法中循环体代码执行的次数 （遇到控制流向后跳转的指令就称为“回边（Back Edge）”） （应当是回边的次数而不是循环次数，因为并非所有的循环都是回边，如空循环实际上就可以视为自己跳转到自己的过程，因此并不算作控制流向后跳转，也不会被回边计数器统计。）<ul>
+<li>它的默认阈值在客户端模式下是9。33×1500=13995次，在服务端模式下是(140-33)×0.01×10000=10700次，可参数设定</li>
+<li>无计数热度衰减<br><img src="/.io//5.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h2><blockquote>
+<p>未完成编译之前，都仍然将按照解释方式继续执行代码</p>
+</blockquote>
+<blockquote>
+<p>客户端编译器:相对简单快速的三段式编译器</p>
+</blockquote>
+<ul>
+<li>在第一个阶段，一个平台独立的前端将字节码构造成一种高级中间代码表示（High-LevelIntermediate Representation，HIR，即与目标机器指令集无关的中间表示）</li>
+<li>在第二个阶段，一个平台相关的后端从HIR中产生低级中间代码表示（Low-Level IntermediateRepresentation，LIR，即与目标机器指令集相关的中间表示）</li>
+<li>最后的阶段是在平台相关的后端使用线性扫描算法（Linear Scan Register Allocation）在LIR上分配<br>寄存器，并在LIR上做窥孔（Peephole）优化，然后产生机器代码。<br><img src="/.io//6.png"></li>
+</ul>
+<blockquote>
+<p>服务端编译器:专门面向服务端的典型应用场景，几乎能达到GNU C++编译器使用-O2参数时的优化强度。</p>
+</blockquote>
+<ul>
+<li>它会执行大部分经典的优化动作，如：无用代码消除（Dead Code Elimination）、循环展开<br>（Loop Unrolling）、循环表达式外提（Loop Expression Hoisting）、消除公共子表达式（Common<br>Subexpression Elimination）、常量传播（Constant Propagation）、基本块重排序（Basic Block<br>Reordering）等，还会实施一些与Java语言特性密切相关的优化技术，如范围检查消除（Range Check<br>Elimination）、空值检查消除（Null Check Elimination，不过并非所有的空值检查消除都是依赖编译器<br>优化的，有一些是代码运行过程中自动优化了）等。</li>
+<li>服务端编译采用的寄存器分配器是一个全局图着色分配器，它可以充分利用某些处理器架构（如<br>RISC）上的大寄存器集合。以即时编译的标准来看，服务端编译器无疑是比较缓慢的，但它的编译速<br>度依然远远超过传统的静态优化编译器</li>
+</ul>
+<h2 id="实战：查看及分析即时编译结果"><a href="#实战：查看及分析即时编译结果" class="headerlink" title="实战：查看及分析即时编译结果"></a>实战：查看及分析即时编译结果</h2><blockquote>
+<p>目的：通过实战说明如何从外部观察Java虚拟机的即时编译行为。</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> NUM <span class="token operator">=</span> <span class="token number">15000</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">doubleValue</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 这个空循环用于后面演示JIT代码优化过程</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">&lt;</span><span class="token number">100000</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> i <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">long</span> <span class="token function">calcSum</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">long</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        sum <span class="token operator">+=</span> <span class="token function">doubleValue</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> NUM<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">calcSum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>-XX：+PrintCompilation要求虚拟机在即时编译时将被编译成本地代码的方法名称打印出来(“%”的输出说明是由回边计数器触发的栈上替换编译)<pre class="line-numbers language-java" data-language="java"><code class="language-java">VM option <span class="token string">'+PrintCompilation'</span>
+    <span class="token number">310</span>   <span class="token number">1</span>       <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>String</span><span class="token operator">::</span><span class="token function">charAt</span> <span class="token punctuation">(</span><span class="token number">33</span> bytes<span class="token punctuation">)</span>
+    <span class="token number">329</span>   <span class="token number">2</span>       <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>fenixsoft<span class="token punctuation">.</span>jit<span class="token punctuation">.</span></span>Test</span><span class="token operator">::</span><span class="token function">calcSum</span> <span class="token punctuation">(</span><span class="token number">26</span> bytes<span class="token punctuation">)</span>
+    <span class="token number">329</span>   <span class="token number">3</span>       <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>fenixsoft<span class="token punctuation">.</span>jit<span class="token punctuation">.</span></span>Test</span><span class="token operator">::</span><span class="token function">doubleValue</span> <span class="token punctuation">(</span><span class="token number">4</span> bytes<span class="token punctuation">)</span>
+    <span class="token number">332</span>   <span class="token number">1</span><span class="token operator">%</span>      <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>fenixsoft<span class="token punctuation">.</span>jit<span class="token punctuation">.</span></span>Test</span><span class="token operator">::</span><span class="token function">main</span> @ <span class="token number">5</span> <span class="token punctuation">(</span><span class="token number">20</span> bytes<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>加上参数-XX：+PrintInlining要求虚拟机输出方法内联信息<pre class="line-numbers language-java" data-language="java"><code class="language-java">VM option <span class="token string">'+PrintCompilation'</span>
+VM option <span class="token string">'+PrintInlining'</span>
+    <span class="token number">273</span>   <span class="token number">1</span>       <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>String</span><span class="token operator">::</span><span class="token function">charAt</span> <span class="token punctuation">(</span><span class="token number">33</span> bytes<span class="token punctuation">)</span>
+    <span class="token number">291</span>   <span class="token number">2</span>       <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>fenixsoft<span class="token punctuation">.</span>jit<span class="token punctuation">.</span></span>Test</span><span class="token operator">::</span><span class="token function">calcSum</span> <span class="token punctuation">(</span><span class="token number">26</span> bytes<span class="token punctuation">)</span>
+      @   <span class="token number">9</span>       <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>fenixsoft<span class="token punctuation">.</span>jit<span class="token punctuation">.</span></span>Test</span><span class="token operator">::</span><span class="token function">doubleValue</span>  inline <span class="token punctuation">(</span>hot<span class="token punctuation">)</span>
+    <span class="token number">294</span>   <span class="token number">3</span>       <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>fenixsoft<span class="token punctuation">.</span>jit<span class="token punctuation">.</span></span>Test</span><span class="token operator">::</span><span class="token function">doubleValue</span> <span class="token punctuation">(</span><span class="token number">4</span> bytes<span class="token punctuation">)</span>
+    <span class="token number">295</span>   <span class="token number">1</span><span class="token operator">%</span>      <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>fenixsoft<span class="token punctuation">.</span>jit<span class="token punctuation">.</span></span>Test</span><span class="token operator">::</span><span class="token function">main</span> @ <span class="token number">5</span> <span class="token punctuation">(</span><span class="token number">20</span> bytes<span class="token punctuation">)</span>
+      @   <span class="token number">5</span>       <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>fenixsoft<span class="token punctuation">.</span>jit<span class="token punctuation">.</span></span>Test</span><span class="token operator">::</span><span class="token function">calcSum</span>  inline <span class="token punctuation">(</span>hot<span class="token punctuation">)</span>
+      @   <span class="token number">9</span>       <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>fenixsoft<span class="token punctuation">.</span>jit<span class="token punctuation">.</span></span>Test</span><span class="token operator">::</span><span class="token function">doubleValue</span>  inline <span class="token punctuation">(</span>hot<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>内联的意义：再次执行main()方法的时候（举例而已，<br>main()方法当然不会运行两次），calcSum()和doubleValue()方法是不会再被实际调用的，没有任何方法分派的开销，它们的代码逻辑都被直接内联到main()方法里</li>
+</ul>
+<blockquote>
+<p>反汇编生成的机器码</p>
+</blockquote>
+<ul>
+<li>可以下载或自己编译出与自己机器相符合的反汇编适配器，之后将其放置在JAVA_HOME/lib/amd64/server下 。XX：+PrintAssembly<ul>
+<li>需要FastDebug或SlowDebug优化级别的HotSpot虚拟机才能直接支持，如果使用Product版的虚拟机，则需要加入参数-XX：+UnlockDiagnosticVMOptions打开虚拟机诊断模式。</li>
+</ul>
+</li>
+<li>如果没有HSDIS插件支持，也可以使用-XX：+PrintOptoAssembly（用于服务端模式的虚拟机）或-XX：+PrintLIR（用于客户端模式的虚拟机）来输出比较接近最终结果的中间代码表示</li>
+</ul>
+<blockquote>
+<p>本地代码的生成过程</p>
+</blockquote>
+<ul>
+<li>-XX：+PrintCFGToFile（用于客户端编译器）或-XX：PrintIdealGraphFile（用于服务端编译器）要求<br>Java虚拟机将编译过程中各个阶段的数据（譬如对客户端编译器来说包括字节码、HIR生成、LIR生成、寄存器分配过程、本地代码生成等数据）输出到文件中。</li>
+</ul>
+<blockquote>
+<p>分析工具</p>
+</blockquote>
+<ul>
+<li>Java HotSpot Client Compiler<br>Visualizer[4]（用于分析客户端编译器）或Ideal Graph Visualizer[5]（用于分析服务端编译器）</li>
+</ul>
+<blockquote>
+<p>观察空循环是否优化掉</p>
+</blockquote>
+<ul>
+<li>用分析工具展开方法块</li>
+</ul>
+<h1 id="提前编译器（Ahead-Of-Time，AOT）"><a href="#提前编译器（Ahead-Of-Time，AOT）" class="headerlink" title="提前编译器（Ahead Of Time，AOT）"></a>提前编译器（Ahead Of Time，AOT）</h1><blockquote>
+<p>目的</p>
+</blockquote>
+<ul>
+<li>只要能获得更好的执行性能，什么平台中立性、字节膨胀、动态扩展，一切皆可舍弃<ul>
+<li>字节膨胀：提前编译的本地二进制码的体积会明显大于字节码的体积。</li>
+<li>动态扩展：提前编译通常要求程序是封闭的，不能在外部动态加载新的字节码。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>提取编译的两种分支</p>
+</blockquote>
+<ul>
+<li>一条分支是做与传统C、C++编译器类似的，在程序运行之前把程序代码编译成机器码的静态翻译工作；<ul>
+<li>针对即时编译的缺点：消耗的时间都是原本可用于程序运行的时间，消耗的运算资源都是原本可用于程序运行的资源</li>
+<li>在编译过程中最耗时的优化措施之一是通过“过程间分析”（Inter-Procedural Analysis，IPA),但如果是<br>在程序运行之前进行的静态编译，这些耗时的优化就可以放心大胆地进行了</li>
+</ul>
+</li>
+<li>另外一条分支是把原本即时编译器在运行时要做的编译工作提前做好并保存下来，下次运行到这些代码（譬如公共库代码在被同一台机器其他Java进程使用）时直接把它加载进来使用<ul>
+<li>本质是给即时编译器做缓存加速，去改善Java程序的启动时间 （商用支持 JDK6开始）</li>
+<li>JDK9 Jaotc提前编译器：基于Graal编译<br>器实现的新工具，目的是让用户可以针对目标机器，为应用程序进行提前编译。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>即时编译器(JIT)相对于提前编译器(AOT)的天然优势。</p>
+</blockquote>
+<ul>
+<li>首先，是性能分析制导优化（Profile-Guided Optimization，PGO）。<ul>
+<li>在动态运行时却能看出它们具有非常明显的偏好性。<br>如果一个条件分支的某一条路径执行特别频繁，而其他路径鲜有问津，那就可以把热的代码集中放到<br>一起，集中优化和分配更好的资源（分支预测、寄存器、缓存等）给它。</li>
+</ul>
+</li>
+<li>其次，是激进预测性优化（Aggressive Speculative Optimization），这也已经成为很多即时编译优化措施的基础。<ul>
+<li>静态优化无论如何都必须保证优化后所有的程序外部可见影响（不仅仅是执行结果）与优化前是等效的</li>
+<li>性能监控信息<br>能够支持它做出一些正确的可能性很大但无法保证绝对正确的预测判断，就已经可以大胆地按照高概<br>率的假设进行优化，万一真的走到罕见分支上，大不了退回到低级编译器甚至解释器上去执行，并不<br>会出现无法挽救的后果。</li>
+</ul>
+</li>
+<li>最后，是链接时优化（Link-Time Optimization，LTO），Java语言天生就是动态链接的，一个个Class文件在运行期被加载到虚拟机内存当中，然后在即时编译器里产生优化后的本地代码<ul>
+<li>C、C++的程序要调用某个动态链接库的某个方法，就会出现很明显的边界隔阂，还难以优化。</li>
+<li>是因为主程序与动态链接库的代码在它们编译时是完全独立的，两者各自编译、优化自己的代码。</li>
+</ul>
+</li>
+</ul>
+<h2 id="实战：Jaotc的提前编译"><a href="#实战：Jaotc的提前编译" class="headerlink" title="实战：Jaotc的提前编译"></a>实战：Jaotc的提前编译</h2><blockquote>
+<p>HelloWorld 静态链接库</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">$ javac <span class="token class-name">HelloWorld</span><span class="token punctuation">.</span>java
+$ java <span class="token class-name">HelloWorld</span>
+<span class="token class-name">Hello</span> <span class="token class-name">World</span><span class="token operator">!</span>
+$ jaotc <span class="token operator">--</span>output libHelloWorld<span class="token punctuation">.</span>so <span class="token class-name">HelloWorld</span><span class="token punctuation">.</span><span class="token keyword">class</span>
+
+通过以上命令，就生成了一个名为libHelloWorld<span class="token punctuation">.</span>so的库，我们可以使用<span class="token class-name">Linux</span>的ldd命令来确认这是
+否是一个静态链接库，使用mn命令来确认其中是否包含了<span class="token class-name">HelloWorld</span>的构造函数和<span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法的入口信
+息，操作如下：
+
+$ ldd libHelloWorld<span class="token punctuation">.</span>so
+statically linked
+
+$ nm libHelloWorld<span class="token punctuation">.</span>so
+……
+<span class="token number">0000000000002</span>a20 t <span class="token class-name">HelloWorld</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token class-name">V</span>
+<span class="token number">0000000000002</span>b20 t <span class="token class-name">HelloWorld</span><span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token class-name">Ljava</span><span class="token operator">/</span>lang<span class="token operator">/</span><span class="token class-name">String</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token class-name">V</span>
+……
+
+现在我们就可以使用这个静态链接库而不是<span class="token class-name">Class</span>文件来输出<span class="token class-name">HelloWorld</span>了：
+
+java <span class="token operator">-</span>XX<span class="token operator">:</span><span class="token class-name">AOTLibrary</span><span class="token operator">=</span><span class="token punctuation">.</span>/libHelloWorld<span class="token punctuation">.</span>so <span class="token class-name">HelloWorld</span>
+<span class="token class-name">Hello</span> <span class="token class-name">World</span><span class="token operator">!</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>编译java.base模块成类似的静态链接库</p>
+</blockquote>
+<ul>
+<li>排除不支持提取编译的方法<pre class="line-numbers language-java" data-language="java"><code class="language-java"># jaotc<span class="token operator">:</span> <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>StackOverflowError</span>
+exclude <span class="token class-name"><span class="token namespace">sun<span class="token punctuation">.</span>util<span class="token punctuation">.</span>resources<span class="token punctuation">.</span></span>LocaleNames</span><span class="token punctuation">.</span><span class="token function">getContents</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token class-name">Ljava</span><span class="token operator">/</span>lang<span class="token operator">/</span><span class="token class-name">Object</span><span class="token punctuation">;</span>
+exclude <span class="token class-name"><span class="token namespace">sun<span class="token punctuation">.</span>util<span class="token punctuation">.</span>resources<span class="token punctuation">.</span></span>TimeZoneNames</span><span class="token punctuation">.</span><span class="token function">getContents</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token class-name">Ljava</span><span class="token operator">/</span>lang<span class="token operator">/</span><span class="token class-name">Object</span><span class="token punctuation">;</span>
+exclude <span class="token class-name"><span class="token namespace">sun<span class="token punctuation">.</span>util<span class="token punctuation">.</span>resources<span class="token punctuation">.</span>cldr<span class="token punctuation">.</span></span>LocaleNames</span><span class="token punctuation">.</span><span class="token function">getContents</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token class-name">Ljava</span><span class="token operator">/</span>lang<span class="token operator">/</span><span class="token class-name">Object</span><span class="token punctuation">;</span>
+exclude sun<span class="token punctuation">.</span>util<span class="token punctuation">.</span>resources<span class="token punctuation">.</span><span class="token punctuation">.</span>*<span class="token punctuation">.</span>LocaleNames_<span class="token punctuation">.</span>*<span class="token punctuation">.</span>getContents\<span class="token punctuation">(</span>\<span class="token punctuation">)</span>\<span class="token punctuation">[</span>\<span class="token punctuation">[</span><span class="token class-name">Ljava</span><span class="token operator">/</span>lang<span class="token operator">/</span><span class="token class-name">Object</span><span class="token punctuation">;</span>
+exclude sun<span class="token punctuation">.</span>util<span class="token punctuation">.</span>resources<span class="token punctuation">.</span><span class="token punctuation">.</span>*<span class="token punctuation">.</span>LocaleNames_<span class="token punctuation">.</span>*_<span class="token punctuation">.</span>*<span class="token punctuation">.</span>getContents\<span class="token punctuation">(</span>\<span class="token punctuation">)</span>\<span class="token punctuation">[</span>\<span class="token punctuation">[</span><span class="token class-name">Ljava</span><span class="token operator">/</span>lang<span class="token operator">/</span><span class="token class-name">Object</span><span class="token punctuation">;</span>
+exclude sun<span class="token punctuation">.</span>util<span class="token punctuation">.</span>resources<span class="token punctuation">.</span><span class="token punctuation">.</span>*<span class="token punctuation">.</span>TimeZoneNames_<span class="token punctuation">.</span>*<span class="token punctuation">.</span>getContents\<span class="token punctuation">(</span>\<span class="token punctuation">)</span>\<span class="token punctuation">[</span>\<span class="token punctuation">[</span><span class="token class-name">Ljava</span><span class="token operator">/</span>lang<span class="token operator">/</span><span class="token class-name">Object</span><span class="token punctuation">;</span>
+exclude sun<span class="token punctuation">.</span>util<span class="token punctuation">.</span>resources<span class="token punctuation">.</span><span class="token punctuation">.</span>*<span class="token punctuation">.</span>TimeZoneNames_<span class="token punctuation">.</span>*_<span class="token punctuation">.</span>*<span class="token punctuation">.</span>getContents\<span class="token punctuation">(</span>\<span class="token punctuation">)</span>\<span class="token punctuation">[</span>\<span class="token punctuation">[</span><span class="token class-name">Ljava</span><span class="token operator">/</span>lang<span class="token operator">/</span><span class="token class-name">Object</span><span class="token punctuation">;</span>
+# <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>Error</span><span class="token operator">:</span> <span class="token class-name">Trampoline</span> must not be defined by the bootstrap classloader
+exclude <span class="token class-name"><span class="token namespace">sun<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>misc<span class="token punctuation">.</span></span>Trampoline</span><span class="token punctuation">.</span><span class="token generics"><span class="token punctuation">&lt;</span>clinit<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token class-name">V</span>
+
+
+exclude <span class="token class-name"><span class="token namespace">sun<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>misc<span class="token punctuation">.</span></span>Trampoline</span><span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span><span class="token class-name">Ljava</span><span class="token operator">/</span>lang<span class="token operator">/</span>reflect<span class="token operator">/</span><span class="token class-name">Method</span><span class="token punctuation">;</span><span class="token class-name">Ljava</span><span class="token operator">/</span>lang<span class="token operator">/</span><span class="token class-name">Object</span><span class="token punctuation">;</span><span class="token punctuation">[</span><span class="token class-name">Ljava</span><span class="token operator">/</span>lang<span class="token operator">/</span><span class="token class-name">Object</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token class-name">Ljava</span><span class="token operator">/</span>lang<span class="token operator">/</span><span class="token class-name">Object</span><span class="token punctuation">;</span>
+# JVM asserts
+exclude <span class="token class-name"><span class="token namespace">com<span class="token punctuation">.</span>sun<span class="token punctuation">.</span>crypto<span class="token punctuation">.</span>provider<span class="token punctuation">.</span></span>AESWrapCipher</span><span class="token punctuation">.</span><span class="token function">engineUnwrap</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token class-name">BLjava</span><span class="token operator">/</span>lang<span class="token operator">/</span><span class="token class-name">String</span><span class="token punctuation">;</span><span class="token class-name">I</span><span class="token punctuation">)</span><span class="token class-name">Ljava</span><span class="token operator">/</span>security<span class="token operator">/</span><span class="token class-name">Key</span><span class="token punctuation">;</span>
+exclude sun<span class="token punctuation">.</span>security<span class="token punctuation">.</span>ssl<span class="token punctuation">.</span>*
+exclude <span class="token class-name"><span class="token namespace">sun<span class="token punctuation">.</span>net<span class="token punctuation">.</span></span>RegisteredDomain</span><span class="token punctuation">.</span><span class="token generics"><span class="token punctuation">&lt;</span>clinit<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token class-name">V</span>
+# <span class="token class-name">Huge</span> methods
+exclude <span class="token class-name"><span class="token namespace">jdk<span class="token punctuation">.</span>internal<span class="token punctuation">.</span>module<span class="token punctuation">.</span></span>SystemModules</span><span class="token punctuation">.</span><span class="token function">descriptors</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token class-name">Ljava</span><span class="token operator">/</span>lang<span class="token operator">/</span><span class="token keyword">module</span><span class="token operator">/</span><span class="token class-name">ModuleDescriptor</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>开始进行提前编译，使用的命令如下所示：<pre class="line-numbers language-java" data-language="java"><code class="language-java">jaotc <span class="token operator">-</span><span class="token class-name">J</span><span class="token operator">-</span>XX<span class="token operator">:</span><span class="token operator">+</span><span class="token class-name">UseCompressedOops</span> <span class="token operator">-</span><span class="token class-name">J</span><span class="token operator">-</span>XX<span class="token operator">:</span><span class="token operator">+</span><span class="token class-name">UseG1GC</span> <span class="token operator">-</span><span class="token class-name">J</span><span class="token operator">-</span><span class="token class-name">Xmx4g</span>
+<span class="token operator">--</span>compile<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">-</span>tiered <span class="token operator">--</span>info <span class="token operator">--</span>compile<span class="token operator">-</span>commands java<span class="token punctuation">.</span>base<span class="token operator">-</span>list<span class="token punctuation">.</span>txt
+<span class="token operator">--</span>output libjava<span class="token punctuation">.</span>base<span class="token operator">-</span>coop<span class="token punctuation">.</span>so <span class="token operator">--</span><span class="token keyword">module</span> <span class="token namespace">java<span class="token punctuation">.</span>base</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>由于Jaotc是基于Graal编译器开发的，所以现在ZGC和<br>Shenandoah收集器还不支持Graal编译器，自然它们在Jaotc上也是无法使用的。目前Jaotc只支持G1和Parallel（PS+PS Old）两种垃圾收集器。结果：<pre class="line-numbers language-java" data-language="java"><code class="language-java">$ jaotc <span class="token operator">-</span><span class="token class-name">J</span><span class="token operator">-</span>XX<span class="token operator">:</span><span class="token operator">+</span><span class="token class-name">UseCompressedOops</span> <span class="token operator">-</span><span class="token class-name">J</span><span class="token operator">-</span>XX<span class="token operator">:</span><span class="token operator">+</span><span class="token class-name">UseG1GC</span> <span class="token operator">-</span><span class="token class-name">J</span><span class="token operator">-</span><span class="token class-name">Xmx4g</span> <span class="token operator">--</span>compile<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">-</span>tiered <span class="token operator">--</span>info <span class="token operator">--</span>compile<span class="token operator">-</span>commands java<span class="token punctuation">.</span>base<span class="token operator">-</span>list<span class="token punctuation">.</span>txt <span class="token operator">--</span>output libjava<span class="token punctuation">.</span>base<span class="token operator">-</span>coop<span class="token punctuation">.</span>so <span class="token operator">--</span><span class="token keyword">module</span> <span class="token namespace">java<span class="token punctuation">.</span>base</span>
+<span class="token class-name">Compiling</span> libjava<span class="token punctuation">.</span>base<span class="token operator">-</span>coop<span class="token punctuation">.</span>so<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token number">6177</span> classes found <span class="token punctuation">(</span><span class="token number">335</span> ms<span class="token punctuation">)</span>
+<span class="token number">55845</span> methods total<span class="token punctuation">,</span> <span class="token number">49575</span> methods <span class="token keyword">to</span> <span class="token namespace">compile</span> <span class="token punctuation">(</span><span class="token number">1037</span> ms<span class="token punctuation">)</span>
+<span class="token class-name">Compiling</span> <span class="token keyword">with</span> <span class="token number">4</span> threads
+……
+<span class="token number">49575</span> methods compiled<span class="token punctuation">,</span> <span class="token number">0</span> methods failed <span class="token punctuation">(</span><span class="token number">138821</span> ms<span class="token punctuation">)</span>
+<span class="token class-name">Parsing</span> compiled code <span class="token punctuation">(</span><span class="token number">906</span> ms<span class="token punctuation">)</span>
+<span class="token class-name">Processing</span> metadata <span class="token punctuation">(</span><span class="token number">10867</span> ms<span class="token punctuation">)</span>
+<span class="token class-name">Preparing</span> stubs binary <span class="token punctuation">(</span><span class="token number">0</span> ms<span class="token punctuation">)</span>
+<span class="token class-name">Preparing</span> compiled binary <span class="token punctuation">(</span><span class="token number">103</span> ms<span class="token punctuation">)</span>
+<span class="token class-name">Creating</span> binary<span class="token operator">:</span> libjava<span class="token punctuation">.</span>base<span class="token operator">-</span>coop<span class="token punctuation">.</span>o <span class="token punctuation">(</span><span class="token number">2719</span> ms<span class="token punctuation">)</span>
+<span class="token class-name">Creating</span> shared library<span class="token operator">:</span> libjava<span class="token punctuation">.</span>base<span class="token operator">-</span>coop<span class="token punctuation">.</span>so <span class="token punctuation">(</span><span class="token number">5812</span> ms<span class="token punctuation">)</span>
+<span class="token class-name">Total</span> time<span class="token operator">:</span> <span class="token number">163609</span> ms<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>使用提前编译版本的java.base模块来运行Java程序<pre class="line-numbers language-java" data-language="java"><code class="language-java">java <span class="token operator">-</span>XX<span class="token operator">:</span><span class="token class-name">AOTLibrary</span><span class="token operator">=</span>java_base<span class="token operator">/</span>libjava<span class="token punctuation">.</span>base<span class="token operator">-</span>coop<span class="token punctuation">.</span>so<span class="token punctuation">,</span><span class="token punctuation">.</span>/libHelloWorld<span class="token punctuation">.</span>so <span class="token class-name">HelloWorld</span>
+<span class="token class-name">Hello</span> <span class="token class-name">World</span><span class="token operator">!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>查看那些方法使用提取编译 -XX：+PrintAOT<ul>
+<li>不使用提前编译版本的java.base模块只有HelloWord的构造函数和main()方法是提前编译版本的：<pre class="line-numbers language-java" data-language="java"><code class="language-java">$ java <span class="token operator">-</span>XX<span class="token operator">:</span><span class="token operator">+</span><span class="token class-name">PrintAOT</span> <span class="token operator">-</span>XX<span class="token operator">:</span><span class="token class-name">AOTLibrary</span><span class="token operator">=</span><span class="token punctuation">.</span>/libHelloWorld<span class="token punctuation">.</span>so <span class="token class-name">HelloWorld</span>
+ <span class="token number">11</span>    <span class="token number">1</span>     loaded    <span class="token punctuation">.</span>/libHelloWorld<span class="token punctuation">.</span>so  aot library
+<span class="token number">105</span>    <span class="token number">1</span>     aot<span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">]</span>   <span class="token class-name">HelloWorld</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token class-name">V</span>
+<span class="token number">105</span>    <span class="token number">2</span>     aot<span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">]</span>   <span class="token class-name">HelloWorld</span><span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token class-name">Ljava</span><span class="token operator">/</span>lang<span class="token operator">/</span><span class="token class-name">String</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token class-name">V</span>
+
+<span class="token class-name">Hello</span> <span class="token class-name">World</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>加入libjava.base-coop.so，那使用到的几乎所有的标准Java SE API都是被提前编译好的，输出如下：<pre class="line-numbers language-java" data-language="java"><code class="language-java">java <span class="token operator">-</span>XX<span class="token operator">:</span><span class="token class-name">AOTLibrary</span><span class="token operator">=</span>java_base<span class="token operator">/</span>libjava<span class="token punctuation">.</span>base<span class="token operator">-</span>coop<span class="token punctuation">.</span>so<span class="token punctuation">,</span><span class="token punctuation">.</span>/libHelloWorld<span class="token punctuation">.</span>so <span class="token class-name">HelloWorld</span>
+<span class="token class-name">Hello</span> <span class="token class-name">World</span><span class="token operator">!</span>
+    <span class="token number">13</span>    <span class="token number">1</span>     loaded    java_base<span class="token operator">/</span>libjava<span class="token punctuation">.</span>base<span class="token operator">-</span>coop<span class="token punctuation">.</span>so  aot library
+    <span class="token number">13</span>    <span class="token number">2</span>     loaded    <span class="token punctuation">.</span>/libHelloWorld<span class="token punctuation">.</span>so  aot library
+<span class="token punctuation">[</span><span class="token class-name">Found</span>  <span class="token punctuation">[</span><span class="token class-name">Z</span>  in  java_base<span class="token operator">/</span>libjava<span class="token punctuation">.</span>base<span class="token operator">-</span>coop<span class="token punctuation">.</span>so<span class="token punctuation">]</span>
+…… <span class="token comment">// 省略其他输出</span>
+<span class="token punctuation">[</span><span class="token class-name">Found</span>  <span class="token punctuation">[</span><span class="token class-name">J</span>  in  java_base<span class="token operator">/</span>libjava<span class="token punctuation">.</span>base<span class="token operator">-</span>coop<span class="token punctuation">.</span>so<span class="token punctuation">]</span>
+    <span class="token number">31</span>    <span class="token number">1</span>     aot<span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">]</span>   <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>Object</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token class-name">V</span>
+    <span class="token number">31</span>    <span class="token number">2</span>     aot<span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">]</span>   <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>Object</span><span class="token punctuation">.</span><span class="token function">finalize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token class-name">V</span>
+…… <span class="token comment">// 省略其他输出</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>jaotc的不足</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>仍难以直接编译SpringBoot、MyBatis这些常见的第三<br>方工具库，甚至在众多Java标准模块中，能比较顺利编译的也只有java.base模块而已。</li>
+</ul>
+<blockquote>
+<p>其他的提前编译器</p>
+</blockquote>
+<ul>
+<li>Jaotc做的提前编译属于本节开头所说的“第二条分支”，即做即时编译的缓存；而Substrate VM则是选择的“第<br>一条分支”，做的是传统的静态提前编译</li>
+</ul>
+<h1 id="编译器优化技术"><a href="#编译器优化技术" class="headerlink" title="编译器优化技术"></a>编译器优化技术</h1><h2 id="优化技术概览"><a href="#优化技术概览" class="headerlink" title="优化技术概览"></a>优化技术概览</h2><blockquote>
+<p>参考连接<a target="_blank" rel="noopener" href="https://wiki.openjdk.java.net/display/HotSpot/PerformanceTacticIndex%E3%80%82">https://wiki.openjdk.java.net/display/HotSpot/PerformanceTacticIndex。</a><br><img src="/.io//7.png"><br><img src="/.io//8.png"><br><img src="/.io//9.png"><br><img src="/.io//10.png"></p>
+</blockquote>
+<blockquote>
+<p>优化的例子</p>
+</blockquote>
+<ul>
+<li>优化前的原始代码<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> value<span class="token punctuation">;</span>
+    <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> value<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    y <span class="token operator">=</span> b<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// ...do stuff...</span>
+    z <span class="token operator">=</span> b<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    sum <span class="token operator">=</span> y <span class="token operator">+</span> z<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>优化的地方<ul>
+<li>首先，第一个要进行的优化是方法内联，主要目的有两个：<ul>
+<li>一是去除方法调用的成本（如查找方法版本、建立栈帧等）；</li>
+<li>二是为其他优化建立良好的基础。方法内联膨胀之后可以便于在更大范围上进行后续的优化手段，可<br>以获取更好的优化效果。（各种编译器一般都会把内联优化放在优化序列最靠前的位置）</li>
+<li>内联后的代码<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    y <span class="token operator">=</span> b<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+    <span class="token comment">// ...do stuff...</span>
+    z <span class="token operator">=</span> b<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+    sum <span class="token operator">=</span> y <span class="token operator">+</span> z<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+<li>第二步进行冗余访问消除（Redundant Loads Elimination） <ul>
+<li>假设中间操作不会改变b.value的值，就可以把“z=b.value”替换为“z=y”，不再去访问对象b的局部变量</li>
+<li>把b.value看作一个表达式，那么也可以把这项优化看作一种公共子表达式消除（Common Subexpression Elimination）</li>
+<li>冗余存储消除的代码<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span>  <span class="token keyword">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    y <span class="token operator">=</span> b<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+    <span class="token comment">// ...do stuff...</span>
+    z <span class="token operator">=</span> y<span class="token punctuation">;</span>
+    sum <span class="token operator">=</span> y <span class="token operator">+</span> z<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+<li>第三步进行复写传播（Copy Propagation）<ul>
+<li>因为这段程序的逻辑之中没有必要使用一个额外的变量z，它与变量y是完全相等的，因此我们可以使用y来代替z。</li>
+<li>冗余存储消除的代码<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span>  <span class="token keyword">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    y <span class="token operator">=</span> b<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+    <span class="token comment">// ...do stuff...</span>
+    y <span class="token operator">=</span> y<span class="token punctuation">;</span>
+    sum <span class="token operator">=</span> y <span class="token operator">+</span> y<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+<li>第四步进行无用代码消除（Dead Code Elimination）<ul>
+<li>无用代码可能是永远不会被执行的代码，也<br>可能是完全没有意义的代码。因此它又被很形象地称为“Dead Code”</li>
+<li>冗余存储消除的代码<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span>  <span class="token keyword">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    y <span class="token operator">=</span> b<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+    <span class="token comment">// ...do stuff...</span>
+    sum <span class="token operator">=</span> y <span class="token operator">+</span> y<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>四项有代表性的优化技术</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>·最重要的优化技术之一：方法内联。</li>
+<li>·最前沿的优化技术之一：逃逸分析。</li>
+<li>·语言无关的经典优化技术之一：公共子表达式消除。</li>
+<li>·语言相关的经典优化技术之一：数组边界检查消除。</li>
+</ul>
+<h2 id="方法内联"><a href="#方法内联" class="headerlink" title="方法内联"></a>方法内联</h2><blockquote>
+<p>重要性</p>
+</blockquote>
+<ul>
+<li>编译器最重要的优化手段</li>
+<li>例子：分开来看，foo()和testInline()两个方法里面的操作都有可能是有意义的。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token class-name">Object</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"do something"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">testInline</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Object</span> obj <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token function">foo</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>内联的难点</p>
+</blockquote>
+</li>
+<li>只有使用invokespecial指令调用的私有方法、实例构造器、父类方法和使用invokestatic指令调用的静态方法才会<br>在编译期进行解析。</li>
+</ul>
+<blockquote>
+<p>解决虚方法的内联问题</p>
+</blockquote>
+<ul>
+<li>Java虚拟机首先引入了一种名为类型继承关系分析（Class Hierarchy Analysis，CHA）的技术<ul>
+<li>整个应用程序范围内的类型分析技术，用于确定在目前已加载的类中，某个接口是否有多于一种的实现、某个类是否存在子类、某个子类是否覆盖了父类的某个虚方法等信息。</li>
+<li>如果是非虚方法，那么直接进行内联就可以了，这种的内联是有百分百安全保障的；</li>
+<li>如果遇到虚方法，则会向CHA查询此方法在当前程序状态下是否真的有多个目标版本可供选择。<ul>
+<li>只有一个版本，那就可以假设“应用程序的全貌就是现在运行的这个样子”来进行内联，这种内联被称为守护内联（Guarded Inlining）。</li>
+<li>由于Java程序是动态连接的，可能会加载到新的类型从而改变CHA结论，这种内联属于激进预测性优化</li>
+<li>多个版本的目标方法可供选择，那即时编译器还将进行最后一次努力，使用内联缓存（Inline Cache）的方式来缩减开销。（缓存记录方法调用接收者版本）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="逃逸分析"><a href="#逃逸分析" class="headerlink" title="逃逸分析"></a>逃逸分析</h2><blockquote>
+<p>定义</p>
+</blockquote>
+<ul>
+<li>目前Java虚拟机中比较前沿的优化技术，它与类型继承关系分析一样，并不是直接优化代码的手段，而是为其他优化措施提供依据的分析技术。</li>
+</ul>
+<blockquote>
+<p>原理</p>
+</blockquote>
+<ul>
+<li>方法逃逸：当一个对象在方法里面被定义后，它可能被外部<br>方法所引用，例如作为调用参数传递到其他方法中</li>
+<li>线程逃逸：有可能被外部线程访问到，譬如赋值给可以在其他线程中访问的实例变量</li>
+<li>不同的逃逸程度：从不逃逸、方法逃逸到线程逃逸，对象由低到高的不同逃逸程度。</li>
+</ul>
+<blockquote>
+<p>逃逸程度低的优化</p>
+</blockquote>
+<ul>
+<li>栈上分配（Stack Allocations）：那大量的对象就会随着方法的结束而自动销毁了，垃圾收集子系统的压力将会下降很多。<strong>栈上分配可以支持方法逃逸，但不能支持线程逃逸。</strong> （HotSpot 未开启）</li>
+<li>标量替换（Scalar Replacement）：假设逃逸分析，证明一个对象不会被方法外部访问，并且这个对象可以被拆散，那么程序真正执行的时候将可能不去创建这个对象，而改为直接创建它的若干个被这个方法使用的成员变量来代替。<strong>但对逃逸程度的要求更高，它不允许对象逃逸出方法范围内。</strong></li>
+<li>·同步消除（Synchronization Elimination）：线程同步本身是一个相对耗时的过程，如果逃逸分析能够确定一个变量不会逃逸出线程，无法被其他线程访问，那么这个变量的读写肯定就不会有竞争，对这个变量实施的同步措施也就可以安全地消除掉。</li>
+</ul>
+<blockquote>
+<p>模拟逃逸分析的例子</p>
+</blockquote>
+<ul>
+<li>完全未优化的代码</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> xx <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token class-name">Point</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Point</span><span class="token punctuation">(</span>xx<span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> p<span class="token punctuation">.</span><span class="token function">getX</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>第一步，将Point的构造函数和getX()方法进行内联优化：<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 步骤1：构造函数内联后的样子</span>
+<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> xx <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token class-name">Point</span> p <span class="token operator">=</span> <span class="token function">point_memory_alloc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// 在堆中分配P对象的示意方法</span>
+    p<span class="token punctuation">.</span>x <span class="token operator">=</span> xx<span class="token punctuation">;</span>                         <span class="token comment">// Point构造函数被内联后的样子</span>
+    p<span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token number">42</span>
+    <span class="token keyword">return</span> p<span class="token punctuation">.</span>x<span class="token punctuation">;</span>                       <span class="token comment">// Point::getX()被内联后的样子</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>第二步，经过逃逸分析，发现在整个test()方法的范围内Point对象实例不会发生任何程度的逃逸，这样可以对它进行标量替换优化。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 步骤2：标量替换后的样子</span>
+<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> xx <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> px <span class="token operator">=</span> xx<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> py <span class="token operator">=</span> <span class="token number">42</span>
+    <span class="token keyword">return</span> px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>第三步，通过数据流分析，发现py的值其实对方法不会造成任何影响，那就可以放心地去做无效代码消除得到最终优化结果.<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 步骤3：做无效代码消除后的样子</span>
+<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> x <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>JDK7 服务端默认开启<ul>
+<li>用户也可以使用参数-XX：+DoEscapeAnalysis来手动开启逃逸分析，<br>开启之后可以通过参数-XX：+PrintEscapeAnalysis来查看分析结果。有了逃逸分析支持之后，用户可<br>以使用参数-XX：+EliminateAllocations来开启标量替换，使用+XX：+EliminateLocks来开启同步消<br>除，使用参数-XX：+PrintEliminateAllocations查看标量的替换情况。</li>
+</ul>
+</li>
+</ul>
+<h2 id="公共子表达式消除"><a href="#公共子表达式消除" class="headerlink" title="公共子表达式消除"></a>公共子表达式消除</h2><blockquote>
+<p>公共子表达式的定义</p>
+</blockquote>
+<ul>
+<li>如果一个表达式E之前已经被计算过了，并且从先前的计算到现在E中所有变量的值都没有发生变化，那么E<br>的这次出现就称为公共子表达式。</li>
+</ul>
+<blockquote>
+<p>例子</p>
+</blockquote>
+<ul>
+<li>原始代码<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> d <span class="token operator">=</span> <span class="token punctuation">(</span>c <span class="token operator">*</span> b<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">12</span> <span class="token operator">+</span> a <span class="token operator">+</span> <span class="token punctuation">(</span>a <span class="token operator">+</span> b <span class="token operator">*</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>javac 编译字节码<pre class="line-numbers language-java" data-language="java"><code class="language-java">未作任何优化的字节码
+
+iload_2       <span class="token comment">// b</span>
+imul          <span class="token comment">// 计算b*c</span>
+bipush <span class="token number">12</span>     <span class="token comment">// 推入12</span>
+imul          <span class="token comment">// 计算(c * b) * 12</span>
+iload_1       <span class="token comment">// a</span>
+iadd          <span class="token comment">// 计算(c * b) * 12 + a</span>
+iload_1       <span class="token comment">// a</span>
+iload_2       <span class="token comment">// b</span>
+iload_3       <span class="token comment">// c</span>
+imul          <span class="token comment">// 计算b * c</span>
+iadd          <span class="token comment">// 计算a + b * c</span>
+iadd          <span class="token comment">// 计算(c * b) * 12 + a + a + b * c</span>
+istore <span class="token number">4</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>进入虚拟机即时编译器后，它将进行如下优化：编译器检测到c<em>b与b</em>c是一样的表达式，而且在计算期间b与c的值是不变的。<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> d <span class="token operator">=</span> <span class="token class-name">E</span> <span class="token operator">*</span> <span class="token number">12</span> <span class="token operator">+</span> a <span class="token operator">+</span> <span class="token punctuation">(</span>a <span class="token operator">+</span> <span class="token class-name">E</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>编译器还可能（取决于哪种虚拟机的编译器以及具体的上下文而定）进行另外一种优化——代数化简（Algebraic Simplification）<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> d <span class="token operator">=</span> <span class="token class-name">E</span> <span class="token operator">*</span> <span class="token number">13</span> <span class="token operator">+</span> a <span class="token operator">+</span> a<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="数组边界检查消除"><a href="#数组边界检查消除" class="headerlink" title="数组边界检查消除"></a>数组边界检查消除</h2></li>
+</ul>
+<blockquote>
+<p>定义</p>
+</blockquote>
+<ul>
+<li>数组边界检查消除（Array Bounds Checking Elimination）是即时编译器中的一项语言相关的经典优<br>化技术。</li>
+<li>Java语言是一门动态安全的语言，访问数组元素foo[i]的时候系统将会自动进行上下界的范围检查，即i必须满足“i&gt;=0&amp;&amp;i小于foo.length”的访问条件。（带来性能开销）</li>
+<li>数组边界检查需要做，但是可以 做的少，比如foo[3]确定不超过边界、在循环里面 循环变量在数组长度里面等</li>
+</ul>
+<blockquote>
+<p>隐式异常优化</p>
+</blockquote>
+<ul>
+<li>一种避开的处理思路——隐式异常处理，Java中空指针检查和算术运算中除数为零的检查都采用了这种方案。</li>
+<li>例子<ul>
+<li>Java伪代码来表示虚拟机访问foo.value的过程为：<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span> <span class="token punctuation">(</span>foo <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> foo<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NullPointException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>隐式异常优化之后伪代码：<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> foo<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>segment_fault<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">uncommon_trap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>不空无任何开销，空的化就会有个进程层面异常处理器（不是真的try-catch ），开销很大，如果foo极少为空的时候，隐式异常优化是值得的。（HotSpot虚拟<br>机足够聪明，它会根据运行期收集到的性能监控信息自动选择最合适的方案。）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>其他消除操作</p>
+</blockquote>
+<ul>
+<li>如自动装箱消除（Autobox Elimination）、安全点消除<br>（Safepoint Elimination）、消除反射（Dereflection）等</li>
+</ul>
+<h1 id="实战：深入理解Graal编译器"><a href="#实战：深入理解Graal编译器" class="headerlink" title="实战：深入理解Graal编译器"></a>实战：深入理解Graal编译器</h1><h2 id="历史背景"><a href="#历史背景" class="headerlink" title="历史背景"></a>历史背景</h2><blockquote>
+<p>HotSpot编译器接口的出现。</p>
+</blockquote>
+<ul>
+<li>Java虚拟机编译器接口（Java-Level JVM Compiler<br>Interface，JVMCI）</li>
+<li>三种功能：<ul>
+<li>·响应HotSpot的编译请求，并将该请求分发给Java实现的即时编译器。</li>
+<li>·允许编译器访问HotSpot中与即时编译相关的数据结构，包括类、字段、方法及其性能监控数据<br>等，并提供了一组这些数据结构在Java语言层面的抽象表示。</li>
+<li>·提供HotSpot代码缓存（Code Cache）的Java端抽象表示，允许编译器部署编译完成的二进制机器<br>码。</li>
+</ul>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Scorpin Xia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://scorpinxia.github.io/2020/12/26/deepinjvm-part04-codecomplieopt-chap11-backendcompileopt/">https://scorpinxia.github.io/2020/12/26/deepinjvm-part04-codecomplieopt-chap11-backendcompileopt/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Scorpin Xia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%87%AA%E5%AD%A6/">
+                                    <span class="chip bg-color">自学</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '58EYV7U0vnoRDUeuKYjp2DTS-MdYXbMMI',
+        appKey: 'znFL8xQjdx6gKxc7f0juTPNF',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '献上你的评论把'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/12/29/java-concurrency-in-pratice-part04-advancedtopic-chap16-javamemorymodel/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Java-concurrency-in-pratice-Part04-AdvancedTopic-chap16-JavaMemoryModel">
+                        
+                        <span class="card-title">Java-concurrency-in-pratice-Part04-AdvancedTopic-chap16-JavaMemoryModel</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JAVA/" class="post-category">
+                                    JAVA
+                                </a>
+                            
+                            <a href="/categories/JAVA/Concurrency/" class="post-category">
+                                    Concurrency
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%87%AA%E5%AD%A6/">
+                        <span class="chip bg-color">自学</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/12/23/fpga-designeasy/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="fpga-designEasy">
+                        
+                        <span class="card-title">fpga-designEasy</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/FPGA/" class="post-category">
+                                    FPGA
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/work/">
+                        <span class="chip bg-color">work</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('6'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Scorpin Xia</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/scorpinxia" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1044883523@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1044883523" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1044883523" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1760 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="head java first, Wibur&#39;s Blog">
+    <meta name="description" content="scorpionxia@foxmail.com">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>head java first | Wibur&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Wibur&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Wibur&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            scorpionxia@foxmail.com
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">head java first</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+	
+	#toc-content {
+		height: calc(100vh - 250px);
+		overflow: scroll;
+	}
+	
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+	
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%87%AA%E5%AD%A6/">
+                                <span class="chip bg-color">自学</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JAVA/" class="post-category">
+                                JAVA
+                            </a>
+                        
+                            <a href="/categories/JAVA/Base/" class="post-category">
+                                Base
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-03-20
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <ul>
+<li><a href="#base">base</a><ul>
+<li><a href="#%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8%E9%97%AE%E9%A2%98">对象引用问题</a></li>
+<li><a href="#%E6%95%B0%E7%BB%84%E6%98%AF%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1">数组是一个对象</a></li>
+<li><a href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96-%E5%B0%8F%E5%88%B0%E5%A4%A7--%E5%A4%A7%E5%88%B0%E5%B0%8F%E9%9C%80%E8%A6%81%E6%98%BE%E7%A4%BA%E6%8C%87%E6%B4%BE">类型转化 小到大  大到小需要显示指派</a></li>
+<li><a href="#%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E6%9C%89%E9%BB%98%E8%AE%A4%E5%80%BC-%E7%B1%BB%E9%87%8C--%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E6%B2%A1%E6%9C%89%E9%BB%98%E8%AE%A4%E5%80%BC-%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8%E6%8A%A5%E9%94%99">实例变量有默认值 （类里）  局部变量没有默认值 直接使用报错</a></li>
+<li><a href="#-%E5%8F%AA%E6%98%AF%E6%AF%94%E8%BE%83%E9%87%8C%E9%9D%A2%E7%9A%84%E5%AD%97%E8%8A%82">== 只是比较里面的字节</a></li>
+<li><a href="#arraylist-%E9%87%8C%E9%9D%A2%E6%94%BE%E7%9A%84%E6%98%AF%E5%AF%B9%E8%B1%A1--%E5%A6%82%E6%9E%9C%E6%98%AF%E4%B8%BB%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E4%BC%9A%E8%A2%AB%E5%8C%85%E8%A3%85%E6%88%90object">ArrayList 里面放的是对象  如果是主数据类型 会被包装成object</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A4%9A%E6%80%81-1-%E7%BB%A7%E6%89%BF">多态 1 继承</a><ul>
+<li><a href="#%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E7%9C%8B%E5%B7%A6%E8%BE%B9%E9%9D%9E%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E7%BC%96%E8%AF%91%E7%9C%8B%E5%B7%A6%E8%BE%B9%E8%BF%90%E8%A1%8C%E7%9C%8B%E5%8F%B3%E8%BE%B9">成员变量，静态方法看左边；非静态方法：编译看左边，运行看右边</a></li>
+<li><a href="#%E5%AD%90%E7%B1%BB%E6%83%B3%E8%A6%81%E5%BC%95%E7%94%A8%E7%88%B6%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95%E5%8A%A0%E4%B8%8A%E4%B8%80%E4%BA%9B">子类想要引用父类的方法加上一些</a></li>
+<li><a href="#%E8%BF%90%E7%94%A8%E4%BA%8B%E6%80%81%E6%97%B6%E5%BC%95%E7%94%A8%E8%8B%B1%E5%9E%8B%E5%8F%AF%E4%BB%A5%E6%98%AF%E5%AE%9E%E9%99%85%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%88%B6%E7%B1%BB%E5%A4%9A%E6%80%81">运用事态时，引用英型可以是实际对象类型的父类（多态）</a></li>
+<li><a href="#%E6%97%A0%E6%B3%95%E7%9C%8B%E5%88%B0%E6%BA%90%E7%A0%81-%E5%8F%88%E6%83%B3%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95-%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%E6%9D%A5%E5%81%9A">无法看到源码 又想修改方法 可以继承来做</a></li>
+<li><a href="#final-%E6%A0%87%E8%AE%B0%E6%96%B9%E6%B3%95%E9%98%B2%E6%AD%A2%E8%A6%86%E7%9B%96">final 标记方法防止覆盖</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0%E4%B8%80%E6%A0%B7-%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B%E5%85%BC%E5%AE%B9-%E4%B8%8D%E9%99%8D%E4%BD%8E%E8%AF%BB%E5%8F%96%E6%9D%83%E9%99%90">参数一样 返回类型兼容 不降低读取权限</a></li>
+</ul>
+</li>
+<li><a href="#%E9%87%8D%E8%BD%BD">重载</a></li>
+<li><a href="#%E5%A4%9A%E6%80%81-2-%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%8A%BD%E8%B1%A1%E7%B1%BB">多态 2 接口与抽象类</a><ul>
+<li><a href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB--%E4%B8%8D%E8%83%BD%E8%AE%A9animals-new-%E5%87%BA%E6%9D%A5-%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BB%80%E4%B9%88%E5%8A%A8%E7%89%A9%E6%98%AF%E5%8A%A8%E7%89%A9">抽象类  不能让animals new 出来 （不知道什么动物是动物）</a></li>
+</ul>
+</li>
+<li><a href="#%E6%89%80%E6%9C%89%E7%B1%BB%E7%BB%A7%E6%89%BF%E4%BA%86object">所有类继承了Object</a><ul>
+<li><a href="#%E5%8F%AF%E4%BB%A5%E8%A6%86%E7%9B%96%E9%83%A8%E5%88%86%E6%96%B9%E6%B3%95%E4%BD%86%E6%98%AF%E9%83%A8%E5%88%86%E6%98%AFfinal%E5%BC%BA%E7%83%88%E5%BB%BA%E8%AE%AE%E8%A6%86%E7%9B%96hashcode-equals-tostring">可以覆盖部分方法，但是部分是final(强烈建议覆盖hashcode equals toString)</a></li>
+<li><a href="#%E4%B8%8D%E5%8F%AF%E6%8A%8A%E6%89%80%E6%9C%89%E8%BF%94%E5%9B%9E%E5%92%8C%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE%E6%88%90object">不可把所有返回和参数设置成Object</a></li>
+<li><a href="#%E6%9C%89%E4%BA%9B%E5%8A%A8%E7%89%A9%E6%83%B3%E8%A6%81pets">有些动物想要pets</a></li>
+<li><a href="#%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B%E4%BD%9C%E4%B8%BA%E5%A4%9A%E6%80%81-%E5%AF%B9%E8%B1%A1%E5%8F%AF%E4%BB%A5%E6%9D%A5%E8%87%AA%E4%BB%BB%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AD%90%E7%B1%BB">接口类型作为多态 对象可以来自任何实现接口的子类</a></li>
+<li><a href="#%E5%90%8C%E4%B8%80%E4%B8%AA%E7%B1%BB%E6%89%80%E6%9C%89%E5%AE%9E%E4%BE%8B%E5%85%B1%E4%BA%AB%E4%B8%80%E4%B8%AA%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F-%E6%97%A0%E5%AF%B9%E8%B1%A1%E5%85%88%E5%88%9D%E5%A7%8B%E5%8C%96">同一个类所有实例共享一个静态变量 无对象先初始化</a></li>
+<li><a href="#static-final-%E6%98%AF-%E5%B8%B8%E9%87%8F-%E6%AF%94%E5%A6%82pi">Static final 是 常量 比如PI</a></li>
+<li><a href="#final">final</a></li>
+</ul>
+</li>
+<li><a href="#autobox">autobox</a><ul>
+<li><a href="#string%E8%BD%ACprimitive">String转Primitive</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86">异常处理</a><ul>
+<li><a href="#%E5%A6%82%E6%9E%9C%E6%9C%89%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8-%E7%BC%96%E8%AF%91%E5%99%A8%E4%B8%80%E5%AE%9A%E8%A6%81%E4%BD%A0%E5%A4%84%E7%90%86-%E9%99%A4%E4%BA%86runtimeexp%E4%B8%80%E8%88%AC%E6%98%AF%E9%80%BB%E8%BE%91%E9%94%99%E8%AF%AF">如果有抛出异常 编译器一定要你处理 除了runtimeexp(一般是逻辑错误)</a></li>
+<li><a href="#%E5%87%BA%E7%8E%B0%E5%BC%82%E5%B8%B8-try-%E7%9B%B4%E6%8E%A5%E5%88%B0catch">出现异常 try 直接到catch</a></li>
+<li><a href="#finally-%E6%97%A0%E8%AE%BA%E6%80%8E%E4%B9%88%E6%A0%B7%E9%83%BD%E6%89%A7%E8%A1%8C">finally 无论怎么样都执行</a></li>
+<li><a href="#duck-%E7%BB%99%E8%B0%83%E7%94%A8%E5%A4%84%E7%90%86">duck 给调用处理</a></li>
+</ul>
+</li>
+<li><a href="#gui">Gui</a><ul>
+<li><a href="#%E7%9B%91%E5%90%AC%E4%BA%8B%E4%BB%B6%E6%BA%90">监听事件源</a></li>
+<li><a href="#%E5%90%8C%E6%97%B6%E7%9B%91%E5%90%AC%E4%B8%A4%E4%BB%B6%E4%BA%8B">同时监听两件事</a></li>
+</ul>
+</li>
+<li><a href="#io">IO</a><ul>
+<li><a href="#%E5%AD%97%E8%8A%82%E5%9E%8B">字节型</a><ul>
+<li><a href="#%E8%AF%BB%E5%86%99">读写</a></li>
+<li><a href="#%E9%97%AE%E9%A2%98">问题</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E5%9E%8B">字符型</a><ul>
+<li><a href="#%E8%AF%BB%E5%86%99-1">读写</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#swing">Swing</a><ul>
+<li><a href="#3%E7%A7%8D%E9%A3%8E%E6%A0%BC">3种风格</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BA%8F%E5%88%97%E5%8C%96-%E6%96%87%E4%BB%B6%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA">序列化 文件输入输出</a><ul>
+<li><a href="#%E5%BA%8F%E5%88%97%E5%8C%96">序列化</a></li>
+<li><a href="#%E8%A7%A3%E5%BA%8F%E5%88%97%E5%8C%96">解序列化</a></li>
+<li><a href="#%E5%86%99%E6%96%87%E6%9C%AC">写文本</a></li>
+<li><a href="#%E9%97%AE%E9%A2%98-%E4%B8%87%E4%B8%80%E5%BA%8F%E5%88%97%E5%8C%96%E4%B9%8B%E5%90%8E%E4%BF%AE%E6%94%B9%E7%B1%BB-%E6%80%8E%E4%B9%88%E5%8A%9E">问题 万一序列化之后修改类 怎么办</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BD%91%E7%BB%9C%E5%92%8C%E7%BA%BF%E7%A8%8B">网络和线程</a><ul>
+<li><a href="#%E7%BD%91%E7%BB%9C">网络</a><ul>
+<li><a href="#serversock%E7%9A%84backlog%E6%98%AF%E5%90%8C%E6%97%B6%E8%83%BD%E7%9B%91%E5%90%AC%E7%9A%84%E6%95%B0%E7%9B%AE-%E4%B8%8D%E5%8C%85%E6%8B%AC%E5%B7%B2%E6%8E%A5%E5%8F%97%E7%9A%84">ServerSock的Backlog是同时能监听的数目 （不包括已接受的）</a></li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E8%AF%BB%E5%9B%BE">基本读图</a></li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E5%86%99%E5%9B%BE">基本写图</a></li>
+<li><a href="#%E5%8F%AF%E4%BB%A5%E7%94%A8-sockshutdownoutput%E4%BD%9C%E4%B8%BA%E7%BB%93%E6%9D%9F%E6%A0%87%E8%AF%86">可以用 sock.shutdownOutPut作为结束标识</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BA%BF%E7%A8%8B">线程</a><ul>
+<li><a href="#synchornized">synchornized</a></li>
+<li><a href="#lock-%E6%9D%A5%E8%8E%B7%E5%BE%97%E9%87%8A%E6%94%BE%E9%94%81">Lock 来获得释放锁</a></li>
+<li><a href="#%E5%90%8C%E6%AD%A5%E5%8C%96%E5%AF%B9%E8%B1%A1">同步化对象</a></li>
+<li><a href="#%E4%B8%A2%E5%A4%B1%E6%9B%B4%E6%96%B0">丢失更新</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E9%9B%86%E5%90%88%E4%B8%8E%E6%B3%9B%E5%9E%8B">集合与泛型</a><ul>
+<li><a href="#%E7%82%B9%E6%AD%8C%E7%B3%BB%E7%BB%9F%E6%8E%92%E5%BA%8F-arraylist-%E6%B2%A1%E6%9C%89sort">点歌系统排序 ArrayList 没有sort</a></li>
+<li><a href="#obeject-%E6%9C%89tostring-%E6%96%B9%E6%B3%95-%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%B7%B1%E8%A6%86%E7%9B%96%E6%83%B3%E8%A6%81printf-%E5%B0%B1%E8%87%AA%E5%B7%B1%E8%A6%86%E7%9B%96">Obeject 有toString() 方法 可以自己覆盖想要printf 就自己覆盖</a></li>
+<li><a href="#%E6%83%B3%E8%A6%81-sort-song4%E4%B8%AAstring%E5%B1%9E%E6%80%A7">想要 sort SONG(4个String属性)</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B3%9B%E5%9E%8B">泛型</a><ul>
+<li><a href="#comparator-%E6%AF%94%E8%BE%83%E7%AC%A6%E5%8F%B7">Comparator 比较符号</a></li>
+<li><a href="#comparable-%E4%BD%BF%E8%BF%99%E4%B8%AA%E5%AF%B9%E8%B1%A1%E5%8F%AF%E6%AF%94%E8%BE%83">Comparable 使这个对象可比较</a></li>
+<li><a href="#song-%E6%8E%92%E5%BA%8F%E5%AE%9E%E7%8E%B0">Song 排序实现</a></li>
+<li><a href="#%E8%BF%98%E6%83%B3%E8%A6%81%E9%80%9A%E8%BF%87%E6%AD%8C%E6%98%9F%E6%8E%92%E5%BA%8F">还想要通过歌星排序</a></li>
+<li><a href="#%E5%A6%82%E6%9E%9C%E6%9C%89%E9%87%8D%E5%A4%8D%E7%9A%84%E6%AD%8C%E5%90%8D">如果有重复的歌名</a></li>
+<li><a href="#set-%E4%B9%8B%E4%B8%AD%E6%80%8E%E4%B9%88%E7%AE%97%E4%B8%A4%E5%85%83%E7%B4%A0%E7%9B%B8%E7%AD%89">Set 之中怎么算两元素相等</a></li>
+<li><a href="#equals-hashcode-%E8%A7%84%E5%AE%9A">equals hashCode 规定</a></li>
+<li><a href="#treeset-%E5%8A%A0%E5%85%A5%E5%85%83%E7%B4%A0%E4%BC%9A%E9%BB%98%E8%AE%A4%E9%80%9A%E8%BF%87compareto%E6%8E%92%E5%BA%8F-%E6%88%96%E8%80%85comparator">TreeSet 加入元素会默认通过compareTo()排序 或者comparator</a></li>
+<li><a href="#%E5%AF%B9%E4%BA%8Earraylistanimals%E5%8F%82%E6%95%B0-%E4%B8%8D%E8%83%BD%E7%94%A8arraylistdogs%E4%BB%A3%E6%9B%BF-%E5%92%8C%E6%95%B0%E7%BB%84%E7%9A%84%E5%AE%89%E5%85%A8%E6%A3%80%E6%9F%A5%E6%97%B6%E9%97%B4%E4%B8%8D%E4%B8%80%E6%A0%B7">对于Arraylist<animals>参数 不能用Arraylist<dogs>代替 和数组的安全检查时间不一样</dogs></animals></a></li>
+<li><a href="#%E7%94%A8%E4%B8%87%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%80%E7%A7%8D%E6%B3%9B%E5%9E%8B-%E4%BC%9A%E9%98%BB%E6%AD%A2%E7%A0%B4%E5%9D%8F%E9%9B%86%E5%90%88%E7%9A%84%E6%93%8D%E4%BD%9C">用万用字符（一种泛型） 会阻止破坏集合的操作</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%91%E5%B8%83%E7%A8%8B%E5%BA%8F">发布程序</a><ul>
+<li><a href="#%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F">几种方式</a></li>
+<li><a href="#jar-%E4%B8%80%E7%BB%84%E7%B1%BB%E6%96%87%E4%BB%B6%E5%8C%85%E8%A3%85%E8%B5%B7%E6%9D%A5">JAR 一组类文件包装起来</a><ul>
+<li><a href="#%E6%89%A7%E8%A1%8Cjar-java%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%83%BD%E4%BB%8Ejar%E4%B8%AD%E6%89%BE%E5%88%B0main">执行JAR java虚拟机能从JAR中找到main</a></li>
+<li><a href="#%E5%8C%85%E9%98%B2%E6%AD%A2%E7%B1%BB%E5%86%B2%E7%AA%81-%E7%BC%96%E8%AF%91%E6%89%A7%E8%A1%8C">包防止类冲突 编译执行</a></li>
+</ul>
+</li>
+<li><a href="#java-web-start">JAVA web Start</a></li>
+</ul>
+</li>
+<li><a href="#rmi-remote-method-innovacation-%E8%BF%9C%E7%A8%8B%E7%A8%8B%E5%BA%8F">RMI (Remote Method Innovacation) 远程程序</a><ul>
+<li><a href="#servlet">servlet</a></li>
+<li><a href="#jini--%E6%89%BE%E6%8E%A5%E5%8F%A3">JINI  找接口</a></li>
+</ul>
+</li>
+<li><a href="#appendix">Appendix</a><ul>
+<li><a href="#string-%E7%9A%84%E4%B8%8D%E5%8F%98%E6%80%A7-%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%B8%8D%E5%8F%98%E6%80%A7">String 的不变性 包装类的不变性</a></li>
+<li><a href="#%E6%96%AD%E8%A8%80">断言</a></li>
+<li><a href="#%E9%9D%99%E6%80%81%E5%B5%8C%E5%A5%97%E7%B1%BB">静态嵌套类</a></li>
+<li><a href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84">多维数组</a></li>
+<li><a href="#enum">enum</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+
+
+<h1 id="base"><a href="#base" class="headerlink" title="base"></a>base</h1><h2 id="对象引用问题"><a href="#对象引用问题" class="headerlink" title="对象引用问题"></a>对象引用问题</h2><p><img src="/.io//1.png"><br><img src="/.io//2.png"><br><img src="/.io//3.png"></p>
+<h2 id="数组是一个对象"><a href="#数组是一个对象" class="headerlink" title="数组是一个对象"></a>数组是一个对象</h2><p><img src="/.io//4.png"><br><img src="/.io//5.png"></p>
+<h2 id="类型转化-小到大-大到小需要显示指派"><a href="#类型转化-小到大-大到小需要显示指派" class="headerlink" title="类型转化 小到大  大到小需要显示指派"></a>类型转化 小到大  大到小需要显示指派</h2><h2 id="实例变量有默认值-（类里）-局部变量没有默认值-直接使用报错"><a href="#实例变量有默认值-（类里）-局部变量没有默认值-直接使用报错" class="headerlink" title="实例变量有默认值 （类里）  局部变量没有默认值 直接使用报错"></a>实例变量有默认值 （类里）  局部变量没有默认值 直接使用报错</h2><p><img src="/.io//6.png"></p>
+<h2 id="只是比较里面的字节"><a href="#只是比较里面的字节" class="headerlink" title="== 只是比较里面的字节"></a>== 只是比较里面的字节</h2><h2 id="ArrayList-里面放的是对象-如果是主数据类型-会被包装成object"><a href="#ArrayList-里面放的是对象-如果是主数据类型-会被包装成object" class="headerlink" title="ArrayList 里面放的是对象  如果是主数据类型 会被包装成object"></a>ArrayList 里面放的是对象  如果是主数据类型 会被包装成object</h2><h1 id="多态-1-继承"><a href="#多态-1-继承" class="headerlink" title="多态 1 继承"></a>多态 1 继承</h1><h2 id="成员变量，静态方法看左边；非静态方法：编译看左边，运行看右边"><a href="#成员变量，静态方法看左边；非静态方法：编译看左边，运行看右边" class="headerlink" title="成员变量，静态方法看左边；非静态方法：编译看左边，运行看右边"></a>成员变量，静态方法看左边；非静态方法：编译看左边，运行看右边</h2><p>当父类变量引用子类对象时（Fu f = new Zi();在这个引用变量f指向的对象中，他的成员变量和静态方法与父类是一致的，他的非静态方法，在编译时是与父类一致的，运行时却与子类一致（发生了复写）。</p>
+<p>个人分析：</p>
+<p>Fu f = new Zi();———-首先了解变量F到底是什么，把这句子分2段：Fu f;这是声明一个变量f为Fu这个类，那么知道了f肯定是Fu类。然后我们f=newZi();中建立一个子类对象赋值给了f，结果是什么？？</p>
+<p>结果是，拥有了被Zi类函数覆盖后的Fu类对象—-f——。</p>
+<p>——————————————-也就是说：</p>
+<p>只有子类的函数覆盖了父类的函数这一个变化，但是f肯定是Fu这个类，也就是说f不可能变成其他比如Zi这个类等等(突然f拥有了Zi类特有函数，成员变量等都是不可能的）。<font color="red" size="5">所以f所代表的是函数被复写后（多态的意义）的一个Fu类，而Fu类原来有的成员变量（不是成员函数不可能被复写）没有任何变化</font>—————-获得结论：A：成员变量：编译和运行都看Fu。</p>
+<p>但是f的Fu类函数被复写了。————–获得结论：B：非静态方法：编译看Fu，运行看Zi</p>
+<p>对于静态方法：编译和运行都看Fu！！</p>
+<p>其实很简单，首先我们要理解静态情况下发生了什么？</p>
+<p>—————-<font color="red" size="5">当静态时，Fu类的所有函数跟随Fu类加载而加载了。也就是Fu类的函数(是先于对象建立之前就存在了，无法被后出现的Zi类对象所复写的，所以没发生复写，那么获得：</font>C：静态方法：编译和运行都看Fu。</p>
+<h2 id="子类想要引用父类的方法加上一些"><a href="#子类想要引用父类的方法加上一些" class="headerlink" title="子类想要引用父类的方法加上一些"></a>子类想要引用父类的方法加上一些</h2><p><img src="/.io//7.png"></p>
+<h2 id="运用事态时，引用英型可以是实际对象类型的父类（多态）"><a href="#运用事态时，引用英型可以是实际对象类型的父类（多态）" class="headerlink" title="运用事态时，引用英型可以是实际对象类型的父类（多态）"></a>运用事态时，引用英型可以是实际对象类型的父类（多态）</h2><p>多态最强的地方 数组调用<br><img src="/.io//8.png"><br>或者在传递参数时 用父类引用来控制所有子类<br><img src="/.io//9.png"></p>
+<h2 id="无法看到源码-又想修改方法-可以继承来做"><a href="#无法看到源码-又想修改方法-可以继承来做" class="headerlink" title="无法看到源码 又想修改方法 可以继承来做"></a>无法看到源码 又想修改方法 可以继承来做</h2><h2 id="final-标记方法防止覆盖"><a href="#final-标记方法防止覆盖" class="headerlink" title="final 标记方法防止覆盖"></a>final 标记方法防止覆盖</h2><h2 id="参数一样-返回类型兼容-不降低读取权限"><a href="#参数一样-返回类型兼容-不降低读取权限" class="headerlink" title="参数一样 返回类型兼容 不降低读取权限"></a>参数一样 返回类型兼容 不降低读取权限</h2><h1 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h1><p>与继承多态无关 只是刚好名称相同的不同方法<br>不能只改返回类型</p>
+<h1 id="多态-2-接口与抽象类"><a href="#多态-2-接口与抽象类" class="headerlink" title="多态 2 接口与抽象类"></a>多态 2 接口与抽象类</h1><h2 id="抽象类-不能让animals-new-出来-（不知道什么动物是动物）"><a href="#抽象类-不能让animals-new-出来-（不知道什么动物是动物）" class="headerlink" title="抽象类  不能让animals new 出来 （不知道什么动物是动物）"></a>抽象类  不能让animals new 出来 （不知道什么动物是动物）</h2><p><img src="/.io//10.png"><br>抽象方法 必须在子类被实现</p>
+<h1 id="所有类继承了Object"><a href="#所有类继承了Object" class="headerlink" title="所有类继承了Object"></a>所有类继承了Object</h1><h2 id="可以覆盖部分方法，但是部分是final-强烈建议覆盖hashcode-equals-toString"><a href="#可以覆盖部分方法，但是部分是final-强烈建议覆盖hashcode-equals-toString" class="headerlink" title="可以覆盖部分方法，但是部分是final(强烈建议覆盖hashcode equals toString)"></a>可以覆盖部分方法，但是部分是final(强烈建议覆盖hashcode equals toString)</h2><h2 id="不可把所有返回和参数设置成Object"><a href="#不可把所有返回和参数设置成Object" class="headerlink" title="不可把所有返回和参数设置成Object"></a>不可把所有返回和参数设置成Object</h2><p><img src="/.io//11.png"><br>对于Object来说定义出来只能是Object对象</p>
+<p><img src="/.io//12.png"></p>
+<p><img src="/.io//13.png"></p>
+<p><img src="/.io//14.png"></p>
+<h2 id="有些动物想要pets"><a href="#有些动物想要pets" class="headerlink" title="有些动物想要pets"></a>有些动物想要pets</h2><p><img src="/.io//15.png"></p>
+<h2 id="接口类型作为多态-对象可以来自任何实现接口的子类"><a href="#接口类型作为多态-对象可以来自任何实现接口的子类" class="headerlink" title="接口类型作为多态 对象可以来自任何实现接口的子类"></a>接口类型作为多态 对象可以来自任何实现接口的子类</h2><h1 id="构造器和垃圾回收"><a href="#构造器和垃圾回收" class="headerlink" title="构造器和垃圾回收"></a>构造器和垃圾回收</h1><h2 id="只有你什么构造函数都没写的情况下，编译器会写个默认的无参构造"><a href="#只有你什么构造函数都没写的情况下，编译器会写个默认的无参构造" class="headerlink" title="只有你什么构造函数都没写的情况下，编译器会写个默认的无参构造"></a>只有你什么构造函数都没写的情况下，编译器会写个默认的无参构造</h2><h2 id="创建子类对象-也相当于创建出父类对象"><a href="#创建子类对象-也相当于创建出父类对象" class="headerlink" title="创建子类对象 也相当于创建出父类对象"></a>创建子类对象 也相当于创建出父类对象</h2><p> <img src="/.io//16.png"><br> <img src="/.io//17.png"></p>
+<h2 id="如果自己没写-编译器会默认在子类构造函数最前面加上super-构造父类"><a href="#如果自己没写-编译器会默认在子类构造函数最前面加上super-构造父类" class="headerlink" title="如果自己没写 编译器会默认在子类构造函数最前面加上super() 构造父类;"></a>如果自己没写 编译器会默认在子类构造函数最前面加上super() 构造父类;</h2><h2 id="this（）-调用同一类另一个构造函数-和super-不可兼得"><a href="#this（）-调用同一类另一个构造函数-和super-不可兼得" class="headerlink" title="this（） 调用同一类另一个构造函数 和super()不可兼得"></a>this（） 调用同一类另一个构造函数 和super()不可兼得</h2><h1 id="gc回收-对象没被引用"><a href="#gc回收-对象没被引用" class="headerlink" title="gc回收 对象没被引用"></a>gc回收 对象没被引用</h1><h1 id="10-数字局全局"><a href="#10-数字局全局" class="headerlink" title="10 数字局全局"></a>10 数字局全局</h1><h2 id="Math-类-private构造-全是静态方法-不需要也不知道-实例变量值"><a href="#Math-类-private构造-全是静态方法-不需要也不知道-实例变量值" class="headerlink" title="Math 类 private构造 全是静态方法 不需要也不知道 实例变量值"></a>Math 类 private构造 全是静态方法 不需要也不知道 实例变量值</h2><h2 id="同一个类所有实例共享一个静态变量-无对象先初始化"><a href="#同一个类所有实例共享一个静态变量-无对象先初始化" class="headerlink" title="同一个类所有实例共享一个静态变量 无对象先初始化"></a>同一个类所有实例共享一个静态变量 无对象先初始化</h2><p> <img src="/.io//18.png"></p>
+<h2 id="Static-final-是-常量-比如PI"><a href="#Static-final-是-常量-比如PI" class="headerlink" title="Static final 是 常量 比如PI"></a>Static final 是 常量 比如PI</h2><h2 id="final"><a href="#final" class="headerlink" title="final"></a>final</h2><p><img src="/.io//19.png"></p>
+<h1 id="autobox"><a href="#autobox" class="headerlink" title="autobox"></a>autobox</h1><p><img src="/.io//20.png"><br><img src="/.io//21.png"></p>
+<h2 id="String转Primitive"><a href="#String转Primitive" class="headerlink" title="String转Primitive"></a>String转Primitive</h2><p><img src="/.io//22.png"></p>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><h2 id="如果有抛出异常-编译器一定要你处理-除了runtimeexp-一般是逻辑错误"><a href="#如果有抛出异常-编译器一定要你处理-除了runtimeexp-一般是逻辑错误" class="headerlink" title="如果有抛出异常 编译器一定要你处理 除了runtimeexp(一般是逻辑错误)"></a>如果有抛出异常 编译器一定要你处理 除了runtimeexp(一般是逻辑错误)</h2><p><img src="/.io//23.png"></p>
+<h2 id="出现异常-try-直接到catch"><a href="#出现异常-try-直接到catch" class="headerlink" title="出现异常 try 直接到catch"></a>出现异常 try 直接到catch</h2><h2 id="finally-无论怎么样都执行"><a href="#finally-无论怎么样都执行" class="headerlink" title="finally 无论怎么样都执行"></a>finally 无论怎么样都执行</h2><p><img src="/.io//24.png"></p>
+<h2 id="duck-给调用处理"><a href="#duck-给调用处理" class="headerlink" title="duck 给调用处理"></a>duck 给调用处理</h2><p><img src="/.io//25.png"></p>
+<h1 id="Gui"><a href="#Gui" class="headerlink" title="Gui"></a>Gui</h1><h2 id="监听事件源"><a href="#监听事件源" class="headerlink" title="监听事件源"></a>监听事件源</h2><p><img src="/.io//26.png"></p>
+<h2 id="同时监听两件事"><a href="#同时监听两件事" class="headerlink" title="同时监听两件事"></a>同时监听两件事</h2><p>方法1：在方法里查找是哪个事 （用单一的事件处理处理所有事件不太好）<br><img src="/.io//27.png"></p>
+<p>方法2：创建不同的处理事件方法但是不能再一个类里面实现同一个方法两次<br>不同类的话又取不到GUI的对象<br><img src="/.io//28.png"></p>
+<p>内部类解决这个问题<br><img src="/.io//29.png"></p>
+<h1 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h1><h2 id="字节型"><a href="#字节型" class="headerlink" title="字节型"></a>字节型</h2><h3 id="读写"><a href="#读写" class="headerlink" title="读写"></a>读写</h3><p>InputStream 和OutputStream 两个抽象基类</p>
+<p>InputStream i =new FileinputStream<br>OutputStream o =new FileoutputStream</p>
+<p>加上缓存<br>BufferInputSteam b= new BufferInputSteam(new FileinputStream)<br>BufferOutputSteam b= new BufferOutputSteam(new FileinputStream)</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>不同系统换行符不一样<br>‘\r’.getbytes</p>
+<ul>
+<li>windows:\r\n</li>
+<li>linux:\n</li>
+<li>mac:\r</li>
+</ul>
+<h2 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h2><p>为了解析不同地区的文字 ，一个汉字GBK2个字节，utf-8 3个字节<br>将字符编码二进制 要用相同方式解码</p>
+<ul>
+<li>ascill 现代英语 base127字符 扩展256字符</li>
+<li>GBXXX  中文 小于127字符和原来一样 大于127的两个字符连一起就表示一个汉字  ascill 本身有的也重新编成两个字节常 <strong>叫全角字符</strong> 原来127以下哪些就是<strong>半角字符</strong> </li>
+<li>Unicode 任意语言的任意字符 统一码 </li>
+<li>utf-8  表示Unicode 1到4个字节编码<ul>
+<li>127 US-ascill 一个字节编码</li>
+<li>拉丁文 2个</li>
+<li>大部分常用字（中文） 三个</li>
+<li>极少Unicode辅助 4个<br>用什么编码就用什么解码 不然就乱码</li>
+</ul>
+</li>
+</ul>
+<h3 id="读写-1"><a href="#读写-1" class="headerlink" title="读写"></a>读写</h3><p>Reader 和 Writer  抽象基类</p>
+<p>遍写边看的话 需要flush<br>普通读写</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">InputStreamReader</span> inputStreamReader<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">InputStreamReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">"Utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">OutputStreamWriter</span> outputStreamWriter<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">OutputStreamWriter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileoutputStream</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">"Utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+便捷读写  按照默认方式编解码
+<span class="token class-name">InputStreamReader</span> inputStreamReader1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">OutputStreamWriter</span> outputStreamWriter1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">FileWriter</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>缓存读写</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">BufferedReader</span> bufferedReader<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">BufferedReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">BufferedWriter</span> bufferedWriter<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">BufferedWriter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileWriter</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+<h1 id="Swing"><a href="#Swing" class="headerlink" title="Swing"></a>Swing</h1><h2 id="3种风格"><a href="#3种风格" class="headerlink" title="3种风格"></a>3种风格</h2><p><img src="/.io//30.png"></p>
+<h1 id="序列化-文件输入输出"><a href="#序列化-文件输入输出" class="headerlink" title="序列化 文件输入输出"></a>序列化 文件输入输出</h1><h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>步骤<br><img src="/.io//31.png"></p>
+<p>图示<br><img src="/.io//32.png"></p>
+<p>需要被实例化的类 ,需要implements Serializeble(但是不需要实现什么方法)<br>包括里面的要保存的对象.也需要<br><img src="/.io//33.png"></p>
+<p>不能或者 不需要序列化对象 用transient<br><img src="/.io//34.png"></p>
+<h2 id="解序列化"><a href="#解序列化" class="headerlink" title="解序列化"></a>解序列化</h2><p>readObject 读到的对象 需要类型转化<br><img src="/.io//35.png"><br><img src="/.io//36.png"></p>
+<h2 id="写文本"><a href="#写文本" class="headerlink" title="写文本"></a>写文本</h2><p>缓存效率高</p>
+<p><img src="/.io//36.png"><br><img src="/.io//37.png"></p>
+<h2 id="问题-万一序列化之后修改类-怎么办"><a href="#问题-万一序列化之后修改类-怎么办" class="headerlink" title="问题 万一序列化之后修改类 怎么办"></a>问题 万一序列化之后修改类 怎么办</h2><p>versionid 控制<br><img src="/.io//38.png"></p>
+<h1 id="网络和线程"><a href="#网络和线程" class="headerlink" title="网络和线程"></a>网络和线程</h1><p>1-1023<br>1024-65535</p>
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="ServerSock的Backlog是同时能监听的数目-（不包括已接受的）"><a href="#ServerSock的Backlog是同时能监听的数目-（不包括已接受的）" class="headerlink" title="ServerSock的Backlog是同时能监听的数目 （不包括已接受的）"></a>ServerSock的Backlog是同时能监听的数目 （不包括已接受的）</h3><h3 id="基本读图"><a href="#基本读图" class="headerlink" title="基本读图"></a>基本读图</h3><p><img src="/.io//40.png"><br><img src="/.io//39.png"></p>
+<h3 id="基本写图"><a href="#基本写图" class="headerlink" title="基本写图"></a>基本写图</h3><p>因为是写字符串 用PrintWriter<br>上一章 是BufferWriter<br><img src="/.io//41.png"></p>
+<p><img src="/.io//42.png"></p>
+<h3 id="可以用-sock-shutdownOutPut作为结束标识"><a href="#可以用-sock-shutdownOutPut作为结束标识" class="headerlink" title="可以用 sock.shutdownOutPut作为结束标识"></a>可以用 sock.shutdownOutPut作为结束标识</h3><h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h3 id="synchornized"><a href="#synchornized" class="headerlink" title="synchornized"></a>synchornized</h3><ul>
+<li><p>对对象代码块上锁 大家同步用一个obj synchornized（obj){<br>  sdds<br>}</p>
+</li>
+<li><p>对方法上锁（对象是this) </p>
+</li>
+<li><p>对静态方法上锁（ xxx.class)</p>
+</li>
+<li><p>不用vector 而是Collections.synchornizedList(new ArrayList());<br>不用HashTable 而是Collections.synchornizedMap(new HashMap());</p>
+</li>
+</ul>
+<h3 id="Lock-来获得释放锁"><a href="#Lock-来获得释放锁" class="headerlink" title="Lock 来获得释放锁"></a>Lock 来获得释放锁</h3><p>lock.Lock();<br>lock.unLock();</p>
+<h3 id="同步化对象"><a href="#同步化对象" class="headerlink" title="同步化对象"></a>同步化对象</h3><p><img src="/.io//43.png"></p>
+<h3 id="丢失更新"><a href="#丢失更新" class="headerlink" title="丢失更新"></a>丢失更新</h3><p><img src="/.io//44.png"></p>
+<h1 id="集合与泛型"><a href="#集合与泛型" class="headerlink" title="集合与泛型"></a>集合与泛型</h1><h2 id="点歌系统排序-ArrayList-没有sort"><a href="#点歌系统排序-ArrayList-没有sort" class="headerlink" title="点歌系统排序 ArrayList 没有sort"></a>点歌系统排序 ArrayList 没有sort</h2><p>还有其他集合<br><img src="/.io//45.png"></p>
+<p>用Collection.sort() 可以排序ArratList</p>
+<h2 id="Obeject-有toString-方法-可以自己覆盖想要printf-就自己覆盖"><a href="#Obeject-有toString-方法-可以自己覆盖想要printf-就自己覆盖" class="headerlink" title="Obeject 有toString() 方法 可以自己覆盖想要printf 就自己覆盖"></a>Obeject 有toString() 方法 可以自己覆盖想要printf 就自己覆盖</h2><h2 id="想要-sort-SONG-4个String属性"><a href="#想要-sort-SONG-4个String属性" class="headerlink" title="想要 sort SONG(4个String属性)"></a>想要 sort SONG(4个String属性)</h2><p>出错 处理不了 Song的list</p>
+<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><h2 id="Comparator-比较符号"><a href="#Comparator-比较符号" class="headerlink" title="Comparator 比较符号"></a>Comparator 比较符号</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ArtistCompare</span> artistCompare <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArtistCompare</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">ArtistCompare</span>实现了<span class="token function">compare</span><span class="token punctuation">(</span><span class="token class-name">T</span> o1<span class="token punctuation">,</span><span class="token class-name">T</span> o2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>songList<span class="token punctuation">,</span> artistCompare<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="Comparable-使这个对象可比较"><a href="#Comparable-使这个对象可比较" class="headerlink" title="Comparable 使这个对象可比较"></a>Comparable 使这个对象可比较</h2><p>Collections.sort(songlist) 默认用的就是对象的compareto 方法<br><img src="/.io//46.png"></p>
+<p>String 只实现了 Comparable 并没有继承<br>但是对于泛型来说 extend 代表extend 或者Implement<br><img src="/.io//47.png"></p>
+<p>但是对于泛型来说 extend 代表extend 或者Implement<br><img src="/.io//48.png"></p>
+<h2 id="Song-排序实现"><a href="#Song-排序实现" class="headerlink" title="Song 排序实现"></a>Song 排序实现</h2><p>利用其中一个属性排序<br><img src="/.io//49.png"></p>
+<h2 id="还想要通过歌星排序"><a href="#还想要通过歌星排序" class="headerlink" title="还想要通过歌星排序"></a>还想要通过歌星排序</h2><p>查API 还有重载的Sort 版本<br><img src="/.io//50.png"></p>
+<p><img src="/.io//51.png"></p>
+<p>内部类实现<br><img src="/.io//52.png"></p>
+<h2 id="如果有重复的歌名"><a href="#如果有重复的歌名" class="headerlink" title="如果有重复的歌名"></a>如果有重复的歌名</h2><p>Collections是collection的帮助类 静态方法<br>三种Collection(虽然包不在Collection里面)</p>
+<p><img src="/.io//53.png"></p>
+<p>继承和实现 Collections </p>
+<p><img src="/.io//54.png"><br><img src="/.io//55.png"></p>
+<h2 id="Set-之中怎么算两元素相等"><a href="#Set-之中怎么算两元素相等" class="headerlink" title="Set 之中怎么算两元素相等"></a>Set 之中怎么算两元素相等</h2><p>两种相等 引用相等  hashCode 没覆盖就是根据对象内存地址算</p>
+<p>hashSet 中加入元素时先计算hashCode 不相等就加入 相等在计算euqals</p>
+<p>同样利用hashcode 存取元素<br><img src="/.io//56.png"><br>String 的hashCode 覆盖过 值相等 hashCode会相等</p>
+<h2 id="equals-hashCode-规定"><a href="#equals-hashCode-规定" class="headerlink" title="equals hashCode 规定"></a>equals hashCode 规定</h2><p>两对象equals hashCode 一定相等 反之不一定</p>
+<h2 id="TreeSet-加入元素会默认通过compareTo-排序-或者comparator"><a href="#TreeSet-加入元素会默认通过compareTo-排序-或者comparator" class="headerlink" title="TreeSet 加入元素会默认通过compareTo()排序 或者comparator"></a>TreeSet 加入元素会默认通过compareTo()排序 或者comparator</h2><p><font color="red" size="5"><strong>注意TreeSet 是通过compareTo()排序 或者comparator判断重复的 而不是hashcode 和equals</strong></font></p>
+<h2 id="对于Arraylist参数-不能用Arraylist代替-和数组的安全检查时间不一样"><a href="#对于Arraylist参数-不能用Arraylist代替-和数组的安全检查时间不一样" class="headerlink" title="对于Arraylist参数 不能用Arraylist代替 和数组的安全检查时间不一样"></a>对于Arraylist<animals>参数 不能用Arraylist<dogs>代替 和数组的安全检查时间不一样</dogs></animals></h2><p>理由如下<br><img src="/.io//57.png"><br>数组是运行错误<br><img src="/.io//58.png"></p>
+<h2 id="用万用字符（一种泛型）-会阻止破坏集合的操作"><a href="#用万用字符（一种泛型）-会阻止破坏集合的操作" class="headerlink" title="用万用字符（一种泛型） 会阻止破坏集合的操作"></a>用万用字符（一种泛型） 会阻止破坏集合的操作</h2><p><img src="/.io//59.png"><br><img src="/.io//60.png"></p>
+<h1 id="发布程序"><a href="#发布程序" class="headerlink" title="发布程序"></a>发布程序</h1><h2 id="几种方式"><a href="#几种方式" class="headerlink" title="几种方式"></a>几种方式</h2><p><img src="/.io//62.png"></p>
+<h2 id="JAR-一组类文件包装起来"><a href="#JAR-一组类文件包装起来" class="headerlink" title="JAR 一组类文件包装起来"></a>JAR 一组类文件包装起来</h2><h3 id="执行JAR-java虚拟机能从JAR中找到main"><a href="#执行JAR-java虚拟机能从JAR中找到main" class="headerlink" title="执行JAR java虚拟机能从JAR中找到main"></a>执行JAR java虚拟机能从JAR中找到main</h3><p><img src="/.io//61.png"></p>
+<h3 id="包防止类冲突-编译执行"><a href="#包防止类冲突-编译执行" class="headerlink" title="包防止类冲突 编译执行"></a>包防止类冲突 编译执行</h3><p><img src="/.io//64.png"></p>
+<h2 id="JAVA-web-Start"><a href="#JAVA-web-Start" class="headerlink" title="JAVA web Start"></a>JAVA web Start</h2><p><img src="/.io//65.png"></p>
+<h1 id="RMI-Remote-Method-Innovacation-远程程序"><a href="#RMI-Remote-Method-Innovacation-远程程序" class="headerlink" title="RMI (Remote Method Innovacation) 远程程序"></a>RMI (Remote Method Innovacation) 远程程序</h1><p>目的想要取得其他电脑java虚拟机的对象<br><img src="/.io//66.png"></p>
+<h2 id="servlet"><a href="#servlet" class="headerlink" title="servlet"></a>servlet</h2><p>请求步骤<br><img src="/.io//67.png"><br>编写步骤<br><img src="/.io//68.png"></p>
+<h2 id="JINI-找接口"><a href="#JINI-找接口" class="headerlink" title="JINI  找接口"></a>JINI  找接口</h2><p>自适应探索<br>自恢复网络</p>
+<h1 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h1><h2 id="String-的不变性-包装类的不变性"><a href="#String-的不变性-包装类的不变性" class="headerlink" title="String 的不变性 包装类的不变性"></a>String 的不变性 包装类的不变性</h2><p><img src="/.io//69.png"></p>
+<h2 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h2><h2 id="静态嵌套类"><a href="#静态嵌套类" class="headerlink" title="静态嵌套类"></a>静态嵌套类</h2><p><img src="/.io//70.png"></p>
+<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><p><img src="/.io//71.png"></p>
+<h2 id="enum"><a href="#enum" class="headerlink" title="enum"></a>enum</h2><p><img src="/.io//72.png"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Scorpin Xia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://scorpinxia.github.io/2020/03/20/head-java-first/">https://scorpinxia.github.io/2020/03/20/head-java-first/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Scorpin Xia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%87%AA%E5%AD%A6/">
+                                    <span class="chip bg-color">自学</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '58EYV7U0vnoRDUeuKYjp2DTS-MdYXbMMI',
+        appKey: 'znFL8xQjdx6gKxc7f0juTPNF',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '献上你的评论把'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/04/06/head-mysql/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="head-MYSQL">
+                        
+                        <span class="card-title">head-MYSQL</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/SQL/" class="post-category">
+                                    SQL
+                                </a>
+                            
+                            <a href="/categories/SQL/Base/" class="post-category">
+                                    Base
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%87%AA%E5%AD%A6/">
+                        <span class="chip bg-color">自学</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/03/16/java-base-day2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Java-interview-day1">
+                        
+                        <span class="card-title">Java-interview-day1</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JAVA/" class="post-category">
+                                    JAVA
+                                </a>
+                            
+                            <a href="/categories/JAVA/interview/" class="post-category">
+                                    interview
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%87%AA%E5%AD%A6/">
+                        <span class="chip bg-color">自学</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('6'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Scorpin Xia</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/scorpinxia" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1044883523@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1044883523" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1044883523" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

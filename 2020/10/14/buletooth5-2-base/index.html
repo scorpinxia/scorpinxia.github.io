@@ -1,0 +1,1729 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="buletooth5.2-base, Wibur&#39;s Blog">
+    <meta name="description" content="scorpionxia@foxmail.com">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>buletooth5.2-base | Wibur&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Wibur&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Wibur&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            scorpionxia@foxmail.com
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">buletooth5.2-base</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+	
+	#toc-content {
+		height: calc(100vh - 250px);
+		overflow: scroll;
+	}
+	
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+	
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%87%AA%E5%AD%A6/">
+                                <span class="chip bg-color">自学</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Buletooth/" class="post-category">
+                                Buletooth
+                            </a>
+                        
+                            <a href="/categories/Buletooth/EDR/" class="post-category">
+                                EDR
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-10-14
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Different-Core"><a href="#Different-Core" class="headerlink" title="Different Core"></a>Different Core</h1><p><img src="/.io//1.png"></p>
+<h1 id="Rate-Core-EDR"><a href="#Rate-Core-EDR" class="headerlink" title="Rate Core EDR"></a>Rate Core EDR</h1><p><img src="/.io//2.png"></p>
+<h1 id="总体描述"><a href="#总体描述" class="headerlink" title="总体描述"></a>总体描述</h1><p><img src="/.io//3.gif"></p>
+<blockquote>
+<p>两种形式 BR(basic rate) 和 LE(low energy)</p>
+</blockquote>
+<p>频率范围是2.400-2.4835 GHz。</p>
+<ul>
+<li>basic Rate <ul>
+<li>BR 721.2kb/s</li>
+<li>EDR 2.1Mb/s</li>
+<li>802.11amp 54mb/s</li>
+</ul>
+</li>
+<li>LE<ul>
+<li>2m/s phy</li>
+<li>等时连接 和 无连接 等时传输</li>
+</ul>
+</li>
+</ul>
+<h1 id="BR-EDR"><a href="#BR-EDR" class="headerlink" title="BR/EDR"></a>BR/EDR</h1><p>跳频收发，多个调频载波</p>
+<h1 id="BR-EDR-generic-packet-structure"><a href="#BR-EDR-generic-packet-structure" class="headerlink" title="BR/EDR generic packet structure"></a>BR/EDR generic packet structure</h1><p><img src="/.io//3.png"></p>
+<ul>
+<li><strong>Channel access code</strong>: 所有包都有。这用于识别特定物理信道上的通信，并排除或忽略不同物理信道上碰巧使用物理邻近的相同射频载波的数据包。</li>
+<li><strong>Packet Header</strong>: 大多数包有。BR/EDR数据包结构中没有直接表示或包含与物理链路相关的信息的字段。该信息由包头中携带的逻辑传输地址(LT_ADDR)和信道接入码(CAC)的组合所隐含。BR/EDR数据包报头还携带部分链路控制(LC)协议，该协议在每个逻辑传输上运行(除了在每个逻辑传输上运行共享LC协议的ACL和SCO传输)。</li>
+</ul>
+<ul>
+<li><p><strong>GI or SYNC</strong>：增强数据速率(EDR)分组在有效载荷之前具有保护时间和同步序列。这是用于调制方案的物理层改变的字段。</p>
+</li>
+<li><p><strong>The payload header</strong>：有效负载报头存在于支持多个逻辑链路的逻辑传输上的所有数据包中。有效载荷报头包括用于路由有效载荷的逻辑链路标识符字段，以及指示有效载荷主体长度的字段。一些包类型还在包有效载荷的末尾包括一个循环冗余校验，用于检测接收到的包中的大多数错误。当AES-CCM加密启用时，ACL数据包在循环冗余校验之前包含一个消息完整性检查(MIC)。 EDR数据包在循环冗余校验后有一个尾部。</p>
+</li>
+<li><p> <strong>payload body</strong> ：用于传输用户数据。该数据的解释取决于逻辑传输和逻辑链路标识符。对于ACL逻辑传输，链路管理器协议(LMP)消息和L2CAP信号与来自应用程序的一般用户数据一起在数据包有效负载主体中传输。</p>
+</li>
+</ul>
+<h1 id="BR-EDR-physical-channels"><a href="#BR-EDR-physical-channels" class="headerlink" title="BR/EDR physical channels"></a>BR/EDR physical channels</h1><p>在BR/EDR核心系统中，对等设备使用共享物理信道进行通信。为了实现这一点，它们的收发器需要同时调谐到相同的PHY频率，并且它们需要在彼此的标称范围内。</p>
+<ul>
+<li><p>其中两个物理通道：the basic piconet channel and adapted piconet channel，用于连接的设备之间的通信，并且与特定的微微网相关联。</p>
+</li>
+<li><p>其他BR/EDR物理信道用于发现(查询扫描信道)和连接(寻呼扫描信道)蓝牙设备。设备使用同步扫描物理信道来获得关于无连接从属广播物理链路的定时和频率信息，或者恢复当前微微网时钟</p>
+</li>
+<li><p>蓝牙设备在任何给定时间只能使用一个蓝牙/EDR物理信道。为了支持多个并发操作，该器件在通道之间使用时分复用。这样，蓝牙设备似乎在几个微微网中同时工作，并且是可发现和可连接的。</p>
+</li>
+<li><p>每当蓝牙设备与物理信道的定时、频率和接入码同步时，它就被称为“连接”到该信道(无论它是否主动参与信道上的通信)。蓝牙规范假设设备在任何时候都只能连接到一个物理信道。高级设备可能能够同时连接到一个以上的物理通道，但规范并不认为这是可能的</p>
+</li>
+</ul>
+<h2 id="basic-piconet-channel"><a href="#basic-piconet-channel" class="headerlink" title="basic piconet channel"></a>basic piconet channel</h2><ul>
+<li><p>基本微微网信道用于正常操作期间连接的设备之间的通信</p>
+</li>
+<li><p>基本微微网信道的特征在于通过PHY信道跳跃的伪随机序列。跳跃序列对于微微网是唯一的，并且由主设备的蓝牙设备地址确定。跳频序列中的相位由主机的蓝牙时钟决定。所有参与微微网的蓝牙设备都与信道在时间和空间上同步。</p>
+</li>
+<li><p>信道被分成时隙，其中每个时隙对应于一个PHY跳频。连续跳跃对应于不同的PHY跳跃频率。时隙根据微微网主设备的蓝牙时钟进行编号。分组由参与微微网的蓝牙设备发送，该微微网排列成从时隙边界开始。每个包以信道接入码开始，信道接入码来自微微网主设备的蓝牙设备地址。</p>
+</li>
+<li><p>基本微微网信道可以由任意数量的蓝牙设备共享，仅受微微网主设备上可用资源的限制。只有一个设备是微微网主设备，所有其他设备都是微微网从设备。所有通信都在主设备和从设备之间进行。微微网信道上的从属设备之间没有直接通信。然而，微微网内可以支持的逻辑传输的数量是有限制的。这意味着，虽然共享一个信道的蓝牙设备的数量没有理论上的限制，但是可以主动参与与主设备交换数据的这些设备的数量是有限的。</p>
+</li>
+</ul>
+<h2 id="Adapted-piconet-channel"><a href="#Adapted-piconet-channel" class="headerlink" title="Adapted piconet channel"></a>Adapted piconet channel</h2><p>适配的微微网信道在两个方面不同于基本微微网信道。首先，从机发射的频率与它的主机在前一次发射中使用的频率相同。换句话说，频率不会在主数据包和后续从数据包之间重新计算。第二，适配的微微网信道可以基于少于全部79个频率。许多频率可以通过被标记为“未使用”而被排除在跳跃模式之外。其余79个频率包括在内。这两个序列是相同的，除了每当基本伪随机跳频序列选择一个未使用的频率时，它被从已使用的集合中选择的一个替代所代替。所使用的频率集合可以在相同的适配微微网信道上的不同物理链路之间变化。</p>
+<h2 id="Inquiry-scan-channel"><a href="#Inquiry-scan-channel" class="headerlink" title="Inquiry scan channel"></a>Inquiry scan channel</h2><p>为了发现设备，使用了查询扫描通道。可发现设备在其查询扫描通道上监听查询请求，然后发送对该请求的响应。为了让设备发现其他设备，它以伪随机方式迭代(跳跃)所有可能的查询扫描信道频率，在每个频率上发送查询请求并监听任何响应。</p>
+<blockquote>
+<p>调频 慢<br>并使用接入码来区分使用不同物理信道的两个共处一地的设备偶尔占用相同的射频。</p>
+</blockquote>
+<h2 id="Page-scan-channel"><a href="#Page-scan-channel" class="headerlink" title="Page scan channel"></a>Page scan channel</h2><p>寻呼扫描信道使用从扫描设备的蓝牙设备地址导出的访问码来识别信道上的通信。寻呼扫描信道使用比基本和适配微微网信道的跳频速率更慢的跳频速率。跳跃选择算法使用扫描设备的蓝牙设备时钟作为输入。</p>
+<blockquote>
+<p>使用其寻呼扫描信道的设备保持被动，直到它从另一个蓝牙设备接收到寻呼请求。这由页面扫描通道访问码来识别。然后，这两个设备将按照页面过程建立连接。寻呼过程成功结束后，两个设备都切换到基本微微网信道，其特征是寻呼设备为主设备。</p>
+</blockquote>
+<h1 id="Commnnications"><a href="#Commnnications" class="headerlink" title="Commnnications"></a>Commnnications</h1><h2 id="PICONET-topology"><a href="#PICONET-topology" class="headerlink" title="PICONET topology"></a>PICONET topology</h2><p>任何时候使用蓝牙/EDR控制器创建链路，它都在微微网的上下文中。每条链路连接两个设备，称为“主设备”和“从设备”。<strong>微微网由单个主设备(称为微微网的主设备)和链接到它的所有从设备(称为微微网中的从设备)组成</strong>。连接的BR/EDR设备通过与公共时钟同步和跳频序列在同一物理信道上通信。公共(微微网)时钟与微微网的主设备的蓝牙时钟相同，并且跳跃序列是从主设备的时钟和主设备的蓝牙设备地址导出的(不同的跳跃序列可以用于不同的从设备)。</p>
+<p><img src="/.io//4.png"></p>
+<blockquote>
+<p>展示了一个示例拓扑，展示了下面描述的许多体系结构特性。设备A是以设备B、C、D、E为从的微微网中的主设备(用阴影区表示，称为微微网A)。示出了另外三个微微网:a)一个以设备F为主设备(称为微微网F)和设备E、G、H为从设备的微微网，b)一个以设备D为主设备(称为微微网D)和设备J为从设备的微微网，以及c)一个以设备M为主设备(称为微微网M)和设备E为从设备、多个设备N为从设备的微微网。</p>
+</blockquote>
+<blockquote>
+<p>在微微网A中有两个物理信道。设备B和C使用基本微微网物理信道(由蓝色外壳表示)，因为它们不支持自适应跳频。设备D和E能够支持自适应跳频，并且正在使用自适应微微网物理信道(由红色外壳表示)。设备A能够自适应跳频，并根据哪个从设备被寻址，在两个物理信道上以时分复用为基础工作。</p>
+</blockquote>
+<blockquote>
+<p>微微网D和微微网F都只使用一个基本的微微网物理信道(分别由青色和品红色外壳表示)。在微微网D的情况下，这是因为设备J不支持自适应跳频模式。虽然设备D支持自适应跳频，但它不能在这个微微网中使用它。在微微网F中，设备F不支持自适应跳频，因此不能在这个微微网中使用。</p>
+</blockquote>
+<blockquote>
+<p>微微网M(由橙色外壳表示)使用自适应微微网物理信道上的无连接从属广播物理链路向包括E和N在内的许多从属设备发送简档广播数据</p>
+</blockquote>
+<blockquote>
+<p>设备K显示在与其他设备相同的位置。它目前不是微微网的成员，但它向其他蓝牙设备提供服务。它当前正在侦听其查询扫描物理通道(由绿色外壳表示)，等待来自另一个设备的查询请求。</p>
+</blockquote>
+<blockquote>
+<p>设备L显示在与其他设备相同的位置。它当前不是微微网的成员，但是当前正在监听它的同步扫描物理信道(由棕色外壳表示)，等待来自另一个设备的同步训练。</p>
+</blockquote>
+<h2 id="OPERATIONAL-PROCEDURES-AND-MODES"><a href="#OPERATIONAL-PROCEDURES-AND-MODES" class="headerlink" title="OPERATIONAL PROCEDURES AND MODES"></a>OPERATIONAL PROCEDURES AND MODES</h2><blockquote>
+<p>蓝牙设备的典型操作模式是连接到其他蓝牙设备(在微微网中)，并与这些蓝牙设备交换数据。由于蓝牙是一种自组织无线通信技术，因此有许多操作过程可以形成微微网，以便进行后续通信。过程和模式应用于体系结构中的不同层，因此设备可以同时参与多个这些过程和模式。</p>
+</blockquote>
+<h3 id="Inquiry-discovering-procedure"><a href="#Inquiry-discovering-procedure" class="headerlink" title="Inquiry (discovering) procedure"></a>Inquiry (discovering) procedure</h3><blockquote>
+<p>蓝牙设备使用查询过程来发现附近的设备，或者被其本地的设备发现。调查程序是不对称的。试图找到附近其他设备的蓝牙设备被称为查询设备，并主动发送查询请求。可被发现的蓝牙设备被称为可发现设备，并监听这些查询请求并发送响应。查询过程为查询请求和响应使用特殊的物理通道。查询设备和可发现设备都可能已经连接到微微网中的其他蓝牙设备。任何花费在查询或占用查询扫描物理信道上的时间都需要与现有逻辑传输上的服务质量承诺的需求相平衡。尽管在查询和查询响应信息的交换过程中可能会考虑存在一个临时物理链路，但是查询过程并不使用物理信道之上的任何体系结构层。</p>
+</blockquote>
+<h3 id="Paging-connecting-procedure"><a href="#Paging-connecting-procedure" class="headerlink" title="Paging (connecting) procedure"></a>Paging (connecting) procedure</h3><p>用于形成连接的过程是非对称的，并且要求一个蓝牙设备执行寻呼(连接)过程，而另一个蓝牙设备是可连接的(寻呼扫描)。该过程是有针对性的，因此寻呼过程仅由一个指定的蓝牙设备响应。</p>
+<h3 id="Connected-mode"><a href="#Connected-mode" class="headerlink" title="Connected mode"></a>Connected mode</h3><p>通过BR/EDR控制器成功连接后，两个设备都连接到一个微微网物理信道，设备之间有一条物理链路，并且有默认的ACL-C、ACL-U、ASBC和ASB-U逻辑链路。其中两条链路(ACL-C和ASB-C)传输LMP控制协议，对于链路管理器上面的层是不可见的。ACL-U链路传输L2CAP信令协议和任何多路复用的L2CAP尽力而为信道。ASB-U链路传输广播给微微网上所有从站的L2CAP信道。通常指的是默认的ACL逻辑传输，可以通过上下文来解析，但通常指的是默认的ACL-U逻辑链路。</p>
+<h1 id="BR-EDR-Controller"><a href="#BR-EDR-Controller" class="headerlink" title="BR/EDR Controller"></a>BR/EDR Controller</h1><h2 id="SCOPE"><a href="#SCOPE" class="headerlink" title="SCOPE"></a>SCOPE</h2><blockquote>
+<p>蓝牙设备工作在未经许可的2.4 GHz ISM(工业科学医学)频段。跳频收发器用于对抗干扰和衰落。定义了两种调制模式。一种强制模式，称为基本速率，使用整形的二进制调频调制来最小化收发器的复杂性。一种称为增强数据速率的可选模式使用PSK调制，有两种变体:π/4-DQPSK和8DPSK。所有调制模式的符号速率为1兆字节/秒。基本速率的总空中数据速率为1兆字节/秒，使用8DPSK的增强数据速率为2兆字节/秒，使用8DPSK的增强数据速率为3兆字节/秒。</p>
+</blockquote>
+<blockquote>
+<p>两种模式都使用时分双工(TDD)方案。该规范定义了蓝牙无线电对基本速率和增强数据速率模式的要求。</p>
+</blockquote>
+<h2 id="Fre"><a href="#Fre" class="headerlink" title="Fre"></a>Fre</h2><p><img src="/.io//5.png"></p>
+<h2 id="BR"><a href="#BR" class="headerlink" title="BR"></a>BR</h2><h3 id="modulation-characteristics"><a href="#modulation-characteristics" class="headerlink" title="modulation characteristics"></a>modulation characteristics</h3><blockquote>
+<p>FSK调制是载波的频率随信息符号成正比的一种调制方式，当发送信息符号1时发射频率向上搬移fdHz，当发送信息符号-1时发射频率向下搬移fdHz。频率的突发切换会引起较大的带外频谱旁瓣，为了减小瞬时相变进而减小带外辐射一般将信息符号先预调制滤波器再进行频率调制。<br><img src="/.io//6.png"></p>
+</blockquote>
+<p><img src="/.io//7.png"></p>
+<blockquote>
+<p>调制是GFSK(高斯频移键控)，带宽比特周期乘积BT=0.5。调制指数应在0.28和0.35之间。二进制1应由正频率偏差表示，二进制0应由负频率偏差表示。符号定时应小于20 ppm。</p>
+</blockquote>
+<blockquote>
+<p>对于蓝牙协议，调制指数在0.28-0.35之间， 据上面公式可以求出其峰值频率偏移在140kHz到175kHz之间。调制指数反映了一个比特时间内允许的相位变化量。</p>
+</blockquote>
+<blockquote>
+<p>不考虑调制成型滤波器情况下，可以看出当调制指数为0.5时，一个码元符号信号相位变化pi/2；当调制指数为1时，一个码元符号信号相位变化pi。<br><img src="/.io//8.png"></p>
+</blockquote>
+<h3 id="数据包的最大频偏"><a href="#数据包的最大频偏" class="headerlink" title="数据包的最大频偏"></a>数据包的最大频偏</h3><p><img src="/.io//9.png"></p>
+<h2 id="EDR"><a href="#EDR" class="headerlink" title="EDR"></a>EDR</h2><blockquote>
+<p>增强数据速率模式的一个关键特征是数据包中的调制模式发生了变化。[第二卷]第二部分第6.1节中定义的接入码和数据包报头以1兆字节/秒的基本速率传输。GFSK调制模式，而后续的同步序列、有效载荷和尾部序列使用增强数据速率PSK调制模式传输。</p>
+</blockquote>
+<h3 id="modulation-characteristics-1"><a href="#modulation-characteristics-1" class="headerlink" title="modulation characteristics"></a>modulation characteristics</h3><blockquote>
+<p>在接入码和包头传输期间，应使用基本速率GFSK调制模式。在同步序列、有效载荷和尾部序列的传输过程中，应使用数据速率为2 Mb/s或可选的3 Mb/s的PSK型调制。以下小节说明了该传输的PSK调制。</p>
+</blockquote>
+<blockquote>
+<p>为2 Mb/s传输定义的PSK调制格式应为π/4旋转差分编码四进制相移键控(π/4-DQPSK)。为3 Mb/s传输定义的PSK调制格式应为差分编码8进制相移键控(8DPSK)。调制应采用平方根升余弦脉冲整形，以产生等效的低通信息承载信号v(t)。变送器的输出应为带通信号，可表示为<br><img src="/.io//10.png"></p>
+</blockquote>
+<h4 id="Diff-phase"><a href="#Diff-phase" class="headerlink" title="Diff phase"></a>Diff phase</h4><blockquote>
+<p>对于M进制调制，二进制数据流{bn}，n=1，2，3，…N，应映射到相应的复值信号点序列{Sk}，k=1，2，…N/log2(M)。M=4适用于2 Mb/s，M=8适用于3 Mb/s。如表3.4和表3.5所示，应采用灰色编码。如果二进制数据流的长度N不是log2(M)的整数倍，则序列{Sk}的最后一个符号应通过在适当的长度上附加数据零来形成。信号点Sk应由下式定义:<br><img src="/.io//11.png"></p>
+</blockquote>
+<blockquote>
+<p>对于2 Mb/s传输，二进制输入bk和相位φk之间的关系应在表3.4中定义，对于3 Mb/s传输，在表3.5中定义。<br><img src="/.io//12.png"></p>
+</blockquote>
+<h4 id="pulse"><a href="#pulse" class="headerlink" title="pulse"></a>pulse</h4><blockquote>
+<p>低通等效信息承载信号v(t)应根据下式产生<br><img src="/.io//13.png"><br>其中符号周期T应为1秒</p>
+</blockquote>
+<blockquote>
+<p>对应于脉冲整形滤波器的平方根升余弦脉冲p(t)的频谱P(f)为:<br><img src="/.io//14.png"></p>
+</blockquote>
+<h4 id="ACC-RMD-DEVM"><a href="#ACC-RMD-DEVM" class="headerlink" title="ACC (RMD DEVM )"></a>ACC (RMD DEVM )</h4><blockquote>
+<p>调制精度的测量利用跟踪载波频率漂移的差分误差矢量幅度(DEVM)。附录C给出了DEVM的定义以及DEVM均方根和峰值测量的推导</p>
+</blockquote>
+<blockquote>
+<p>DEVM应在同步序列和数据包的有效载荷部分进行测量，而不是在尾部符号进行测量。对于每个调制方法和每个测量载波频率，DEVM测量在总共200个不重叠的块上进行，其中每个块包含50个符号。</p>
+</blockquote>
+<blockquote>
+<p>根据[第二卷]第二部分第6.9节和[第二卷]第二部分第6.10节的定义，传输的数据包应为每种调制方法支持的最长数据包类型。</p>
+</blockquote>
+<blockquote>
+<p>DEVM是用平方根升余弦滤波器测量的，滚降为0.4，3 dB带宽为500千赫。</p>
+</blockquote>
+<ul>
+<li>RMS DEVM<br>对于π/4-DQPSK，任何测量块的均方根DEVM不得超过0.20，对于8DPSK，不得超过0.13。</li>
+<li>99% DEVM<br>99% DEVM(定义为99%测量符号的DEVM值较低的DEVM值)对于π/4-DQPSK不得超过0.30，对于8DPSK不得超过0.20。</li>
+<li>Peak DEVM<br>π/4-DQPSK的峰值DEVM不得超过0.35，8DPSK不得超过0.25。</li>
+</ul>
+<h4 id="发送频谱"><a href="#发送频谱" class="headerlink" title="发送频谱"></a>发送频谱</h4><p><img src="/.io//15.png"></p>
+<h4 id="频率误差容忍"><a href="#频率误差容忍" class="headerlink" title="频率误差容忍"></a>频率误差容忍</h4><p><img src="/.io//16.png"></p>
+<h4 id="APPENDIX-C-估计差分机的感知误差（DEVM）"><a href="#APPENDIX-C-估计差分机的感知误差（DEVM）" class="headerlink" title="APPENDIX C 估计差分机的感知误差（DEVM）"></a>APPENDIX C 估计差分机的感知误差（DEVM）</h4><p><img src="/.io//17.png"></p>
+<blockquote>
+<p>接受估计DEVM<br><img src="/.io//18.png"></p>
+</blockquote>
+<blockquote>
+<p>RMS DEVM<br><img src="/.io//19.png"></p>
+</blockquote>
+<blockquote>
+<p>PEAK DEVM<br><img src="/.io//20.png"></p>
+</blockquote>
+<h1 id="Baseband-Specifcation"><a href="#Baseband-Specifcation" class="headerlink" title="Baseband Specifcation"></a>Baseband Specifcation</h1><h2 id="General-Description-包头"><a href="#General-Description-包头" class="headerlink" title="General Description (包头)"></a>General Description (包头)</h2><blockquote>
+<p>BR<br><img src="/.io//21.png"></p>
+</blockquote>
+<blockquote>
+<p>EDR<br><img src="/.io//22.png"></p>
+</blockquote>
+<h3 id="BLUETOOTH-CLOCK"><a href="#BLUETOOTH-CLOCK" class="headerlink" title="BLUETOOTH CLOCK"></a>BLUETOOTH CLOCK</h3><blockquote>
+<p>每个蓝牙设备都应该有一个本机时钟，该时钟应该来自自由运行的参考时钟。可以向参考时钟添加偏移，以使本机时钟与其他非蓝牙系统同步。为了与其他蓝牙设备同步，使用了偏移，当将其添加到本机时钟时，提供相互同步的临时蓝牙时钟。需要注意的是，蓝牙时钟和一天中的时间没有关系；因此，它可以被初始化为任何值。这个钟大约有一天的周期。如果时钟是用计数器实现的，则需要一个28位的计数器，该计数器应该以228-1的速度循环。最低有效位(LSB)应以312.5 μs为单位(即半个时隙)，时钟速率为3.2千赫。</p>
+</blockquote>
+<p><img src="/.io//23.png"></p>
+<blockquote>
+<p>蓝牙系统中有四个重要的周期:312.5 μs、625 μs、1.25 ms、1.28s；这些周期分别对应于定时器位CLK0、CLK1、CLK2和CLK12，</p>
+</blockquote>
+<h3 id="蓝牙设备寻址"><a href="#蓝牙设备寻址" class="headerlink" title="蓝牙设备寻址"></a>蓝牙设备寻址</h3><blockquote>
+<p>蓝牙设备寻址应为每个蓝牙设备分配一个唯一的48位蓝牙设备地址(ADDR)。该地址应为根据第8.2节(“通用地址”)创建的48位扩展唯一标识符(EUI-48)。</p>
+</blockquote>
+<p><img src="/.io//24.png"></p>
+<h3 id="ACCESS-CODES"><a href="#ACCESS-CODES" class="headerlink" title="ACCESS CODES"></a>ACCESS CODES</h3><blockquote>
+<p>在蓝牙系统中，物理信道上的所有传输都以接入码开始。<br>定义了三种不同的访问代码，</p>
+</blockquote>
+<ul>
+<li>DAC设备访问代码、</li>
+<li>CAC通道访问代码、</li>
+<li>IAC查询访问代码</li>
+</ul>
+<h2 id="PHYSICAL-CHANNEL"><a href="#PHYSICAL-CHANNEL" class="headerlink" title="PHYSICAL CHANNEL"></a>PHYSICAL CHANNEL</h2><blockquote>
+<p>主设备和从设备交替传输时，使用时分双工方案，见图2.1。数据包开始应与插槽开始对齐。数据包可能会超过五个时隙。<br><img src="/.io//25.png"></p>
+</blockquote>
+<h1 id="GENERAL-FORMAT"><a href="#GENERAL-FORMAT" class="headerlink" title="GENERAL FORMAT"></a>GENERAL FORMAT</h1><h2 id="BR-1"><a href="#BR-1" class="headerlink" title="BR"></a>BR</h2><blockquote>
+<p>访问码是72或68位，报头是54位。有效载荷范围从零到最大2790位。定义了不同的数据包类型。一个数据包可能只包含:缩短的接入码(参见6.5.1.1部分)、接入码和包头、接入码、包头和有效载荷。<br><img src="/.io//26.png"></p>
+</blockquote>
+<h2 id="EDR-1"><a href="#EDR-1" class="headerlink" title="EDR"></a>EDR</h2><blockquote>
+<p>接入码和包报头在格式和调制方面与基本速率包相同。增强数据速率数据包在包头后有一个保护时间和同步序列。有效载荷后面是两个尾部符号。第6.6节中定义了保护时间、同步序列和拖车。<br><img src="/.io//27.png"></p>
+</blockquote>
+<h2 id="位序"><a href="#位序" class="headerlink" title="位序"></a>位序</h2><p>X=3 b0b1b2=110</p>
+<h2 id="ACESS-CODE"><a href="#ACESS-CODE" class="headerlink" title="ACESS CODE"></a>ACESS CODE</h2><blockquote>
+<p>每个包都以一个访问码开始。如果有一个包头，访问码是72位长，否则访问码是68位长，被称为缩短访问码。缩短的访问代码不包含尾部。该接入码用于同步、DC偏移补偿和识别。访问码标识物理信道上交换的所有数据包:在同一物理信道上发送的所有数据包前面都有相同的访问码。在该设备的接收机中，滑动相关器与接入码相关，并在超过阈值时触发。该触发信号用于确定接收时序。缩短的访问码用于寻呼和查询。在这种情况下，接入码本身被用作信令消息，并且既不存在报头也不存在有效载荷。<br><img src="/.io//28.png"></p>
+</blockquote>
+<blockquote>
+<p>CAC由前导码、同步字和尾部组成，总长度为72位。当用作没有报头的独立消息时，DAC和IAC不包括尾部位，长度为68位。</p>
+</blockquote>
+<blockquote>
+<p>types<br><img src="/.io//29.png"></p>
+</blockquote>
+<blockquote>
+</blockquote>
+<h2 id="同步字"><a href="#同步字" class="headerlink" title="同步字"></a>同步字</h2><blockquote>
+<p>同步字是基于一个(64，30)删除的分组码和一个64位全长度伪随机噪声序列的叠加(逐位异或)。删除代码保证了基于不同地址的同步字之间的大汉明距离()。PN序列改善了接入码的自相关特性。以下步骤描述了同步字的生成方式:</p>
+</blockquote>
+<ol>
+<li>Generate information sequence;</li>
+<li> XOR this with the “information covering” part of the PN overlay<br>sequence;</li>
+<li> Generate the codeword;</li>
+<li> XOR the codeword with all 64 bits of the PN overlay sequence;</li>
+</ol>
+<p><img src="/.io//30.png"></p>
+<h3 id="伪随机噪声序列生成"><a href="#伪随机噪声序列生成" class="headerlink" title="伪随机噪声序列生成"></a>伪随机噪声序列生成</h3><h2 id="包头"><a href="#包头" class="headerlink" title="包头"></a>包头</h2><p><img src="/.io//31.png"></p>
+<blockquote>
+<p>包括HEC在内的总报头由18位组成，见图6.8，并以1/3的前向纠错率(未显示，但在第7.4节中有描述)进行编码，产生54位报头。LT_ADDR和类型字段应首先发送LSB。</p>
+</blockquote>
+<h1 id="playload-format"><a href="#playload-format" class="headerlink" title="playload format"></a>playload format</h1><blockquote>
+<p>在有效载荷中，区分了两个字段:同步数据字段和异步数据字段。ACL数据包只有异步数据</p>
+</blockquote>
+<blockquote>
+<p>在仅在基本速率模式下受支持的SCO中，同步数据字段具有固定长度，仅由同步数据主体部分组成。没有有效负载标头。在基本速率电子稳定控制系统中，同步数据字段由两部分组成:同步数据体和循环冗余码。没有有效负载标头。在增强型数据速率电子稳定控制系统中，同步数据字段由五个部分组成:保护时间、同步序列、同步数据体、循环冗余码和尾部。没有有效负载标头。</p>
+</blockquote>
+<blockquote>
+<p>1.增强的数据速率保护时间。对于增强的数据速率分组，保护时间被定义为从报头的最后一个GFSK符号的结尾开始，到同步序列的参考符号的开头结束的时间段。保护时间的长度应在4.75秒和5.25秒之间。</p>
+</blockquote>
+<blockquote>
+<p>2.增强数据速率同步序列对于增强数据速率数据包，同步序列开始时的符号定时应在数据包报头最后一个GFSK符号的符号定时的s内。同步序列的长度为11秒(11个DPSK符号)，由一个参考符号(任意相位)后跟十个DPSK符号组成。DPSK符号之间的相位变化(如图6.11所示)应为<br><img src="/.io//32.png"></p>
+</blockquote>
+<blockquote>
+<p>Sref是参考符号。ϕ1是参考符号和第一DPSK符号S1之间的相位变化。ϕk是第k-1个符号Sk-1和第k个符号Sk之间的相位变化</p>
+</blockquote>
+<blockquote>
+<p>注意:同步序列可以通过使用调制器将数据与生成同步序列的位预挂起来生成。对于π/4-DQPSK，用于产生同步序列的比特序列是0，1，1，1，0，1，1，1，0，1，1，1，1，1，1，0，1，0，1，0，1，0，1，0，1。对于8DPSK，用于生成同步序列的比特序列是0，1，0，1，1，1，0，1，0，1，1，0，1，0，1，1，1，1，1，1，1，0，1，0，1，0，0，1，0，0，1，0，1，0。</p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Scorpin Xia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://scorpinxia.github.io/2020/10/14/buletooth5-2-base/">https://scorpinxia.github.io/2020/10/14/buletooth5-2-base/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Scorpin Xia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%87%AA%E5%AD%A6/">
+                                    <span class="chip bg-color">自学</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '58EYV7U0vnoRDUeuKYjp2DTS-MdYXbMMI',
+        appKey: 'znFL8xQjdx6gKxc7f0juTPNF',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '献上你的评论把'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/10/14/data-structures-and-algorithms-chap011-amortized-analysis/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Data-Structures-and-Algorithms-chap011-Amortized Analysis">
+                        
+                        <span class="card-title">Data-Structures-and-Algorithms-chap011-Amortized Analysis</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-14
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JAVA/" class="post-category">
+                                    JAVA
+                                </a>
+                            
+                            <a href="/categories/JAVA/Data-Structures-and-Algorithms/" class="post-category">
+                                    Data Structures and Algorithms
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%87%AA%E5%AD%A6/">
+                        <span class="chip bg-color">自学</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/10/12/fpga-base/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="fpga-base">
+                        
+                        <span class="card-title">fpga-base</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/FPGA/" class="post-category">
+                                    FPGA
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/work/">
+                        <span class="chip bg-color">work</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('6'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Scorpin Xia</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/scorpinxia" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1044883523@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1044883523" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1044883523" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

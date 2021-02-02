@@ -1,0 +1,1811 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Java-concurrency-in-pratice-Part04-Advanced-chap14-DIYConcurrentTool, Wibur&#39;s Blog">
+    <meta name="description" content="scorpionxia@foxmail.com">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Java-concurrency-in-pratice-Part04-Advanced-chap14-DIYConcurrentTool | Wibur&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Wibur&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Wibur&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            scorpionxia@foxmail.com
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Java-concurrency-in-pratice-Part04-Advanced-chap14-DIYConcurrentTool</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+	
+	#toc-content {
+		height: calc(100vh - 250px);
+		overflow: scroll;
+	}
+	
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+	
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%87%AA%E5%AD%A6/">
+                                <span class="chip bg-color">自学</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JAVA/" class="post-category">
+                                JAVA
+                            </a>
+                        
+                            <a href="/categories/JAVA/Concurrency/" class="post-category">
+                                Concurrency
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-01-17
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>类库有许多状态依赖类，一般可以用他们，如果没有可以用底层机制。</p>
+<h1 id="状态依赖性的管理"><a href="#状态依赖性的管理" class="headerlink" title="状态依赖性的管理"></a>状态依赖性的管理</h1><blockquote>
+<p>单线程、多线程对比</p>
+</blockquote>
+<ul>
+<li>单线程直接状态不满足就失败</li>
+<li>多线程最好是阻塞到继续（因为可能几条之前是空的，现在非空）<br><img src="/.io//1.png"></li>
+</ul>
+<h2 id="例子：有界缓存"><a href="#例子：有界缓存" class="headerlink" title="例子：有界缓存"></a>例子：有界缓存</h2><blockquote>
+<p>使用需求</p>
+</blockquote>
+<ul>
+<li>生产者–消费者设计经常使用 ArrayBlockingQueue这样的有界缓存</li>
+<li>不能从空缓存get，也不能满 put</li>
+<li>依赖状态的操作可以抛出一个异常、返回错误、或者保持阻塞到对象正确</li>
+</ul>
+<blockquote>
+<p>有界缓存基类<br><img src="/.io//2.png"><br><img src="/.io//3.png"></p>
+</blockquote>
+<h3 id="例1：-前提条件失败传递给调用者"><a href="#例1：-前提条件失败传递给调用者" class="headerlink" title="例1： 前提条件失败传递给调用者"></a>例1： 前提条件失败传递给调用者</h3><p><img src="/.io//4.png"></p>
+<ul>
+<li>实现简单 但是 缓存满不是异常（可能可以改为返回错误值） ，但这会使得调用put很复杂<br><img src="/.io//5.png"><br><img src="/.io//6.png"></li>
+<li>也可以不进人休眠状态， 而直接重新调用 take  方法（忙等待或自旋等待），消耗大量的 CPU  时间，或者休眠状态（低响应性）</li>
+<li>或者调用Thread.yield , 这相当于给调度器一个提示 ： 现在需要让出一定的时间使另一个线程运行。</li>
+</ul>
+<h3 id="例2：通过轮询与休眠来实现简单的阻塞"><a href="#例2：通过轮询与休眠来实现简单的阻塞" class="headerlink" title="例2：通过轮询与休眠来实现简单的阻塞"></a>例2：通过轮询与休眠来实现简单的阻塞</h3><p><img src="/.io//7.png"><br><img src="/.io//8.png"></p>
+<ul>
+<li>如果缓存为空，那么take 将休眠并直到另一个线程在缓存中放人一些数据；</li>
+<li> 如果缓存是满的， 那么put 将休眠并直到另一个线程从缓存中移除一些数据，以便有空间容纳新的数据。</li>
+<li>调用者角度 不需要处理 重试和异常</li>
+<li>但可能存在不必要的休眠<br><img src="/.io//9.png"></li>
+<li>当一个方法等待条件为真时，需要提供取消机制（大多数阻塞库方法一样） SleepBoundBuffer 是通过中断</li>
+</ul>
+<h3 id="例3：条件队列"><a href="#例3：条件队列" class="headerlink" title="例3：条件队列"></a>例3：条件队列</h3><blockquote>
+<p>条件队列关键</p>
+</blockquote>
+<ul>
+<li>每个Java 对象都可以作为一个锁， 每个对象同样可以作为一个条件队列， 并且 Object 中的 wait 、notify 和 notify All 方法就构成了内部条件队列的 API。<ul>
+<li>wait 自动释放锁，请求操作系统挂起当前线程<blockquote>
+<p>实现<br><img src="/.io//10.png"><br><img src="/.io//11.png"></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>还可以加上限时版本的put take</li>
+</ul>
+<h1 id="条件队列"><a href="#条件队列" class="headerlink" title="条件队列"></a>条件队列</h1><blockquote>
+<p>条件队列规则</p>
+</blockquote>
+<ul>
+<li>许多规则不在规范里面（需要写入文档）</li>
+<li>这也是为什么要尽量基与LinkedBlockQueue、Latch、semaphore、futuretask等类来构造程序的原因之一 ， 如果能避免使用条件队列， 那么实现起来将容易许多。</li>
+</ul>
+<h2 id="条件谓语"><a href="#条件谓语" class="headerlink" title="条件谓语"></a>条件谓语</h2><p>如上图</p>
+<ul>
+<li>在条件等待中存在一种重要的三元关系， 包括加锁、wait 方法和一个条件谓词</li>
+</ul>
+<h2 id="过早唤醒"><a href="#过早唤醒" class="headerlink" title="过早唤醒"></a>过早唤醒</h2><blockquote>
+<p>wait 方法的返回并不一定意味着线程正在等待的条件谓词已经变成真了。</p>
+</blockquote>
+<ul>
+<li>内置条件队列可以与多个条件谓词一起使用。 线程由于notifyAll 醒来不知道是哪个 </li>
+<li>发出通知的线程调用notifyAll 时， 条件谓词可能已经变成真，但在重新获取锁时将再次变为假等</li>
+<li><strong>所以 每当线程从 wait 中唤醒时， 都必须再次测试条件谓词</strong><br><img src="/.io//12.png"></li>
+</ul>
+<h2 id="丢失的信号"><a href="#丢失的信号" class="headerlink" title="丢失的信号"></a>丢失的信号</h2><blockquote>
+<p>定义</p>
+</blockquote>
+<ul>
+<li>线程必须等待一个已经为真的条件，但在开始等待之前没有检查条件谓 词。现在，线程将等待一个已经发过的事件。<blockquote>
+<p>解决办法</p>
+</blockquote>
+</li>
+<li>向上面图 14-7一样 就不会</li>
+</ul>
+<h2 id="通知"><a href="#通知" class="headerlink" title="通知"></a>通知</h2><blockquote>
+<p>定义</p>
+</blockquote>
+<ul>
+<li>使 take 解除阻塞， 必须确保在每条使缓存变为非空的代码路径中都发出一个通知。（put）</li>
+<li>同样， take 在移除一个元素后也将调用 notifyAll , 向任何正在等待“ 不为满” 条件的线程发出通知：缓存已经不满了。</li>
+<li>notify ， JVM 会从这个条件队列上等待的多个线程中选择一个来唤醒 ，</li>
+<li>notify All 则会唤醒所有在这个条件队列上等待的线程。</li>
+</ul>
+<blockquote>
+<p>一般是notify All而不是notify</p>
+</blockquote>
+<ul>
+<li>因为单一的通知很容易导致类似于信号丢失的问题。</li>
+</ul>
+<blockquote>
+<p>只有同时满足两个条件，单一的notify 而不是notifyAll</p>
+</blockquote>
+<ul>
+<li>所有等待线程的类型相同：只有一个条件谓语与条件队列相关，且每个线程在从wait返回执行相同操作</li>
+<li>单进单出：条件变量每次通知 最多唤醒一个线程</li>
+</ul>
+<blockquote>
+<p>BoundBuffer满足单进单出 ，不满足所有等待线程相同 （可能非满 或者 非空）</p>
+</blockquote>
+<blockquote>
+<p>优化方法：当且仅当put take影响空到非空 满到非满，才通知<br><img src="/.io//13.png"></p>
+</blockquote>
+<h2 id="例子：阀门类"><a href="#例子：阀门类" class="headerlink" title="例子：阀门类"></a>例子：阀门类</h2><blockquote>
+<p>定义 </p>
+</blockquote>
+<ul>
+<li>它只有两种状态，即初始状态和结束状态 （可重新关闭）</li>
+<li>闭锁能阻止线程通过开始阀门， 并直到阀门被打开，此时所有的线程都可以通过该阀门。<br><img src="/.io//14.png"></li>
+<li>可能情况：阀门在打开后又非常快速地关闭了，并 且 await 方法只检查 isOpen, 那么所有线程都可能无法释放（当所有线程收到通知时， 将重新请求锁并退出 wait, 而此时的阀门可能已经再次关闭了。）</li>
+<li>只支持等待打开而不是关闭。（只在open通知）当增加一个新的状态依赖操作时，可能需要对多条修改对象的代码路径进行改动，才能正确地执行通知。</li>
+</ul>
+<h2 id="子类的安全问题"><a href="#子类的安全问题" class="headerlink" title="子类的安全问题"></a>子类的安全问题</h2><p>对状态依赖的类，要么将其等待和通知等协议完全向子类公开（并且写入正式文档），  要么完全阻止子类参与到等待和通知等过程中。</p>
+<h2 id="入口协议与出口协议"><a href="#入口协议与出口协议" class="headerlink" title="入口协议与出口协议"></a>入口协议与出口协议</h2><ul>
+<li>入口协议就是该操作的条件谓词</li>
+<li> 出口协议则包括，检查被该操作修改的所有状态变量，井确认它们是否使某个其他的条件谓词变为真，如果 是， 则通知相关的条件队列。</li>
+</ul>
+<h1 id="显示Condition"><a href="#显示Condition" class="headerlink" title="显示Condition"></a>显示Condition</h1><p><img src="/.io//15.png"></p>
+<blockquote>
+<p>需求</p>
+</blockquote>
+<ul>
+<li>内置条件队列 内置锁只能有一个相关联的条件队列</li>
+<li>一个带有多个条件谓词的并发对象，使用显式的 Lock 和 Condition 而不是内置锁和条件队 列， 这是一种更灵活的选择。</li>
+</ul>
+<blockquote>
+<p>使用注意</p>
+</blockquote>
+<ul>
+<li>wait 、notify、notifyAll对应 await signal signalAll</li>
+<li>是对Obeject的扩充也包含 wait notify ，要确保使用正确</li>
+</ul>
+<blockquote>
+<p>Condition 有界缓存<br><img src="/.io//16.png"></p>
+</blockquote>
+<blockquote>
+<p>好处</p>
+</blockquote>
+<ul>
+<li>容易理解</li>
+<li>容易满足单次通知</li>
+</ul>
+<h1 id="Synchronizer-剖析"><a href="#Synchronizer-剖析" class="headerlink" title="Synchronizer 剖析"></a>Synchronizer 剖析</h1><blockquote>
+<p>semaphore ReentrantLock共性</p>
+</blockquote>
+<ul>
+<li>做＂阀门”</li>
+<li>通过（在调用lock   或 acquire  时成功返回</li>
+<li>等待（在调用lock 或 acquire  时阻塞）</li>
+<li>还取消（在调 用 tryLock   或 tryAcquire 时返回“假＂</li>
+<li>支持可中断的、不可中断的以及限时的</li>
+<li>支持等待线程  执行公平或非公平的队列操作。</li>
+</ul>
+<blockquote>
+<p>可以简单互相实现（不是真正实现）<br><img src="/.io//17.png"><br><img src="/.io//18.png"></p>
+</blockquote>
+<blockquote>
+<p>共同基类  AbstractQueuedSynchronizer（AQS) </p>
+</blockquote>
+<ul>
+<li>用于构建锁和同步器的框架</li>
+<li>许多同步类的基类。<ul>
+<li>ReentrantLock 和 Semaphore ReentrantReadWriteLock</li>
+<li> CountDownLatch </li>
+<li>  SynchronousQueue(java 6 替换了一个非阻塞版本（可伸缩性更高）) 和 FutureTask。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>AQS的好处</p>
+</blockquote>
+<ul>
+<li>极大地减少实现工作， 而且也不必处理在多个位置上发生的竞争问题</li>
+<li>基千 AQS 构建的同步器中，只可能在一个时刻发生阻塞 ， 从而降低上下文切换的开销， 并提高吞吐量<ul>
+<li>在SemaphoreOnLock 中， 获取许可的操作可能在两个时刻阻塞一 当锁保护信号量状态时 ，以 及当许可不可用时 。</li>
+</ul>
+</li>
+<li>设计 AQS 时充分考虑了可伸缩性， java.utilconcurrent 中所有基千 AQS 构建的同步器都能获得这个优势。</li>
+</ul>
+<h1 id="AbstractQueuedSynchronizer（AQS"><a href="#AbstractQueuedSynchronizer（AQS" class="headerlink" title="AbstractQueuedSynchronizer（AQS)"></a>AbstractQueuedSynchronizer（AQS)</h1><blockquote>
+<p>AQS原理</p>
+</blockquote>
+<ul>
+<li>基本操作 各种形式的获取和释放<ul>
+<li>获取操作依赖状态，通常会阻塞<ul>
+<li>lock semaphore 获取 :锁或者许可</li>
+<li> CountDownLatch 获取: 等待并直到闭锁到达结束状态”</li>
+<li>使用 FutureTask时， 获取:“ 等待并直到任务已经完成</li>
+</ul>
+</li>
+<li>释放不是可阻塞操作，所有在请求时被阻塞的线程都会开始执行。</li>
+</ul>
+</li>
+<li>管理了一个整数状态信息， 可以通过 getState, setState 以及 compareAndSetState 等protected 类型方法来进行操作。<ul>
+<li> ReentrantLock 用它来表示所有者线程已经重复获取该锁的次数 </li>
+<li>Semaphore用它来表示剩余的许可数量</li>
+<li>Future Task 用它来表示任务的状态（尚未开始、正在运行、已完成以及已取消）。</li>
+<li>Tips:<strong>继承类自己也管理额外的状态变量（ReentrantLock 保存了锁的当前所有者的信息 ， 这样就能区分某个获取操作是重入的还是竞争的。）</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>AQS获取 释放标准操作<br><img src="/.io//19.png"></p>
+</blockquote>
+<ul>
+<li>获取操作可以是一种独占操作（例如 ReentrantLock )， 也可以是一个非独占操作（例如Semaphore 和CountDownLatch )。</li>
+<li>获取步骤<ul>
+<li> 1.同步器判断当前状态是否允许获得操作    ， 如果是， 则允许线程执行， 否则获取操作将阻塞或失败。</li>
+<li>2.更新同步器的状态，获取同步器的某个线程可能会对其他线程能否也获取该同步器造成影响。</li>
+</ul>
+</li>
+<li>子类需实现获取方法<ul>
+<li>独占 tryAcquire 、tryRelease 和 isHeldExclusively </li>
+<li>共享获取 tryAcquire­ Shared 和tryReleaseShared 等方法</li>
+</ul>
+</li>
+<li>返回状态来得到基类 操作是否成功</li>
+</ul>
+<h2 id="例子：闭锁实现"><a href="#例子：闭锁实现" class="headerlink" title="例子：闭锁实现"></a>例子：闭锁实现</h2><blockquote>
+<p>起始闭锁关闭  任何线程await阻塞 ，signal 打开 所有等待放开，后续也允许<br><img src="/.io//20.png"></p>
+</blockquote>
+<ul>
+<li> AQS 状态用来表示闭锁状态————关闭 (0) 或者打开(1)</li>
+<li>await 方法调用 AQS 的acquireSharedlnterruptibly,   然后接 着调用 OneShotLatch 中的tryAcquireShared 方法。<ul>
+<li>成功并允许线程通过</li>
+<li>acquireSharedlnterruptibly 方法在处理失败的 方式， 是把这个线程放入等待线程队列中</li>
+<li>signal 将调用 releaseShared,    接下来又会调 用 tryReleaseShare d。在 tryReleaseShared 中将无条件地把闭锁的状态设置为打开。</li>
+<li>AQS 让所有等待中的线程都尝试重新请求该同步器    </li>
+</ul>
+</li>
+</ul>
+<h1 id="java-util-concurrent-中的AQS"><a href="#java-util-concurrent-中的AQS" class="headerlink" title="java.util.concurrent 中的AQS"></a>java.util.concurrent 中的AQS</h1><h2 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h2><blockquote>
+<p>具体实现</p>
+</blockquote>
+<ul>
+<li>ReentrantLock 只支持独占 方式的获取操作<ul>
+<li>它实现了 tryAcquire 、tryRelease 和isHeldExclusively</li>
+<li>将同步状态用千保存锁获取操作 的次数</li>
+<li>还维护一个owner 变晕来保存当前所有者线程的标识符（刚刚获取到锁，或者正要释放锁的时候才修改）</li>
+<li>owner 区分重入 竞争</li>
+</ul>
+</li>
+<li>非公平ReentrantLock<br>  <img src="/.io//21.png"><br>  <img src="/.io//22.png"><ul>
+<li>state表示锁获取操作的次数</li>
+<li>1.线程尝试获取锁</li>
+<li>2.tryAcquire  检查锁的状态</li>
+<li>3.未被持有更新锁的状态以表示锁已经被持有(状态可能 在检查后被立即修改,用 compareAndSetState  来原子地更新状态)</li>
+<li>4.锁状态表明 它已经被持有，并且如果当前线程是锁的拥有者（重入）</li>
+<li>5.当前线程不是锁的拥有者，那么获取操作将失败。（竞争）</li>
+</ul>
+</li>
+<li>ReentrantLock还利用了AQS 对多个条件变量和多个等待线程集的内置支持。Lock.newCondition将返回一个新的ConditionObject实例， 这是AQS的一个内部类。</li>
+</ul>
+<h2 id="Semaphore-CountDownLatch"><a href="#Semaphore-CountDownLatch" class="headerlink" title="Semaphore CountDownLatch"></a>Semaphore CountDownLatch</h2><blockquote>
+<p>Semaphore<br><img src="/.io//22.png"></p>
+</blockquote>
+<ul>
+<li>State 表示当前可用许可</li>
+<li>tryAcquireShared<ul>
+<li>1.无剩余许可，返回失败</li>
+<li>2.有剩余的许可，用 compareAndSetState  来原子地更新状态)<ul>
+<li>操作成功（这意味着许可的计数自从上一次读取后就没 有被修改过），返回一个值成功</li>
+<li>操作失败 虽然对 compareAndSetState 的调用可能由于与另一个线程 发生竞争而失败， 并使其重新尝试， 但在经过了一定次数的重试操作以后，在 这两个结束条件中有一个会变为真 。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>tryRleasedShared 同理</li>
+</ul>
+<blockquote>
+<p>CountDownLatch (14.5上面有)</p>
+</blockquote>
+<ul>
+<li>用 AQS 的方式与 Semaphore 很相似<ul>
+<li>同步状态中保存的是当前的计数值。</li>
+<li>countDown 方法调用 release , 从而导致计数值递减 ， 并且当计数值为零时， 解除所有等待线程的阻塞 。</li>
+<li>await 调用 acquire , 当计数 器为零时 ， acquire 将立即返回 ， 否则将阻塞。</li>
+</ul>
+</li>
+</ul>
+<h2 id="FutureTask"><a href="#FutureTask" class="headerlink" title="FutureTask"></a>FutureTask</h2><blockquote>
+<p>Future .get与闭锁类似的地方</p>
+</blockquote>
+<ul>
+<li> 如果发生了某个事件（由 FutureTask 表示的任务执行完成或被取消），那么线程就可以恢复执行， 否则这些线程将停留在队列中井直到该事件发生。</li>
+</ul>
+<blockquote>
+<p>具体实现</p>
+</blockquote>
+<ul>
+<li>AQS 同步状态被用来保存任务的状态， 例如， 正在运行、已完成或已取消</li>
+<li>FutureTask 还维护一些额外的状态变量， 用来保存计算结果或者抛出的异常。</li>
+<li>还维护了一个引用， 指向正在执行计算任务的线程（如果它当前处于运行状态，）因而如果任务取消，该线程就会中断。</li>
+</ul>
+<h2 id="ReentrantReadWritelock"><a href="#ReentrantReadWritelock" class="headerlink" title="ReentrantReadWritelock"></a>ReentrantReadWritelock</h2><blockquote>
+<p>具体实现</p>
+</blockquote>
+<ul>
+<li>单个AQS子类将同时管理读取加锁和写入加 锁</li>
+<li>写入锁<ul>
+<li>一个 l6 位的状态来表示写入锁的计数</li>
+<li>使用独占的获取方法与释放方法。</li>
+</ul>
+</li>
+<li>读取锁<ul>
+<li>另一个 l 6 位的状态来表示读取锁的计数</li>
+<li>使用共享的获取方法与释放方法</li>
+</ul>
+</li>
+<li>AQS 在内部维护一个等待线程队列 ， 其中记录了某个线程请求的是独占访问还是共享访问。</li>
+<li>FIFO队列（不允许选择读取线程 写入线程优先）<ul>
+<li>当锁可用时， 如果位千队列头部的线程执行写入操作， 那么线程会得到这个锁，</li>
+<li>如果位千队列头部的线程执行读取访问 ， 那么队列中在第一个写入线程之前的所有线程都将获得这个锁 。</li>
+</ul>
+</li>
+</ul>
+<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><blockquote>
+<p>要实现一个依赖状态的类—一如果没有满足依赖状态的前提条件，那么这个类的方   法必须阻塞， 那么最好的 方式是基千现有的库类来 构建， 例如 Semaphore.BlockingQueue 或 CountDownLatch, 如 第 8 章 的 ValueLatch 所示。 然 而， 有时候 现 有的库类 不 能 提供足够的功能， 在这种情况下， 可以 使用内 置的条件队 列、显式的 Condition 对象 或者AbstractQueuedSynchronizer 来构建自己的同步器。内 置条件队列与内 置锁是 紧密绑定在一 起的，这是因为管理状态依赖性的机制必须与确保状态一致性的机制关联起来。同样，显式的Condition 与显式的Lock 也是紧密地绑定到一起的， 并且与内置条件队列相比， 还提供了一个扩展的功能集，包括每个锁对应千多个等待线程集，可中断或不可中断的条件等待，公平或非 公平的队列操作，以及基千时限的等待。</p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Scorpin Xia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://scorpinxia.github.io/2021/01/17/java-concurrency-in-pratice-part04-advanced-chap14-diyconcurrenttool/">https://scorpinxia.github.io/2021/01/17/java-concurrency-in-pratice-part04-advanced-chap14-diyconcurrenttool/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Scorpin Xia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%87%AA%E5%AD%A6/">
+                                    <span class="chip bg-color">自学</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '58EYV7U0vnoRDUeuKYjp2DTS-MdYXbMMI',
+        appKey: 'znFL8xQjdx6gKxc7f0juTPNF',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '献上你的评论把'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/01/22/java-concurrency-in-pratice-part04-advanced-chap15-atomicandnoblocking/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Java-concurrency-in-pratice-Part04-Advanced-chap15-AtomicAndNoBlocking">
+                        
+                        <span class="card-title">Java-concurrency-in-pratice-Part04-Advanced-chap15-AtomicAndNoBlocking</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JAVA/" class="post-category">
+                                    JAVA
+                                </a>
+                            
+                            <a href="/categories/JAVA/Concurrency/" class="post-category">
+                                    Concurrency
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%87%AA%E5%AD%A6/">
+                        <span class="chip bg-color">自学</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/01/17/java-concurrency-in-pratice-part04-advanced-chap13-explictlock/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Java-concurrency-in-pratice-Part04-Advanced-chap13-ExplictLock">
+                        
+                        <span class="card-title">Java-concurrency-in-pratice-Part04-Advanced-chap13-ExplictLock</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JAVA/" class="post-category">
+                                    JAVA
+                                </a>
+                            
+                            <a href="/categories/JAVA/Concurrency/" class="post-category">
+                                    Concurrency
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%87%AA%E5%AD%A6/">
+                        <span class="chip bg-color">自学</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('6'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Scorpin Xia</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/scorpinxia" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1044883523@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1044883523" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1044883523" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

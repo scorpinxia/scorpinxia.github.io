@@ -1,0 +1,2113 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="计算机网络-ToptoDown-chap02:Application-Layer, Wibur&#39;s Blog">
+    <meta name="description" content="scorpionxia@foxmail.com">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>计算机网络-ToptoDown-chap02:Application-Layer | Wibur&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Wibur&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Wibur&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            scorpionxia@foxmail.com
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">计算机网络-ToptoDown-chap02:Application-Layer</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+	
+	#toc-content {
+		height: calc(100vh - 250px);
+		overflow: scroll;
+	}
+	
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+	
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B/">
+                                <span class="chip bg-color">课程</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                计算机网络
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-11-06
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <ul>
+<li><a href="#%E5%BA%94%E7%94%A8%E5%B1%82%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86">应用层协议原理</a><ul>
+<li><a href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">体系结构</a></li>
+<li><a href="#%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1">进程通信</a></li>
+<li><a href="#%E5%8F%AF%E4%BE%9B%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E4%BD%BF%E7%94%A8%E7%9A%84%E8%BF%90%E8%BE%93%E6%9C%8D%E5%8A%A1">可供应用程序使用的运输服务</a></li>
+<li><a href="#intenet-%E8%BF%90%E8%BE%93%E6%9C%8D%E5%8A%A1">Intenet 运输服务</a></li>
+<li><a href="#%E5%BA%94%E7%94%A8%E5%B1%82%E5%8D%8F%E8%AE%AE">应用层协议</a></li>
+<li><a href="#%E6%9C%AC%E4%B9%A6%E6%B6%89%E5%8F%8A%E5%BA%94%E7%94%A8-web-http-stmp-dns-p2p">本书涉及应用 Web HTTP STMP DNS P2P</a></li>
+</ul>
+</li>
+<li><a href="#web-%E5%92%8Chttp">WEB 和HTTP</a><ul>
+<li><a href="#http">HTTP</a></li>
+<li><a href="#%E9%9D%9E%E6%8C%81%E7%BB%AD%E8%BF%9E%E6%8E%A5%E5%92%8C%E6%8C%81%E7%BB%AD%E8%BF%9E%E6%8E%A5">非持续连接和持续连接</a><ul>
+<li><a href="#%E9%9D%9E%E6%8C%81%E7%BB%ADhttp">非持续HTTP</a></li>
+<li><a href="#%E6%8C%81%E7%BB%AD%E8%BF%9E%E6%8E%A5%E7%9A%84http">持续连接的HTTP</a></li>
+</ul>
+</li>
+<li><a href="#http%E6%8A%A5%E6%96%87">HTTP报文</a><ul>
+<li><a href="#%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87">请求报文</a></li>
+<li><a href="#%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87">响应报文</a></li>
+</ul>
+</li>
+<li><a href="#client-%E5%92%8Cserver%E7%9A%84%E4%BA%A4%E4%BA%92cookie">Client 和Server的交互：cookie</a></li>
+<li><a href="#web%E7%BC%93%E5%AD%98-proxy-server">Web缓存（ proxy server）</a></li>
+<li><a href="#%E6%9D%A1%E4%BB%B6get">条件GET</a></li>
+</ul>
+</li>
+<li><a href="#internet%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6">Internet电子邮件</a><ul>
+<li><a href="#stmp">STMP</a></li>
+<li><a href="#%E5%AF%B9%E6%AF%94http">对比HTTP</a></li>
+<li><a href="#%E9%82%AE%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%8D%8F%E8%AE%AE">邮件访问协议</a></li>
+</ul>
+</li>
+<li><a href="#dns">DNS</a><ul>
+<li><a href="#dns%E6%8F%90%E4%BE%9B%E7%9A%84%E6%9C%8D%E5%8A%A1">DNS提供的服务</a></li>
+<li><a href="#dns%E5%B7%A5%E4%BD%9C%E6%9C%BA%E7%90%86">DNS工作机理</a><ul>
+<li><a href="#dns%E7%BC%93%E5%AD%98">DNS缓存</a></li>
+</ul>
+</li>
+<li><a href="#dns-%E8%AE%B0%E5%BD%95%E5%92%8C%E6%8A%A5%E6%96%87">DNS 记录和报文</a><ul>
+<li><a href="#dns%E6%8A%A5%E6%96%87">DNS报文</a></li>
+<li><a href="#dns%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%92%E5%85%A5">DNS数据库插入</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#p2p">P2P</a><ul>
+<li><a href="#bittorrent">BitTorrent</a></li>
+</ul>
+</li>
+<li><a href="#%E8%A7%86%E9%A2%91%E6%B5%81">视频流</a><ul>
+<li><a href="#%E9%87%8D%E8%A6%81%E7%9A%84%E6%98%AF%E5%B9%B3%E5%9D%87%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%9A%84%E5%90%9E%E5%90%90%E9%87%8F">重要的是平均端到端的吞吐量</a></li>
+<li><a href="#http%E5%92%8Cdash">HTTP和DASH</a></li>
+<li><a href="#%E5%86%85%E5%AE%B9%E5%88%86%E5%8F%91%E7%BD%91-content-distribution-network-cdn">内容分发网 Content Distribution Network CDN</a><ul>
+<li><a href="#%E9%9B%86%E7%BE%A4%E9%80%89%E6%8B%A9%E7%AD%96%E7%95%A5">集群选择策略</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#tcp-udp%E7%BC%96%E7%A8%8B">TCP UDP编程</a><ul>
+<li><a href="#udp">UDP</a></li>
+<li><a href="#tcp">TCP</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B9%A0%E9%A2%98%E5%AE%9E%E9%AA%8C">习题实验</a></li>
+</ul>
+<!-- /TOC -->
+<h1 id="应用层协议原理"><a href="#应用层协议原理" class="headerlink" title="应用层协议原理"></a>应用层协议原理</h1><h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><ul>
+<li>Client-Server </li>
+<li>P2P : BitTorrent 用户到用户的报文不需要通过中间服务器<br><img src="/.io//1.png"></li>
+</ul>
+<h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><p>发起C 等待S  Socket</p>
+<h2 id="可供应用程序使用的运输服务"><a href="#可供应用程序使用的运输服务" class="headerlink" title="可供应用程序使用的运输服务"></a>可供应用程序使用的运输服务</h2><blockquote>
+<p>传输层协议保证</p>
+</blockquote>
+<ul>
+<li>可靠数据传输：运输层协议提供 TCP 还有不可靠UDP（多媒体）</li>
+<li>吞吐量： 可用吞吐量就是发送进程能项接受进程交付bit的速率</li>
+<li>定时，发送注入套接字的每个bit到接收方不迟于100ms</li>
+<li>安全性</li>
+</ul>
+<h2 id="Intenet-运输服务"><a href="#Intenet-运输服务" class="headerlink" title="Intenet 运输服务"></a>Intenet 运输服务</h2><p><img src="/.io//2.png"></p>
+<ul>
+<li>TCP<ul>
+<li>面向连接 全双工 需要拆除连接</li>
+<li>可靠数据传输</li>
+<li>拥塞控制：不一定为通信进程带来好处，为整个Intenet带来 （限制每个TCP连接公平共享网络）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>安全问题<br>TCP、UDP都无加密传入Socket的数据，可能被中间链路嗅探发现。<br>解决方法<br>TCP的加强版 （Secure Sockets Layer，SSL） （这种强化是在应用层实现的） （实际上是用SSl的API加密数据在传入TCP套接字、收端也是）</p>
+</blockquote>
+<ul>
+<li><p>UDP</p>
+<ul>
+<li>轻量级 最小服务 无连接</li>
+<li>不可靠</li>
+<li>无拥塞控制 （任意速率往下网络层注入数据，实际吞吐量可能小于）</li>
+</ul>
+</li>
+<li><p>不提供服务</p>
+<ul>
+<li>吞吐量和定时保证（自己设计，但是也不能保证）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>应用协议<br><img src="/.io//3.png"></p>
+</blockquote>
+<blockquote>
+<p>注意的是许多防火墙设置阻挡UDP，所以SIP、Skype UDP通信失败就用TCP备份</p>
+</blockquote>
+<h2 id="应用层协议"><a href="#应用层协议" class="headerlink" title="应用层协议"></a>应用层协议</h2><blockquote>
+<p>有些应用层协议由RFC文档定义</p>
+</blockquote>
+<ul>
+<li>HTTP RFC2616</li>
+</ul>
+<h2 id="本书涉及应用-Web-HTTP-STMP-DNS-P2P"><a href="#本书涉及应用-Web-HTTP-STMP-DNS-P2P" class="headerlink" title="本书涉及应用 Web HTTP STMP DNS P2P"></a>本书涉及应用 Web HTTP STMP DNS P2P</h2><h1 id="WEB-和HTTP"><a href="#WEB-和HTTP" class="headerlink" title="WEB 和HTTP"></a>WEB 和HTTP</h1><h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><ul>
+<li><p>两个程序：一个Client 一个Server，通过交换HTTP报文会话</p>
+</li>
+<li><p>Web 术语</p>
+<ul>
+<li>Web page 由Object组成</li>
+<li>Object：html jpeg java小程序 视频片段 且能通过URL寻址</li>
+<li>html：多数Web有html文本；html文本通过URL地址引用页面其他对象</li>
+<li>URL：例如<a target="_blank" rel="noopener" href="http://www.someschool.edu/someDepartment/picture.gif">http://www.someSchool.edu/someDepartment/picture.gif</a>  <a target="_blank" rel="noopener" href="http://www.someschool.edu主机名/">www.someSchool.edu主机名</a> someDepartment/picture.gif路径名</li>
+<li>Web 浏览器：Firefox等 实现了Http的客户端 </li>
+<li>Web Server:实现了HTTP的服务端（存储所有web对象</li>
+</ul>
+</li>
+<li><p>HTTP</p>
+<ul>
+<li>定义了Webclient 向Webserver请求Web页面的方式、以及Server向client传送Web页面的方式</li>
+<li>使用TCP支持运输 ：Client给Server发送TCP连接，建立连接后，Client给Server发HTTP请求并接受HTTP响应报文。（HTTP不必担心报文丢失、恢复的细节，分层的好处）</li>
+<li>Server给Clinet发送被请求的文件，不存储任何Client状态。比如客户几秒几次请求同个Object，Server会重新发送对象</li>
+<li>无状态协议（stateless protocol）</li>
+</ul>
+</li>
+</ul>
+<p><img src="/.io//4.png"></p>
+<h2 id="非持续连接和持续连接"><a href="#非持续连接和持续连接" class="headerlink" title="非持续连接和持续连接"></a>非持续连接和持续连接</h2><blockquote>
+<p>单独TCP还是每次就一个，HTTP都支持，默认使用持续</p>
+</blockquote>
+<h3 id="非持续HTTP"><a href="#非持续HTTP" class="headerlink" title="非持续HTTP"></a>非持续HTTP</h3><ol>
+<li>CLient 在80端口 发送给服务器<a target="_blank" rel="noopener" href="http://www.someschool.edu的tcp,server/">www.someSchool.edu的TCP，Server</a> Client 建立连接</li>
+<li>Client给Server HTTP请求报文。报文包含了路径名/someDepartment/home.index </li>
+<li>Server 结束，从Ram或磁盘检索出<a target="_blank" rel="noopener" href="http://www.someschool.edu/someDepartment/home.index">www.someSchool.edu/someDepartment/home.index</a> ，在HTTP响应报文封装对象发送给Client</li>
+<li>Server进程通知TCP断开该TCP连接。（但是直到TCP确认客户完整收到响应，它才实际中断）</li>
+<li>Client 收到响应报文，报文指出封装的对象是一个html文件，客户从响应报文提取出该文件，检测该html文件，得到10个jepg图形引用</li>
+<li>对每个引用的jpeg重复1~4</li>
+</ol>
+<blockquote>
+<p>从上述看要，一共产生了11个连接。有些Jepg图形可能使用并行的TCP连接（大部分浏览器默认5~10）。用户可以设置最大并行连接数1，这样10个就会一条条串行建立</p>
+</blockquote>
+<ul>
+<li>往返时间：RoundTrip Time RTT ，请求到收到整个文件的时间<br><img src="/.io//5.png"></li>
+</ul>
+<h3 id="持续连接的HTTP"><a href="#持续连接的HTTP" class="headerlink" title="持续连接的HTTP"></a>持续连接的HTTP</h3><blockquote>
+<p>非持续连接的问题</p>
+</blockquote>
+<ul>
+<li>非持续连接给WebServer带来难题 （负担大）</li>
+<li>两倍RTT 交付时延 （创建和请求接受）</li>
+</ul>
+<blockquote>
+<p>上面的11个对象通过一个连接传输,服务器发现连接时间间隔超过配置就关闭连接</p>
+</blockquote>
+<h2 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h2><h3 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h3><p><img src="/.io//6.png"></p>
+<blockquote>
+<p>分析报文</p>
+</blockquote>
+<ul>
+<li>普通的ASCII文本写的，容易读懂</li>
+<li>5行，每行换行回车结束，最后一行在加上换行回车</li>
+<li>请求行（一行或者更多），第一行。3个字段：方法字段、URL字段、HTTP版本字段。方法字段：GET POST HEAD PUT DELETE ，大部分是GET</li>
+<li>后续的行称首部行。<ul>
+<li>Host：<a target="_blank" rel="noopener" href="http://www.someschool.edu/">www.someschool.edu</a>(虽然已经在TCP连接了 ，但是这是web代理高速缓存所要求的)。</li>
+<li>Connection：close ，该浏览器告诉Server不使用持续连接。</li>
+<li>User-agent：浏览器类型</li>
+<li>Accept-language:想得到该对象的发育版本（如果有的话，不然就发送默认的版本）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>通用格式<br><img src="/.io//7.png"></p>
+</blockquote>
+<blockquote>
+<p>实体体 entity body</p>
+</blockquote>
+<ul>
+<li>POST方法使用</li>
+<li>提交表单常用，如搜索引擎关键词<ul>
+<li>表单请求也常用GET,在请求的URL包含输入的数据 例如：一个表单使用GET 它有两个字段分别填monkeys 和bananas URL:<a target="_blank" rel="noopener" href="http://www.someschool.edu/animalsearch">www.someschool.edu/animalsearch</a>? monkeys&amp;bananas </li>
+</ul>
+</li>
+<li>也可向服务器请求Web页面，取决表单字段输入的内容</li>
+</ul>
+<blockquote>
+<p>HEAD 类似GET：当Server收到HEAD，用一个HTTP报文响应，但是不返回请求对象。（用来调试跟踪）</p>
+</blockquote>
+<blockquote>
+<p>PUT:允许用户上传对象到指定的Server上指定的路径。也可被需要向Server上传对象的应用程序使用</p>
+</blockquote>
+<blockquote>
+<p>DELETE:允许用户和应用程序删除Server上的对象</p>
+</blockquote>
+<h3 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h3><p><img src="/.io//8.png"></p>
+<blockquote>
+<p>分析报文</p>
+</blockquote>
+<ul>
+<li>初始状态行 status line<ul>
+<li>3个字段 版本字段 状态码 相应的状态信息<br><img src="/.io//9.png"></li>
+</ul>
+</li>
+<li>6个首部行<ul>
+<li>Connection：close ，该Server告诉Client发送完报文就关闭TCP连接</li>
+<li>Date ：是发送该响应时报文的时候（不是检索 或者对象的修改的时间）</li>
+<li>Server：提示什么服务器产生的 （类似user-agent）</li>
+<li>Last-Modified：指示对象创建或者最后修改的时间日期（对对象缓存非常重要）</li>
+<li>Content-Length：被发送对象的Bytes</li>
+<li>Content-Type：指出entity body的对象类型</li>
+</ul>
+</li>
+<li>实体体 entity body</li>
+</ul>
+<h2 id="Client-和Server的交互：cookie"><a href="#Client-和Server的交互：cookie" class="headerlink" title="Client 和Server的交互：cookie"></a>Client 和Server的交互：cookie</h2><blockquote>
+<p>起因</p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">Web 站点无状态，但是Server希望识别用户，或限制用户访问，内容和用户身份联系，所以使用了cookie允许站点对用户跟踪<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>组件构成</p>
+</blockquote>
+<ul>
+<li>HTTP响应报文的一个cookie首部行</li>
+<li>HTTP请求报文的一个cookie首部行</li>
+<li>Client端系统保留一个cookie文件，用户浏览器管理</li>
+<li>Web站点的后端数据库</li>
+</ul>
+<blockquote>
+<p>例子</p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">假设Susan已经访问过eBay站点，它首次和Amazon。com联系，该Web站点产生一个唯一识别码作为索引在后端数据库产生一个表项。接下来Amazon web Server用一个包含set-cookoe的响应对Susan浏览器响应<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/.io//10.png"></p>
+<pre class="line-numbers language-none"><code class="language-none">浏览器收到报文，看到set-cookie在特定的cookie文件中添加一行，包含服务器主机名和对应的自己的识别码，sunan继续浏览Amazon网站，每请求一个Web Page 发往Amazon服务器的每个HTTP请求报文都包含
+![](计算机网络-ToptoDown-chap02-Application-Layer/11.png)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<blockquote>
+<p>示意图<br><img src="/.io//12.png"><br>Amazon使用cookie来提供购物车服务</p>
+</blockquote>
+<h2 id="Web缓存（-proxy-server）"><a href="#Web缓存（-proxy-server）" class="headerlink" title="Web缓存（ proxy server）"></a>Web缓存（ proxy server）</h2><blockquote>
+<p>示意图<br><img src="/.io//13.png"></p>
+</blockquote>
+<blockquote>
+<p>请求对象<a target="_blank" rel="noopener" href="http://www.someschool.edu/campus.gif">www.someschool.edu/campus.gif</a></p>
+</blockquote>
+<ul>
+<li>浏览器创建一个到Web cache的TCP，向其发送HTTP请求</li>
+<li>Web cache搜索本地 有就返回</li>
+<li>没有就打开一个与该对象初始服务器<a target="_blank" rel="noopener" href="http://www.someschool.edu的tcp连接./">www.someschool.edu的TCP连接。</a> Web Cache在与Server的TCP连接上发送该对象的请求。</li>
+<li>Web Cache得到该对象，在本地存储一个副本，并向Client发送该副本</li>
+</ul>
+<blockquote>
+<p>通常由ISP购买安装，大学校园网安装一个多个缓存器，浏览器配置为指向它。</p>
+</blockquote>
+<blockquote>
+<p>好处</p>
+</blockquote>
+<ul>
+<li>客户和初始Server的带宽远低于和Web cache的</li>
+<li>请求的东西在Web cache会很快</li>
+<li>大大减少一个机构接入到Intenet的通信量</li>
+</ul>
+<blockquote>
+<p>原始网络<br><img src="/.io//14.png"></p>
+</blockquote>
+<ul>
+<li>流量强度： 假设1s15个请求 每个对象的平均长度1Mb<ul>
+<li>局域网的流量强度<br><img src="/.io//15.png"></li>
+</ul>
+  0.15强度大概最多导致数10ms延时<ul>
+<li>接入链路的流量强度<br><img src="/.io//16.png"><br>1强度会让时延很大且无限增长</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>解决方法</p>
+</blockquote>
+<ul>
+<li>加链路速率（贵）</li>
+<li>加Web 缓存器<br><img src="/.io//17.png"><br>假设命中率是0.4，流量强度就减小到0.6对应延时几十ms和Internet延时比就微不足道了</li>
+</ul>
+<h2 id="条件GET"><a href="#条件GET" class="headerlink" title="条件GET"></a>条件GET</h2><blockquote>
+<p>缓存问题<br>缓存能减少用户感受响应时间,但是可能存放的对象是旧的</p>
+</blockquote>
+<blockquote>
+<p>解决<br>条件GET HTTP的机制来允许缓存器证实对象是最新的</p>
+</blockquote>
+<blockquote>
+<p>步骤 </p>
+</blockquote>
+<ul>
+<li>刚开始给Web server发送请求报文<br><img src="/.io//18.png"></li>
+<li>Web响应<br><img src="/.io//19.png"></li>
+<li>缓存器本地缓存对象，以及最后修改日期</li>
+<li>一星期后再收到，缓存器发送<br><img src="/.io//20.png"></li>
+<li>Server回复<br><img src="/.io//21.png"></li>
+</ul>
+<h1 id="Internet电子邮件"><a href="#Internet电子邮件" class="headerlink" title="Internet电子邮件"></a>Internet电子邮件</h1><ul>
+<li>分为user agent 、mail server、Simple Mail Transfer protocol STMP。</li>
+</ul>
+<p><img src="/.io//22.png"></p>
+<p>每台邮件服务器即是Server、又是Client （看是收还是发）</p>
+<h2 id="STMP"><a href="#STMP" class="headerlink" title="STMP"></a>STMP</h2><p>TCP底层 25端口</p>
+<p><img src="/.io//23.png"></p>
+<blockquote>
+<p>步骤</p>
+</blockquote>
+<ol>
+<li>Alice 调用邮件代理程序，提供BOB的邮件地址，书写并提示用户代理发送报文</li>
+<li>Alice的用户代理把报文发到了它的邮件服务器 ，报文在报文队列里</li>
+<li>Alice的有机物去的SMTP客户端发现了这个报文，创建到Bob邮件服务器的SMTP服务器的TCP </li>
+<li>初始SMTP握手后，SMTP客户端通过TCP连接发送Alice报文</li>
+<li>Bob邮件服务器上 SMTP服务器接收改报文。Bob的邮件服务器将报文放入Bob邮箱</li>
+<li>Bob在之后可以用用户代理阅读</li>
+</ol>
+<blockquote>
+<p>SMTP一般不使用中间服务器（就算离的特别远）</p>
+</blockquote>
+<blockquote>
+<p>SMTP client SMTP Server 的交换报文<br>Client 主机crepes.fr Server 主机 hamburger.edu<br><img src="/.io//24.png"></p>
+</blockquote>
+<blockquote>
+<p>发送的报文 （“do you …… how about……”）用一个只包含句号的行给服务器表示报文结束了</p>
+</blockquote>
+<p>Telnet测试可</p>
+<h2 id="对比HTTP"><a href="#对比HTTP" class="headerlink" title="对比HTTP"></a>对比HTTP</h2><ul>
+<li>方式：HTTP 主要是pull protocol ，STMP像是push protocol</li>
+<li>报文类型 ：SMTP每个报文7bitascii形式（不是就自己编码）HTTP不是</li>
+<li>处理文本和图片：HTTP对象封装，SMTP所有报文对象放在一个报文里</li>
+</ul>
+<h2 id="邮件访问协议"><a href="#邮件访问协议" class="headerlink" title="邮件访问协议"></a>邮件访问协议</h2><p>Bob怎么拉报文下来<br><img src="/.io//25.png"></p>
+<ul>
+<li>POP</li>
+<li>IMAP</li>
+<li>Web 电子邮件 HTTP</li>
+</ul>
+<h1 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h1><h2 id="DNS提供的服务"><a href="#DNS提供的服务" class="headerlink" title="DNS提供的服务"></a>DNS提供的服务</h2><p>识别主机的方式，主机名或者IP，人类喜欢主机名，路由器喜欢Ip。</p>
+<p>Domain Name System DNS在UDP上 53号端口</p>
+<blockquote>
+<p>DNS 的主要任务。</p>
+</blockquote>
+<ul>
+<li>分层的DNS server 实现分布式数据库</li>
+<li>主机能够查询分布式数据库的应用层协议</li>
+<li>其他协议（HTTP、SMTP、FTP）需求</li>
+</ul>
+<p>通过主机得到Ip的步骤</p>
+<blockquote>
+<p>步骤</p>
+</blockquote>
+<ul>
+<li>同一台主机运行着DNS应用的Client</li>
+<li>抽取URL的主机名 给DNS client</li>
+<li>DNS Client给DNS Server发个包含主机名的请求</li>
+<li>Client最终收到对应主机名的IP</li>
+</ul>
+<blockquote>
+<p>其他服务</p>
+</blockquote>
+<ul>
+<li>主机别名 host aliasing 。规范主机名（</li>
+<li>邮件服务器别名</li>
+<li>负载分配：繁忙的站点被冗余分布在多台服务器上（不同IP）IP集合和同一个规范主机名联系。（会循环IP集合的次序分配）</li>
+</ul>
+<h2 id="DNS工作机理"><a href="#DNS工作机理" class="headerlink" title="DNS工作机理"></a>DNS工作机理</h2><p>Internet只用一个DNS服务器的设计可能有诸多问题</p>
+<ul>
+<li>单点故障</li>
+<li>通信容量</li>
+<li>远距离的集中式数据库</li>
+<li>维护（太庞大了）</li>
+</ul>
+<blockquote>
+<p>设计<br><img src="/.io//26.png"></p>
+</blockquote>
+<blockquote>
+<p>决定<a target="_blank" rel="noopener" href="http://www.amazon.com的ip/">www.amazon.com的Ip</a></p>
+</blockquote>
+<ul>
+<li>先和根服务器之一联系</li>
+<li>返回顶级域名com的TLD（Top level domain) 服务器的ip，再联系</li>
+<li>返回amazon.com的权威服务器ip，在联系</li>
+<li>返回主机名ip</li>
+</ul>
+<blockquote>
+<p>DNS服务器层次</p>
+</blockquote>
+<ul>
+<li>根DNS：400多个遍及全球，提供TLD服务器的ip</li>
+<li>顶级域DNS：com org net edu ,uk fr(国家相关的)，提供权威DNS服务器ip</li>
+<li>权威DNS： 可以自己建，可以买别人的记录</li>
+</ul>
+<blockquote>
+<p>本地DNS的作用</p>
+</blockquote>
+<ul>
+<li>ISP的提供的一个主机的DNS IP（通常通过DHCP）</li>
+<li>临近本主机</li>
+<li>交互步骤：假设TLD服务器 知道主机的权威DNS服务器IP<br><img src="/.io//27.png"></li>
+<li>交互步骤：TLD服务器一般只知道中间磨合DNS服务器，该服务器依次才能知道知道主机的权威DNS服务器IP （递归查询）<br><img src="/.io//28.png"></li>
+</ul>
+<h3 id="DNS缓存"><a href="#DNS缓存" class="headerlink" title="DNS缓存"></a>DNS缓存</h3><ul>
+<li>收到回答能映射缓存在本地存储器中，（就不需要权威服务器，也能提供 ）</li>
+<li>一般设置2天</li>
+<li>很容易绕过了根DNS</li>
+</ul>
+<h2 id="DNS-记录和报文"><a href="#DNS-记录和报文" class="headerlink" title="DNS 记录和报文"></a>DNS 记录和报文</h2><blockquote>
+<p>DNS服务器存储资源记录 Resource Record</p>
+</blockquote>
+<ul>
+<li>[name,value,type,TTL]<ul>
+<li>TTL决定记录生存时间</li>
+</ul>
+</li>
+<li>type决定 name和Value<ul>
+<li>type=A name是主机名，value是主机对应ip<br><img src="/.io//29.png"></li>
+<li>type=NS，name是个域（foo.com),value是个知道如何获得该域权威DNS的 主机名<br><img src="/.io//30.png"></li>
+<li>type=CNAME，value是别名为Name的主机对应的规范主机名。<br><img src="/.io//31.png"></li>
+<li>type=MX，value是别名为Name的邮件服务器对应的规范主机名。<br><img src="/.io//32.png"></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>权威服务器（包含该主机）和非权威服务器的区别</p>
+</blockquote>
+<ul>
+<li>权威服务器只有一条包含类型A的记录</li>
+<li>非权威服务器<br><img src="/.io//33.png"></li>
+</ul>
+<h3 id="DNS报文"><a href="#DNS报文" class="headerlink" title="DNS报文"></a>DNS报文</h3><blockquote>
+<p>查询和回答一致<br><img src="/.io//34.png"></p>
+</blockquote>
+<ul>
+<li>前12字节的首部<ul>
+<li>标识符 16bit 标识查询</li>
+<li>标志 查询、回答？权威？递归？</li>
+<li>四个后面的数量</li>
+</ul>
+</li>
+<li>问题区域<ul>
+<li>查询的信息</li>
+<li>名字字段</li>
+<li>类型字段 A、MX等</li>
+</ul>
+</li>
+<li>回答<ul>
+<li>包含RR </li>
+<li>可以多个（一个主机多IP）</li>
+</ul>
+</li>
+<li>权威区域<ul>
+<li>其他权威服务器的记录</li>
+</ul>
+</li>
+<li>附加区域<ul>
+<li>有帮助的记录</li>
+<li>比如MX请求回答的规范主机名，附加区域会有规范主机名的A记录</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>nslookup</p>
+</blockquote>
+<h3 id="DNS数据库插入"><a href="#DNS数据库插入" class="headerlink" title="DNS数据库插入"></a>DNS数据库插入</h3><blockquote>
+<p>注册域名 XXXX.com需要向机构提供基本和辅助权威DNS服务器的名字和IP<br>dns1.xxxx.com 212.212.212.1 dns2.xxxx.com 212.212.212.2</p>
+</blockquote>
+<blockquote>
+<p>对应的机构将下面两个记录插入TLD com服务器<br><img src="/.io//35.png"></p>
+</blockquote>
+<blockquote>
+<p>DDos攻击通过层次结构能有效瓦解</p>
+</blockquote>
+<h1 id="P2P"><a href="#P2P" class="headerlink" title="P2P"></a>P2P</h1><blockquote>
+<p>其中最流行的文件分发协议 BitTorrent</p>
+</blockquote>
+<blockquote>
+<p>CS结构下列情况随着客户数量变大 时延很大<br><img src="/.io//36.png"></p>
+</blockquote>
+<blockquote>
+<p>分发步骤</p>
+</blockquote>
+<ul>
+<li>开始只有服务端有文件，为了使 社区的对等方得到文件，接入链路后至少发送该文件bit一次</li>
+<li>对等方会重新分发</li>
+</ul>
+<h2 id="BitTorrent"><a href="#BitTorrent" class="headerlink" title="BitTorrent"></a>BitTorrent</h2><blockquote>
+<p>定义</p>
+</blockquote>
+<ul>
+<li><p>参与特定文件转发的所有对等方集合是一个洪流（torrent），一个洪流里面的对等方彼此下载等长度的文件块（chunk） 一般256KB。</p>
+</li>
+<li><p>追踪器 追踪自己在注册<br><img src="/.io//37.png"></p>
+</li>
+<li><p>TCP多个近的</p>
+</li>
+</ul>
+<h1 id="视频流"><a href="#视频流" class="headerlink" title="视频流"></a>视频流</h1><h2 id="重要的是平均端到端的吞吐量"><a href="#重要的是平均端到端的吞吐量" class="headerlink" title="重要的是平均端到端的吞吐量"></a>重要的是平均端到端的吞吐量</h2><h2 id="HTTP和DASH"><a href="#HTTP和DASH" class="headerlink" title="HTTP和DASH"></a>HTTP和DASH</h2><blockquote>
+<p>HTTP获取视频，通过缓存字节数超过预先设定就开始播放</p>
+</blockquote>
+<blockquote>
+<p>根据带宽不同 Dynamic Adaptive Streaming over HTTP DASH出现了。通过HTTP GET一次选择不同的块</p>
+</blockquote>
+<h2 id="内容分发网-Content-Distribution-Network-CDN"><a href="#内容分发网-Content-Distribution-Network-CDN" class="headerlink" title="内容分发网 Content Distribution Network CDN"></a>内容分发网 Content Distribution Network CDN</h2><p>CDN有自己的，也可以租借</p>
+<blockquote>
+<p>CDN 操作步骤<br><img src="/.io//38.png"><br>内容提供商NetCinema雇佣了第三方CDN KingCDN分发视频。NetCinema的Web网页上，每个视频URL都包含“video”和独特的标识符。 <a target="_blank" rel="noopener" href="http://video.netcinema.com/6Y2414V">http://video.netcinema.com/6Y2414V</a></p>
+</blockquote>
+<ul>
+<li>用户访问<a target="_blank" rel="noopener" href="http://video.netcinema.com/6Y2414V">http://video.netcinema.com/6Y2414V</a></li>
+<li>主机给video.netcinema.com发送DNS</li>
+<li>本地DNS将该DNS中继到用于NetCinema的权威服务器，服务器观测到video，将请求移交给KingCDN（注意返回给本地DNS的是KingCDn域的主机名 a1105.kingcdn.com</li>
+<li>本地DNS请求给到了KingCDN的专有DNSa1105.kingcdn.com，最终返回指定的CDN服务器IP</li>
+</ul>
+<h3 id="集群选择策略"><a href="#集群选择策略" class="headerlink" title="集群选择策略"></a>集群选择策略</h3><ul>
+<li>物理最近</li>
+<li>流量实时策略 ：（CDN让集群周期向全世界Local DNS发送探测分组（ping或者DNS）问题是大部分LDNS不会响应</li>
+</ul>
+<h1 id="TCP-UDP编程"><a href="#TCP-UDP编程" class="headerlink" title="TCP UDP编程"></a>TCP UDP编程</h1><h2 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h2><blockquote>
+<p>UDPClient<br>类型 DATA_GRAM<br><img src="/.io//39.png"><br>recvfrom 当分组到达该客户套接字，分组数据被放到modifiedMessage</p>
+</blockquote>
+<blockquote>
+<p>UDPServer<br><img src="/.io//40.png"><br>recvfrom 等待分组到来</p>
+</blockquote>
+<h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><blockquote>
+<p>TCPClient<br><img src="/.io//41.png"></p>
+</blockquote>
+<ul>
+<li>connect 执行三次握手</li>
+<li>modifiedSentence 堆积着字符直到回车符结束</li>
+<li>close 执行四次挥手</li>
+</ul>
+<blockquote>
+<p>TCPServer<br><img src="/.io//42.png"></p>
+</blockquote>
+<ul>
+<li>serverSocket是欢迎套接字 创建后我们等待和聆听客户敲门<br>1 定义最大请求连接数</li>
+<li>accept 创建一个新套接字 为特定的客户专用</li>
+<li>close 四次挥手</li>
+</ul>
+<p>UDP 服务端回需要 得到IP和端口<br>TCP 服务端直接扔到Socket里面就行</p>
+<h1 id="习题实验"><a href="#习题实验" class="headerlink" title="习题实验"></a>习题实验</h1><blockquote>
+<p>Telnet 到一台Web服务器发送一行多个请求报文，请求报文包括if-modified-since 强迫响应出现304 Not Modified 状态</p>
+</blockquote>
+<p><img src="/.io//43.png"></p>
+<blockquote>
+<p>whois数据库<br>对给定的域名输入、IP地址，定位响应的注册服务器、whois服务器和DNS服务器<br><img src="/.io//44.png"></p>
+</blockquote>
+<blockquote>
+<p>nslookup 来对本地DNS和上面查到的DNS权威服务器查询<br><img src="/.io//45.png"><br><img src="/.io//46.png"></p>
+</blockquote>
+<blockquote>
+<p>dig 探索DNS服务器等级</p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">C:\Users\scorpin_xia&gt;dig @A.root-servers.net www.baidu.com
+
+; &lt;&lt;&gt;&gt; DiG 9.16.8 &lt;&lt;&gt;&gt; @A.root-servers.net www.baidu.com
+; (2 servers found)
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 4643
+;; flags: qr rd; QUERY: 1, ANSWER: 0, AUTHORITY: 13, ADDITIONAL: 27
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+; COOKIE: 9c0ee9c7fd79e9d9eed96ca35fa7e043c2a6360b013a7839 (good)
+;; QUESTION SECTION:
+;www.baidu.com.                 IN      A
+
+;; AUTHORITY SECTION:
+com.                    172800  IN      NS      b.gtld-servers.net.
+com.                    172800  IN      NS      i.gtld-servers.net.
+com.                    172800  IN      NS      m.gtld-servers.net.
+com.                    172800  IN      NS      d.gtld-servers.net.
+com.                    172800  IN      NS      h.gtld-servers.net.
+com.                    172800  IN      NS      j.gtld-servers.net.
+com.                    172800  IN      NS      f.gtld-servers.net.
+com.                    172800  IN      NS      l.gtld-servers.net.
+com.                    172800  IN      NS      k.gtld-servers.net.
+com.                    172800  IN      NS      a.gtld-servers.net.
+com.                    172800  IN      NS      e.gtld-servers.net.
+com.                    172800  IN      NS      c.gtld-servers.net.
+com.                    172800  IN      NS      g.gtld-servers.net.
+
+;; ADDITIONAL SECTION:
+a.gtld-servers.net.     172800  IN      AAAA    2001:503:a83e::2:30
+b.gtld-servers.net.     172800  IN      AAAA    2001:503:231d::2:30
+c.gtld-servers.net.     172800  IN      AAAA    2001:503:83eb::30
+d.gtld-servers.net.     172800  IN      AAAA    2001:500:856e::30
+e.gtld-servers.net.     172800  IN      AAAA    2001:502:1ca1::30
+f.gtld-servers.net.     172800  IN      AAAA    2001:503:d414::30
+g.gtld-servers.net.     172800  IN      AAAA    2001:503:eea3::30
+h.gtld-servers.net.     172800  IN      AAAA    2001:502:8cc::30
+i.gtld-servers.net.     172800  IN      AAAA    2001:503:39c1::30
+j.gtld-servers.net.     172800  IN      AAAA    2001:502:7094::30
+k.gtld-servers.net.     172800  IN      AAAA    2001:503:d2d::30
+l.gtld-servers.net.     172800  IN      AAAA    2001:500:d937::30
+m.gtld-servers.net.     172800  IN      AAAA    2001:501:b1f9::30
+a.gtld-servers.net.     172800  IN      A       192.5.6.30
+b.gtld-servers.net.     172800  IN      A       192.33.14.30
+c.gtld-servers.net.     172800  IN      A       192.26.92.30
+d.gtld-servers.net.     172800  IN      A       192.31.80.30
+e.gtld-servers.net.     172800  IN      A       192.12.94.30
+f.gtld-servers.net.     172800  IN      A       192.35.51.30
+g.gtld-servers.net.     172800  IN      A       192.42.93.30
+h.gtld-servers.net.     172800  IN      A       192.54.112.30
+i.gtld-servers.net.     172800  IN      A       192.43.172.30
+j.gtld-servers.net.     172800  IN      A       192.48.79.30
+k.gtld-servers.net.     172800  IN      A       192.52.178.30
+l.gtld-servers.net.     172800  IN      A       192.41.162.30
+m.gtld-servers.net.     172800  IN      A       192.55.83.30
+
+;; Query time: 45 msec
+;; SERVER: 2001:503:ba3e::2:30#53(2001:503:ba3e::2:30)
+;; WHEN: Sun Nov 08 20:10:43 中国标准时间 2020
+;; MSG SIZE  rcvd: 866<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Scorpin Xia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://scorpinxia.github.io/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/">https://scorpinxia.github.io/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Scorpin Xia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AF%BE%E7%A8%8B/">
+                                    <span class="chip bg-color">课程</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '58EYV7U0vnoRDUeuKYjp2DTS-MdYXbMMI',
+        appKey: 'znFL8xQjdx6gKxc7f0juTPNF',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '献上你的评论把'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Java-concurrency-in-pratice-Part01-Base-chap05-BaseModule">
+                        
+                        <span class="card-title">Java-concurrency-in-pratice-Part01-Base-chap05-BaseModule</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-08
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JAVA/" class="post-category">
+                                    JAVA
+                                </a>
+                            
+                            <a href="/categories/JAVA/Concurrency/" class="post-category">
+                                    Concurrency
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%87%AA%E5%AD%A6/">
+                        <span class="chip bg-color">自学</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/11/06/java-concurrency-in-pratice-part01-base-chap04-objectcombling/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Java-concurrency-in-pratice-Part01-Base-chap04-ObjectCombling">
+                        
+                        <span class="card-title">Java-concurrency-in-pratice-Part01-Base-chap04-ObjectCombling</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JAVA/" class="post-category">
+                                    JAVA
+                                </a>
+                            
+                            <a href="/categories/JAVA/Concurrency/" class="post-category">
+                                    Concurrency
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%87%AA%E5%AD%A6/">
+                        <span class="chip bg-color">自学</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('6'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Scorpin Xia</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/scorpinxia" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1044883523@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1044883523" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1044883523" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
