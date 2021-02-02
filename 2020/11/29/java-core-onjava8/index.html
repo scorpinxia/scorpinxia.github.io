@@ -980,7 +980,7 @@ one two three
 <pre class="line-numbers language-none"><code class="language-none">意味着在运行时根据对象的类型进行绑定。后期绑定也称为动态绑定或运行时绑定。当一种语言实现了后期绑定，就必须具有某种机制在运行时能判断对象的类型，从而调用恰当的方法。也就是说，编译器仍然不知道对象的类型，但是方法调用机制能找到正确的方法体并调用。每种语言的后期绑定机制都不同，但是可以想到，对象中一定存在某种类型信息。
 
 Java 中除了 static 和 final 方法（private 方法也是隐式的 final）外，其他所有方法都是后期绑定。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="向上转换"><a href="#向上转换" class="headerlink" title="向上转换"></a>向上转换</h2><p><img src="/.io//Java-core-onJava8.md"></p>
+<h2 id="向上转换"><a href="#向上转换" class="headerlink" title="向上转换"></a>向上转换</h2><p><img src="/2020/11/29/java-core-onjava8/Java-core-onJava8.md"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Shape</span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Circle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 s<span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1180,7 +1180,7 @@ sub<span class="token punctuation">.</span>field <span class="token operator">=<
 
 这个特性是一项改善，因为它允许把静态方法放在更合适的地方。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="抽象类和接口"><a href="#抽象类和接口" class="headerlink" title="抽象类和接口"></a>抽象类和接口</h2><p><img src="/.io//2.png"></p>
+<h2 id="抽象类和接口"><a href="#抽象类和接口" class="headerlink" title="抽象类和接口"></a>抽象类和接口</h2><p><img src="/2020/11/29/java-core-onjava8/2.png"></p>
 <h2 id="完全解耦"><a href="#完全解耦" class="headerlink" title="完全解耦"></a>完全解耦</h2><p>将接口与实现解耦使得接口可以应用于多种不同的实现，因而代码更具可复用性。</p>
 <h2 id="使用继承扩展接口"><a href="#使用继承扩展接口" class="headerlink" title="使用继承扩展接口"></a>使用继承扩展接口</h2><p>通过继承，可以很容易在接口中增加方法声明，还可以在新接口中结合多个接口。这两种情况都可以得到新接口，如下例所示：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// interfaces/HorrorShow.java</span>

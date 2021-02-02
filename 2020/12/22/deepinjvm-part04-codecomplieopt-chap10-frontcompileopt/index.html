@@ -545,12 +545,12 @@
 <li>·标注检查。对语法的静态信息进行检查。</li>
 <li>·数据流及控制流分析。对程序动态运行过程进行检查。</li>
 <li>·解语法糖。将简化代码编写的语法糖还原为原有的形式。</li>
-<li>·字节码生成。将前面各个步骤所生成的信息转化成字节码。<br><img src="/.io//1.png"></li>
+<li>·字节码生成。将前面各个步骤所生成的信息转化成字节码。<br><img src="/2020/12/22/deepinjvm-part04-codecomplieopt-chap10-frontcompileopt/1.png"></li>
 </ul>
 </li>
 </ul>
 <blockquote>
-<p>Javac编译主体代码<br><img src="/.io//3.png"></p>
+<p>Javac编译主体代码<br><img src="/2020/12/22/deepinjvm-part04-codecomplieopt-chap10-frontcompileopt/3.png"></p>
 </blockquote>
 <h2 id="解析与填充符号表"><a href="#解析与填充符号表" class="headerlink" title="解析与填充符号表"></a>解析与填充符号表</h2><h3 id="词法、语法分析"><a href="#词法、语法分析" class="headerlink" title="词法、语法分析"></a>词法、语法分析</h3><p>parseFiles()方法</p>
 <blockquote>
@@ -567,7 +567,7 @@
 <li>抽象语法树（Abstract Syntax Tree，AST）是一<br>种用来描述程序代码语法结构的树形表示方式，抽象语法树的每一个节点都代表着程序代码中的一个<br>语法结构（Syntax Construct）</li>
 </ul>
 <blockquote>
-<p>抽象树图例<br><img src="/.io//4.png"></p>
+<p>抽象树图例<br><img src="/2020/12/22/deepinjvm-part04-codecomplieopt-chap10-frontcompileopt/4.png"></p>
 </blockquote>
 <ul>
 <li>经过词法和语法分析生成语法树以后，编译器就不会再对源码字符流进行操作了，后续的操作都建立在抽象语法树之上。</li>
@@ -608,7 +608,7 @@
 <li>变量使用前是否已被声明、变量与赋值之间的数据类型是否<br>能够匹配，等等</li>
 <li>还会顺便进行一个称为常量折叠（Constant Folding）的代码优化，这是Javac编译器会对源代码做的极少量优化措施之一（代码优化几乎都在即时编译器中进行）<ul>
 <li>常量折叠<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img src="/.io//5.png"></li>
+<img src="/2020/12/22/deepinjvm-part04-codecomplieopt-chap10-frontcompileopt/5.png"></li>
 </ul>
 </li>
 </ul>
@@ -947,28 +947,28 @@ invoke <span class="token function">method</span><span class="token punctuation"
 <blockquote>
 <p><strong>语法糖可以根据跟踪Javac源码、反编译Class文件等方式了解它们的本质实现。</strong></p>
 </blockquote>
-<h2 id="try-with-resource"><a href="#try-with-resource" class="headerlink" title="try-with-resource"></a>try-with-resource</h2><p>一般关闭资源在finally<br><img src="/.io//6.png"></p>
+<h2 id="try-with-resource"><a href="#try-with-resource" class="headerlink" title="try-with-resource"></a>try-with-resource</h2><p>一般关闭资源在finally<br><img src="/2020/12/22/deepinjvm-part04-codecomplieopt-chap10-frontcompileopt/6.png"></p>
 <ul>
-<li><p>try with resource<br><img src="/.io//7.png"></p>
+<li><p>try with resource<br><img src="/2020/12/22/deepinjvm-part04-codecomplieopt-chap10-frontcompileopt/7.png"></p>
 </li>
-<li><p>反汇编<br><img src="/.io//8.png"><br><img src="/.io//9.png"></p>
+<li><p>反汇编<br><img src="/2020/12/22/deepinjvm-part04-codecomplieopt-chap10-frontcompileopt/8.png"><br><img src="/2020/12/22/deepinjvm-part04-codecomplieopt-chap10-frontcompileopt/9.png"></p>
 </li>
 </ul>
 <h2 id="lamuda表达式"><a href="#lamuda表达式" class="headerlink" title="lamuda表达式"></a>lamuda表达式</h2><blockquote>
 <p>Labmda表达式不是匿名内部类的语法糖，但是他也是一个语法糖。实现方式其实是依赖了几个JVM底层提供的lambda相关api。</p>
 </blockquote>
 <blockquote>
-<p>遍历list<br><img src="/.io//10.png"></p>
+<p>遍历list<br><img src="/2020/12/22/deepinjvm-part04-codecomplieopt-chap10-frontcompileopt/10.png"></p>
 </blockquote>
 <ul>
-<li>反汇编<br><img src="/.io//11.png"></li>
+<li>反汇编<br><img src="/2020/12/22/deepinjvm-part04-codecomplieopt-chap10-frontcompileopt/11.png"></li>
 <li>其实是调用了java.lang.invoke.LambdaMetafactory#metafactory方法，该方法的第四个参数implMethod指定了方法实现。可以看到这里其实是调用了一个lambda$main$0方法进行了输出。</li>
 </ul>
 <blockquote>
-<p>先过滤再输出<br><img src="/.io//12.png"></p>
+<p>先过滤再输出<br><img src="/2020/12/22/deepinjvm-part04-codecomplieopt-chap10-frontcompileopt/12.png"></p>
 </blockquote>
 <ul>
-<li>反汇编<br><img src="/.io//13.png"></li>
+<li>反汇编<br><img src="/2020/12/22/deepinjvm-part04-codecomplieopt-chap10-frontcompileopt/13.png"></li>
 <li>两个lambda表达式分别调用了lambda$main$1和lambda$main$0两个方法。</li>
 </ul>
 <h1 id="实战：插入式注解处理器"><a href="#实战：插入式注解处理器" class="headerlink" title="实战：插入式注解处理器"></a>实战：插入式注解处理器</h1><blockquote>

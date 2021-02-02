@@ -530,17 +530,17 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <h2 id="数据库列表"><a href="#数据库列表" class="headerlink" title="数据库列表"></a>数据库列表</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">databases</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="数据中的表"><a href="#数据中的表" class="headerlink" title="数据中的表"></a>数据中的表</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">tables</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="数据表的属性，属性类型，主键信息"><a href="#数据表的属性，属性类型，主键信息" class="headerlink" title="数据表的属性，属性类型，主键信息"></a>数据表的属性，属性类型，主键信息</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">columns</span> <span class="token keyword">from</span> xxxx<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="/.io//1.png"></p>
+<p><img src="/2020/04/06/head-mysql/1.png"></p>
 <h2 id="数据表的索引信息"><a href="#数据表的索引信息" class="headerlink" title="数据表的索引信息"></a>数据表的索引信息</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">index</span> <span class="token keyword">from</span> xxxx<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="/.io//2.png"></p>
+<p><img src="/2020/04/06/head-mysql/2.png"></p>
 <h2 id="数据表的性能信息"><a href="#数据表的性能信息" class="headerlink" title="数据表的性能信息"></a>数据表的性能信息</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">table</span> <span class="token keyword">status</span> <span class="token keyword">from</span> mysql <span class="token operator">like</span> <span class="token string">'user%'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="/.io//3.png"></p>
+<p><img src="/2020/04/06/head-mysql/3.png"></p>
 <h1 id="检索数据"><a href="#检索数据" class="headerlink" title="检索数据"></a>检索数据</h1><h2 id="检索单个列-检查多个列-所有列"><a href="#检索单个列-检查多个列-所有列" class="headerlink" title="检索单个列 检查多个列 所有列"></a>检索单个列 检查多个列 所有列</h2><p><strong>无序</strong></p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> xxx <span class="token keyword">from</span> xxxx<span class="token punctuation">;</span>
 <span class="token keyword">select</span> xxx，xx<span class="token punctuation">,</span>xxx <span class="token keyword">from</span> xxxx<span class="token punctuation">;</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> xxx<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="检索出不同的行-DISTINCT"><a href="#检索出不同的行-DISTINCT" class="headerlink" title="检索出不同的行 DISTINCT"></a>检索出不同的行 DISTINCT</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token keyword">distinct</span> vend_id <span class="token keyword">from</span> products<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>本来有14行<br><img src="/.io//5.png"></p>
+<p>本来有14行<br><img src="/2020/04/06/head-mysql/5.png"></p>
 <h2 id="限制结果-LIMIT"><a href="#限制结果-LIMIT" class="headerlink" title="限制结果 LIMIT"></a>限制结果 LIMIT</h2><p>从第4行开始5个</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span>  vend_id <span class="token keyword">from</span> products <span class="token keyword">limit</span> <span class="token number">5</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="完全限定"><a href="#完全限定" class="headerlink" title="完全限定"></a>完全限定</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span>  products<span class="token punctuation">.</span>prod_name <span class="token keyword">from</span> crashcourse<span class="token punctuation">.</span>products <span class="token keyword">limit</span> <span class="token number">5</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -564,7 +564,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span>  prod_id<span class="token punctuation">,</span>prod_price<span class="token punctuation">,</span>prod_name
 <span class="token keyword">from</span> products 
 <span class="token keyword">where</span> prod_price<span class="token operator">=</span><span class="token number">2.50</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//6.png"></p>
+<p><img src="/2020/04/06/head-mysql/6.png"></p>
 <h3 id="空值检测"><a href="#空值检测" class="headerlink" title="空值检测"></a>空值检测</h3><p>空值和0值、空字符、空格不一样 </p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span>  prod_id<span class="token punctuation">,</span>prod_price<span class="token punctuation">,</span>prod_name
 <span class="token keyword">from</span> products 
@@ -598,7 +598,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <li>like是对整个列查找 </li>
 <li>regexp 是对列的具体里面值 查找看含有没有 ，但是regexp可以通过别的符号来实现对整个列匹配</li>
 </ul>
-<p><img src="/.io//7.png"> </p>
+<p><img src="/2020/04/06/head-mysql/7.png"> </p>
 <h2 id="表示or"><a href="#表示or" class="headerlink" title="| 表示or"></a>| 表示or</h2><h2 id="代表组合"><a href="#代表组合" class="headerlink" title="[]代表组合"></a>[]代表组合</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span>  prod_id<span class="token punctuation">,</span>prod_price<span class="token punctuation">,</span>prod_name
 <span class="token keyword">from</span> products 
 <span class="token keyword">where</span> prod_name <span class="token operator">regexp</span> <span class="token string">'[123] Ton'</span><span class="token punctuation">;</span> 将含有匹配<span class="token string">'1 ton'</span><span class="token operator">or</span> <span class="token string">'2 ton''3 ton'</span>的匹配
@@ -611,26 +611,26 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <h2 id="匹配特殊字符-就是"><a href="#匹配特殊字符-就是" class="headerlink" title="匹配特殊字符 就是% . -"></a>匹配特殊字符 就是% . -</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span>  prod_id<span class="token punctuation">,</span>prod_price<span class="token punctuation">,</span>prod_name
 <span class="token keyword">from</span> products 
 <span class="token keyword">where</span> prod_name <span class="token operator">regexp</span> <span class="token string">'\\.'</span><span class="token punctuation">;</span>将含有<span class="token punctuation">.</span>的匹配<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>引用元字符<br><img src="/.io//8.png"><br><img src="/.io//9.png"> </p>
-<h2 id="匹配多个实例-（多次-或几次）"><a href="#匹配多个实例-（多次-或几次）" class="headerlink" title="匹配多个实例 （多次 或几次）"></a>匹配多个实例 （多次 或几次）</h2><p><img src="/.io//10.png"> </p>
+<p>引用元字符<br><img src="/2020/04/06/head-mysql/8.png"><br><img src="/2020/04/06/head-mysql/9.png"> </p>
+<h2 id="匹配多个实例-（多次-或几次）"><a href="#匹配多个实例-（多次-或几次）" class="headerlink" title="匹配多个实例 （多次 或几次）"></a>匹配多个实例 （多次 或几次）</h2><p><img src="/2020/04/06/head-mysql/10.png"> </p>
 <p><strong>?</strong> 代表前面一个字符出现0 或者1次</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span>  prod_id<span class="token punctuation">,</span>prod_price<span class="token punctuation">,</span>prod_name
 <span class="token keyword">from</span> products 
 <span class="token keyword">where</span> prod_name <span class="token operator">regexp</span> <span class="token string">'\\([0-9] sticks?\\)'</span>
 <span class="token keyword">order</span> <span class="token keyword">by</span> prod_name<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//11.png"> </p>
+<p><img src="/2020/04/06/head-mysql/11.png"> </p>
 <p><strong>{4}</strong> </p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span>  prod_id<span class="token punctuation">,</span>prod_price<span class="token punctuation">,</span>prod_name
 <span class="token keyword">from</span> products 
 <span class="token keyword">where</span> prod_name <span class="token operator">regexp</span> <span class="token string">'[[:digit:]]{4}'</span>
 <span class="token keyword">order</span> <span class="token keyword">by</span> prod_name<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>匹配四个数字</p>
-<h2 id="定位符"><a href="#定位符" class="headerlink" title="定位符"></a>定位符</h2><p><img src="/.io//12.png"> </p>
+<h2 id="定位符"><a href="#定位符" class="headerlink" title="定位符"></a>定位符</h2><p><img src="/2020/04/06/head-mysql/12.png"> </p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span>  prod_id<span class="token punctuation">,</span>prod_price<span class="token punctuation">,</span>prod_name
 <span class="token keyword">from</span> products 
 <span class="token keyword">where</span> prod_name <span class="token operator">regexp</span> <span class="token string">'^[[:digit:]\\.]'</span>
 <span class="token keyword">order</span> <span class="token keyword">by</span> prod_name<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//13.png"> </p>
+<p><img src="/2020/04/06/head-mysql/13.png"> </p>
 <p>可以用select 测试 正则</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token string">'hello'</span> <span class="token operator">regexp</span> <span class="token string">'^[[:digit:]\\.]'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>会返回0</p>
@@ -640,7 +640,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <h2 id="concat-拼接"><a href="#concat-拼接" class="headerlink" title="concat 拼接"></a>concat 拼接</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> concat<span class="token punctuation">(</span>vend_name<span class="token punctuation">,</span><span class="token string">'('</span><span class="token punctuation">,</span>vend_country<span class="token punctuation">,</span><span class="token string">')'</span><span class="token punctuation">)</span>
 <span class="token keyword">from</span> vendors
 <span class="token keyword">order</span> <span class="token keyword">by</span> vend_name<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//14.png"> </p>
+<p><img src="/2020/04/06/head-mysql/14.png"> </p>
 <h2 id="trim-Ltrim-Rtrim-去左右空格-去左-去右"><a href="#trim-Ltrim-Rtrim-去左右空格-去左-去右" class="headerlink" title="trim Ltrim Rtrim 去左右空格 去左 去右"></a>trim Ltrim Rtrim 去左右空格 去左 去右</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> concat<span class="token punctuation">(</span>Rtrim<span class="token punctuation">(</span>vend_name<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'('</span><span class="token punctuation">,</span>Rtrim<span class="token punctuation">(</span>vend_country<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">')'</span><span class="token punctuation">)</span>
 <span class="token keyword">from</span> vendors
 <span class="token keyword">order</span> <span class="token keyword">by</span> vend_name<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -653,19 +653,19 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
        quantity<span class="token operator">*</span>item_price <span class="token keyword">as</span> expand_price <span class="token comment">//取名字不同会自动覆盖字段</span>
 <span class="token keyword">from</span> orderitems
 <span class="token keyword">where</span> order_num<span class="token operator">=</span><span class="token number">20005</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="数据处理函数"><a href="#数据处理函数" class="headerlink" title="数据处理函数"></a>数据处理函数</h1><h2 id="文本处理"><a href="#文本处理" class="headerlink" title="文本处理"></a>文本处理</h2><p><img src="/.io//15-1.png"><br><img src="/.io//15-2.png"> </p>
+<h1 id="数据处理函数"><a href="#数据处理函数" class="headerlink" title="数据处理函数"></a>数据处理函数</h1><h2 id="文本处理"><a href="#文本处理" class="headerlink" title="文本处理"></a>文本处理</h2><p><img src="/2020/04/06/head-mysql/15-1.png"><br><img src="/2020/04/06/head-mysql/15-2.png"> </p>
 <p>其中Soundex() 是匹配发音的</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> cust_name<span class="token punctuation">,</span>cust_contact
 <span class="token keyword">from</span> customers
 <span class="token keyword">where</span> soundex<span class="token punctuation">(</span>cust_contact<span class="token punctuation">)</span><span class="token operator">=</span>soundex<span class="token punctuation">(</span><span class="token string">'Y lie'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//16.png"> </p>
-<h2 id="日期时间处理"><a href="#日期时间处理" class="headerlink" title="日期时间处理"></a>日期时间处理</h2><p>日期格式 最好 xxxx-xx-xx<br><img src="/.io//17.png"> </p>
+<p><img src="/2020/04/06/head-mysql/16.png"> </p>
+<h2 id="日期时间处理"><a href="#日期时间处理" class="headerlink" title="日期时间处理"></a>日期时间处理</h2><p>日期格式 最好 xxxx-xx-xx<br><img src="/2020/04/06/head-mysql/17.png"> </p>
 <p>如果要日期 用Data（）<br>如果要时间 用Time()<br>他们会从列出提取 就算只有一个</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> cust_id<span class="token punctuation">,</span>order_num
 <span class="token keyword">from</span> orders
 <span class="token keyword">where</span> soundex<span class="token punctuation">(</span>cust_contact<span class="token punctuation">)</span><span class="token operator">=</span>soundex<span class="token punctuation">(</span><span class="token string">'Y lie'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="数值处理"><a href="#数值处理" class="headerlink" title="数值处理"></a>数值处理</h2><p><img src="/.io//18.png"> </p>
-<h1 id="汇总数据"><a href="#汇总数据" class="headerlink" title="汇总数据"></a>汇总数据</h1><p>经常需要汇总数据而不用实际检索(会浪费时间)<br><img src="/.io//19.png"> </p>
+<h2 id="数值处理"><a href="#数值处理" class="headerlink" title="数值处理"></a>数值处理</h2><p><img src="/2020/04/06/head-mysql/18.png"> </p>
+<h1 id="汇总数据"><a href="#汇总数据" class="headerlink" title="汇总数据"></a>汇总数据</h1><p>经常需要汇总数据而不用实际检索(会浪费时间)<br><img src="/2020/04/06/head-mysql/19.png"> </p>
 <h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><h3 id="AVG"><a href="#AVG" class="headerlink" title="AVG()"></a>AVG()</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">AVG</span><span class="token punctuation">(</span>prod_price<span class="token punctuation">)</span> <span class="token keyword">as</span> avg_price
 <span class="token keyword">from</span> products<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="COUNT"><a href="#COUNT" class="headerlink" title="COUNT()"></a>COUNT()</h3><p>count(*) 计算所有行数 包括空</p>
@@ -689,36 +689,36 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <h1 id="数据分组"><a href="#数据分组" class="headerlink" title="数据分组"></a>数据分组</h1><p>在汇总数据的基础上 想知道每个供应商对应的</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> vend_id<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> num_pords
 <span class="token keyword">from</span> products<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>这样就失败，没有得到我们想要的<br><img src="/.io//21.png">   </p>
+<p>这样就失败，没有得到我们想要的<br><img src="/2020/04/06/head-mysql/21.png">   </p>
 <h2 id="group-by"><a href="#group-by" class="headerlink" title="group by"></a>group by</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> vend_id<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> num_pords
 <span class="token keyword">from</span> products
 <span class="token keyword">group</span> <span class="token keyword">by</span> vend_id<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//20.png"> </p>
+<p><img src="/2020/04/06/head-mysql/20.png"> </p>
 <h2 id="过滤分组（注意此时不能where-where-是决定什么行不要"><a href="#过滤分组（注意此时不能where-where-是决定什么行不要" class="headerlink" title="过滤分组（注意此时不能where where 是决定什么行不要)"></a>过滤分组（注意此时不能where where 是决定什么行不要)</h2><h3 id="having"><a href="#having" class="headerlink" title="having"></a>having</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> vend_id<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> num_pords
 <span class="token keyword">from</span> products
 <span class="token keyword">group</span> <span class="token keyword">by</span> vend_id
 <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&gt;</span><span class="token number">2</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//22.png"> </p>
-<h2 id="分组排序"><a href="#分组排序" class="headerlink" title="分组排序"></a>分组排序</h2><h3 id="order-by"><a href="#order-by" class="headerlink" title="order by"></a>order by</h3><p>order by 与 group by的区别<br><img src="/.io//23.png"> </p>
+<p><img src="/2020/04/06/head-mysql/22.png"> </p>
+<h2 id="分组排序"><a href="#分组排序" class="headerlink" title="分组排序"></a>分组排序</h2><h3 id="order-by"><a href="#order-by" class="headerlink" title="order by"></a>order by</h3><p>order by 与 group by的区别<br><img src="/2020/04/06/head-mysql/23.png"> </p>
 <p>第一点很重要<br>应该提供明确的order by 决定分组顺序</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> order_num<span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>quantity<span class="token operator">*</span>item_price<span class="token punctuation">)</span> <span class="token keyword">as</span> order_total
 <span class="token keyword">from</span> orderitems
 <span class="token keyword">group</span> <span class="token keyword">by</span> order_num
 <span class="token keyword">having</span> order_total<span class="token operator">&gt;</span><span class="token number">50</span>
 <span class="token keyword">order</span> <span class="token keyword">by</span> order_total<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>无order by<br><img src="/.io//24_1.png"></p>
-<p>you order by<br><img src="/.io//24_2.png"></p>
-<h3 id="select-顺序"><a href="#select-顺序" class="headerlink" title="select 顺序"></a>select 顺序</h3><p><img src="/.io//25_1.png"><br><img src="/.io//25_2.png"></p>
+<p>无order by<br><img src="/2020/04/06/head-mysql/24_1.png"></p>
+<p>you order by<br><img src="/2020/04/06/head-mysql/24_2.png"></p>
+<h3 id="select-顺序"><a href="#select-顺序" class="headerlink" title="select 顺序"></a>select 顺序</h3><p><img src="/2020/04/06/head-mysql/25_1.png"><br><img src="/2020/04/06/head-mysql/25_2.png"></p>
 <h1 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h1><p>想要查询所有订购了’TNT2’的用户id 但是 他们之间没有直接的表</p>
 <p>只能先查 数量</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> order_num
 <span class="token keyword">from</span> orderitems
 <span class="token keyword">where</span> prod_id<span class="token operator">=</span><span class="token string">'TNT2'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//26_1.png"><br>在通过数量查询用户id</p>
+<p><img src="/2020/04/06/head-mysql/26_1.png"><br>在通过数量查询用户id</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> cust_id
 <span class="token keyword">from</span> orders
 <span class="token keyword">where</span> order_num <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">20005</span><span class="token punctuation">,</span><span class="token number">20007</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//26_2.png"></p>
+<p><img src="/2020/04/06/head-mysql/26_2.png"></p>
 <h2 id="子查询过滤"><a href="#子查询过滤" class="headerlink" title="子查询过滤"></a>子查询过滤</h2><p>嵌套查询 出客户的id </p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> cust_id
 <span class="token keyword">from</span> orders
@@ -740,7 +740,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <h2 id="计算子查询"><a href="#计算子查询" class="headerlink" title="计算子查询"></a>计算子查询</h2><p>1.检查 customersl里面的客户列表<br>2.对于每个客户计算在orders里面的订单数</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> cust_id
 <span class="token keyword">from</span> customers<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="/.io//27_1.png"></p>
+<p><img src="/2020/04/06/head-mysql/27_1.png"></p>
 <p>只能单独算 </p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> orders
 <span class="token keyword">from</span> orders
@@ -751,7 +751,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
         <span class="token keyword">where</span> orders<span class="token punctuation">.</span>cust_id<span class="token operator">=</span>customers<span class="token punctuation">.</span>cust_id<span class="token punctuation">)</span> <span class="token keyword">as</span> orders
 <span class="token keyword">from</span> customers
 <span class="token keyword">order</span> <span class="token keyword">by</span> cust_name<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//27_2.png"><br>如果cust_id = cust_id 会导致歧义</p>
+<p><img src="/2020/04/06/head-mysql/27_2.png"><br>如果cust_id = cust_id 会导致歧义</p>
 <h1 id="联结表"><a href="#联结表" class="headerlink" title="联结表"></a>联结表</h1><p>假如有一个包含产品目录的数据库列表，每种类别一行<br>对于每种物品存储的信息包括产品描述、价格、供应商等。</p>
 <p>如果需要保存同一个供应商生成的多个产品？</p>
 <p>为什么要分开存储数据和产品信息？</p>
@@ -779,7 +779,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <span class="token keyword">from</span> vendors<span class="token punctuation">,</span>products
 <span class="token keyword">where</span> vendors<span class="token punctuation">.</span>vend_id <span class="token operator">=</span> products<span class="token punctuation">.</span>vend_id
 <span class="token keyword">order</span> <span class="token keyword">by</span> vend_name<span class="token punctuation">,</span>prod_name<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//28.png"></p>
+<p><img src="/2020/04/06/head-mysql/28.png"></p>
 <p>同样的</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> vend_name<span class="token punctuation">,</span>prod_name<span class="token punctuation">,</span>prod_price
 <span class="token keyword">from</span> vendors <span class="token keyword">inner</span> <span class="token keyword">join</span> products
@@ -825,13 +825,13 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <span class="token keyword">where</span> c<span class="token punctuation">.</span>cust_id <span class="token operator">=</span>o<span class="token punctuation">.</span>cust_id
 <span class="token operator">and</span> oi<span class="token punctuation">.</span>order_num <span class="token operator">=</span>o<span class="token punctuation">.</span>order_num
 <span class="token operator">and</span> oi<span class="token punctuation">.</span>prod_id<span class="token operator">=</span><span class="token string">'FB'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//29.png"></p>
+<p><img src="/2020/04/06/head-mysql/29.png"></p>
 <h2 id="自然联结"><a href="#自然联结" class="headerlink" title="自然联结"></a>自然联结</h2><p>重复的列不会列出来</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> p1<span class="token punctuation">.</span>prod_id<span class="token punctuation">,</span>p1<span class="token punctuation">.</span>prod_name
 <span class="token keyword">from</span> products <span class="token keyword">as</span> p1<span class="token punctuation">,</span>products <span class="token keyword">as</span> p2
 <span class="token keyword">where</span> p1<span class="token punctuation">.</span>vend_id<span class="token operator">=</span>p2<span class="token punctuation">.</span>vend_id
 <span class="token operator">and</span> p2<span class="token punctuation">.</span>prod_id<span class="token operator">=</span><span class="token string">'DTNTR'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//30.png"></p>
+<p><img src="/2020/04/06/head-mysql/30.png"></p>
 <h2 id="外部联结"><a href="#外部联结" class="headerlink" title="外部联结"></a>外部联结</h2><p>没有关联行的行 外部联行</p>
 <p>目标：</p>
 <ul>
@@ -860,7 +860,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <span class="token keyword">select</span> vend_id<span class="token punctuation">,</span>prod_id<span class="token punctuation">,</span>prod_price
 <span class="token keyword">from</span> products
 <span class="token keyword">where</span> vend_id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token number">1002</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//31.png"></p>
+<p><img src="/2020/04/06/head-mysql/31.png"></p>
 <p><strong>注意点</strong>:查询的东西一样</p>
 <h2 id="UION-ALL"><a href="#UION-ALL" class="headerlink" title="UION ALL"></a>UION ALL</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> vend_id<span class="token punctuation">,</span>prod_id<span class="token punctuation">,</span>prod_price
 <span class="token keyword">from</span> products
@@ -869,7 +869,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <span class="token keyword">select</span> vend_id<span class="token punctuation">,</span>prod_id<span class="token punctuation">,</span>prod_price
 <span class="token keyword">from</span> products
 <span class="token keyword">where</span> vend_id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token number">1002</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//32.png"></p>
+<p><img src="/2020/04/06/head-mysql/32.png"></p>
 <h1 id="全文本搜索"><a href="#全文本搜索" class="headerlink" title="全文本搜索"></a>全文本搜索</h1><p>有几种数据库引擎<br>常见有MyISAM 支持  InnoDB不支持</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> productnotes
 <span class="token punctuation">(</span>
@@ -886,7 +886,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> note_text
 <span class="token keyword">from</span> productnotes
 <span class="token keyword">where</span> <span class="token keyword">match</span><span class="token punctuation">(</span>note_text<span class="token punctuation">)</span> against<span class="token punctuation">(</span><span class="token string">'rabbit'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//33_1.png"></p>
+<p><img src="/2020/04/06/head-mysql/33_1.png"></p>
 <p>简单搜索和like差不多</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> note_text
 <span class="token keyword">from</span> productnotes
@@ -897,7 +897,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
         <span class="token keyword">match</span><span class="token punctuation">(</span>note_text<span class="token punctuation">)</span> against<span class="token punctuation">(</span><span class="token string">'rabbit'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> rank1
 <span class="token keyword">from</span> productnotes<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>根据匹配词的数目 唯一词的数目 包含行的行数 对结果排序</p>
-<p><img src="/.io//33_2.png"></p>
+<p><img src="/2020/04/06/head-mysql/33_2.png"></p>
 <h2 id="查询扩展"><a href="#查询扩展" class="headerlink" title="查询扩展"></a>查询扩展</h2><ul>
 <li>先全文本搜索出 相关行</li>
 <li>在相关行中检测出有用词（MYSQL断定的）</li>
@@ -906,7 +906,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> note_text
 <span class="token keyword">from</span> productnotes
 <span class="token keyword">where</span> <span class="token keyword">match</span><span class="token punctuation">(</span>note_text<span class="token punctuation">)</span> against<span class="token punctuation">(</span><span class="token string">'anvils'</span> <span class="token keyword">with</span> query expansion<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//34.png"></p>
+<p><img src="/2020/04/06/head-mysql/34.png"></p>
 <h2 id="布尔文本搜索"><a href="#布尔文本搜索" class="headerlink" title="布尔文本搜索"></a>布尔文本搜索</h2><ul>
 <li>要匹配的词</li>
 <li>要排斥的词</li>
@@ -916,12 +916,12 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> note_text
 <span class="token keyword">from</span> productnotes
 <span class="token keyword">where</span> <span class="token keyword">match</span><span class="token punctuation">(</span>note_text<span class="token punctuation">)</span> against<span class="token punctuation">(</span><span class="token string">'heavy'</span> <span class="token operator">in</span> <span class="token keyword">boolean</span> <span class="token keyword">mode</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//35_1.png"><br>排斥任意以rope开始的行</p>
+<p><img src="/2020/04/06/head-mysql/35_1.png"><br>排斥任意以rope开始的行</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> note_text
 <span class="token keyword">from</span> productnotes
 <span class="token keyword">where</span> <span class="token keyword">match</span><span class="token punctuation">(</span>note_text<span class="token punctuation">)</span> against<span class="token punctuation">(</span><span class="token string">'heavy -rope*'</span> <span class="token operator">in</span> <span class="token keyword">boolean</span> <span class="token keyword">mode</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//35_2.png"></p>
-<p><strong>操作表</strong><br><img src="/.io//36.png"></p>
+<p><img src="/2020/04/06/head-mysql/35_2.png"></p>
+<p><strong>操作表</strong><br><img src="/2020/04/06/head-mysql/36.png"></p>
 <p><strong>例子</strong><br>搜索包含rabbit <strong>和</strong>bait的行</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> note_text
 <span class="token keyword">from</span> productnotes
@@ -1053,7 +1053,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <li>页面创建</li>
 <li>语句创建</li>
 </ul>
-<h2 id="创建基础"><a href="#创建基础" class="headerlink" title="创建基础"></a>创建基础</h2><p><img src="/.io//37.png"></p>
+<h2 id="创建基础"><a href="#创建基础" class="headerlink" title="创建基础"></a>创建基础</h2><p><img src="/2020/04/06/head-mysql/37.png"></p>
 <h3 id="MYSQL-忽略空格"><a href="#MYSQL-忽略空格" class="headerlink" title="MYSQL 忽略空格"></a><strong>MYSQL 忽略空格</strong></h3><p>以cust_id 为主键</p>
 <h3 id="使用null"><a href="#使用null" class="headerlink" title="使用null"></a><strong>使用null</strong></h3><p>创建的时候不允许null not null在插入时不允许null值<br>null 和 空 不一定</p>
 <h3 id="AUTO-INCREMENT"><a href="#AUTO-INCREMENT" class="headerlink" title="AUTO_INCREMENT"></a>AUTO_INCREMENT</h3><p>每增加一行 自动增 也可以给一个值只要是唯一的<br>select last_insert_id() 可以获得</p>
@@ -1111,7 +1111,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 </ul>
 <p>视图可使用和表基本相同的方式</p>
 <p><strong>视图不包含数据，大量视图可能导致性能问题</strong></p>
-<h3 id="视图规则"><a href="#视图规则" class="headerlink" title="视图规则"></a>视图规则</h3><p><img src="/.io//38.png"></p>
+<h3 id="视图规则"><a href="#视图规则" class="headerlink" title="视图规则"></a>视图规则</h3><p><img src="/2020/04/06/head-mysql/38.png"></p>
 <h2 id="使用视图"><a href="#使用视图" class="headerlink" title="使用视图"></a>使用视图</h2><h3 id="简化复杂联结"><a href="#简化复杂联结" class="headerlink" title="简化复杂联结"></a>简化复杂联结</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">view</span> productscustomers <span class="token keyword">as</span>
 <span class="token keyword">select</span> cust_name<span class="token punctuation">,</span>cust_contact<span class="token punctuation">,</span>prod_id
 <span class="token keyword">from</span> customers<span class="token punctuation">,</span>orders<span class="token punctuation">,</span>orderitems
@@ -1168,7 +1168,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
                     <span class="token variable">@pricehigh</span><span class="token punctuation">,</span>
                     <span class="token variable">@priceaverage</span>
                         <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//39.png"></p>
+<p><img src="/2020/04/06/head-mysql/39.png"></p>
 <p>带输入输出参数的</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">delimiter</span> <span class="token comment">//</span>
 <span class="token keyword">create</span> <span class="token keyword">procedure</span> ordertotal<span class="token punctuation">(</span>
@@ -1194,7 +1194,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
         <span class="token keyword">into</span> ototal<span class="token punctuation">;</span>
 <span class="token keyword">end</span> <span class="token comment">//</span>
 <span class="token keyword">delimiter</span> <span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//40.png"></p>
+<p><img src="/2020/04/06/head-mysql/40.png"></p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">call</span> ordertotal<span class="token punctuation">(</span><span class="token number">20009</span><span class="token punctuation">,</span><span class="token variable">@total</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">select</span> <span class="token variable">@total</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="建立智能存储过程"><a href="#建立智能存储过程" class="headerlink" title="建立智能存储过程"></a>建立智能存储过程</h3><ul>
@@ -1238,7 +1238,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <span class="token keyword">select</span> <span class="token variable">@total</span><span class="token punctuation">;</span>
 <span class="token keyword">call</span> ordertotal<span class="token punctuation">(</span><span class="token number">20005</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token variable">@total</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">select</span> <span class="token variable">@total</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//41.png"></p>
+<p><img src="/2020/04/06/head-mysql/41.png"></p>
 <h3 id="检查存储过程"><a href="#检查存储过程" class="headerlink" title="检查存储过程"></a>检查存储过程</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">create</span> <span class="token keyword">procedure</span> ordertotal<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h1 id="游标"><a href="#游标" class="headerlink" title="游标"></a>游标</h1><p>普通查询没办法得到 第一行 下一行 前10行<br>游标存储在Mysql服务器的数据库查询 是检索出来的结果集 </p>
 <h2 id="使用游标cursor"><a href="#使用游标cursor" class="headerlink" title="使用游标cursor"></a>使用游标cursor</h2><ul>
@@ -1314,7 +1314,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
         <span class="token keyword">close</span> ordernumbers<span class="token punctuation">;</span>
 <span class="token keyword">end</span><span class="token comment">//</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/.io//42.png"></p>
+<p><img src="/2020/04/06/head-mysql/42.png"></p>
 <h1 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h1><h2 id="触发器定义"><a href="#触发器定义" class="headerlink" title="触发器定义"></a>触发器定义</h2><p>想要某条语句在事件发生时自动执行</p>
 <ul>
 <li>加个顾客，检查电话号码格式是否正确，州缩写是否大写</li>
@@ -1347,7 +1347,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">insert</span> <span class="token keyword">into</span> orders<span class="token punctuation">(</span>order_date<span class="token punctuation">,</span>cust_id<span class="token punctuation">)</span>
 <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">10001</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">select</span> <span class="token variable">@new_order_num</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//43.png"></p>
+<p><img src="/2020/04/06/head-mysql/43.png"></p>
 <p><strong>还有before 用于数据检验</strong></p>
 <h3 id="delete-触发器"><a href="#delete-触发器" class="headerlink" title="delete 触发器"></a>delete 触发器</h3><p>使用<strong>old</strong> 访问被删除的行 只读</p>
 <p>保存任意删除订单存档</p>
@@ -1406,7 +1406,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <span class="token keyword">rollback</span><span class="token punctuation">;</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> ordertotals<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>删了回退</p>
-<p><img src="/.io//44.png"></p>
+<p><img src="/2020/04/06/head-mysql/44.png"></p>
 <h3 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h3><p>一般Mysql语句都是直接针对数据库操作 是隐含提交<br>implicit commit </p>
 <p>事务处理里面不会隐含提交</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">start</span> <span class="token keyword">transaction</span><span class="token punctuation">;</span>
@@ -1427,15 +1427,15 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <li>校对 规定字符如何比较<br>例：校对APE apex Apple 的正确排序顺序 依赖是否区分大小写<br>也影响搜索，以及法文 德文排序</li>
 </ul>
 <h2 id="使用字符集-和校对顺序"><a href="#使用字符集-和校对顺序" class="headerlink" title="使用字符集 和校对顺序"></a>使用字符集 和校对顺序</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">character</span> <span class="token keyword">set</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="/.io//45.png"></p>
+<p><img src="/2020/04/06/head-mysql/45.png"></p>
 <p>展示了可用字符集合默认校对</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> collation<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>展示可用校对 一个字符集有很多校对  很多校对两次<br>一次区分大小写 （_cs) 一次不区分大小写（_ci)</p>
-<p><img src="/.io//46.png"></p>
+<p><img src="/2020/04/06/head-mysql/46.png"></p>
 <p>默认的字符集和校对 系统管理</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> variables <span class="token operator">like</span> <span class="token string">'character%'</span><span class="token punctuation">;</span>
 <span class="token keyword">show</span> variables <span class="token operator">like</span> <span class="token string">'collation%'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="/.io//47.png"></p>
+<p><img src="/2020/04/06/head-mysql/47.png"></p>
 <h3 id="创建表指定字符集校对"><a href="#创建表指定字符集校对" class="headerlink" title="创建表指定字符集校对"></a>创建表指定字符集校对</h3><ul>
 <li>对整个表<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> mytable
 <span class="token punctuation">(</span>
@@ -1470,15 +1470,15 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <p><strong>防止无意错误</strong><br><strong>不要使用root</strong> </p>
 <h2 id="管理用户"><a href="#管理用户" class="headerlink" title="管理用户"></a>管理用户</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">use</span> mysql<span class="token punctuation">;</span>
 <span class="token keyword">select</span> <span class="token keyword">user</span> <span class="token keyword">from</span> <span class="token keyword">user</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="/.io//48.png"></p>
+<p><img src="/2020/04/06/head-mysql/48.png"></p>
 <h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">user</span> ben identified <span class="token keyword">by</span> <span class="token string">'p@$$w0rd'</span><span class="token punctuation">;</span>
 <span class="token keyword">select</span> <span class="token keyword">user</span> <span class="token keyword">from</span> <span class="token keyword">user</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>indentified by 指定纯文本口令作为散列值加密，密码</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">rename</span> <span class="token keyword">user</span> ben <span class="token keyword">to</span> beforta<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="/.io//49.png"></p>
+<p><img src="/2020/04/06/head-mysql/49.png"></p>
 <h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">drop</span> <span class="token keyword">user</span> beforta<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="设置访问权限"><a href="#设置访问权限" class="headerlink" title="设置访问权限"></a>设置访问权限</h3><h4 id="查看访问权限"><a href="#查看访问权限" class="headerlink" title="查看访问权限"></a>查看访问权限</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> grants <span class="token keyword">for</span> beforta<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="/.io//50_1.png"><br>权限 usage on <em>.</em> 代表根本没有任何权限</p>
+<p><img src="/2020/04/06/head-mysql/50_1.png"><br>权限 usage on <em>.</em> 代表根本没有任何权限</p>
 <h4 id="赋值和撤销访问权限"><a href="#赋值和撤销访问权限" class="headerlink" title="赋值和撤销访问权限"></a>赋值和撤销访问权限</h4><p>每个grant 添加一个权限</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">grant</span> <span class="token keyword">select</span> <span class="token keyword">on</span> crashcourse<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">to</span> beforta<span class="token punctuation">;</span>
 <span class="token keyword">show</span> grants <span class="token keyword">for</span> beforta<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -1492,7 +1492,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <li>特定的列</li>
 <li>特定的存储过程</li>
 </ul>
-<p><img src="/.io//50_2.png"><br><img src="/.io//50_3.png"></p>
+<p><img src="/2020/04/06/head-mysql/50_2.png"><br><img src="/2020/04/06/head-mysql/50_3.png"></p>
 <p><strong>注意点：</strong> </p>
 <ul>
 <li>grant revoke 用户必须存在但是对象不一定</li>
@@ -1505,7 +1505,7 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <li>mysqlhotcopy 从一个数据库复制所有数据</li>
 <li>backup table 或者select into outfile 到外部文件<br>用restore table 复原</li>
 </ul>
-<h2 id="进行数据库维护"><a href="#进行数据库维护" class="headerlink" title="进行数据库维护"></a>进行数据库维护</h2><p>查看表键 对不对<br> </p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">analyze</span> <span class="token keyword">table</span> orders<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>发现修复问题<br> <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">check</span> <span class="token keyword">table</span> orders<span class="token punctuation">,</span>orderitems<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>删除大量数据后用回收空间<br> <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">optimize</span> <span class="token keyword">table</span> orders<span class="token punctuation">,</span>orderitems<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br><img src="/.io//51.png"><p></p>
+<h2 id="进行数据库维护"><a href="#进行数据库维护" class="headerlink" title="进行数据库维护"></a>进行数据库维护</h2><p>查看表键 对不对<br> </p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">analyze</span> <span class="token keyword">table</span> orders<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>发现修复问题<br> <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">check</span> <span class="token keyword">table</span> orders<span class="token punctuation">,</span>orderitems<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>删除大量数据后用回收空间<br> <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">optimize</span> <span class="token keyword">table</span> orders<span class="token punctuation">,</span>orderitems<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br><img src="/2020/04/06/head-mysql/51.png"><p></p>
 <h2 id="诊断启动问题"><a href="#诊断启动问题" class="headerlink" title="诊断启动问题"></a>诊断启动问题</h2><p>大多是自动启动<br>mysqld 手动启动</p>
 <ul>
 <li>–help 显示帮助</li>
@@ -1540,10 +1540,10 @@ source d:\test<span class="token punctuation">.</span><span class="token keyword
 <li>数据库不断变化，理想配置也是</li>
 <li><strong>重要的是每条规则在某些条件会被打破</strong></li>
 </ul>
-<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><p>串字符<br><img src="/.io//52.png"></p>
-<p>数值类型<br><img src="/.io//53.png"></p>
-<p>日期时间<br><img src="/.io//54.png"></p>
-<p>二进制<br><img src="/.io//55.png"></p>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><p>串字符<br><img src="/2020/04/06/head-mysql/52.png"></p>
+<p>数值类型<br><img src="/2020/04/06/head-mysql/53.png"></p>
+<p>日期时间<br><img src="/2020/04/06/head-mysql/54.png"></p>
+<p>二进制<br><img src="/2020/04/06/head-mysql/55.png"></p>
 
                 
             </div>

@@ -631,9 +631,9 @@
 <!-- /TOC -->
 
 
-<h1 id="base"><a href="#base" class="headerlink" title="base"></a>base</h1><h2 id="对象引用问题"><a href="#对象引用问题" class="headerlink" title="对象引用问题"></a>对象引用问题</h2><p><img src="/.io//1.png"><br><img src="/.io//2.png"><br><img src="/.io//3.png"></p>
-<h2 id="数组是一个对象"><a href="#数组是一个对象" class="headerlink" title="数组是一个对象"></a>数组是一个对象</h2><p><img src="/.io//4.png"><br><img src="/.io//5.png"></p>
-<h2 id="类型转化-小到大-大到小需要显示指派"><a href="#类型转化-小到大-大到小需要显示指派" class="headerlink" title="类型转化 小到大  大到小需要显示指派"></a>类型转化 小到大  大到小需要显示指派</h2><h2 id="实例变量有默认值-（类里）-局部变量没有默认值-直接使用报错"><a href="#实例变量有默认值-（类里）-局部变量没有默认值-直接使用报错" class="headerlink" title="实例变量有默认值 （类里）  局部变量没有默认值 直接使用报错"></a>实例变量有默认值 （类里）  局部变量没有默认值 直接使用报错</h2><p><img src="/.io//6.png"></p>
+<h1 id="base"><a href="#base" class="headerlink" title="base"></a>base</h1><h2 id="对象引用问题"><a href="#对象引用问题" class="headerlink" title="对象引用问题"></a>对象引用问题</h2><p><img src="/2020/03/20/head-java-first/1.png"><br><img src="/2020/03/20/head-java-first/2.png"><br><img src="/2020/03/20/head-java-first/3.png"></p>
+<h2 id="数组是一个对象"><a href="#数组是一个对象" class="headerlink" title="数组是一个对象"></a>数组是一个对象</h2><p><img src="/2020/03/20/head-java-first/4.png"><br><img src="/2020/03/20/head-java-first/5.png"></p>
+<h2 id="类型转化-小到大-大到小需要显示指派"><a href="#类型转化-小到大-大到小需要显示指派" class="headerlink" title="类型转化 小到大  大到小需要显示指派"></a>类型转化 小到大  大到小需要显示指派</h2><h2 id="实例变量有默认值-（类里）-局部变量没有默认值-直接使用报错"><a href="#实例变量有默认值-（类里）-局部变量没有默认值-直接使用报错" class="headerlink" title="实例变量有默认值 （类里）  局部变量没有默认值 直接使用报错"></a>实例变量有默认值 （类里）  局部变量没有默认值 直接使用报错</h2><p><img src="/2020/03/20/head-java-first/6.png"></p>
 <h2 id="只是比较里面的字节"><a href="#只是比较里面的字节" class="headerlink" title="== 只是比较里面的字节"></a>== 只是比较里面的字节</h2><h2 id="ArrayList-里面放的是对象-如果是主数据类型-会被包装成object"><a href="#ArrayList-里面放的是对象-如果是主数据类型-会被包装成object" class="headerlink" title="ArrayList 里面放的是对象  如果是主数据类型 会被包装成object"></a>ArrayList 里面放的是对象  如果是主数据类型 会被包装成object</h2><h1 id="多态-1-继承"><a href="#多态-1-继承" class="headerlink" title="多态 1 继承"></a>多态 1 继承</h1><h2 id="成员变量，静态方法看左边；非静态方法：编译看左边，运行看右边"><a href="#成员变量，静态方法看左边；非静态方法：编译看左边，运行看右边" class="headerlink" title="成员变量，静态方法看左边；非静态方法：编译看左边，运行看右边"></a>成员变量，静态方法看左边；非静态方法：编译看左边，运行看右边</h2><p>当父类变量引用子类对象时（Fu f = new Zi();在这个引用变量f指向的对象中，他的成员变量和静态方法与父类是一致的，他的非静态方法，在编译时是与父类一致的，运行时却与子类一致（发生了复写）。</p>
 <p>个人分析：</p>
 <p>Fu f = new Zi();———-首先了解变量F到底是什么，把这句子分2段：Fu f;这是声明一个变量f为Fu这个类，那么知道了f肯定是Fu类。然后我们f=newZi();中建立一个子类对象赋值给了f，结果是什么？？</p>
@@ -644,27 +644,27 @@
 <p>对于静态方法：编译和运行都看Fu！！</p>
 <p>其实很简单，首先我们要理解静态情况下发生了什么？</p>
 <p>—————-<font color="red" size="5">当静态时，Fu类的所有函数跟随Fu类加载而加载了。也就是Fu类的函数(是先于对象建立之前就存在了，无法被后出现的Zi类对象所复写的，所以没发生复写，那么获得：</font>C：静态方法：编译和运行都看Fu。</p>
-<h2 id="子类想要引用父类的方法加上一些"><a href="#子类想要引用父类的方法加上一些" class="headerlink" title="子类想要引用父类的方法加上一些"></a>子类想要引用父类的方法加上一些</h2><p><img src="/.io//7.png"></p>
-<h2 id="运用事态时，引用英型可以是实际对象类型的父类（多态）"><a href="#运用事态时，引用英型可以是实际对象类型的父类（多态）" class="headerlink" title="运用事态时，引用英型可以是实际对象类型的父类（多态）"></a>运用事态时，引用英型可以是实际对象类型的父类（多态）</h2><p>多态最强的地方 数组调用<br><img src="/.io//8.png"><br>或者在传递参数时 用父类引用来控制所有子类<br><img src="/.io//9.png"></p>
+<h2 id="子类想要引用父类的方法加上一些"><a href="#子类想要引用父类的方法加上一些" class="headerlink" title="子类想要引用父类的方法加上一些"></a>子类想要引用父类的方法加上一些</h2><p><img src="/2020/03/20/head-java-first/7.png"></p>
+<h2 id="运用事态时，引用英型可以是实际对象类型的父类（多态）"><a href="#运用事态时，引用英型可以是实际对象类型的父类（多态）" class="headerlink" title="运用事态时，引用英型可以是实际对象类型的父类（多态）"></a>运用事态时，引用英型可以是实际对象类型的父类（多态）</h2><p>多态最强的地方 数组调用<br><img src="/2020/03/20/head-java-first/8.png"><br>或者在传递参数时 用父类引用来控制所有子类<br><img src="/2020/03/20/head-java-first/9.png"></p>
 <h2 id="无法看到源码-又想修改方法-可以继承来做"><a href="#无法看到源码-又想修改方法-可以继承来做" class="headerlink" title="无法看到源码 又想修改方法 可以继承来做"></a>无法看到源码 又想修改方法 可以继承来做</h2><h2 id="final-标记方法防止覆盖"><a href="#final-标记方法防止覆盖" class="headerlink" title="final 标记方法防止覆盖"></a>final 标记方法防止覆盖</h2><h2 id="参数一样-返回类型兼容-不降低读取权限"><a href="#参数一样-返回类型兼容-不降低读取权限" class="headerlink" title="参数一样 返回类型兼容 不降低读取权限"></a>参数一样 返回类型兼容 不降低读取权限</h2><h1 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h1><p>与继承多态无关 只是刚好名称相同的不同方法<br>不能只改返回类型</p>
-<h1 id="多态-2-接口与抽象类"><a href="#多态-2-接口与抽象类" class="headerlink" title="多态 2 接口与抽象类"></a>多态 2 接口与抽象类</h1><h2 id="抽象类-不能让animals-new-出来-（不知道什么动物是动物）"><a href="#抽象类-不能让animals-new-出来-（不知道什么动物是动物）" class="headerlink" title="抽象类  不能让animals new 出来 （不知道什么动物是动物）"></a>抽象类  不能让animals new 出来 （不知道什么动物是动物）</h2><p><img src="/.io//10.png"><br>抽象方法 必须在子类被实现</p>
-<h1 id="所有类继承了Object"><a href="#所有类继承了Object" class="headerlink" title="所有类继承了Object"></a>所有类继承了Object</h1><h2 id="可以覆盖部分方法，但是部分是final-强烈建议覆盖hashcode-equals-toString"><a href="#可以覆盖部分方法，但是部分是final-强烈建议覆盖hashcode-equals-toString" class="headerlink" title="可以覆盖部分方法，但是部分是final(强烈建议覆盖hashcode equals toString)"></a>可以覆盖部分方法，但是部分是final(强烈建议覆盖hashcode equals toString)</h2><h2 id="不可把所有返回和参数设置成Object"><a href="#不可把所有返回和参数设置成Object" class="headerlink" title="不可把所有返回和参数设置成Object"></a>不可把所有返回和参数设置成Object</h2><p><img src="/.io//11.png"><br>对于Object来说定义出来只能是Object对象</p>
-<p><img src="/.io//12.png"></p>
-<p><img src="/.io//13.png"></p>
-<p><img src="/.io//14.png"></p>
-<h2 id="有些动物想要pets"><a href="#有些动物想要pets" class="headerlink" title="有些动物想要pets"></a>有些动物想要pets</h2><p><img src="/.io//15.png"></p>
-<h2 id="接口类型作为多态-对象可以来自任何实现接口的子类"><a href="#接口类型作为多态-对象可以来自任何实现接口的子类" class="headerlink" title="接口类型作为多态 对象可以来自任何实现接口的子类"></a>接口类型作为多态 对象可以来自任何实现接口的子类</h2><h1 id="构造器和垃圾回收"><a href="#构造器和垃圾回收" class="headerlink" title="构造器和垃圾回收"></a>构造器和垃圾回收</h1><h2 id="只有你什么构造函数都没写的情况下，编译器会写个默认的无参构造"><a href="#只有你什么构造函数都没写的情况下，编译器会写个默认的无参构造" class="headerlink" title="只有你什么构造函数都没写的情况下，编译器会写个默认的无参构造"></a>只有你什么构造函数都没写的情况下，编译器会写个默认的无参构造</h2><h2 id="创建子类对象-也相当于创建出父类对象"><a href="#创建子类对象-也相当于创建出父类对象" class="headerlink" title="创建子类对象 也相当于创建出父类对象"></a>创建子类对象 也相当于创建出父类对象</h2><p> <img src="/.io//16.png"><br> <img src="/.io//17.png"></p>
-<h2 id="如果自己没写-编译器会默认在子类构造函数最前面加上super-构造父类"><a href="#如果自己没写-编译器会默认在子类构造函数最前面加上super-构造父类" class="headerlink" title="如果自己没写 编译器会默认在子类构造函数最前面加上super() 构造父类;"></a>如果自己没写 编译器会默认在子类构造函数最前面加上super() 构造父类;</h2><h2 id="this（）-调用同一类另一个构造函数-和super-不可兼得"><a href="#this（）-调用同一类另一个构造函数-和super-不可兼得" class="headerlink" title="this（） 调用同一类另一个构造函数 和super()不可兼得"></a>this（） 调用同一类另一个构造函数 和super()不可兼得</h2><h1 id="gc回收-对象没被引用"><a href="#gc回收-对象没被引用" class="headerlink" title="gc回收 对象没被引用"></a>gc回收 对象没被引用</h1><h1 id="10-数字局全局"><a href="#10-数字局全局" class="headerlink" title="10 数字局全局"></a>10 数字局全局</h1><h2 id="Math-类-private构造-全是静态方法-不需要也不知道-实例变量值"><a href="#Math-类-private构造-全是静态方法-不需要也不知道-实例变量值" class="headerlink" title="Math 类 private构造 全是静态方法 不需要也不知道 实例变量值"></a>Math 类 private构造 全是静态方法 不需要也不知道 实例变量值</h2><h2 id="同一个类所有实例共享一个静态变量-无对象先初始化"><a href="#同一个类所有实例共享一个静态变量-无对象先初始化" class="headerlink" title="同一个类所有实例共享一个静态变量 无对象先初始化"></a>同一个类所有实例共享一个静态变量 无对象先初始化</h2><p> <img src="/.io//18.png"></p>
-<h2 id="Static-final-是-常量-比如PI"><a href="#Static-final-是-常量-比如PI" class="headerlink" title="Static final 是 常量 比如PI"></a>Static final 是 常量 比如PI</h2><h2 id="final"><a href="#final" class="headerlink" title="final"></a>final</h2><p><img src="/.io//19.png"></p>
-<h1 id="autobox"><a href="#autobox" class="headerlink" title="autobox"></a>autobox</h1><p><img src="/.io//20.png"><br><img src="/.io//21.png"></p>
-<h2 id="String转Primitive"><a href="#String转Primitive" class="headerlink" title="String转Primitive"></a>String转Primitive</h2><p><img src="/.io//22.png"></p>
-<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><h2 id="如果有抛出异常-编译器一定要你处理-除了runtimeexp-一般是逻辑错误"><a href="#如果有抛出异常-编译器一定要你处理-除了runtimeexp-一般是逻辑错误" class="headerlink" title="如果有抛出异常 编译器一定要你处理 除了runtimeexp(一般是逻辑错误)"></a>如果有抛出异常 编译器一定要你处理 除了runtimeexp(一般是逻辑错误)</h2><p><img src="/.io//23.png"></p>
-<h2 id="出现异常-try-直接到catch"><a href="#出现异常-try-直接到catch" class="headerlink" title="出现异常 try 直接到catch"></a>出现异常 try 直接到catch</h2><h2 id="finally-无论怎么样都执行"><a href="#finally-无论怎么样都执行" class="headerlink" title="finally 无论怎么样都执行"></a>finally 无论怎么样都执行</h2><p><img src="/.io//24.png"></p>
-<h2 id="duck-给调用处理"><a href="#duck-给调用处理" class="headerlink" title="duck 给调用处理"></a>duck 给调用处理</h2><p><img src="/.io//25.png"></p>
-<h1 id="Gui"><a href="#Gui" class="headerlink" title="Gui"></a>Gui</h1><h2 id="监听事件源"><a href="#监听事件源" class="headerlink" title="监听事件源"></a>监听事件源</h2><p><img src="/.io//26.png"></p>
-<h2 id="同时监听两件事"><a href="#同时监听两件事" class="headerlink" title="同时监听两件事"></a>同时监听两件事</h2><p>方法1：在方法里查找是哪个事 （用单一的事件处理处理所有事件不太好）<br><img src="/.io//27.png"></p>
-<p>方法2：创建不同的处理事件方法但是不能再一个类里面实现同一个方法两次<br>不同类的话又取不到GUI的对象<br><img src="/.io//28.png"></p>
-<p>内部类解决这个问题<br><img src="/.io//29.png"></p>
+<h1 id="多态-2-接口与抽象类"><a href="#多态-2-接口与抽象类" class="headerlink" title="多态 2 接口与抽象类"></a>多态 2 接口与抽象类</h1><h2 id="抽象类-不能让animals-new-出来-（不知道什么动物是动物）"><a href="#抽象类-不能让animals-new-出来-（不知道什么动物是动物）" class="headerlink" title="抽象类  不能让animals new 出来 （不知道什么动物是动物）"></a>抽象类  不能让animals new 出来 （不知道什么动物是动物）</h2><p><img src="/2020/03/20/head-java-first/10.png"><br>抽象方法 必须在子类被实现</p>
+<h1 id="所有类继承了Object"><a href="#所有类继承了Object" class="headerlink" title="所有类继承了Object"></a>所有类继承了Object</h1><h2 id="可以覆盖部分方法，但是部分是final-强烈建议覆盖hashcode-equals-toString"><a href="#可以覆盖部分方法，但是部分是final-强烈建议覆盖hashcode-equals-toString" class="headerlink" title="可以覆盖部分方法，但是部分是final(强烈建议覆盖hashcode equals toString)"></a>可以覆盖部分方法，但是部分是final(强烈建议覆盖hashcode equals toString)</h2><h2 id="不可把所有返回和参数设置成Object"><a href="#不可把所有返回和参数设置成Object" class="headerlink" title="不可把所有返回和参数设置成Object"></a>不可把所有返回和参数设置成Object</h2><p><img src="/2020/03/20/head-java-first/11.png"><br>对于Object来说定义出来只能是Object对象</p>
+<p><img src="/2020/03/20/head-java-first/12.png"></p>
+<p><img src="/2020/03/20/head-java-first/13.png"></p>
+<p><img src="/2020/03/20/head-java-first/14.png"></p>
+<h2 id="有些动物想要pets"><a href="#有些动物想要pets" class="headerlink" title="有些动物想要pets"></a>有些动物想要pets</h2><p><img src="/2020/03/20/head-java-first/15.png"></p>
+<h2 id="接口类型作为多态-对象可以来自任何实现接口的子类"><a href="#接口类型作为多态-对象可以来自任何实现接口的子类" class="headerlink" title="接口类型作为多态 对象可以来自任何实现接口的子类"></a>接口类型作为多态 对象可以来自任何实现接口的子类</h2><h1 id="构造器和垃圾回收"><a href="#构造器和垃圾回收" class="headerlink" title="构造器和垃圾回收"></a>构造器和垃圾回收</h1><h2 id="只有你什么构造函数都没写的情况下，编译器会写个默认的无参构造"><a href="#只有你什么构造函数都没写的情况下，编译器会写个默认的无参构造" class="headerlink" title="只有你什么构造函数都没写的情况下，编译器会写个默认的无参构造"></a>只有你什么构造函数都没写的情况下，编译器会写个默认的无参构造</h2><h2 id="创建子类对象-也相当于创建出父类对象"><a href="#创建子类对象-也相当于创建出父类对象" class="headerlink" title="创建子类对象 也相当于创建出父类对象"></a>创建子类对象 也相当于创建出父类对象</h2><p> <img src="/2020/03/20/head-java-first/16.png"><br> <img src="/2020/03/20/head-java-first/17.png"></p>
+<h2 id="如果自己没写-编译器会默认在子类构造函数最前面加上super-构造父类"><a href="#如果自己没写-编译器会默认在子类构造函数最前面加上super-构造父类" class="headerlink" title="如果自己没写 编译器会默认在子类构造函数最前面加上super() 构造父类;"></a>如果自己没写 编译器会默认在子类构造函数最前面加上super() 构造父类;</h2><h2 id="this（）-调用同一类另一个构造函数-和super-不可兼得"><a href="#this（）-调用同一类另一个构造函数-和super-不可兼得" class="headerlink" title="this（） 调用同一类另一个构造函数 和super()不可兼得"></a>this（） 调用同一类另一个构造函数 和super()不可兼得</h2><h1 id="gc回收-对象没被引用"><a href="#gc回收-对象没被引用" class="headerlink" title="gc回收 对象没被引用"></a>gc回收 对象没被引用</h1><h1 id="10-数字局全局"><a href="#10-数字局全局" class="headerlink" title="10 数字局全局"></a>10 数字局全局</h1><h2 id="Math-类-private构造-全是静态方法-不需要也不知道-实例变量值"><a href="#Math-类-private构造-全是静态方法-不需要也不知道-实例变量值" class="headerlink" title="Math 类 private构造 全是静态方法 不需要也不知道 实例变量值"></a>Math 类 private构造 全是静态方法 不需要也不知道 实例变量值</h2><h2 id="同一个类所有实例共享一个静态变量-无对象先初始化"><a href="#同一个类所有实例共享一个静态变量-无对象先初始化" class="headerlink" title="同一个类所有实例共享一个静态变量 无对象先初始化"></a>同一个类所有实例共享一个静态变量 无对象先初始化</h2><p> <img src="/2020/03/20/head-java-first/18.png"></p>
+<h2 id="Static-final-是-常量-比如PI"><a href="#Static-final-是-常量-比如PI" class="headerlink" title="Static final 是 常量 比如PI"></a>Static final 是 常量 比如PI</h2><h2 id="final"><a href="#final" class="headerlink" title="final"></a>final</h2><p><img src="/2020/03/20/head-java-first/19.png"></p>
+<h1 id="autobox"><a href="#autobox" class="headerlink" title="autobox"></a>autobox</h1><p><img src="/2020/03/20/head-java-first/20.png"><br><img src="/2020/03/20/head-java-first/21.png"></p>
+<h2 id="String转Primitive"><a href="#String转Primitive" class="headerlink" title="String转Primitive"></a>String转Primitive</h2><p><img src="/2020/03/20/head-java-first/22.png"></p>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><h2 id="如果有抛出异常-编译器一定要你处理-除了runtimeexp-一般是逻辑错误"><a href="#如果有抛出异常-编译器一定要你处理-除了runtimeexp-一般是逻辑错误" class="headerlink" title="如果有抛出异常 编译器一定要你处理 除了runtimeexp(一般是逻辑错误)"></a>如果有抛出异常 编译器一定要你处理 除了runtimeexp(一般是逻辑错误)</h2><p><img src="/2020/03/20/head-java-first/23.png"></p>
+<h2 id="出现异常-try-直接到catch"><a href="#出现异常-try-直接到catch" class="headerlink" title="出现异常 try 直接到catch"></a>出现异常 try 直接到catch</h2><h2 id="finally-无论怎么样都执行"><a href="#finally-无论怎么样都执行" class="headerlink" title="finally 无论怎么样都执行"></a>finally 无论怎么样都执行</h2><p><img src="/2020/03/20/head-java-first/24.png"></p>
+<h2 id="duck-给调用处理"><a href="#duck-给调用处理" class="headerlink" title="duck 给调用处理"></a>duck 给调用处理</h2><p><img src="/2020/03/20/head-java-first/25.png"></p>
+<h1 id="Gui"><a href="#Gui" class="headerlink" title="Gui"></a>Gui</h1><h2 id="监听事件源"><a href="#监听事件源" class="headerlink" title="监听事件源"></a>监听事件源</h2><p><img src="/2020/03/20/head-java-first/26.png"></p>
+<h2 id="同时监听两件事"><a href="#同时监听两件事" class="headerlink" title="同时监听两件事"></a>同时监听两件事</h2><p>方法1：在方法里查找是哪个事 （用单一的事件处理处理所有事件不太好）<br><img src="/2020/03/20/head-java-first/27.png"></p>
+<p>方法2：创建不同的处理事件方法但是不能再一个类里面实现同一个方法两次<br>不同类的话又取不到GUI的对象<br><img src="/2020/03/20/head-java-first/28.png"></p>
+<p>内部类解决这个问题<br><img src="/2020/03/20/head-java-first/29.png"></p>
 <h1 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h1><h2 id="字节型"><a href="#字节型" class="headerlink" title="字节型"></a>字节型</h2><h3 id="读写"><a href="#读写" class="headerlink" title="读写"></a>读写</h3><p>InputStream 和OutputStream 两个抽象基类</p>
 <p>InputStream i =new FileinputStream<br>OutputStream o =new FileoutputStream</p>
 <p>加上缓存<br>BufferInputSteam b= new BufferInputSteam(new FileinputStream)<br>BufferOutputSteam b= new BufferOutputSteam(new FileinputStream)</p>
@@ -702,19 +702,19 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
-<h1 id="Swing"><a href="#Swing" class="headerlink" title="Swing"></a>Swing</h1><h2 id="3种风格"><a href="#3种风格" class="headerlink" title="3种风格"></a>3种风格</h2><p><img src="/.io//30.png"></p>
-<h1 id="序列化-文件输入输出"><a href="#序列化-文件输入输出" class="headerlink" title="序列化 文件输入输出"></a>序列化 文件输入输出</h1><h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>步骤<br><img src="/.io//31.png"></p>
-<p>图示<br><img src="/.io//32.png"></p>
-<p>需要被实例化的类 ,需要implements Serializeble(但是不需要实现什么方法)<br>包括里面的要保存的对象.也需要<br><img src="/.io//33.png"></p>
-<p>不能或者 不需要序列化对象 用transient<br><img src="/.io//34.png"></p>
-<h2 id="解序列化"><a href="#解序列化" class="headerlink" title="解序列化"></a>解序列化</h2><p>readObject 读到的对象 需要类型转化<br><img src="/.io//35.png"><br><img src="/.io//36.png"></p>
+<h1 id="Swing"><a href="#Swing" class="headerlink" title="Swing"></a>Swing</h1><h2 id="3种风格"><a href="#3种风格" class="headerlink" title="3种风格"></a>3种风格</h2><p><img src="/2020/03/20/head-java-first/30.png"></p>
+<h1 id="序列化-文件输入输出"><a href="#序列化-文件输入输出" class="headerlink" title="序列化 文件输入输出"></a>序列化 文件输入输出</h1><h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>步骤<br><img src="/2020/03/20/head-java-first/31.png"></p>
+<p>图示<br><img src="/2020/03/20/head-java-first/32.png"></p>
+<p>需要被实例化的类 ,需要implements Serializeble(但是不需要实现什么方法)<br>包括里面的要保存的对象.也需要<br><img src="/2020/03/20/head-java-first/33.png"></p>
+<p>不能或者 不需要序列化对象 用transient<br><img src="/2020/03/20/head-java-first/34.png"></p>
+<h2 id="解序列化"><a href="#解序列化" class="headerlink" title="解序列化"></a>解序列化</h2><p>readObject 读到的对象 需要类型转化<br><img src="/2020/03/20/head-java-first/35.png"><br><img src="/2020/03/20/head-java-first/36.png"></p>
 <h2 id="写文本"><a href="#写文本" class="headerlink" title="写文本"></a>写文本</h2><p>缓存效率高</p>
-<p><img src="/.io//36.png"><br><img src="/.io//37.png"></p>
-<h2 id="问题-万一序列化之后修改类-怎么办"><a href="#问题-万一序列化之后修改类-怎么办" class="headerlink" title="问题 万一序列化之后修改类 怎么办"></a>问题 万一序列化之后修改类 怎么办</h2><p>versionid 控制<br><img src="/.io//38.png"></p>
+<p><img src="/2020/03/20/head-java-first/36.png"><br><img src="/2020/03/20/head-java-first/37.png"></p>
+<h2 id="问题-万一序列化之后修改类-怎么办"><a href="#问题-万一序列化之后修改类-怎么办" class="headerlink" title="问题 万一序列化之后修改类 怎么办"></a>问题 万一序列化之后修改类 怎么办</h2><p>versionid 控制<br><img src="/2020/03/20/head-java-first/38.png"></p>
 <h1 id="网络和线程"><a href="#网络和线程" class="headerlink" title="网络和线程"></a>网络和线程</h1><p>1-1023<br>1024-65535</p>
-<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="ServerSock的Backlog是同时能监听的数目-（不包括已接受的）"><a href="#ServerSock的Backlog是同时能监听的数目-（不包括已接受的）" class="headerlink" title="ServerSock的Backlog是同时能监听的数目 （不包括已接受的）"></a>ServerSock的Backlog是同时能监听的数目 （不包括已接受的）</h3><h3 id="基本读图"><a href="#基本读图" class="headerlink" title="基本读图"></a>基本读图</h3><p><img src="/.io//40.png"><br><img src="/.io//39.png"></p>
-<h3 id="基本写图"><a href="#基本写图" class="headerlink" title="基本写图"></a>基本写图</h3><p>因为是写字符串 用PrintWriter<br>上一章 是BufferWriter<br><img src="/.io//41.png"></p>
-<p><img src="/.io//42.png"></p>
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="ServerSock的Backlog是同时能监听的数目-（不包括已接受的）"><a href="#ServerSock的Backlog是同时能监听的数目-（不包括已接受的）" class="headerlink" title="ServerSock的Backlog是同时能监听的数目 （不包括已接受的）"></a>ServerSock的Backlog是同时能监听的数目 （不包括已接受的）</h3><h3 id="基本读图"><a href="#基本读图" class="headerlink" title="基本读图"></a>基本读图</h3><p><img src="/2020/03/20/head-java-first/40.png"><br><img src="/2020/03/20/head-java-first/39.png"></p>
+<h3 id="基本写图"><a href="#基本写图" class="headerlink" title="基本写图"></a>基本写图</h3><p>因为是写字符串 用PrintWriter<br>上一章 是BufferWriter<br><img src="/2020/03/20/head-java-first/41.png"></p>
+<p><img src="/2020/03/20/head-java-first/42.png"></p>
 <h3 id="可以用-sock-shutdownOutPut作为结束标识"><a href="#可以用-sock-shutdownOutPut作为结束标识" class="headerlink" title="可以用 sock.shutdownOutPut作为结束标识"></a>可以用 sock.shutdownOutPut作为结束标识</h3><h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h3 id="synchornized"><a href="#synchornized" class="headerlink" title="synchornized"></a>synchornized</h3><ul>
 <li><p>对对象代码块上锁 大家同步用一个obj synchornized（obj){<br>  sdds<br>}</p>
 </li>
@@ -726,43 +726,43 @@
 </li>
 </ul>
 <h3 id="Lock-来获得释放锁"><a href="#Lock-来获得释放锁" class="headerlink" title="Lock 来获得释放锁"></a>Lock 来获得释放锁</h3><p>lock.Lock();<br>lock.unLock();</p>
-<h3 id="同步化对象"><a href="#同步化对象" class="headerlink" title="同步化对象"></a>同步化对象</h3><p><img src="/.io//43.png"></p>
-<h3 id="丢失更新"><a href="#丢失更新" class="headerlink" title="丢失更新"></a>丢失更新</h3><p><img src="/.io//44.png"></p>
-<h1 id="集合与泛型"><a href="#集合与泛型" class="headerlink" title="集合与泛型"></a>集合与泛型</h1><h2 id="点歌系统排序-ArrayList-没有sort"><a href="#点歌系统排序-ArrayList-没有sort" class="headerlink" title="点歌系统排序 ArrayList 没有sort"></a>点歌系统排序 ArrayList 没有sort</h2><p>还有其他集合<br><img src="/.io//45.png"></p>
+<h3 id="同步化对象"><a href="#同步化对象" class="headerlink" title="同步化对象"></a>同步化对象</h3><p><img src="/2020/03/20/head-java-first/43.png"></p>
+<h3 id="丢失更新"><a href="#丢失更新" class="headerlink" title="丢失更新"></a>丢失更新</h3><p><img src="/2020/03/20/head-java-first/44.png"></p>
+<h1 id="集合与泛型"><a href="#集合与泛型" class="headerlink" title="集合与泛型"></a>集合与泛型</h1><h2 id="点歌系统排序-ArrayList-没有sort"><a href="#点歌系统排序-ArrayList-没有sort" class="headerlink" title="点歌系统排序 ArrayList 没有sort"></a>点歌系统排序 ArrayList 没有sort</h2><p>还有其他集合<br><img src="/2020/03/20/head-java-first/45.png"></p>
 <p>用Collection.sort() 可以排序ArratList</p>
 <h2 id="Obeject-有toString-方法-可以自己覆盖想要printf-就自己覆盖"><a href="#Obeject-有toString-方法-可以自己覆盖想要printf-就自己覆盖" class="headerlink" title="Obeject 有toString() 方法 可以自己覆盖想要printf 就自己覆盖"></a>Obeject 有toString() 方法 可以自己覆盖想要printf 就自己覆盖</h2><h2 id="想要-sort-SONG-4个String属性"><a href="#想要-sort-SONG-4个String属性" class="headerlink" title="想要 sort SONG(4个String属性)"></a>想要 sort SONG(4个String属性)</h2><p>出错 处理不了 Song的list</p>
 <h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><h2 id="Comparator-比较符号"><a href="#Comparator-比较符号" class="headerlink" title="Comparator 比较符号"></a>Comparator 比较符号</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ArtistCompare</span> artistCompare <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArtistCompare</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">ArtistCompare</span>实现了<span class="token function">compare</span><span class="token punctuation">(</span><span class="token class-name">T</span> o1<span class="token punctuation">,</span><span class="token class-name">T</span> o2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>songList<span class="token punctuation">,</span> artistCompare<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="Comparable-使这个对象可比较"><a href="#Comparable-使这个对象可比较" class="headerlink" title="Comparable 使这个对象可比较"></a>Comparable 使这个对象可比较</h2><p>Collections.sort(songlist) 默认用的就是对象的compareto 方法<br><img src="/.io//46.png"></p>
-<p>String 只实现了 Comparable 并没有继承<br>但是对于泛型来说 extend 代表extend 或者Implement<br><img src="/.io//47.png"></p>
-<p>但是对于泛型来说 extend 代表extend 或者Implement<br><img src="/.io//48.png"></p>
-<h2 id="Song-排序实现"><a href="#Song-排序实现" class="headerlink" title="Song 排序实现"></a>Song 排序实现</h2><p>利用其中一个属性排序<br><img src="/.io//49.png"></p>
-<h2 id="还想要通过歌星排序"><a href="#还想要通过歌星排序" class="headerlink" title="还想要通过歌星排序"></a>还想要通过歌星排序</h2><p>查API 还有重载的Sort 版本<br><img src="/.io//50.png"></p>
-<p><img src="/.io//51.png"></p>
-<p>内部类实现<br><img src="/.io//52.png"></p>
+<h2 id="Comparable-使这个对象可比较"><a href="#Comparable-使这个对象可比较" class="headerlink" title="Comparable 使这个对象可比较"></a>Comparable 使这个对象可比较</h2><p>Collections.sort(songlist) 默认用的就是对象的compareto 方法<br><img src="/2020/03/20/head-java-first/46.png"></p>
+<p>String 只实现了 Comparable 并没有继承<br>但是对于泛型来说 extend 代表extend 或者Implement<br><img src="/2020/03/20/head-java-first/47.png"></p>
+<p>但是对于泛型来说 extend 代表extend 或者Implement<br><img src="/2020/03/20/head-java-first/48.png"></p>
+<h2 id="Song-排序实现"><a href="#Song-排序实现" class="headerlink" title="Song 排序实现"></a>Song 排序实现</h2><p>利用其中一个属性排序<br><img src="/2020/03/20/head-java-first/49.png"></p>
+<h2 id="还想要通过歌星排序"><a href="#还想要通过歌星排序" class="headerlink" title="还想要通过歌星排序"></a>还想要通过歌星排序</h2><p>查API 还有重载的Sort 版本<br><img src="/2020/03/20/head-java-first/50.png"></p>
+<p><img src="/2020/03/20/head-java-first/51.png"></p>
+<p>内部类实现<br><img src="/2020/03/20/head-java-first/52.png"></p>
 <h2 id="如果有重复的歌名"><a href="#如果有重复的歌名" class="headerlink" title="如果有重复的歌名"></a>如果有重复的歌名</h2><p>Collections是collection的帮助类 静态方法<br>三种Collection(虽然包不在Collection里面)</p>
-<p><img src="/.io//53.png"></p>
+<p><img src="/2020/03/20/head-java-first/53.png"></p>
 <p>继承和实现 Collections </p>
-<p><img src="/.io//54.png"><br><img src="/.io//55.png"></p>
+<p><img src="/2020/03/20/head-java-first/54.png"><br><img src="/2020/03/20/head-java-first/55.png"></p>
 <h2 id="Set-之中怎么算两元素相等"><a href="#Set-之中怎么算两元素相等" class="headerlink" title="Set 之中怎么算两元素相等"></a>Set 之中怎么算两元素相等</h2><p>两种相等 引用相等  hashCode 没覆盖就是根据对象内存地址算</p>
 <p>hashSet 中加入元素时先计算hashCode 不相等就加入 相等在计算euqals</p>
-<p>同样利用hashcode 存取元素<br><img src="/.io//56.png"><br>String 的hashCode 覆盖过 值相等 hashCode会相等</p>
+<p>同样利用hashcode 存取元素<br><img src="/2020/03/20/head-java-first/56.png"><br>String 的hashCode 覆盖过 值相等 hashCode会相等</p>
 <h2 id="equals-hashCode-规定"><a href="#equals-hashCode-规定" class="headerlink" title="equals hashCode 规定"></a>equals hashCode 规定</h2><p>两对象equals hashCode 一定相等 反之不一定</p>
 <h2 id="TreeSet-加入元素会默认通过compareTo-排序-或者comparator"><a href="#TreeSet-加入元素会默认通过compareTo-排序-或者comparator" class="headerlink" title="TreeSet 加入元素会默认通过compareTo()排序 或者comparator"></a>TreeSet 加入元素会默认通过compareTo()排序 或者comparator</h2><p><font color="red" size="5"><strong>注意TreeSet 是通过compareTo()排序 或者comparator判断重复的 而不是hashcode 和equals</strong></font></p>
-<h2 id="对于Arraylist参数-不能用Arraylist代替-和数组的安全检查时间不一样"><a href="#对于Arraylist参数-不能用Arraylist代替-和数组的安全检查时间不一样" class="headerlink" title="对于Arraylist参数 不能用Arraylist代替 和数组的安全检查时间不一样"></a>对于Arraylist<animals>参数 不能用Arraylist<dogs>代替 和数组的安全检查时间不一样</dogs></animals></h2><p>理由如下<br><img src="/.io//57.png"><br>数组是运行错误<br><img src="/.io//58.png"></p>
-<h2 id="用万用字符（一种泛型）-会阻止破坏集合的操作"><a href="#用万用字符（一种泛型）-会阻止破坏集合的操作" class="headerlink" title="用万用字符（一种泛型） 会阻止破坏集合的操作"></a>用万用字符（一种泛型） 会阻止破坏集合的操作</h2><p><img src="/.io//59.png"><br><img src="/.io//60.png"></p>
-<h1 id="发布程序"><a href="#发布程序" class="headerlink" title="发布程序"></a>发布程序</h1><h2 id="几种方式"><a href="#几种方式" class="headerlink" title="几种方式"></a>几种方式</h2><p><img src="/.io//62.png"></p>
-<h2 id="JAR-一组类文件包装起来"><a href="#JAR-一组类文件包装起来" class="headerlink" title="JAR 一组类文件包装起来"></a>JAR 一组类文件包装起来</h2><h3 id="执行JAR-java虚拟机能从JAR中找到main"><a href="#执行JAR-java虚拟机能从JAR中找到main" class="headerlink" title="执行JAR java虚拟机能从JAR中找到main"></a>执行JAR java虚拟机能从JAR中找到main</h3><p><img src="/.io//61.png"></p>
-<h3 id="包防止类冲突-编译执行"><a href="#包防止类冲突-编译执行" class="headerlink" title="包防止类冲突 编译执行"></a>包防止类冲突 编译执行</h3><p><img src="/.io//64.png"></p>
-<h2 id="JAVA-web-Start"><a href="#JAVA-web-Start" class="headerlink" title="JAVA web Start"></a>JAVA web Start</h2><p><img src="/.io//65.png"></p>
-<h1 id="RMI-Remote-Method-Innovacation-远程程序"><a href="#RMI-Remote-Method-Innovacation-远程程序" class="headerlink" title="RMI (Remote Method Innovacation) 远程程序"></a>RMI (Remote Method Innovacation) 远程程序</h1><p>目的想要取得其他电脑java虚拟机的对象<br><img src="/.io//66.png"></p>
-<h2 id="servlet"><a href="#servlet" class="headerlink" title="servlet"></a>servlet</h2><p>请求步骤<br><img src="/.io//67.png"><br>编写步骤<br><img src="/.io//68.png"></p>
+<h2 id="对于Arraylist参数-不能用Arraylist代替-和数组的安全检查时间不一样"><a href="#对于Arraylist参数-不能用Arraylist代替-和数组的安全检查时间不一样" class="headerlink" title="对于Arraylist参数 不能用Arraylist代替 和数组的安全检查时间不一样"></a>对于Arraylist<animals>参数 不能用Arraylist<dogs>代替 和数组的安全检查时间不一样</dogs></animals></h2><p>理由如下<br><img src="/2020/03/20/head-java-first/57.png"><br>数组是运行错误<br><img src="/2020/03/20/head-java-first/58.png"></p>
+<h2 id="用万用字符（一种泛型）-会阻止破坏集合的操作"><a href="#用万用字符（一种泛型）-会阻止破坏集合的操作" class="headerlink" title="用万用字符（一种泛型） 会阻止破坏集合的操作"></a>用万用字符（一种泛型） 会阻止破坏集合的操作</h2><p><img src="/2020/03/20/head-java-first/59.png"><br><img src="/2020/03/20/head-java-first/60.png"></p>
+<h1 id="发布程序"><a href="#发布程序" class="headerlink" title="发布程序"></a>发布程序</h1><h2 id="几种方式"><a href="#几种方式" class="headerlink" title="几种方式"></a>几种方式</h2><p><img src="/2020/03/20/head-java-first/62.png"></p>
+<h2 id="JAR-一组类文件包装起来"><a href="#JAR-一组类文件包装起来" class="headerlink" title="JAR 一组类文件包装起来"></a>JAR 一组类文件包装起来</h2><h3 id="执行JAR-java虚拟机能从JAR中找到main"><a href="#执行JAR-java虚拟机能从JAR中找到main" class="headerlink" title="执行JAR java虚拟机能从JAR中找到main"></a>执行JAR java虚拟机能从JAR中找到main</h3><p><img src="/2020/03/20/head-java-first/61.png"></p>
+<h3 id="包防止类冲突-编译执行"><a href="#包防止类冲突-编译执行" class="headerlink" title="包防止类冲突 编译执行"></a>包防止类冲突 编译执行</h3><p><img src="/2020/03/20/head-java-first/64.png"></p>
+<h2 id="JAVA-web-Start"><a href="#JAVA-web-Start" class="headerlink" title="JAVA web Start"></a>JAVA web Start</h2><p><img src="/2020/03/20/head-java-first/65.png"></p>
+<h1 id="RMI-Remote-Method-Innovacation-远程程序"><a href="#RMI-Remote-Method-Innovacation-远程程序" class="headerlink" title="RMI (Remote Method Innovacation) 远程程序"></a>RMI (Remote Method Innovacation) 远程程序</h1><p>目的想要取得其他电脑java虚拟机的对象<br><img src="/2020/03/20/head-java-first/66.png"></p>
+<h2 id="servlet"><a href="#servlet" class="headerlink" title="servlet"></a>servlet</h2><p>请求步骤<br><img src="/2020/03/20/head-java-first/67.png"><br>编写步骤<br><img src="/2020/03/20/head-java-first/68.png"></p>
 <h2 id="JINI-找接口"><a href="#JINI-找接口" class="headerlink" title="JINI  找接口"></a>JINI  找接口</h2><p>自适应探索<br>自恢复网络</p>
-<h1 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h1><h2 id="String-的不变性-包装类的不变性"><a href="#String-的不变性-包装类的不变性" class="headerlink" title="String 的不变性 包装类的不变性"></a>String 的不变性 包装类的不变性</h2><p><img src="/.io//69.png"></p>
-<h2 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h2><h2 id="静态嵌套类"><a href="#静态嵌套类" class="headerlink" title="静态嵌套类"></a>静态嵌套类</h2><p><img src="/.io//70.png"></p>
-<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><p><img src="/.io//71.png"></p>
-<h2 id="enum"><a href="#enum" class="headerlink" title="enum"></a>enum</h2><p><img src="/.io//72.png"></p>
+<h1 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h1><h2 id="String-的不变性-包装类的不变性"><a href="#String-的不变性-包装类的不变性" class="headerlink" title="String 的不变性 包装类的不变性"></a>String 的不变性 包装类的不变性</h2><p><img src="/2020/03/20/head-java-first/69.png"></p>
+<h2 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h2><h2 id="静态嵌套类"><a href="#静态嵌套类" class="headerlink" title="静态嵌套类"></a>静态嵌套类</h2><p><img src="/2020/03/20/head-java-first/70.png"></p>
+<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><p><img src="/2020/03/20/head-java-first/71.png"></p>
+<h2 id="enum"><a href="#enum" class="headerlink" title="enum"></a>enum</h2><p><img src="/2020/03/20/head-java-first/72.png"></p>
 
                 
             </div>

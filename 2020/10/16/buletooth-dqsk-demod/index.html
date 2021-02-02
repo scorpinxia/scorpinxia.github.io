@@ -510,7 +510,7 @@
 <li>输入帧头偏移加上BDR前缀偏移、输入信号的频率误差、时间误差、rate</li>
 </ul>
 <blockquote>
-<p>对于增强数据速率数据包，同步序列开始时的符号定时应在数据包报头最后一个GFSK符号的符号定时的s以内。同步序列的长度为11秒(11个DPSK符号)，由一个参考符号(任意相位)后跟十个DPSK符号组成。DPSK符号之间的相位变化(如图6.11所示)应为<br><img src="/.io//1.png"></p>
+<p>对于增强数据速率数据包，同步序列开始时的符号定时应在数据包报头最后一个GFSK符号的符号定时的s以内。同步序列的长度为11秒(11个DPSK符号)，由一个参考符号(任意相位)后跟十个DPSK符号组成。DPSK符号之间的相位变化(如图6.11所示)应为<br><img src="/2020/10/16/buletooth-dqsk-demod/1.png"></p>
 </blockquote>
 <ul>
 <li><p>同步序列和相位初始化</p>
@@ -519,9 +519,9 @@
 </li>
 <li><p>通过同步序列得到基带的采样点序列</p>
 </li>
-<li><p>RRC_filter得到Z(t)<img src="/.io//2.png"></p>
+<li><p>RRC_filter得到Z(t)<img src="/2020/10/16/buletooth-dqsk-demod/2.png"></p>
 </li>
-<li><p>理想的延时<br><img src="/.io//3.png"></p>
+<li><p>理想的延时<br><img src="/2020/10/16/buletooth-dqsk-demod/3.png"></p>
 </li>
 <li><p>每个符号1us 20个同步</p>
 </li>

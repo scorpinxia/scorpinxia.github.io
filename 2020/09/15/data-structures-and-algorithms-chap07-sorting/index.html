@@ -536,7 +536,7 @@
 </li>
 </ul>
 <!-- /TOC -->
-<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><p><img src="/.io//1.png"></p>
+<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/1.png"></p>
 <h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><pre><code>如果事先比较有序，运行时间比较快，平均O(N^2),和逆序数有关，如果逆序数O(N),插入也是线性时间
 </code></pre>
 <h1 id="简单排序的定理"><a href="#简单排序的定理" class="headerlink" title="简单排序的定理"></a>简单排序的定理</h1><blockquote>
@@ -545,15 +545,15 @@
 <blockquote>
 <p>定理2：通过交换相邻元素进行的任何排序平均都是下界是N^2</p>
 </blockquote>
-<p><img src="/.io//2.png"></p>
+<p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/2.png"></p>
 <h1 id="希尔排序（增量序列排序）"><a href="#希尔排序（增量序列排序）" class="headerlink" title="希尔排序（增量序列排序）"></a>希尔排序（增量序列排序）</h1><p>使用序列 h1、h2、……、ht增量序列 只要h1=1 任何增量序列都ok。</p>
-<p><img src="/.io//3.png"></p>
-<h2 id="希尔增量"><a href="#希尔增量" class="headerlink" title="希尔增量"></a>希尔增量</h2><p><img src="/.io//4.png"></p>
+<p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/3.png"></p>
+<h2 id="希尔增量"><a href="#希尔增量" class="headerlink" title="希尔增量"></a>希尔增量</h2><p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/4.png"></p>
 <p>最坏O(N^2) ,增量都是偶数</p>
 <h2 id="Hibbard增量"><a href="#Hibbard增量" class="headerlink" title="Hibbard增量"></a>Hibbard增量</h2><p>最坏O(N^(3/2))<br>1、3、7、……、2^k-1</p>
 <p>还有新的,平均O(N^(7/6)),也经常使用在大量输入</p>
 <h1 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h1><p>先O(N)建立堆，然后 N次DeleteMin, O(NlogN),但是用了一个附加数组。 回避数组的方法，使用删除堆最后的最后一个元素存放，这样是递减的 可以用MAX堆 </p>
-<p><img src="/.io//5.png"></p>
+<p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/5.png"></p>
 <ul>
 <li>算法分析<ul>
 <li>最多 2N(logN) - O(N) 比较 </li>
@@ -562,9 +562,9 @@
 </li>
 </ul>
 <h1 id="归并排序-（最小比较次数）"><a href="#归并排序-（最小比较次数）" class="headerlink" title="归并排序 （最小比较次数）"></a>归并排序 （最小比较次数）</h1><p>合并两个有序的表，递归排序表的前半段和后半段</p>
-<p><img src="/.io//6.png"></p>
-<h2 id="算法时间分析"><a href="#算法时间分析" class="headerlink" title="算法时间分析"></a>算法时间分析</h2><p><img src="/.io//7.png"><br><img src="/.io//8.png"></p>
-<p>叠加 约分 得到<br><img src="/.io//9.png"></p>
+<p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/6.png"></p>
+<h2 id="算法时间分析"><a href="#算法时间分析" class="headerlink" title="算法时间分析"></a>算法时间分析</h2><p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/7.png"><br><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/8.png"></p>
+<p>叠加 约分 得到<br><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/9.png"></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><pre><code>最坏运行时间O(NlogN),需要线性附加内存，把数组拷到临时数组最终还要拷贝回来，根据比较元素和数组开销（与语言有关）
 </code></pre>
 <ul>
@@ -580,7 +580,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><p><img src="/.io//10.png"></p>
+<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/10.png"></p>
 <h2 id="选取枢纽元"><a href="#选取枢纽元" class="headerlink" title="选取枢纽元"></a>选取枢纽元</h2><p>无论什么枢纽元都可以，但是有好有坏</p>
 <ul>
 <li><p>错误方法：选第一个元素 ，输入随机无所谓，要是有序的，就是O(N^2)</p>
@@ -592,26 +592,26 @@
 </ul>
 <h2 id="分割方法"><a href="#分割方法" class="headerlink" title="分割方法"></a>分割方法</h2><p>有几种，这种能有好结果</p>
 <p>将枢纽元和最后一位交换，i 指向第一个，j倒数第二个</p>
-<p><img src="/.io//11.png"></p>
+<p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/11.png"></p>
 <p>假设都不相等，i在j左边 ,i找大元素 j找小元素然后停止</p>
-<p><img src="/.io//12.png"></p>
+<p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/12.png"></p>
 <p>考虑相等情况，相等要交换吗？ 要的，不停止，想象一下容易产生不平衡数组。从而退化到O(N^2)</p>
 <h2 id="小数组"><a href="#小数组" class="headerlink" title="小数组"></a>小数组</h2><p>小数组 N《=20 快速排序不如插入排序，由于排序是递归的，这种情况经常发生。使用这种策略能提高15%</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>c是选取枢纽元时间<br><img src="/.io//13.png"></p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>c是选取枢纽元时间<br><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/13.png"></p>
 <ul>
 <li><p>最坏情况</p>
 <ul>
-<li>枢纽元一直是最小元素<br><img src="/.io//14.png"></li>
+<li>枢纽元一直是最小元素<br><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/14.png"></li>
 </ul>
 </li>
 <li><p>最好</p>
 <ul>
-<li>枢纽元一直是中间元素<br><img src="/.io//15.png"></li>
+<li>枢纽元一直是中间元素<br><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/15.png"></li>
 </ul>
 </li>
 <li><p>平均</p>
 <ul>
-<li>枢纽元平均每个都有可能<br><img src="/.io//16.png"><br><img src="/.io//17.png"></li>
+<li>枢纽元平均每个都有可能<br><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/16.png"><br><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/17.png"></li>
 </ul>
 </li>
 </ul>
@@ -624,7 +624,7 @@
 <li>K《S1的元素个数 肯定就在S1里面 quickFind(S1,k) 反之 quickFind(S2,k-s1.length-1)</li>
 </ol>
 <h1 id="排序下届"><a href="#排序下届" class="headerlink" title="排序下届"></a>排序下届</h1><p>决策树，每一种算法都可以用决策树表示</p>
-<p><img src="/.io//18.png"></p>
+<p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/18.png"></p>
 <p>Ω(NlogN)</p>
 <ul>
 <li>定理一：深度是d 最多2^d片叶子 显然</li>
@@ -639,7 +639,7 @@
 </ul>
 <h1 id="线性时间排序：桶排序、基数排序（特殊情况）"><a href="#线性时间排序：桶排序、基数排序（特殊情况）" class="headerlink" title="线性时间排序：桶排序、基数排序（特殊情况）"></a>线性时间排序：桶排序、基数排序（特殊情况）</h1><ul>
 <li>桶排序<br>知道输入数据小于M的正整数组成，使用M大小的数组（桶），读入一个数A count[A]++ 之后扫描M数组 得到结果 。</li>
-<li>基数排序<br>值域 0<del>999 中10个数字 （0</del>B^p-1)，不能桶排  太多桶了。可以几趟桶排，运行时间 O(p(N+b)) 下图 p3 b 10<br><img src="/.io//19.png"></li>
+<li>基数排序<br>值域 0<del>999 中10个数字 （0</del>B^p-1)，不能桶排  太多桶了。可以几趟桶排，运行时间 O(p(N+b)) 下图 p3 b 10<br><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/19.png"></li>
 </ul>
 <blockquote>
 <p>基数排序应用 字符串排序，假设字符串同样长度，对每个字符使用桶。</p>
@@ -650,7 +650,7 @@
 <h1 id="外部排序"><a href="#外部排序" class="headerlink" title="外部排序"></a>外部排序</h1><pre><code>装不进内存，内存能直接寻址，希尔排序的a[i]、a[i-hk],堆排序a[i]、a[i*2+1] 快速排序的三数中值法啊a[left] a[right] a[center]，但是磁盘读取只能顺序访问,数据就算刚好在磁盘上，还要移动
 </code></pre>
 <p>最简单的就是归并</p>
-<h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><h2 id="7-1-7-3-插入排序"><a href="#7-1-7-3-插入排序" class="headerlink" title="7.1~7.3 插入排序"></a>7.1~7.3 插入排序</h2><p><img src="/.io//20.png"></p>
+<h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><h2 id="7-1-7-3-插入排序"><a href="#7-1-7-3-插入排序" class="headerlink" title="7.1~7.3 插入排序"></a>7.1~7.3 插入排序</h2><p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/20.png"></p>
 <blockquote>
 <p>1:如下</p>
 </blockquote>
@@ -729,7 +729,7 @@
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>注意第二种实现，比较简洁。通过直接移动来看，找到对应在赋值。而不是通过交换，二叉堆类似想法。 少交换</p>
-<h2 id="7-4-7-10-希尔排序"><a href="#7-4-7-10-希尔排序" class="headerlink" title="7.4~7.10 希尔排序"></a>7.4~7.10 希尔排序</h2><p><img src="/.io//21.png"></p>
+<h2 id="7-4-7-10-希尔排序"><a href="#7-4-7-10-希尔排序" class="headerlink" title="7.4~7.10 希尔排序"></a>7.4~7.10 希尔排序</h2><p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/21.png"></p>
 <blockquote>
 <p>7.4: 如下</p>
 </blockquote>
@@ -743,7 +743,7 @@
 <p>7.9:b 很容易证明，在hk排序之后，没有元素比hk距离其更远<br>正确的位置。 因此，如果对于常数c，增量满足hk + 1≤chk，则意味着O（log N）增量，则界限为O（N log N）。</p>
 </blockquote>
 <blockquote>
-<p>7.10<br><img src="/.io//22.png"><br>（a）不，因为连续的增量仍然有可能共享一个公因子。 一个例子<br>是序列1、3、9、21、45，h(t + 1) = 2(ht) + 3。<br>（b）是的，因为连续的增量是相对素数。 运行时间变为O（N3 / 2）。</p>
+<p>7.10<br><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/22.png"><br>（a）不，因为连续的增量仍然有可能共享一个公因子。 一个例子<br>是序列1、3、9、21、45，h(t + 1) = 2(ht) + 3。<br>（b）是的，因为连续的增量是相对素数。 运行时间变为O（N3 / 2）。</p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">chap07</span><span class="token punctuation">;</span>
 
@@ -795,7 +795,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="7-11-7-14-堆排序"><a href="#7-11-7-14-堆排序" class="headerlink" title="7.11~7.14 堆排序"></a>7.11~7.14 堆排序</h2><p><img src="/.io//23.png"></p>
+<h2 id="7-11-7-14-堆排序"><a href="#7-11-7-14-堆排序" class="headerlink" title="7.11~7.14 堆排序"></a>7.11~7.14 堆排序</h2><p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/23.png"></p>
 <blockquote>
 <p>7.11 如下</p>
 </blockquote>
@@ -956,7 +956,7 @@
 
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="7-15-7-18-归并排序"><a href="#7-15-7-18-归并排序" class="headerlink" title="7.15~7.18 归并排序"></a>7.15~7.18 归并排序</h2><p><img src="/.io//24.png"></p>
+<h2 id="7-15-7-18-归并排序"><a href="#7-15-7-18-归并排序" class="headerlink" title="7.15~7.18 归并排序"></a>7.15~7.18 归并排序</h2><p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/24.png"></p>
 <blockquote>
 <p>7.15 如下</p>
 </blockquote>
@@ -969,7 +969,7 @@
 <blockquote>
 <p>7.18 略</p>
 </blockquote>
-<h2 id="7-19-7-22-快速排序1"><a href="#7-19-7-22-快速排序1" class="headerlink" title="7.19~7.22 快速排序1"></a>7.19~7.22 快速排序1</h2><p><img src="/.io//25.png"></p>
+<h2 id="7-19-7-22-快速排序1"><a href="#7-19-7-22-快速排序1" class="headerlink" title="7.19~7.22 快速排序1"></a>7.19~7.22 快速排序1</h2><p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/25.png"></p>
 <blockquote>
 <p>7.19 如下代码</p>
 </blockquote>
@@ -999,7 +999,7 @@
 （c）再次需要使用前哨来停止j。 这也是（N2），因为分区是
 不平衡。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/.io//25.png"></p>
+<p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/25.png"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">chap07</span><span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Arrays</span><span class="token punctuation">;</span>
@@ -1086,7 +1086,7 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="7-19-7-22-快速排序2"><a href="#7-19-7-22-快速排序2" class="headerlink" title="7.19~7.22 快速排序2"></a>7.19~7.22 快速排序2</h2><p><img src="/.io//26.png"></p>
+<h2 id="7-19-7-22-快速排序2"><a href="#7-19-7-22-快速排序2" class="headerlink" title="7.19~7.22 快速排序2"></a>7.19~7.22 快速排序2</h2><p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/26.png"></p>
 <blockquote>
 <p>7.23<br>是的，但不会减少随机输入的平均运行时间。 使用三位数中位数<br>分区减少了平均运行时间，因为它使分区在<br>平均。</p>
 </blockquote>

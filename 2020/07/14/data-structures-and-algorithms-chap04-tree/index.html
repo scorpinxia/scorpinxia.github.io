@@ -588,7 +588,7 @@
 <li>大量输入 链表线性访问太慢 ，树大部分操作都是O(logN)，比较均衡</li>
 <li>二叉查找树：每种操作O(logN)</li>
 </ul>
-<h2 id="树的术语"><a href="#树的术语" class="headerlink" title="树的术语"></a>树的术语</h2><p>root：根节点， 每个子树根r的child， r是每个子树的parent<br><img src="/.io//1.png"></p>
+<h2 id="树的术语"><a href="#树的术语" class="headerlink" title="树的术语"></a>树的术语</h2><p>root：根节点， 每个子树根r的child， r是每个子树的parent<br><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/1.png"></p>
 <ul>
 <li>N个点 N-1条边决定一个树</li>
 <li>leaf：没有儿子的节点  siblings：相同父亲的是兄弟 grandparent grandchild类似</li>
@@ -597,15 +597,15 @@
 <li>ni的depth 深度：root到节点ni唯一路径的length</li>
 <li>ni的height：ni到<font color="red" font="" size="4">一片树叶的最长路径的长</font> leaf 的height就是0，因为没有儿子。</li>
 </ul>
-<p>定理：<font color="red" font="" size="4">一棵树的深度等于它最深的树叶的深度；该深度等于这个树的高</font><br><img src="/.io//2.png"><br><font color="red" font="" size="4">如上图 E的深度是1，高度是2；F深度1，高度1；Q深度3，高度0；</font> </p>
-<h2 id="树基本实现"><a href="#树基本实现" class="headerlink" title="树基本实现"></a>树基本实现</h2><p><img src="/.io//3.png"></p>
-<h2 id="树遍历和应用"><a href="#树遍历和应用" class="headerlink" title="树遍历和应用"></a>树遍历和应用</h2><p><img src="/.io//4.png"></p>
-<p>利用深度遍历 打印目录<br><img src="/.io//5.png"><br>这就是**先序遍历(preorder traversal)**对节点的处理是在它诸多儿子节点处理之前</p>
-<p>利用深度遍历 求目录总大小<br><img src="/.io//6.png"><br>这就是**后序遍历（postorder traversal)**对节点的处理是在它诸多儿子节点处理之后</p>
+<p>定理：<font color="red" font="" size="4">一棵树的深度等于它最深的树叶的深度；该深度等于这个树的高</font><br><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/2.png"><br><font color="red" font="" size="4">如上图 E的深度是1，高度是2；F深度1，高度1；Q深度3，高度0；</font> </p>
+<h2 id="树基本实现"><a href="#树基本实现" class="headerlink" title="树基本实现"></a>树基本实现</h2><p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/3.png"></p>
+<h2 id="树遍历和应用"><a href="#树遍历和应用" class="headerlink" title="树遍历和应用"></a>树遍历和应用</h2><p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/4.png"></p>
+<p>利用深度遍历 打印目录<br><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/5.png"><br>这就是**先序遍历(preorder traversal)**对节点的处理是在它诸多儿子节点处理之前</p>
+<p>利用深度遍历 求目录总大小<br><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/6.png"><br>这就是**后序遍历（postorder traversal)**对节点的处理是在它诸多儿子节点处理之后</p>
 <h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><p>二叉树： 每个节点最多两个孩子，分析得平均深度为O(根号N) N节点数<br>二叉查找树： 平均深度 O(logN)</p>
-<p>也有坏情况<br><img src="/.io//7.png"></p>
+<p>也有坏情况<br><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/7.png"></p>
 <p>画树的时候 不画null链</p>
-<h2 id="表达式树"><a href="#表达式树" class="headerlink" title="表达式树"></a>表达式树</h2><p><img src="/.io//8.png"><br>(a+(b<em>c))+((((d</em>e)+f))) </p>
+<h2 id="表达式树"><a href="#表达式树" class="headerlink" title="表达式树"></a>表达式树</h2><p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/8.png"><br>(a+(b<em>c))+((((d</em>e)+f))) </p>
 <ul>
 <li><p><strong>中序遍历（inorder traversal）</strong> 括号左表达式 运算符 括号右表达式<br>就是中缀表达式</p>
 </li>
@@ -615,9 +615,9 @@
 </li>
 </ul>
 <p>后缀变树</p>
-<p><img src="/.io//9.png"><br><img src="/.io//10.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/9.png"><br><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/10.png"></p>
 <h1 id="二叉查找树"><a href="#二叉查找树" class="headerlink" title="二叉查找树"></a>二叉查找树</h1><p>先假设所有项互异，左子树小于节点小于右子树</p>
-<p><img src="/.io//11.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/11.png"></p>
 <p>由于树的递归定义，通常递归编写操作，二叉查找树平均深度O(logN)所以不用担心栈空间<br>comparable 来构造树确保排序</p>
 <ul>
 <li>非尾递归，下一个函数结束以后此函数还有后续，所以必须保存本身的环境以供处理返回值。</li>
@@ -663,7 +663,7 @@
         <span class="token keyword">return</span> <span class="token function">fibonacci_tail</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> ret2<span class="token punctuation">,</span> ret1 <span class="token operator">+</span> ret2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>尾递归可以用循环代替，转变后能克服递归的一些不足。例如：计算阶乘的递归计算过程属于线性递归，步骤数目的增长正比于输入n。也就是说，这个过程所需步骤的增长为O(n) ，空间需求的增长也为O(n) 。对于迭代的阶乘，步数还是O(n)而空间是O(1) ，也就是常数。</p>
-<h2 id="递归和循环-（findmin-findmax"><a href="#递归和循环-（findmin-findmax" class="headerlink" title="递归和循环 （findmin,findmax)"></a>递归和循环 （findmin,findmax)</h2><p>算法的简明是以速度的降低为代价的。尾递归可以改成循环。<br>树的递归先注意处理null.<br><img src="/.io//12.png"></p>
+<h2 id="递归和循环-（findmin-findmax"><a href="#递归和循环-（findmin-findmax" class="headerlink" title="递归和循环 （findmin,findmax)"></a>递归和循环 （findmin,findmax)</h2><p>算法的简明是以速度的降低为代价的。尾递归可以改成循环。<br>树的递归先注意处理null.<br><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/12.png"></p>
 <h2 id="实现注意"><a href="#实现注意" class="headerlink" title="实现注意"></a>实现注意</h2><ul>
 <li><p>先判空,空代表什么？</p>
 </li>
@@ -682,12 +682,12 @@
 </ul>
 <p>设D(N)为某N个结点树的内部路径长 D(1)=0,i节点左子树 一棵N-i-1 右处和深度0处的一个根节点，0&lt;=i《N 在原树中，所有节点都加一度 可得</p>
 <blockquote>
-<p>D(N)=D(i)+D(N-i-1)+N-1<br>二叉查找树所有子树大小等可能，<br><img src="/.io//13.png"></p>
+<p>D(N)=D(i)+D(N-i-1)+N-1<br>二叉查找树所有子树大小等可能，<br><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/13.png"></p>
 </blockquote>
-<p>由于删除都是右节点最小替代<br><img src="/.io//14.png"><br>删除会变成O(根号N)而不是O(logN)</p>
+<p>由于删除都是右节点最小替代<br><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/14.png"><br>删除会变成O(根号N)而不是O(logN)</p>
 <h1 id="AVL树-（一种古老平衡树）"><a href="#AVL树-（一种古老平衡树）" class="headerlink" title="AVL树 （一种古老平衡树）"></a>AVL树 （一种古老平衡树）</h1><p>给一棵树输入预先排序数据插入，可能会成链表，因为树由没有左儿子的点组成 </p>
 <p>解决方法平衡平衡：任何的节点不得过深<br>带有平衡条件的二叉查找树</p>
-<p><img src="/.io//15.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/15.png"></p>
 <p>除了插入其他都是O(logN) 懒惰删除法。在插入后 只有插入点到根节点的路径上平衡可能改变影响平衡的α点，α点两个子树高度差2 就影响平衡了</p>
 <ul>
 <li>1 对α的左儿子的左子树插入</li>
@@ -695,20 +695,20 @@
 <li>3 对α的右儿子的左子树插入</li>
 <li>4 对α的右儿子的右子树插入</li>
 </ul>
-<p><img src="/.io//16.png"><br>四种情形</p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/16.png"><br>四种情形</p>
 <h2 id="旋转调整"><a href="#旋转调整" class="headerlink" title="旋转调整"></a>旋转调整</h2><p>节点k2 不满足AVL平衡，左子树比右子树深两层</p>
-<h3 id="单旋转-情形1、4"><a href="#单旋转-情形1、4" class="headerlink" title="单旋转 情形1、4"></a>单旋转 情形1、4</h3><p><img src="/.io//17.png"></p>
-<p>在插入前k2满足AVL,插入后 子树X长出一层 Y不能和Z同一层，把树看成柔软灵活的，抓住子节点k1，闭上眼睛，使劲摇动，在重力作用下k1变成了新的根。<br><img src="/.io//18.png"><br>注意倒数第二个 选择把原来的左子树变成新的右子树</p>
+<h3 id="单旋转-情形1、4"><a href="#单旋转-情形1、4" class="headerlink" title="单旋转 情形1、4"></a>单旋转 情形1、4</h3><p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/17.png"></p>
+<p>在插入前k2满足AVL,插入后 子树X长出一层 Y不能和Z同一层，把树看成柔软灵活的，抓住子节点k1，闭上眼睛，使劲摇动，在重力作用下k1变成了新的根。<br><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/18.png"><br>注意倒数第二个 选择把原来的左子树变成新的右子树</p>
 <h3 id="双旋转-情形2、3"><a href="#双旋转-情形2、3" class="headerlink" title="双旋转 情形2、3"></a>双旋转 情形2、3</h3><p>情形2</p>
-<p><img src="/.io//19.png"><br>2和1 然后2和3旋转</p>
-<p><img src="/.io//20.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/19.png"><br>2和1 然后2和3旋转</p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/20.png"></p>
 <p>2和3 然后3和1旋转</p>
 <h1 id="伸展树-（splay-tree"><a href="#伸展树-（splay-tree" class="headerlink" title="伸展树 （splay tree)"></a>伸展树 （splay tree)</h1><ul>
 <li>保证从空树开始一系列M个的操作的时间最多O(MlogN),虽然有些操作还是O(N)，只要他很少就行；<strong>摊换时间概念</strong></li>
 <li>基本想法：一个节点被访问后，它就要经过一系列AVL旋转被推到根，研究表明，一个节点被访问，它很可能不久就再被访问。伸展树不要求保留高度和平衡信息，因此它某种程度节省空间和简化代码</li>
 </ul>
 <h2 id="简单实现，一直单旋转-（不可用）"><a href="#简单实现，一直单旋转-（不可用）" class="headerlink" title="简单实现，一直单旋转 （不可用）"></a>简单实现，一直单旋转 （不可用）</h2><p>一直单旋转，这样虽然提高了一个k1的访问速度，但是把k3推到了一样的高度上。k1访问时间少，k3增加。</p>
-<p><img src="/.io//21.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/21.png"></p>
 <h2 id="严谨实现，展开"><a href="#严谨实现，展开" class="headerlink" title="严谨实现，展开"></a>严谨实现，展开</h2><p>依旧是旋转</p>
 <ul>
 <li><p>X的父亲是根，单旋转</p>
@@ -722,13 +722,13 @@
 </ul>
 </li>
 </ul>
-<p><img src="/.io//22.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/22.png"></p>
 <p>把访问路上大部分节点深度大致减少一半</p>
-<p><img src="/.io//23.png"><br><img src="/.io//25.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/23.png"><br><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/25.png"></p>
 <p>效果：同样和简单旋转一样，在N次插入后得到 只有左子树的，这时候访问1<br>之后对2的访问只花费N/2,而不是N-2。对2访问能把各个节点带到距离根N/4，<br>继续进行下去深度大约为logN。</p>
-<p><img src="/.io//24.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/24.png"></p>
 <p>对1-32 插入后执行 1-9的查询 如图</p>
-<p><img src="/.io//26.png"><br><img src="/.io//27.png"><br><img src="/.io//28.png"><br><img src="/.io//29.png"><br><img src="/.io//30.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/26.png"><br><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/27.png"><br><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/28.png"><br><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/29.png"><br><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/30.png"></p>
 <p>这些图强调了伸展树的基本性质：后面可以证明每个操作绝不会落后于O(logN)</p>
 <h1 id="再谈树遍历"><a href="#再谈树遍历" class="headerlink" title="再谈树遍历"></a>再谈树遍历</h1><ul>
 <li>中序遍历：依次列出每一项，有意义 （排序列出的问题、比如二叉查找树）</li>
@@ -743,7 +743,7 @@
 </ul>
 <h1 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h1><p><font color="red,font" size="4">我们现在可以存储整个数据结构到主存了，大O分析假设所有操作耗时相等</font> 但是磁盘不一样。一台机器可以每秒几亿次指令，磁盘是机械运动，许多磁盘7200RPM，1分钟7200转，平均算转一半就要1/240秒，但是加上移动磁盘差不多也是1/120s，所以为了节省一次磁盘我们愿意进行大量运算。</p>
 <p>假设查找驾驶记录1000w，每个关键词（名字32字节），记录256字节，不能都装入主存，二叉查找不行，不能低于logN。</p>
-<p><img src="/.io//31.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/31.png"></p>
 <p>B树特点 （M叉）</p>
 <ul>
 <li>数据项存储在树叶</li>
@@ -753,26 +753,26 @@
 <li>所有的树叶都在相同的深度，而且有【L/2】和L个数据项。</li>
 </ul>
 <p>如下，所有非叶结点儿子数3和5之间（2到4关键词），根可能2儿子。L这时候取5 （不一定，每个结点代表一个磁盘区域</p>
-<p><img src="/.io//32.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/32.png"></p>
 <p>列如，一块可以8192字节，每个关键词32字节，M-1关键词 。M个分支，每个代表其他磁盘区域，设4字节。一个非叶结点内存需求 32M-32+4M ,不超过8192字节，最大M=228.<br>每个数据记录256字节，32个记录 刚好是一个块大小。所以 L=32。这样保证每片树叶16-32数据记录，每个内部结点（除根）至少114种方式分叉。1000w记录,至多1000w/16=625000树叶。最坏也在第四层，最坏情况 logM/2 N </p>
 <p>插入情况：</p>
 <ul>
 <li>直接插入</li>
 </ul>
-<p><img src="/.io//33.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/33.png"></p>
 <ul>
 <li>树叶满了，分裂插入</li>
 </ul>
-<p><img src="/.io//34.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/34.png"></p>
 <ul>
 <li>父节点儿子满了 不能分裂  40在41下 分到1分支，35满了</li>
 </ul>
-<p><img src="/.io//35.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/35.png"></p>
 <p>删除情况：</p>
 <ul>
 <li>查找后直接删除，可能出现领养情况如下</li>
 </ul>
-<p><img src="/.io//36.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/36.png"></p>
 <h1 id="标准库（SET-MAP"><a href="#标准库（SET-MAP" class="headerlink" title="标准库（SET MAP)"></a>标准库（SET MAP)</h1><h2 id="SET"><a href="#SET" class="headerlink" title="SET"></a>SET</h2><p>不允许重复元的Collection,SortedSet 接口各项有序。TreeSet实现SortedSet基本操作都是O(logN)</p>
 <h2 id="MAP"><a href="#MAP" class="headerlink" title="MAP"></a>MAP</h2><p>key 不null,value 可以null.TreeMap实现了SortedMap。</p>
 <p>通过Map迭代比Collection复杂，因为Map不提供迭代器，而是三种方法。</p>
@@ -794,21 +794,21 @@
 </ol>
 <h2 id="多个映射例子（一对多）"><a href="#多个映射例子（一对多）" class="headerlink" title="多个映射例子（一对多）"></a>多个映射例子（一对多）</h2><p>改一个字母 wine,dine、fine、line、wind等，夹数词典单词数89000个不同长度不同单词。6~11字母</p>
 <p>打印得到的值</p>
-<p><img src="/.io//37.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/37.png"></p>
 <p>简单实现目标计算出所有单词对应的改一个字母的单词</p>
-<p><img src="/.io//38.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/38.png"></p>
 <p>这个算法 需要75s，第二种，避免比较不同长度的,先分类长度，<font color="red,font" size="4">遍历集合，我们可以用迭代器，但是循环多次遍历集合，我们最好转换到数组。尤其避免了重复调用使Object向String转换。泛型的话它将发生在幕后。</font> 16s。</p>
-<p><img src="/.io//40.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/40.png"></p>
 <p>第三种，从wine、nine这样除第一个完全相同，删第一个，留三个。同理，处理第二个字母，第三第四. 4s</p>
-<p><img src="/.io//39.png"></p>
-<p><img src="/.io//41.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/39.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/41.png"></p>
 <h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><h2 id="4-1-4-3-根、叶子、高度、深度"><a href="#4-1-4-3-根、叶子、高度、深度" class="headerlink" title="4.1-4.3 根、叶子、高度、深度"></a>4.1-4.3 根、叶子、高度、深度</h2><h2 id="4-4-证明在N个节点的二叉树中，-存在N-1个null链，-代表N-1个儿子"><a href="#4-4-证明在N个节点的二叉树中，-存在N-1个null链，-代表N-1个儿子" class="headerlink" title="4.4 证明在N个节点的二叉树中， 存在N+1个null链， 代表N+1个儿子"></a>4.4 证明在N个节点的二叉树中， 存在N+1个null链， 代表N+1个儿子</h2><p>N有2N儿子  其中N-1个节点是别人的儿子 N+1个null儿子</p>
 <h2 id="4-5证明在高度为h的二叉树中，节点的最大个数是2-（h-1-1"><a href="#4-5证明在高度为h的二叉树中，节点的最大个数是2-（h-1-1" class="headerlink" title="4.5证明在高度为h的二叉树中，节点的最大个数是2^（h+1)-1"></a>4.5证明在高度为h的二叉树中，节点的最大个数是2^（h+1)-1</h2><p>直接求和</p>
 <h2 id="4-6满节点-full-node-是具有两个儿子的节点。证明满节点的个数加1等于非空二叉树的树叶的个数"><a href="#4-6满节点-full-node-是具有两个儿子的节点。证明满节点的个数加1等于非空二叉树的树叶的个数" class="headerlink" title="4.6满节点(full node) 是具有两个儿子的节点。证明满节点的个数加1等于非空二叉树的树叶的个数"></a>4.6满节点(full node) 是具有两个儿子的节点。证明满节点的个数加1等于非空二叉树的树叶的个数</h2><p>n0、n1、n2 代表有几个儿子的点<br>N=n0+n1+n2  N=n1+2n2</p>
 <h2 id="4-7设二叉树有树叶L，l，…，lu，各树叶的深度分别是d，dz，…，dy。证明，2-d1-…-2-dy≤1"><a href="#4-7设二叉树有树叶L，l，…，lu，各树叶的深度分别是d，dz，…，dy。证明，2-d1-…-2-dy≤1" class="headerlink" title="4.7设二叉树有树叶L，l，…，lu，各树叶的深度分别是d，dz，…，dy。证明，2^-d1+…..+2^-dy≤1"></a>4.7设二叉树有树叶L，l，…，lu，各树叶的深度分别是d，dz，…，dy。证明，2^-d1+…..+2^-dy≤1</h2><p>递归法1个</p>
-<h2 id="4-8-树的符号表达式"><a href="#4-8-树的符号表达式" class="headerlink" title="4.8 树的符号表达式"></a>4.8 树的符号表达式</h2><p><img src="/.io//42.png"></p>
+<h2 id="4-8-树的符号表达式"><a href="#4-8-树的符号表达式" class="headerlink" title="4.8 树的符号表达式"></a>4.8 树的符号表达式</h2><p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/42.png"></p>
 <p>前缀表达式：-*<em>ab+cde<br>中缀表达式：((a</em>b)<em>(c+d))-e<br>后缀表达式：ab</em>cd+*e-</p>
-<h2 id="4-9-a插入3-1-4-6-9-2-5-7-b删除根"><a href="#4-9-a插入3-1-4-6-9-2-5-7-b删除根" class="headerlink" title="4.9 a插入3 1 4 6 9 2 5 7 b删除根"></a>4.9 a插入3 1 4 6 9 2 5 7 b删除根</h2><p><img src="/.io//47.png"></p>
+<h2 id="4-9-a插入3-1-4-6-9-2-5-7-b删除根"><a href="#4-9-a插入3-1-4-6-9-2-5-7-b删除根" class="headerlink" title="4.9 a插入3 1 4 6 9 2 5 7 b删除根"></a>4.9 a插入3 1 4 6 9 2 5 7 b删除根</h2><p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/47.png"></p>
 <h2 id="4-10-列出目录所有文件及大小"><a href="#4-10-列出目录所有文件及大小" class="headerlink" title="4.10 列出目录所有文件及大小"></a>4.10 列出目录所有文件及大小</h2><p>列出目录的文件 根据空格表示前后级关系：先序遍历</p>
 <p>列出目录的文件和大小 先把子文件的大小打印算出，在算父亲的：后序遍历。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">chap04</span><span class="token punctuation">;</span>
@@ -1626,8 +1626,8 @@ c.α的好的选择是什么?为什么?
 dn=d(n-1)+d(n-2)+1
 
 斐波那契数列dn=d(n-1)+d(n-2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//48.png"></p>
-<h2 id="4-19-AVL树插入"><a href="#4-19-AVL树插入" class="headerlink" title="4.19 AVL树插入"></a>4.19 AVL树插入</h2><p><img src="/.io//49.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/48.png"></p>
+<h2 id="4-19-AVL树插入"><a href="#4-19-AVL树插入" class="headerlink" title="4.19 AVL树插入"></a>4.19 AVL树插入</h2><p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/49.png"></p>
 <h2 id="4-20-证明。AVL树按1，-2，-…，-2-1-的完美理想平衡-perfectly-balanced"><a href="#4-20-证明。AVL树按1，-2，-…，-2-1-的完美理想平衡-perfectly-balanced" class="headerlink" title="4.20 证明。AVL树按1， 2， …， 2*-1 的完美理想平衡(perfectly balanced)"></a>4.20 证明。AVL树按1， 2， …， 2*-1 的完美理想平衡(perfectly balanced)</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">递归推导即可<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="4-21-AVL树实现"><a href="#4-21-AVL树实现" class="headerlink" title="4.21 AVL树实现"></a>4.21 AVL树实现</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">
 <span class="token keyword">private</span> <span class="token class-name">BinaryTreeNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">AnyType</span><span class="token punctuation">&gt;</span></span> <span class="token function">balance</span><span class="token punctuation">(</span><span class="token class-name">BinaryTreeNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">AnyType</span><span class="token punctuation">&gt;</span></span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1829,10 +1829,10 @@ b<span class="token operator">:</span><span class="token number">127</span><span
 
     <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="4-27、28-伸展树的访问删除"><a href="#4-27、28-伸展树的访问删除" class="headerlink" title="4.27、28 伸展树的访问删除"></a>4.27、28 伸展树的访问删除</h2><p><img src="/.io//43.png"></p>
-<p><img src="/.io//50.png"></p>
-<p><img src="/.io//51.png"></p>
-<p><img src="/.io//52.png"></p>
+<h2 id="4-27、28-伸展树的访问删除"><a href="#4-27、28-伸展树的访问删除" class="headerlink" title="4.27、28 伸展树的访问删除"></a>4.27、28 伸展树的访问删除</h2><p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/43.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/50.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/51.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/52.png"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="4-29-证明伸展树的性质"><a href="#4-29-证明伸展树的性质" class="headerlink" title="4.29 证明伸展树的性质"></a>4.29 证明伸展树的性质</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">a<span class="token punctuation">.</span>证明如果按顺序访问伸展树中的所有节点，则所得到的树由一连串的左儿子组成。
 
@@ -2218,8 +2218,8 @@ AVL
 
     <span class="token punctuation">}</span>
     <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="4-44-兄弟儿子树-构造遍历"><a href="#4-44-兄弟儿子树-构造遍历" class="headerlink" title="4.44 兄弟儿子树 构造遍历"></a>4.44 兄弟儿子树 构造遍历</h2><p><img src="/.io//53.png"></p>
-<p><img src="/.io//54.png"></p>
+<h2 id="4-44-兄弟儿子树-构造遍历"><a href="#4-44-兄弟儿子树-构造遍历" class="headerlink" title="4.44 兄弟儿子树 构造遍历"></a>4.44 兄弟儿子树 构造遍历</h2><p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/53.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/54.png"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">遍历和之前的一样
 <span class="token comment">//先序遍历树</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">preOrderTraverse</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> t<span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -2250,7 +2250,7 @@ AVL
 	<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="4-47-判断树的同构"><a href="#4-47-判断树的同构" class="headerlink" title="4.47 判断树的同构"></a>4.47 判断树的同构</h2><p>如果树T，通过交换其(某些)节点的左右儿子变换成树T，，则称树T和T，是同构<br>的(isomorphic) 。例如， 图4-74中的两棵树是同构的， 因为交换A、B、G的儿子而不交换其他节<br>点的儿子后这两棵树是相同的。</p>
-<p><img src="/.io//55.png"></p>
+<p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/55.png"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isOmorphic</span><span class="token punctuation">(</span><span class="token class-name">BinaryTreeNode</span> root1<span class="token punctuation">)</span><span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token function">isOmorphic</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span>root1<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -2457,7 +2457,7 @@ b<span class="token operator">:</span>找到位置后 根据cmp来添加节点
             <span class="token function">inThread</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>rightNode<span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment">// 线索化右孩子</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="4-51-二叉查找树满节点平均次数"><a href="#4-51-二叉查找树满节点平均次数" class="headerlink" title="4.51 二叉查找树满节点平均次数"></a>4.51 二叉查找树满节点平均次数</h2><p><img src="/.io//45.png"></p>
+<h2 id="4-51-二叉查找树满节点平均次数"><a href="#4-51-二叉查找树满节点平均次数" class="headerlink" title="4.51 二叉查找树满节点平均次数"></a>4.51 二叉查找树满节点平均次数</h2><p><img src="/2020/07/14/data-structures-and-algorithms-chap04-tree/45.png"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">a<span class="token punctuation">.</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">0</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">0</span>
 b<span class="token punctuation">.</span> 满节点的个数<span class="token operator">=</span>左子树满<span class="token operator">+</span>右子树满<span class="token operator">+</span> （当左子树不空并且右子树不空时）平均<span class="token punctuation">(</span><span class="token class-name">N</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span>
 c<span class="token punctuation">.</span> 递推

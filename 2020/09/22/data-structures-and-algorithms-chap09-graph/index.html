@@ -548,7 +548,7 @@
 <li>完全图：每一对顶点间都有存在一条边的图</li>
 </ul>
 <h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>航空系统，每个机场是一个顶点、边代表一个直达航线，边的权可以是距离、费用、时间等等。 </p>
-<h2 id="图表示"><a href="#图表示" class="headerlink" title="图表示"></a>图表示</h2><p><img src="/.io//1.png"></p>
+<h2 id="图表示"><a href="#图表示" class="headerlink" title="图表示"></a>图表示</h2><p><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/1.png"></p>
 <ul>
 <li><p>直接表示法，用二维数组ture、flase。如果有权，可以置数组置为权 ，不存在的边可以用无穷大或者0表示,空间需求 (V^2)</p>
 </li>
@@ -556,7 +556,7 @@
 </li>
 </ul>
 <ul>
-<li><p>街道 四个方向 E=4*V  稀疏的 用邻接表示法<br><img src="/.io//2.png"></p>
+<li><p>街道 四个方向 E=4*V  稀疏的 用邻接表示法<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/2.png"></p>
 </li>
 <li><p>邻接表示法实现</p>
 <ul>
@@ -566,7 +566,7 @@
 </li>
 </ul>
 <h1 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h1><blockquote>
-<p>有向无圈图 的排序 （顶点的排序）<br><img src="/.io//3.png"><br><img src="/.io//4.png"></p>
+<p>有向无圈图 的排序 （顶点的排序）<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/3.png"><br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/4.png"></p>
 </blockquote>
 <ul>
 <li><p>简单实现</p>
@@ -576,19 +576,19 @@
 <li>继续往下</li>
 </ul>
 </li>
-<li><p>技巧实现 队列<br><img src="/.io//5.png"></p>
+<li><p>技巧实现 队列<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/5.png"></p>
 </li>
 </ul>
 <h1 id="最短路径算法"><a href="#最短路径算法" class="headerlink" title="最短路径算法"></a>最短路径算法</h1><p>需要注意确定最短路径的时候是否有负值圈，有的话可以无限循环</p>
-<p><img src="/.io//6.png"></p>
+<p><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/6.png"></p>
 <h2 id="无权最短路径-（可以把所有权赋值为1）"><a href="#无权最短路径-（可以把所有权赋值为1）" class="headerlink" title="无权最短路径 （可以把所有权赋值为1）"></a>无权最短路径 （可以把所有权赋值为1）</h2><blockquote>
 <p>目的:找到顶点S与其他节点的最短距离</p>
 </blockquote>
-<p>找路径为0的路<br><img src="/.io//7.png"><br>找路径1、2的路<br><img src="/.io//8.png"></p>
+<p>找路径为0的路<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/7.png"><br>找路径1、2的路<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/8.png"></p>
 <blockquote>
-<p>这就是广度优先搜索，按层处理<br><img src="/.io//9.png"></p>
+<p>这就是广度优先搜索，按层处理<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/9.png"></p>
 </blockquote>
-<p>队列实现：把currDist顶点入队，然后遍历（队列的特殊先，先入队的处理完在在继续遍历）<br>是不是可以 解说了<br>用了邻接表 运行时间O(E+V)<br>    <img src="/.io//10.png"></p>
+<p>队列实现：把currDist顶点入队，然后遍历（队列的特殊先，先入队的处理完在在继续遍历）<br>是不是可以 解说了<br>用了邻接表 运行时间O(E+V)<br>    <img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/10.png"></p>
 <h2 id="有权最短路径"><a href="#有权最短路径" class="headerlink" title="有权最短路径"></a>有权最短路径</h2><h3 id="贪婪算法"><a href="#贪婪算法" class="headerlink" title="贪婪算法"></a>贪婪算法</h3><blockquote>
 <p>分阶段求解问题，每个阶段都把它当做最好的处理。但是不一定总是成功</p>
 </blockquote>
@@ -596,10 +596,10 @@
 贪婪算法会选择 一个12分 三个一分，事实上1角加5分是最少的<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>实现<ul>
-<li>选择v1作为开始 开始找所有点的最小<br><img src="/.io//11.png"></li>
-<li>遍历v1和最近的v4<br><img src="/.io//12.png"></li>
-<li>遍历v2 (找邻接的unkown的点，计算路径 小于已知就不替换)选取v5、v3<br><img src="/.io//13.png"></li>
-<li>然后是v7、v6 所以都已知了<br><img src="/.io//14.png"></li>
+<li>选择v1作为开始 开始找所有点的最小<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/11.png"></li>
+<li>遍历v1和最近的v4<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/12.png"></li>
+<li>遍历v2 (找邻接的unkown的点，计算路径 小于已知就不替换)选取v5、v3<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/13.png"></li>
+<li>然后是v7、v6 所以都已知了<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/14.png"></li>
 </ul>
 </li>
 </ul>
@@ -610,16 +610,16 @@
 </ul>
 <h2 id="具有负边值的图"><a href="#具有负边值的图" class="headerlink" title="具有负边值的图"></a>具有负边值的图</h2><p>有权结合无权</p>
 <h2 id="无圈图"><a href="#无圈图" class="headerlink" title="无圈图"></a>无圈图</h2><blockquote>
-<p>模拟方案运行 哪个最短<br><img src="/.io//15.png"></p>
+<p>模拟方案运行 哪个最短<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/15.png"></p>
 </blockquote>
 <blockquote>
-<p>转换成事件节点图<br><img src="/.io//16.png"></p>
+<p>转换成事件节点图<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/16.png"></p>
 </blockquote>
 <blockquote>
-<p>通过事件节点图 算出最早、最晚、松弛时间<br><img src="/.io//17.png"></p>
+<p>通过事件节点图 算出最早、最晚、松弛时间<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/17.png"></p>
 </blockquote>
-<p><img src="/.io//18.png"></p>
-<p><img src="/.io//19.png"></p>
+<p><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/18.png"></p>
+<p><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/19.png"></p>
 <h2 id="所有点对最短路径"><a href="#所有点对最短路径" class="headerlink" title="所有点对最短路径"></a>所有点对最短路径</h2><h2 id="最短路径例子（词梯，一系列单字母替换-）"><a href="#最短路径例子（词梯，一系列单字母替换-）" class="headerlink" title="最短路径例子（词梯，一系列单字母替换 ）"></a>最短路径例子（词梯，一系列单字母替换 ）</h2><p>无权最短路径问题</p>
 <h1 id="网络流问题"><a href="#网络流问题" class="headerlink" title="网络流问题"></a>网络流问题</h1><blockquote>
 <p>定义</p>
@@ -628,23 +628,23 @@
 <li>流Cvw代表最大容量。</li>
 <li>s，发射点 t 收点 sink.</li>
 <li>不是收点和发点的，总流入=总流出</li>
-<li>最大流问题 s~t的最大流量<br><img src="/.io//20.png"></li>
+<li>最大流问题 s~t的最大流量<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/20.png"></li>
 </ul>
 <blockquote>
 <p>如何证明最大流是5，看容量，s有容量4、2的边离开它，t容量3和3的进入它，所以最大流可能也是6不是5。</p>
 </blockquote>
-<p>切分图，看两个分区交界，(a c)、(d t)总容量5 具有最小总容量的切分给出最大流的上界<br><img src="/.io//21.png"></p>
+<p>切分图，看两个分区交界，(a c)、(d t)总容量5 具有最小总容量的切分给出最大流的上界<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/21.png"></p>
 <h2 id="简单最大流问题"><a href="#简单最大流问题" class="headerlink" title="简单最大流问题"></a>简单最大流问题</h2><p>G容量图，Gr残余图 （代表每条边还能添加多少流）Gf是我们的目标流图，给目标路径加流发现没有路径时停止</p>
-<p>初始<br><img src="/.io//22.png"></p>
-<p>给s b d t 加两个流<br><img src="/.io//23.png"></p>
-<p>给s a c t 加两个流<br><img src="/.io//24.png"></p>
-<p>给s a d t 加1个流 算法结束<br><img src="/.io//25.png"></p>
+<p>初始<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/22.png"></p>
+<p>给s b d t 加两个流<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/23.png"></p>
+<p>给s a c t 加两个流<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/24.png"></p>
+<p>给s a d t 加1个流 算法结束<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/25.png"></p>
 <p>算法停止，看到t的入口2+3 所以最大流是5</p>
-<h2 id="贪婪算法的问题"><a href="#贪婪算法的问题" class="headerlink" title="贪婪算法的问题"></a>贪婪算法的问题</h2><p>选择错了，次优解<br><img src="/.io//26.png"></p>
-<p>添加相反方向允许撤销。<br><img src="/.io//27.png"><br><img src="/.io//28.png"> </p>
+<h2 id="贪婪算法的问题"><a href="#贪婪算法的问题" class="headerlink" title="贪婪算法的问题"></a>贪婪算法的问题</h2><p>选择错了，次优解<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/26.png"></p>
+<p>添加相反方向允许撤销。<br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/27.png"><br><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/28.png"> </p>
 <p>在研究中 很难</p>
-<h1 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h1><p><img src="/.io//29.png"> </p>
-<h2 id="Prime算法"><a href="#Prime算法" class="headerlink" title="Prime算法"></a>Prime算法</h2><p><img src="/.io//30.png"> </p>
+<h1 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h1><p><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/29.png"> </p>
+<h2 id="Prime算法"><a href="#Prime算法" class="headerlink" title="Prime算法"></a>Prime算法</h2><p><img src="/2020/09/22/data-structures-and-algorithms-chap09-graph/30.png"> </p>
 <p>和最短路径一样</p>
 <h2 id="最小的边"><a href="#最小的边" class="headerlink" title="最小的边"></a>最小的边</h2><h1 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h1>
                 

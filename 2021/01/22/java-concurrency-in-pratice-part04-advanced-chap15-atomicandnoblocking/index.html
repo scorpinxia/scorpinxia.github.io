@@ -545,7 +545,7 @@
 </blockquote>
 <ul>
 <li>我认为 V 的值应该为A,  如果是， 那么将 V 的值更新为B,  否则不修改并告诉V 的值实际为多少</li>
-<li>模拟操作<br><img src="/.io//1.png"></li>
+<li>模拟操作<br><img src="/2021/01/22/java-concurrency-in-pratice-part04-advanced-chap15-atomicandnoblocking/1.png"></li>
 </ul>
 <blockquote>
 <p>CAS 的竞争</p>
@@ -563,7 +563,7 @@
 <li>由于 CAS 能检测到来自其他线程的干扰，因此即使不使用锁也能够实现原子的读－ 改－ 写操作序列。</li>
 </ul>
 <h2 id="非阻塞的计数器"><a href="#非阻塞的计数器" class="headerlink" title="非阻塞的计数器"></a>非阻塞的计数器</h2><blockquote>
-<p>CAS计数器<br><img src="/.io//2.png"></p>
+<p>CAS计数器<br><img src="/2021/01/22/java-concurrency-in-pratice-part04-advanced-chap15-atomicandnoblocking/2.png"></p>
 </blockquote>
 <ul>
 <li>通常， 反复地重试是一种合理的策略</li>
@@ -621,17 +621,17 @@
 <li>没有重新定义    hashCode 或 equals 方法， 每个实例都是不同的。与其他可变对象相同，它们也不宜用做基于散列的容器中的键值。</li>
 </ul>
 <h2 id="原子变量是一种“更好的volatile”"><a href="#原子变量是一种“更好的volatile”" class="headerlink" title="原子变量是一种“更好的volatile”"></a>原子变量是一种“更好的volatile”</h2><blockquote>
-<p>OneValueCache 与原子引用结合，指向不变对象引用，进行原子更新 避免竞态条件<br><img src="/.io//3.png"></p>
+<p>OneValueCache 与原子引用结合，指向不变对象引用，进行原子更新 避免竞态条件<br><img src="/2021/01/22/java-concurrency-in-pratice-part04-advanced-chap15-atomicandnoblocking/3.png"></p>
 </blockquote>
 <h2 id="性能比较：锁与原子变量"><a href="#性能比较：锁与原子变量" class="headerlink" title="性能比较：锁与原子变量"></a>性能比较：锁与原子变量</h2><blockquote>
 <p>PRNG 下一个随机数用到上一个数字</p>
 </blockquote>
 <ul>
-<li>使用ReentranLock 实现<br><img src="/.io//4.png"><br><img src="/.io//5.png"></li>
-<li>使用 Atomiclnteger<br><img src="/.io//6.png"></li>
+<li>使用ReentranLock 实现<br><img src="/2021/01/22/java-concurrency-in-pratice-part04-advanced-chap15-atomicandnoblocking/4.png"><br><img src="/2021/01/22/java-concurrency-in-pratice-part04-advanced-chap15-atomicandnoblocking/5.png"></li>
+<li>使用 Atomiclnteger<br><img src="/2021/01/22/java-concurrency-in-pratice-part04-advanced-chap15-atomicandnoblocking/6.png"></li>
 </ul>
 <blockquote>
-<p>吞吐量结果<br><img src="/.io//7.png"><br><img src="/.io//8.png"></p>
+<p>吞吐量结果<br><img src="/2021/01/22/java-concurrency-in-pratice-part04-advanced-chap15-atomicandnoblocking/7.png"><br><img src="/2021/01/22/java-concurrency-in-pratice-part04-advanced-chap15-atomicandnoblocking/8.png"></p>
 </blockquote>
 <ul>
 <li>在中低程度的竞争下，原子变量能提供更高的可伸缩性。（更真实的场景 ，因为不会只竞争 其他什么都不做）</li>
@@ -646,7 +646,7 @@
 <li>在许多常见的数据结构中都可以使用非阻塞算法，包括栈、队列、优先队列以及散列表等，而要设计一些新的这种数据结   构，最好还是由专家们来完成。</li>
 </ul>
 <h2 id="非阻塞的栈（最简单的链式数据结构）"><a href="#非阻塞的栈（最简单的链式数据结构）" class="headerlink" title="非阻塞的栈（最简单的链式数据结构）"></a>非阻塞的栈（最简单的链式数据结构）</h2><blockquote>
-<p>栈实现<br><img src="/.io//9.png"></p>
+<p>栈实现<br><img src="/2021/01/22/java-concurrency-in-pratice-part04-advanced-chap15-atomicandnoblocking/9.png"></p>
 </blockquote>
 <ul>
 <li>每个元素仅指向一个元素，井且每个元素也只被一个元素引用。</li>
@@ -679,12 +679,12 @@
 </li>
 </ul>
 <blockquote>
-<p>非阻塞链接队列的插入（ConcurrentLinkedQueue的插入)<br><img src="/.io//10.png"><br><img src="/.io//11.png"></p>
+<p>非阻塞链接队列的插入（ConcurrentLinkedQueue的插入)<br><img src="/2021/01/22/java-concurrency-in-pratice-part04-advanced-chap15-atomicandnoblocking/10.png"><br><img src="/2021/01/22/java-concurrency-in-pratice-part04-advanced-chap15-atomicandnoblocking/11.png"></p>
 </blockquote>
 <ul>
 <li>队列的状态<ul>
 <li>通常队列都有的 空队列的“哑（Dummy）节点”，头尾初始化指向</li>
-<li>尾节点指向Dummy、（空队列）或者倒数第一个节点（稳定状态）， 倒数第二个元素（当有操作正在执行更新时）<br><img src="/.io//12.png"></li>
+<li>尾节点指向Dummy、（空队列）或者倒数第一个节点（稳定状态）， 倒数第二个元素（当有操作正在执行更新时）<br><img src="/2021/01/22/java-concurrency-in-pratice-part04-advanced-chap15-atomicandnoblocking/12.png"></li>
 </ul>
 </li>
 <li>put步骤<ul>

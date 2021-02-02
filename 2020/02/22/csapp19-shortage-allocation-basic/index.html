@@ -521,15 +521,15 @@
 <li>内存利用率：就是分配中使用的有效内存<br>  影响因素<ul>
 <li><p>内部碎片：字节对齐 需要标记等</p>
 </li>
-<li><p>外部碎片： 如下图<br><img src="/.io//1.png"></p>
+<li><p>外部碎片： 如下图<br><img src="/CSAPP19-shortage-allocation-Basic/1.png"></p>
 <h1 id="2-分配中的细节"><a href="#2-分配中的细节" class="headerlink" title="2. 分配中的细节"></a>2. 分配中的细节</h1></li>
 </ul>
 </li>
 </ul>
 <h2 id="2-1-怎么free多少内存只靠指针"><a href="#2-1-怎么free多少内存只靠指针" class="headerlink" title="2.1 怎么free多少内存只靠指针"></a>2.1 怎么free多少内存只靠指针</h2><p>通过堆的header标识</p>
-<h2 id="2-2-怎么跟踪这些没分配的内存"><a href="#2-2-怎么跟踪这些没分配的内存" class="headerlink" title="2.2 怎么跟踪这些没分配的内存"></a>2.2 怎么跟踪这些没分配的内存</h2><p>4种方法<br><img src="/.io//2.png"></p>
+<h2 id="2-2-怎么跟踪这些没分配的内存"><a href="#2-2-怎么跟踪这些没分配的内存" class="headerlink" title="2.2 怎么跟踪这些没分配的内存"></a>2.2 怎么跟踪这些没分配的内存</h2><p>4种方法<br><img src="/CSAPP19-shortage-allocation-Basic/2.png"></p>
 <p><strong><em>以下以第一种方法讲解后续问题</em></strong></p>
-<h2 id="2-3-怎么应对格外的空间（字节对齐造成的浪费）"><a href="#2-3-怎么应对格外的空间（字节对齐造成的浪费）" class="headerlink" title="2.3 怎么应对格外的空间（字节对齐造成的浪费）"></a>2.3 怎么应对格外的空间（字节对齐造成的浪费）</h2><p>如下图<br><img src="/.io//3.png"><br><strong><em>无可避免，但是可以节省</em></strong></p>
+<h2 id="2-3-怎么应对格外的空间（字节对齐造成的浪费）"><a href="#2-3-怎么应对格外的空间（字节对齐造成的浪费）" class="headerlink" title="2.3 怎么应对格外的空间（字节对齐造成的浪费）"></a>2.3 怎么应对格外的空间（字节对齐造成的浪费）</h2><p>如下图<br><img src="/CSAPP19-shortage-allocation-Basic/3.png"><br><strong><em>无可避免，但是可以节省</em></strong></p>
 <p>因为size的大小总是8的倍数或者16的 所以要存一些东西的时候回出现空的</p>
 <p>也因为size的大小总是8的倍数或者16的 所以不需要一个额外的word来存状态 只需存在size的 最后3位bit里面的一位 因为他们一直是0</p>
 <h2 id="2-4-怎么找空块去分配"><a href="#2-4-怎么找空块去分配" class="headerlink" title="2.4 怎么找空块去分配"></a>2.4 怎么找空块去分配</h2><ul>
@@ -539,11 +539,11 @@
 <li>good fit：first fit + best fit 再开始的地方找一些最合适的块存放</li>
 </ul>
 <h2 id="2-5-如何合理释放已经分配的块"><a href="#2-5-如何合理释放已经分配的块" class="headerlink" title="2.5 如何合理释放已经分配的块"></a>2.5 如何合理释放已经分配的块</h2><ul>
-<li><p>直接释放 （置位释放）<br><img src="/.io//4.png"><br>waste too much  内存会逐渐崩溃</p>
+<li><p>直接释放 （置位释放）<br><img src="/CSAPP19-shortage-allocation-Basic/4.png"><br>waste too much  内存会逐渐崩溃</p>
 </li>
-<li><p>连接的下一个释放<br><img src="/.io//5.png"><br>但是处理不了上面一块</p>
+<li><p>连接的下一个释放<br><img src="/CSAPP19-shortage-allocation-Basic/5.png"><br>但是处理不了上面一块</p>
 </li>
-<li><p>通过添加foot 连接的上下释放<br><img src="/.io//6.png"><br>但是这样有点太浪费了，因为对于分配过的内存是不需要合并的。<br>可以通过利用size那最后3位都是0，拿出一位来标记上面是否是已分配的块，这样不是的话它肯定有foot， 一切一样是的话就不做操作。（tricks)</p>
+<li><p>通过添加foot 连接的上下释放<br><img src="/CSAPP19-shortage-allocation-Basic/6.png"><br>但是这样有点太浪费了，因为对于分配过的内存是不需要合并的。<br>可以通过利用size那最后3位都是0，拿出一位来标记上面是否是已分配的块，这样不是的话它肯定有foot， 一切一样是的话就不做操作。（tricks)</p>
 </li>
 </ul>
 

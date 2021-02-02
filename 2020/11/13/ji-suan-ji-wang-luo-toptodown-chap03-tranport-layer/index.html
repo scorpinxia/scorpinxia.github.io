@@ -560,7 +560,7 @@
 </ul>
 <!-- /TOC -->
 <h1 id="overview"><a href="#overview" class="headerlink" title="overview"></a>overview</h1><blockquote>
-<p>运输层协议的作用<br>提供不同主机的应用程序的逻辑通信（好像连接在一起）<br><img src="/.io//1.png"></p>
+<p>运输层协议的作用<br>提供不同主机的应用程序的逻辑通信（好像连接在一起）<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/1.png"></p>
 </blockquote>
 <blockquote>
 <p>从应用层的message 到运输层的报文段（segment)</p>
@@ -598,7 +598,7 @@
 </blockquote>
 <ul>
 <li>套接字有唯一标识</li>
-<li>特殊字段指示交付的套接字<br><img src="/.io//2.png"></li>
+<li>特殊字段指示交付的套接字<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/2.png"></li>
 </ul>
 <h2 id="面向非连接的-多路复用-和多路分解"><a href="#面向非连接的-多路复用-和多路分解" class="headerlink" title="面向非连接的 多路复用 和多路分解"></a>面向非连接的 多路复用 和多路分解</h2><blockquote>
 <p>UDP套接字 二元组全面标识（包含目的IP 目的端口）</p>
@@ -610,13 +610,13 @@
 <p>UDP客户-服务端例字</p>
 </blockquote>
 <ul>
-<li>创建套接字<br><img src="/.io//6.png">自动分配端口</li>
+<li>创建套接字<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/6.png">自动分配端口</li>
 <li>或者bind关联特定端口</li>
 <li>假设主机A一个进程具有UDP端口19157，发送一个应用程序数据块给主机B另一进程，改进程具有端口UDP46428。<ul>
 <li>主机A的运输层创建运输层报文段，包括（应用程序数据、源port19157、目的port46428、其他两个值（不重要目前）</li>
 <li>运输层将得到的报文段传递到网络层，网络层封装报文段到IP数据报，来尽力而为交付报文段到接受主机</li>
 <li>到了主机B ，主机B的运输层检测报文段的目的端口46428，将报文段交付给端口号46428的套接字。</li>
-<li>源端口是为了B回发报文段<br><img src="/.io//3.png"></li>
+<li>源端口是为了B回发报文段<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/3.png"></li>
 </ul>
 </li>
 </ul>
@@ -626,9 +626,9 @@
 <p>TCP客户-服务端例子</p>
 <ul>
 <li>TCPServer 在12000端口等待连接</li>
-<li>TCP 客户创建一个套接字发送一个连接建立请求报文<br><img src="/.io//4.png"></li>
+<li>TCP 客户创建一个套接字发送一个连接建立请求报文<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/4.png"></li>
 <li>一条连接建立请求不过是一个目的端口12000，TCP首部特定的连接建立位 TCP报文段</li>
-<li>计算机主机操作系统收到具有目的端口12000的入连接请求报文段，它定位到服务端进程（在12000端口等待接收连接），然后服务器进程创建一个新的套接字<br><img src="/.io//5.png"></li>
+<li>计算机主机操作系统收到具有目的端口12000的入连接请求报文段，它定位到服务端进程（在12000端口等待接收连接），然后服务器进程创建一个新的套接字<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/5.png"></li>
 <li>服务器运输层还注意到请求报文段的4元组，后续到达的报文段 4元组就被分解到套接字。</li>
 </ul>
 <h2 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h2><blockquote>
@@ -638,7 +638,7 @@
 <p>Web服务器主机，在端口80运行Apache服务器。客户端发送报文段，目的端口都80。每条连接都生成一个新进程，</p>
 </blockquote>
 <blockquote>
-<p>现在，高性能Web服务器都是通常只使用一个进程，但是为每个新连接套接字创建新的线程<br><img src="/.io//7.png"></p>
+<p>现在，高性能Web服务器都是通常只使用一个进程，但是为每个新连接套接字创建新的线程<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/7.png"></p>
 </blockquote>
 <h1 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h1><blockquote>
 <p>UDP 定义</p>
@@ -658,16 +658,16 @@
 <li>无连接状态。（接受发送缓存、拥塞控制参数、序号确认号参数）</li>
 <li>分组首部开销小。 TCP首部20Bytes UDP8Bytes</li>
 </ul>
-<p><img src="/.io//8.png"></p>
+<p><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/8.png"></p>
 <ul>
 <li>但是现在多媒体使用UDP也有争议，无控制的UDP，可能使路由器大量分组溢出</li>
 </ul>
-<h2 id="UDP报文段"><a href="#UDP报文段" class="headerlink" title="UDP报文段"></a>UDP报文段</h2><p><img src="/.io//9.png"></p>
+<h2 id="UDP报文段"><a href="#UDP报文段" class="headerlink" title="UDP报文段"></a>UDP报文段</h2><p><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/9.png"></p>
 <ul>
 <li>UDP首部4个字段 每个字段2byte <ul>
 <li>端口号：用于分解（交付到对应进程）</li>
 <li>长度字段：报文段总字节数（首部加数据）</li>
-<li>检验和：差错检测，确定当UDP报文段从源到目的地移动，其中bit是否改变。简单的校验和<br><img src="/.io//10.png"><br>把结果的反码作为校验和，四个相加应该为16个1</li>
+<li>检验和：差错检测，确定当UDP报文段从源到目的地移动，其中bit是否改变。简单的校验和<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/10.png"><br>把结果的反码作为校验和，四个相加应该为16个1</li>
 </ul>
 </li>
 </ul>
@@ -682,13 +682,13 @@
 <p>UDP只丢弃受损的报文段</p>
 </blockquote>
 <h1 id="可靠数据传输"><a href="#可靠数据传输" class="headerlink" title="可靠数据传输"></a>可靠数据传输</h1><blockquote>
-<p>TCP在不可靠的（IP）短刀端网络层之上实现的可靠数据传输协议（reliable data transfer protocol)<br><img src="/.io//11.png"></p>
+<p>TCP在不可靠的（IP）短刀端网络层之上实现的可靠数据传输协议（reliable data transfer protocol)<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/11.png"></p>
 </blockquote>
 <blockquote>
 <p>从单向讨论</p>
 </blockquote>
 <h2 id="构建RDT协议"><a href="#构建RDT协议" class="headerlink" title="构建RDT协议"></a>构建RDT协议</h2><h3 id="RDT1-0"><a href="#RDT1-0" class="headerlink" title="RDT1.0"></a>RDT1.0</h3><ul>
-<li>可靠信道<br><img src="/.io//12.png"></li>
+<li>可靠信道<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/12.png"></li>
 </ul>
 <h3 id="RDT2-0-（接受方校验-回ACK）"><a href="#RDT2-0-（接受方校验-回ACK）" class="headerlink" title="RDT2.0 （接受方校验 回ACK）"></a>RDT2.0 （接受方校验 回ACK）</h3><ul>
 <li>不可靠信道<br>电话口述，包括了肯定确认（“OK”）、否定确认（“请重复一遍”）ARQ(自动重传请求)</li>
@@ -699,7 +699,7 @@
 <li>接收方反馈。 ACK 和NAK</li>
 <li>重传。 接收方收到有差错的分组，发送方将重传该分组。</li>
 </ul>
-<p><img src="/.io//13.png"></p>
+<p><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/13.png"></p>
 <ul>
 <li>注意到发送方处于等待ACK或者NAK状态，他不能向上层获得更多数据。 这种协议叫<strong>停等协议</strong></li>
 </ul>
@@ -731,7 +731,7 @@
 </ul>
 <h3 id="RDT2-1-（反应了发送方正发送分组、接收方希望接受分组"><a href="#RDT2-1-（反应了发送方正发送分组、接收方希望接受分组" class="headerlink" title="RDT2.1 （反应了发送方正发送分组、接收方希望接受分组)"></a>RDT2.1 （反应了发送方正发送分组、接收方希望接受分组)</h3><ul>
 <li>解决新问题的方法（所有数据传输协议都采用了），数据分组添加新字段，发送方对数据分组编号。即将发送数据分组的序号放入。接收方只需检查序号，即可确定收到的分组是否异常重传。<ul>
-<li>对于停等的简单情况，1bit序号来确认是否重传前一个发送分组即可。<br><img src="/.io//14.png"></li>
+<li>对于停等的简单情况，1bit序号来确认是否重传前一个发送分组即可。<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/14.png"></li>
 </ul>
 </li>
 <li>发送机步骤<ol>
@@ -746,7 +746,7 @@
 </li>
 </ul>
 <h3 id="RDT2-2-无NAK的可靠数据传输"><a href="#RDT2-2-无NAK的可靠数据传输" class="headerlink" title="RDT2.2 (无NAK的可靠数据传输)"></a>RDT2.2 (无NAK的可靠数据传输)</h3><blockquote>
-<p>发送机接受机，添加了序号的确认。<br><img src="/.io//15.png"></p>
+<p>发送机接受机，添加了序号的确认。<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/15.png"></p>
 </blockquote>
 <h3 id="RDT3-0"><a href="#RDT3-0" class="headerlink" title="RDT3.0"></a>RDT3.0</h3><p>除了bit受损，底层信道还会丢包（正常），需要增加新的机制。</p>
 <blockquote>
@@ -761,16 +761,16 @@
 </li>
 </ul>
 <blockquote>
-<p>发射端步骤<br><img src="/.io//16.png"></p>
+<p>发射端步骤<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/16.png"></p>
 </blockquote>
 <blockquote>
-<p>bit交替协议 （多种情况分析，还有其他情况）<br><img src="/.io//17.png"></p>
+<p>bit交替协议 （多种情况分析，还有其他情况）<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/17.png"></p>
 </blockquote>
 <h2 id="流水线可靠的数据传输协议"><a href="#流水线可靠的数据传输协议" class="headerlink" title="流水线可靠的数据传输协议"></a>流水线可靠的数据传输协议</h2><blockquote>
-<p>停等协议的问题：利用率低<br><img src="/.io//18.png"></p>
+<p>停等协议的问题：利用率低<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/18.png"></p>
 </blockquote>
 <blockquote>
-<p>流水线的影响<br><img src="/.io//19.png"></p>
+<p>流水线的影响<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/19.png"></p>
 </blockquote>
 <ul>
 <li>必须增加序号范围。</li>
@@ -778,7 +778,7 @@
 <li>如何处理丢失、损伤、延时过大的分组（也决定了序号范围和堆缓冲的要求）。基本方法 Go-Back-N 回退N步，选择重传（Selective Repert，SR)</li>
 </ul>
 <h3 id="回退N步-Go-Back-N"><a href="#回退N步-Go-Back-N" class="headerlink" title="回退N步 Go-Back-N"></a>回退N步 Go-Back-N</h3><blockquote>
-<p>以下 显示了发送方看到的GBN序号范围，四段<br><img src="/.io//20.png"></p>
+<p>以下 显示了发送方看到的GBN序号范围，四段<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/20.png"></p>
 </blockquote>
 <ul>
 <li>基序号base：最早未确认分组</li>
@@ -790,7 +790,7 @@
 <li>分组序号在分组首部固定长度的字段。bit是k（范围[0,2^k-1]</li>
 </ul>
 <blockquote>
-<p>GBN框图<br><img src="/.io//21.png"></p>
+<p>GBN框图<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/21.png"></p>
 </blockquote>
 <ul>
 <li>GBN发送方需要响应的事件<ul>
@@ -819,7 +819,7 @@
 <li>改进办法：假设期望收到n，分组n+1到了。数据必须按序交付，接收方可能缓存分组n+1,等待收到分组n，再将该分组交付上层。分组n丢失，分组n和分组n+1 会根据GBN重传规则和重传。接收方只需丢弃分组n+1。</li>
 </ul>
 <blockquote>
-<p>窗口长度4个分组的GBN<br><img src="/.io//22.png"></p>
+<p>窗口长度4个分组的GBN<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/22.png"></p>
 </blockquote>
 <ul>
 <li>步骤<ul>
@@ -831,7 +831,7 @@
 </ul>
 <h3 id="选择重传"><a href="#选择重传" class="headerlink" title="选择重传"></a>选择重传</h3><p>GBN协议填充了流水线，但是单个分组差错会引起GBN的重传大量分组。</p>
 <blockquote>
-<p>SR 通过让发送方仅仅重传它怀疑在接收方出错的分组而避免不必要的重传。示意图如下<br><img src="/.io//23.png"></p>
+<p>SR 通过让发送方仅仅重传它怀疑在接收方出错的分组而避免不必要的重传。示意图如下<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/23.png"></p>
 </blockquote>
 <ul>
 <li><p>SR接收方确认一个正确接收的分组，不管是否按序。失序的分组将缓存直到所有丢失分组（序号更小的分组）都被收到为止。在将一批分组按序交付。</p>
@@ -852,7 +852,7 @@
 </li>
 </ul>
 <blockquote>
-<p>有限序号范围缺乏同步的严重后果。4个分组序号0、1、2、3有限序号范围且窗口长度3<br><img src="/.io//24.png"><br>接收方正确确认0、1、2，窗口落在4、5、6分分组上，序号分别是3、0、1。</p>
+<p>有限序号范围缺乏同步的严重后果。4个分组序号0、1、2、3有限序号范围且窗口长度3<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/24.png"><br>接收方正确确认0、1、2，窗口落在4、5、6分分组上，序号分别是3、0、1。</p>
 </blockquote>
 <ul>
 <li> 第一种情况：前三个分组ACK丢失，发送方重传，因此，接收方下一步要接受序号0的分组。</li>
@@ -868,12 +868,12 @@
 <li>MSS是报文段里应用层数据的最大长度，而不是包括首部TCP报文段的最大长度</li>
 </ul>
 </li>
-<li>TCP连接包括：主机缓存、变量进程连接的套接字<br><img src="/.io//25.png"></li>
+<li>TCP连接包括：主机缓存、变量进程连接的套接字<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/25.png"></li>
 </ul>
 <h2 id="TCP报文段"><a href="#TCP报文段" class="headerlink" title="TCP报文段"></a>TCP报文段</h2><blockquote>
 <p>TCP发送大文件通常划分成长度MSS的若干块</p>
 </blockquote>
-<p><img src="/.io//26.png"></p>
+<p><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/26.png"></p>
 <ul>
 <li>首部字段详解<ul>
 <li>与UDP报文一样的端口</li>
@@ -886,7 +886,7 @@
 </li>
 </ul>
 <h3 id="序号和确认号"><a href="#序号和确认号" class="headerlink" title="序号和确认号"></a>序号和确认号</h3><blockquote>
-<p>序号是该报文段 首字节的字节编号<br><img src="/.io//27.png"></p>
+<p>序号是该报文段 首字节的字节编号<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/27.png"></p>
 </blockquote>
 <blockquote>
 <p>累积确认： TCP只确认该流中至第一个丢失字节为止。<br>已收到0<del>535 以及900</del>1000 还没收到536~899 会确认536.</p>
@@ -902,7 +902,7 @@
 </li>
 </ul>
 <blockquote>
-<p>Telnet例子（现在更多SSH Telnet无加密）<br>输了了一个C<br><img src="/.io//28.png"></p>
+<p>Telnet例子（现在更多SSH Telnet无加密）<br>输了了一个C<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/28.png"></p>
 </blockquote>
 <ul>
 <li>TCP连接建立后没有发送任何数据之前 该用户等待79 服务器等待42</li>
@@ -912,29 +912,29 @@
 <li><p>估计RTT方法</p>
 <ul>
 <li>样本RTT 从报文段发出到对该报文段确认的时间量，大多数TCP实现只在某个时刻做一次（一般只为了一个估计SamleRTT)</li>
-<li>EstimatedRTT是一个SampleRTT均值，获得新的SampleRTT就按下面更新<br><img src="/.io//29.png"> 协议里面的推荐值<br><img src="/.io//30.png"><br><img src="/.io//31.png"></li>
-<li>RTT偏差DevRTT偏离SampleRTT一般偏离EstimatedRTT的程度 β推荐值0.25<br><img src="/.io//32.png"></li>
+<li>EstimatedRTT是一个SampleRTT均值，获得新的SampleRTT就按下面更新<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/29.png"> 协议里面的推荐值<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/30.png"><br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/31.png"></li>
+<li>RTT偏差DevRTT偏离SampleRTT一般偏离EstimatedRTT的程度 β推荐值0.25<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/32.png"></li>
 </ul>
 </li>
-<li><p>设置和管理重传时间间隔，推荐初始TimeoutInterval=1s<br><img src="/.io//33.png"></p>
+<li><p>设置和管理重传时间间隔，推荐初始TimeoutInterval=1s<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/33.png"></p>
 </li>
 </ul>
 <h2 id="可靠数据传输（-重传问题-）"><a href="#可靠数据传输（-重传问题-）" class="headerlink" title="可靠数据传输（ 重传问题 ）"></a>可靠数据传输（ 重传问题 ）</h2><h3 id="推荐的定时器管理"><a href="#推荐的定时器管理" class="headerlink" title="推荐的定时器管理"></a>推荐的定时器管理</h3><blockquote>
-<p>推荐只使用单一的重传定时器<br><img src="/.io//34.png"></p>
+<p>推荐只使用单一的重传定时器<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/34.png"></p>
 </blockquote>
 <blockquote>
-<p>确丢失才会重传 （已收到120的ACK<br><img src="/.io//35.png"></p>
+<p>确丢失才会重传 （已收到120的ACK<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/35.png"></p>
 </blockquote>
 <h3 id="超时间隔加倍"><a href="#超时间隔加倍" class="headerlink" title="超时间隔加倍"></a>超时间隔加倍</h3><blockquote>
 <p>大多数实现的修改 （而不是用EstimatedRTT和DevRTT推算）</p>
 </blockquote>
 <h3 id="快速重传-（ACK建议-冗余ACK的作用）"><a href="#快速重传-（ACK建议-冗余ACK的作用）" class="headerlink" title="快速重传 （ACK建议 冗余ACK的作用）"></a>快速重传 （ACK建议 冗余ACK的作用）</h3><blockquote>
-<p>TCP ACK建议<br><img src="/.io//36.png"></p>
+<p>TCP ACK建议<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/36.png"></p>
 </blockquote>
 <blockquote>
-<p>快速重传的条件<br>TCP发送方发现对相同数据3个冗余ACK，说明这个报文段之后以及丢失（20年的经验）<br><img src="/.io//37.png"></p>
+<p>快速重传的条件<br>TCP发送方发现对相同数据3个冗余ACK，说明这个报文段之后以及丢失（20年的经验）<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/37.png"></p>
 </blockquote>
-<p><img src="/.io//38.png"></p>
+<p><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/38.png"></p>
 <h3 id="GBN还是SR"><a href="#GBN还是SR" class="headerlink" title="GBN还是SR"></a>GBN还是SR</h3><blockquote>
 <p>TCP 差错最好分类成GBN和SR的混合体</p>
 </blockquote>
@@ -950,7 +950,7 @@
 </blockquote>
 <ul>
 <li>通过发送方维护接收窗口变量来提供流量控制<ul>
-<li>给发送方指示接收方还有多少可用的缓存空间<br><img src="/.io//39.png"><br><img src="/.io//40.png"></li>
+<li>给发送方指示接收方还有多少可用的缓存空间<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/39.png"><br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/40.png"></li>
 </ul>
 </li>
 </ul>
@@ -960,7 +960,7 @@
 <ol>
 <li>客户端TCP首先给服务端TCP发送一个特殊的TCP报文段。（不含应用层数据）。首部SYNbit置1，也叫SYN报文段。还会随机选择一个初始序号(client_isn)，放入SYN报文段序号字段中。（避免安全性攻击）</li>
 <li>一旦 TCP SYN报文段 的IP数据报到达了，服务器从数据报提取出TCP SYN报文段。并为TCP连接分配TCP缓存和变量，并向该客户TCP发送允许连接的报文段（这也是TCP易于收到SYN洪泛的拒绝服务攻击的原因）。这个允许连接的报文段也无应用层数据。在首部包含3个信息：一、SYNbit 1 二、确认号字段client_isn+1 三、选择自己的初始序号server_isn（复杂函数生成） 放入序号字段 。这个字段也叫<strong>SYNACK报文段</strong> </li>
-<li>在收到SYNACK报文段，客户也要给该连接分配缓存和变量。客户给服务器的允许连接报文段进行确认。（server_isn+1)然后SYN bit=0 （连接建立了）  （第三次报文段负载可以携带客户到服务器的数据了。<br><img src="/.io//41.png"></li>
+<li>在收到SYNACK报文段，客户也要给该连接分配缓存和变量。客户给服务器的允许连接报文段进行确认。（server_isn+1)然后SYN bit=0 （连接建立了）  （第三次报文段负载可以携带客户到服务器的数据了。<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/41.png"></li>
 </ol>
 <blockquote>
 <p>TCP客户（或服务器）拆除连接</p>
@@ -969,13 +969,13 @@
 <li>应用程序发出FINbit 特殊报文段</li>
 <li>服务器发送回ACK</li>
 <li>然后服务器发送回自己的FINbit 终止报文段</li>
-<li>客户对终止报文段确认<br>之后两台主机上用于连接的资源都被释放了<br><img src="/.io//42.png"></li>
+<li>客户对终止报文段确认<br>之后两台主机上用于连接的资源都被释放了<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/42.png"></li>
 </ol>
 <blockquote>
-<p>TCP客户状态的例子<br><img src="/.io//43.png"></p>
+<p>TCP客户状态的例子<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/43.png"></p>
 </blockquote>
 <blockquote>
-<p>TCP服务状态的例子<br><img src="/.io//45.png"></p>
+<p>TCP服务状态的例子<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/45.png"></p>
 </blockquote>
 <blockquote>
 <p>应对 SYN洪泛攻击（不发送第三步握手）的防御 SYNcookie</p>
@@ -989,16 +989,16 @@
 <p>不准备连接的TCP主机（nmap端口扫描原理）<br>比如主机端口80 不接受连接（无监听） 会向源发送RST bit 1 特殊重置报文段。（告诉目标不要在发送该报文段） UDP会受到特殊的ICMP数据报</p>
 </blockquote>
 <h1 id="拥塞控制原理"><a href="#拥塞控制原理" class="headerlink" title="拥塞控制原理"></a>拥塞控制原理</h1><h2 id="拥塞的原因和代价"><a href="#拥塞的原因和代价" class="headerlink" title="拥塞的原因和代价"></a>拥塞的原因和代价</h2><ol>
-<li>简单情况：直接连接一个无限大缓存（分组到达速率超过容量就缓存）路由<br><img src="/.io//46.png"><br> 吞吐量（接收方每s接收的字节数）<br> <img src="/.io//47.png"><br> 分组到达速率越接近链路容量，分组经历巨大的排队时延</li>
-<li>略复杂情况：直接连接一个有限缓存（分组到达速率超过容量就缓存）路由<br><img src="/.io//48.png"><br> a:主机A可以确定路由缓存是否空闲<br> b: 发送方确定分组丢失在重传<br> c: 提前超时重传队列中被推迟还没丢失的分组<br> <img src="/.io//49.png"></li>
-<li>复杂情况 多发送方 有限缓存 多台路由<br><img src="/.io//50.png"><br> 供给载荷趋近无穷大 R2的缓存会被B-D连接占满，从而A-C吞吐量趋于0<br> <img src="/.io//51.png"><h2 id="拥塞控制方法"><a href="#拥塞控制方法" class="headerlink" title="拥塞控制方法"></a>拥塞控制方法</h2></li>
+<li>简单情况：直接连接一个无限大缓存（分组到达速率超过容量就缓存）路由<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/46.png"><br> 吞吐量（接收方每s接收的字节数）<br> <img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/47.png"><br> 分组到达速率越接近链路容量，分组经历巨大的排队时延</li>
+<li>略复杂情况：直接连接一个有限缓存（分组到达速率超过容量就缓存）路由<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/48.png"><br> a:主机A可以确定路由缓存是否空闲<br> b: 发送方确定分组丢失在重传<br> c: 提前超时重传队列中被推迟还没丢失的分组<br> <img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/49.png"></li>
+<li>复杂情况 多发送方 有限缓存 多台路由<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/50.png"><br> 供给载荷趋近无穷大 R2的缓存会被B-D连接占满，从而A-C吞吐量趋于0<br> <img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/51.png"><h2 id="拥塞控制方法"><a href="#拥塞控制方法" class="headerlink" title="拥塞控制方法"></a>拥塞控制方法</h2></li>
 </ol>
 <blockquote>
 <p>根据网络层是否为运输层提供线索帮助，区分控制方法</p>
 </blockquote>
 <ul>
 <li>端到端控制。网络层无辅助。TCP三次丢失，会减小拥塞窗口长度。</li>
-<li>网络辅助的拥塞控制。路由器提供了显示反馈信息。<br><img src="/.io//52.png"></li>
+<li>网络辅助的拥塞控制。路由器提供了显示反馈信息。<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/52.png"></li>
 </ul>
 <h1 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h1><ul>
 <li>端到端的扩展</li>
@@ -1040,7 +1040,7 @@
 </ol>
 </li>
 </ul>
-<p><img src="/.io//53.png"></p>
+<p><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/53.png"></p>
 <ol start="2">
 <li>拥塞避免</li>
 </ol>
@@ -1056,23 +1056,23 @@
 <li>是推荐而非必须 （早起版本无）</li>
 </ul>
 <blockquote>
-<p>慢启动、拥塞避免、快速恢复示意图 Reno新版本<br><img src="/.io//54.png"></p>
+<p>慢启动、拥塞避免、快速恢复示意图 Reno新版本<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/54.png"></p>
 </blockquote>
 <ol start="4">
-<li><p>总结TCP拥塞<br>加性增、乘性减 AIMD拥塞控制<br><img src="/.io//55.png"></p>
+<li><p>总结TCP拥塞<br>加性增、乘性减 AIMD拥塞控制<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/55.png"></p>
 </li>
-<li><p>TCP稳态吞吐量<br><img src="/.io//56.png"></p>
+<li><p>TCP稳态吞吐量<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/56.png"></p>
 </li>
-<li><p>TCP高带宽路径吞吐量<br><img src="/.io//57.png"><br>10Gbps 需要2*10^-10的报文丢失概率</p>
+<li><p>TCP高带宽路径吞吐量<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/57.png"><br>10Gbps 需要2*10^-10的报文丢失概率</p>
 </li>
 </ol>
-<h2 id="TCP-公平性"><a href="#TCP-公平性" class="headerlink" title="TCP 公平性"></a>TCP 公平性</h2><p>目标在交叉点附近 公平<br><img src="/.io//58.png"></p>
+<h2 id="TCP-公平性"><a href="#TCP-公平性" class="headerlink" title="TCP 公平性"></a>TCP 公平性</h2><p>目标在交叉点附近 公平<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/58.png"></p>
 <h3 id="UDP-不公平"><a href="#UDP-不公平" class="headerlink" title="UDP 不公平"></a>UDP 不公平</h3><p>可能压制TCO的流量</p>
 <h3 id="网络辅助拥塞控制"><a href="#网络辅助拥塞控制" class="headerlink" title="网络辅助拥塞控制"></a>网络辅助拥塞控制</h3><p>来控制</p>
-<h1 id="习题（useful）"><a href="#习题（useful）" class="headerlink" title="习题（useful）"></a>习题（useful）</h1><p><img src="/.io//59.png"></p>
+<h1 id="习题（useful）"><a href="#习题（useful）" class="headerlink" title="习题（useful）"></a>习题（useful）</h1><p><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/59.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">R7、是的，两个段将指向同一个套接字。对于每个接收到的段，在套接字接口上，操作系统将为进程提供IP地址，以确定各个段的来源。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/.io//60.png"></p>
+<p><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/60.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">R8、对于每个持久连接，Web服务器创建一个单独的“连接套接字”。每个连接套接字被标识为具有四个元组:（源IP地址、源端口号、目标IP地址、目标端口号）。当主机C接收和IP数据报，它检查数据报/段中的这四个字段确定哪个套接字应该通过TCP段的有效负载。因此，来自A和B的请求通过不同的套接字。这两个参数的标识符用于目标端口的套接字具有80；但是，这些套接字的标识符源IP地址的不同值。与UDP不同，传输层通过时TCP段对应用程序进程的有效负载，它不指定源IP地址，因为这是由套接字标识符隐式指定的。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre class="line-numbers language-none"><code class="language-none">rwnd 就是TCP首部的接受窗口<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 

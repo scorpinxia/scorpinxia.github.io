@@ -606,8 +606,8 @@ wlanVHTConfig对象根据APEPLength属性的值和其他与编码有关的属性
 对于上行链路传输，部分标识号是基本服务集标识符（BSSID）的后九位。 
 
 对于下行链路传输，部分标识号是将关联ID与它的服务AP的BSSID组合在一起的标识符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//1.png"></p>
-<h1 id="HE-SU-HE-EXT-SU-HE-MU-HE-TB"><a href="#HE-SU-HE-EXT-SU-HE-MU-HE-TB" class="headerlink" title="HE-SU  HE-EXT-SU HE-MU HE-TB"></a>HE-SU  HE-EXT-SU HE-MU HE-TB</h1><p><img src="/.io//2.png"></p>
+<p><img src="/2020/09/21/wifi5-simulation/1.png"></p>
+<h1 id="HE-SU-HE-EXT-SU-HE-MU-HE-TB"><a href="#HE-SU-HE-EXT-SU-HE-MU-HE-TB" class="headerlink" title="HE-SU  HE-EXT-SU HE-MU HE-TB"></a>HE-SU  HE-EXT-SU HE-MU HE-TB</h1><p><img src="/2020/09/21/wifi5-simulation/2.png"></p>
 <h1 id="Recovery-and-analyze-802-11-a-802-11n-802-11ac-802-11ax"><a href="#Recovery-and-analyze-802-11-a-802-11n-802-11ac-802-11ax" class="headerlink" title="Recovery and analyze 802.11 a 802.11n 802.11ac 802.11ax"></a>Recovery and analyze 802.11 a 802.11n 802.11ac 802.11ax</h1><p>检测，解码和分析波形中的多个数据包。该示例可以解码OFDM非HT，非HT复制，HT，VHT [1]，HE MU，HE SU和HE ER SU [2]数据包格式。</p>
 <p>该示例提供了检测到的数据包的摘要，并显示了所选数据包的MAC内容，错误向量幅度（EVM），功率和信令信息</p>
 <p>接收器除了信道带宽外不知道任何传输参数，并通过解码数据包的前导字段来检索这些参数。这些测量针对检测到的数据包显示： </p>
@@ -630,14 +630,14 @@ wlanVHTConfig对象根据APEPLength属性的值和其他与编码有关的属性
 </li>
 </ul>
 <p>openExample(‘wlan/AnalyzePacketsExample’)</p>
-<h1 id="wifi5WaveGeneration"><a href="#wifi5WaveGeneration" class="headerlink" title="wifi5WaveGeneration"></a>wifi5WaveGeneration</h1><h1 id="wifi4WaveGeneration"><a href="#wifi4WaveGeneration" class="headerlink" title="wifi4WaveGeneration"></a>wifi4WaveGeneration</h1><p><img src="/.io//18.png"></p>
-<p><img src="/.io//19.png"></p>
+<h1 id="wifi5WaveGeneration"><a href="#wifi5WaveGeneration" class="headerlink" title="wifi5WaveGeneration"></a>wifi5WaveGeneration</h1><h1 id="wifi4WaveGeneration"><a href="#wifi4WaveGeneration" class="headerlink" title="wifi4WaveGeneration"></a>wifi4WaveGeneration</h1><p><img src="/2020/09/21/wifi5-simulation/18.png"></p>
+<p><img src="/2020/09/21/wifi5-simulation/19.png"></p>
 <blockquote>
-<p>常用定义<br><img src="/.io//20.png"></p>
+<p>常用定义<br><img src="/2020/09/21/wifi5-simulation/20.png"></p>
 </blockquote>
-<p>PSDU 意义<br><img src="/.io//3.png"></p>
+<p>PSDU 意义<br><img src="/2020/09/21/wifi5-simulation/3.png"></p>
 <p>PreHTCyclicShift<br>前四个 用802.11的表 </p>
-<p>多的天线用这个设置值<br><img src="/.io//4.png"></p>
+<p>多的天线用这个设置值<br><img src="/2020/09/21/wifi5-simulation/4.png"></p>
 <blockquote>
 <p>AggregatedMPDU</p>
 </blockquote>
@@ -663,19 +663,19 @@ wlanVHTConfig对象根据APEPLength属性的值和其他与编码有关的属性
 <li>获取带宽</li>
 <li>getOFDM配置<ul>
 <li>根据（空间流设置以及是不是传统码决定空时流）</li>
-<li>根据带宽得到FFTLen，和多少个20Mhz信道numSC  64*numSC<br><img src="/.io//5.png"></li>
-<li>得到子载波直接的旋转<br><img src="/.io//6.png"></li>
+<li>根据带宽得到FFTLen，和多少个20Mhz信道numSC  64*numSC<br><img src="/2020/09/21/wifi5-simulation/5.png"></li>
+<li>得到子载波直接的旋转<br><img src="/2020/09/21/wifi5-simulation/6.png"></li>
 <li>得到CP的LEN</li>
 <li>传统的STF（非HT VHT） 保护6个前载波，中间的 载波 5个后载波，加上 -21 -7 7 21 0</li>
-<li>得到归一化因子  （可能不用）<br><img src="/.io//9.png"></li>
+<li>得到归一化因子  （可能不用）<br><img src="/2020/09/21/wifi5-simulation/9.png"></li>
 <li>得到每组的在算出所有组的载波</li>
-<li>计算出所有目标idx<br><img src="/.io//7.png"></li>
-<li>存入结构体<br><img src="/.io//8.png"></li>
+<li>计算出所有目标idx<br><img src="/2020/09/21/wifi5-simulation/7.png"></li>
+<li>存入结构体<br><img src="/2020/09/21/wifi5-simulation/8.png"></li>
 </ul>
 </li>
-<li>获得lstf的序列 （12个子载波）<br><img src="/.io//10.png"></li>
+<li>获得lstf的序列 （12个子载波）<br><img src="/2020/09/21/wifi5-simulation/10.png"></li>
 <li>算出lstfMIMO（40Mhz 2×2MIMO 变成128×1×2的矩阵</li>
-<li>根据发送天线数量算不同天线移位值（比如 -200ns , -200ns/(1/(40M)=-8<br><img src="/.io//11.png"></li>
+<li>根据发送天线数量算不同天线移位值（比如 -200ns , -200ns/(1/(40M)=-8<br><img src="/2020/09/21/wifi5-simulation/11.png"></li>
 <li>移位过程<ul>
 <li>k= -64~63</li>
 <li>用IDFT的移位性质</li>
@@ -687,12 +687,12 @@ wlanVHTConfig对象根据APEPLength属性的值和其他与编码有关的属性
 <li>看需不需要循环前缀</li>
 </ul>
 </li>
-<li>叠加2.5个周期并乘系数<br><img src="/.io//9.png"></li>
+<li>叠加2.5个周期并乘系数<br><img src="/2020/09/21/wifi5-simulation/9.png"></li>
 </ul>
 <h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><blockquote>
-<p>初步时间估计<br>STF和短训练码的互相关性可以获取峰值获取，初始时间估计<br><img src="/.io//14.png"></p>
+<p>初步时间估计<br>STF和短训练码的互相关性可以获取峰值获取，初始时间估计<br><img src="/2020/09/21/wifi5-simulation/14.png"></p>
 </blockquote>
-<p>延时会影响这个<br><img src="/.io//15.png"></p>
+<p>延时会影响这个<br><img src="/2020/09/21/wifi5-simulation/15.png"></p>
 <blockquote>
 <p>AGC、分组检测<br>因为重复了10个码元，可以将0.8us短码元和前一个码元相关（自相关），用于分组检测，相关值超过一定阈值就检测到一个分组。这个值还可以用来设置AGC（相对于互相关）被证明是更好的</p>
 </blockquote>
@@ -708,21 +708,21 @@ wlanVHTConfig对象根据APEPLength属性的值和其他与编码有关的属性
 <li><p>getOFDM配置</p>
 <ul>
 <li>根据（空间流设置以及是不是传统码决定空时流）</li>
-<li>根据带宽得到FFTLen，和多少个20Mhz信道numSC  64*numSC<br><img src="/.io//5.png"></li>
-<li>得到子载波直接的旋转<br><img src="/.io//6.png"></li>
+<li>根据带宽得到FFTLen，和多少个20Mhz信道numSC  64*numSC<br><img src="/2020/09/21/wifi5-simulation/5.png"></li>
+<li>得到子载波直接的旋转<br><img src="/2020/09/21/wifi5-simulation/6.png"></li>
 <li>得到CP的LEN</li>
 <li>传统的STF（非HT VHT） 保护6个前载波，中间的 载波 5个后载波，加上 -21 -7 7 21 0</li>
-<li>得到归一化因子  （可能不用）<br><img src="/.io//9.png"></li>
+<li>得到归一化因子  （可能不用）<br><img src="/2020/09/21/wifi5-simulation/9.png"></li>
 <li>得到每组的在算出所有组的载波</li>
-<li>计算出所有目标idx<br><img src="/.io//7.png"></li>
-<li>存入结构体<br><img src="/.io//8.png"></li>
+<li>计算出所有目标idx<br><img src="/2020/09/21/wifi5-simulation/7.png"></li>
+<li>存入结构体<br><img src="/2020/09/21/wifi5-simulation/8.png"></li>
 </ul>
 </li>
-<li><p>获得lltf的序列 （48个子载波）<br><img src="/.io//13.png"></p>
+<li><p>获得lltf的序列 （48个子载波）<br><img src="/2020/09/21/wifi5-simulation/13.png"></p>
 </li>
 <li><p>算出lstfMIMO（40Mhz 2<em>2MIMO 变成128</em>1*2的矩阵 算上两个20Mhz频段之间旋转</p>
 </li>
-<li><p>根据发送天线数量算不同天线移位值（比如 -200ns , -200ns/(1/(40M)=-8<br><img src="/.io//11.png"></p>
+<li><p>根据发送天线数量算不同天线移位值（比如 -200ns , -200ns/(1/(40M)=-8<br><img src="/2020/09/21/wifi5-simulation/11.png"></p>
 </li>
 <li><p>移位过程</p>
 <ul>
@@ -738,20 +738,20 @@ wlanVHTConfig对象根据APEPLength属性的值和其他与编码有关的属性
 <li>看需不需要循环前缀</li>
 </ul>
 </li>
-<li><p>1.6us的循环前缀加上2个3.2us的长训练码元<br><img src="/.io//16.png"></p>
+<li><p>1.6us的循环前缀加上2个3.2us的长训练码元<br><img src="/2020/09/21/wifi5-simulation/16.png"></p>
 </li>
-<li><p>归一化因子<br><img src="/.io//17.png"></p>
+<li><p>归一化因子<br><img src="/2020/09/21/wifi5-simulation/17.png"></p>
 <h2 id="生成wlanLSIG"><a href="#生成wlanLSIG" class="headerlink" title="生成wlanLSIG"></a>生成wlanLSIG</h2></li>
 </ul>
-<p><img src="/.io//26.png"></p>
+<p><img src="/2020/09/21/wifi5-simulation/26.png"></p>
 <ul>
 <li>计算数据字段的OFDM符号数<ul>
 <li>获取MCS 对应的数值</li>
-<li>计算数据符号数和填充空白数目<br><img src="/.io//21.png"><br><img src="/.io//22.png"></li>
-<li>总符号数等于数据符号数加上<br><img src="/.io//23.png"></li>
+<li>计算数据符号数和填充空白数目<br><img src="/2020/09/21/wifi5-simulation/21.png"><br><img src="/2020/09/21/wifi5-simulation/22.png"></li>
+<li>总符号数等于数据符号数加上<br><img src="/2020/09/21/wifi5-simulation/23.png"></li>
 <li>加上GI的时间，算出总采样数、发送时间4us*总符号</li>
-<li>速率默认设置为6MBit/s<br><img src="/.io//24.png"></li>
-<li>得到length<br><img src="/.io//25.png"></li>
+<li>速率默认设置为6MBit/s<br><img src="/2020/09/21/wifi5-simulation/24.png"></li>
+<li>得到length<br><img src="/2020/09/21/wifi5-simulation/25.png"></li>
 <li>化成24bit表示</li>
 <li>BCC卷积、交织</li>
 </ul>
@@ -770,19 +770,19 @@ wlanVHTConfig对象根据APEPLength属性的值和其他与编码有关的属性
 <li>获取带宽</li>
 <li>getOFDM配置<ul>
 <li>根据（空间流设置以及是不是传统码决定空时流）</li>
-<li>根据带宽得到FFTLen，和多少个20Mhz信道numSC  64*numSC<br><img src="/.io//5.png"></li>
-<li>得到子载波直接的旋转<br><img src="/.io//6.png"></li>
+<li>根据带宽得到FFTLen，和多少个20Mhz信道numSC  64*numSC<br><img src="/2020/09/21/wifi5-simulation/5.png"></li>
+<li>得到子载波直接的旋转<br><img src="/2020/09/21/wifi5-simulation/6.png"></li>
 <li>得到CP的LEN</li>
 <li>传统的STF（非HT VHT） 保护6个前载波，中间的 载波 5个后载波，加上 -21 -7 7 21 0</li>
-<li>得到归一化因子  （可能不用）<br><img src="/.io//9.png"></li>
+<li>得到归一化因子  （可能不用）<br><img src="/2020/09/21/wifi5-simulation/9.png"></li>
 <li>得到每组的在算出所有组的载波</li>
-<li>计算出所有目标idx<br><img src="/.io//7.png"></li>
-<li>存入结构体<br><img src="/.io//8.png"></li>
+<li>计算出所有目标idx<br><img src="/2020/09/21/wifi5-simulation/7.png"></li>
+<li>存入结构体<br><img src="/2020/09/21/wifi5-simulation/8.png"></li>
 </ul>
 </li>
-<li>获得lltf的序列 （12个子载波）<br><img src="/.io//13.png"></li>
+<li>获得lltf的序列 （12个子载波）<br><img src="/2020/09/21/wifi5-simulation/13.png"></li>
 <li>算出lstfMIMO（40Mhz 2<em>2MIMO 变成128</em>1*2的矩阵 算上两个20Mhz频段之间旋转</li>
-<li>根据发送天线数量算不同天线移位值（比如 -200ns , -200ns/(1/(40M)=-8<br><img src="/.io//11.png"></li>
+<li>根据发送天线数量算不同天线移位值（比如 -200ns , -200ns/(1/(40M)=-8<br><img src="/2020/09/21/wifi5-simulation/11.png"></li>
 <li>移位过程<ul>
 <li>k= -64~63</li>
 <li>用IDFT的移位性质</li>
@@ -795,14 +795,14 @@ wlanVHTConfig对象根据APEPLength属性的值和其他与编码有关的属性
 <li>看需不需要循环前缀</li>
 </ul>
 </li>
-<li>1.6us的循环前缀加上2个3.2us的长训练码元<br><img src="/.io//16.png"></li>
-<li>归一化因子<br><img src="/.io//17.png"></li>
+<li>1.6us的循环前缀加上2个3.2us的长训练码元<br><img src="/2020/09/21/wifi5-simulation/16.png"></li>
+<li>归一化因子<br><img src="/2020/09/21/wifi5-simulation/17.png"></li>
 </ul>
 <h1 id="根据SIG-VHT-SIGA配置-cfgRx"><a href="#根据SIG-VHT-SIGA配置-cfgRx" class="headerlink" title="根据SIG VHT-SIGA配置 cfgRx"></a>根据SIG VHT-SIGA配置 cfgRx</h1><blockquote>
-<p>配置之前<br><img src="/.io//27.png"></p>
+<p>配置之前<br><img src="/2020/09/21/wifi5-simulation/27.png"></p>
 </blockquote>
 <blockquote>
-<p>配置之后<br><img src="/.io//28.png"></p>
+<p>配置之后<br><img src="/2020/09/21/wifi5-simulation/28.png"></p>
 </blockquote>
 
                 

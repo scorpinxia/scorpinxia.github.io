@@ -542,7 +542,7 @@
 <li><p>Trailer: The trailer is a fixed zero-one pattern of four symbols.</p>
 </li>
 </ul>
-<p><img src="/.io//27.png"></p>
+<p><img src="/2020/10/18/buletooth-edrdecode/27.png"></p>
 <h2 id="Packet-Header"><a href="#Packet-Header" class="headerlink" title="Packet Header"></a>Packet Header</h2><blockquote>
 <p>标头包含链接控制信息:</p>
 </blockquote>
@@ -560,11 +560,11 @@
 <li><p>HEC: 8-bit header error check</p>
 </li>
 </ul>
-<p><img src="/.io//28.png"></p>
+<p><img src="/2020/10/18/buletooth-edrdecode/28.png"></p>
 <h2 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h2><blockquote>
-<p>有效负载包括可选的有效负载头，有效负载主体和可选的CRC<br><img src="/.io//29.png"></p>
+<p>有效负载包括可选的有效负载头，有效负载主体和可选的CRC<br><img src="/2020/10/18/buletooth-edrdecode/29.png"></p>
 </blockquote>
-<h1 id="packget-general"><a href="#packget-general" class="headerlink" title="packget  general"></a>packget  general</h1><p><img src="/.io//30.png"></p>
+<h1 id="packget-general"><a href="#packget-general" class="headerlink" title="packget  general"></a>packget  general</h1><p><img src="/2020/10/18/buletooth-edrdecode/30.png"></p>
 <h1 id="确定发送配置"><a href="#确定发送配置" class="headerlink" title="确定发送配置"></a>确定发送配置</h1><ul>
 <li>发送EDR2/3M</li>
 <li>packetType</li>
@@ -573,20 +573,20 @@
 <li>maxFreqDift (漂移是晶振老化率决定的)</li>
 </ul>
 <h1 id="确定测试变量"><a href="#确定测试变量" class="headerlink" title="确定测试变量"></a>确定测试变量</h1><ul>
-<li><p>根据Mode、packetType确定 传输的bytes、DEVMBlocks、slots时隙、头部bytes<br>滚降滤波器、<br><img src="/.io//1.png"></p>
+<li><p>根据Mode、packetType确定 传输的bytes、DEVMBlocks、slots时隙、头部bytes<br>滚降滤波器、<br><img src="/2020/10/18/buletooth-edrdecode/1.png"></p>
 </li>
-<li><p><img src="/.io//2.png"></p>
+<li><p><img src="/2020/10/18/buletooth-edrdecode/2.png"></p>
 </li>
-<li><p>调制顺序<br><img src="/.io//3.png"></p>
+<li><p>调制顺序<br><img src="/2020/10/18/buletooth-edrdecode/3.png"></p>
 </li>
-<li><p>其中同步符号长度是11 8DPSK用3bit表示symbol，syncSequenceLen=33 <img src="/.io//4.png"></p>
+<li><p>其中同步符号长度是11 8DPSK用3bit表示symbol，syncSequenceLen=33 <img src="/2020/10/18/buletooth-edrdecode/4.png"></p>
 <blockquote>
 <p>一个时隙625us 来算采样点，一个symbol 1us<br>DER初始下标 从GI之后</p>
 </blockquote>
 </li>
-<li><p>创建PN序列属性；length （bytes To bit)<br><img src="/.io//6.png"></p>
+<li><p>创建PN序列属性；length （bytes To bit)<br><img src="/2020/10/18/buletooth-edrdecode/6.png"></p>
 </li>
-<li><p>确定packget数   滤波器span代表截断符号数量（实际滤波器不能是无限窗）<br><img src="/.io//5.png"></p>
+<li><p>确定packget数   滤波器span代表截断符号数量（实际滤波器不能是无限窗）<br><img src="/2020/10/18/buletooth-edrdecode/5.png"></p>
 </li>
 <li><p>创建仿真噪声和相位</p>
 </li>
@@ -595,44 +595,44 @@
 <li>创建随机的playload Pn</li>
 </ul>
 <h2 id="playload作为data生成Buletooth-wave"><a href="#playload作为data生成Buletooth-wave" class="headerlink" title="playload作为data生成Buletooth wave"></a>playload作为data生成Buletooth wave</h2><ul>
-<li><p>初始化包模式，一个包的playload bit <img src="/.io//7.png"></p>
+<li><p>初始化包模式，一个包的playload bit <img src="/2020/10/18/buletooth-edrdecode/7.png"></p>
 </li>
-<li><p>确定UAP  （upper address part）  LAP （lower address part）<br><img src="/.io//8.png"></p>
+<li><p>确定UAP  （upper address part）  LAP （lower address part）<br><img src="/2020/10/18/buletooth-edrdecode/8.png"></p>
 </li>
-<li><p>如果是EDR 得到GI以及不同的 sync 5us<br><img src="/.io//9.png"></p>
+<li><p>如果是EDR 得到GI以及不同的 sync 5us<br><img src="/2020/10/18/buletooth-edrdecode/9.png"></p>
 </li>
 </ul>
 <h3 id="生成地址码-（通过LAP-以及packetType-dh1-dh3"><a href="#生成地址码-（通过LAP-以及packetType-dh1-dh3" class="headerlink" title="生成地址码 （通过LAP 以及packetType dh1 dh3)"></a>生成地址码 （通过LAP 以及packetType dh1 dh3)</h3><blockquote>
-<p>一系列操作得到同步word 64bit <img src="/.io//10.png"></p>
+<p>一系列操作得到同步word 64bit <img src="/2020/10/18/buletooth-edrdecode/10.png"></p>
 </blockquote>
 <ul>
 <li>info Seq</li>
 <li>PN overlay sequence</li>
 </ul>
 <blockquote>
-<p>得到前缀、尾部 组成access code<br><img src="/.io//11.png"></p>
+<p>得到前缀、尾部 组成access code<br><img src="/2020/10/18/buletooth-edrdecode/11.png"></p>
 </blockquote>
 <h3 id="生成-packet-header-输入-packetType、phyMode、logical-LogicalTransportAddress、HeaderControlBits、UAP"><a href="#生成-packet-header-输入-packetType、phyMode、logical-LogicalTransportAddress、HeaderControlBits、UAP" class="headerlink" title="生成 packet header (输入 packetType、phyMode、logical LogicalTransportAddress、HeaderControlBits、UAP)"></a>生成 packet header (输入 packetType、phyMode、logical LogicalTransportAddress、HeaderControlBits、UAP)</h3><ul>
-<li><p>得到type<img src="/.io//12.png"></p>
+<li><p>得到type<img src="/2020/10/18/buletooth-edrdecode/12.png"></p>
 </li>
-<li><p>构建头 <img src="/.io//13.png"></p>
+<li><p>构建头 <img src="/2020/10/18/buletooth-edrdecode/13.png"></p>
 </li>
 </ul>
-<h3 id="确定发送向量-长"><a href="#确定发送向量-长" class="headerlink" title="确定发送向量  长"></a>确定发送向量  长</h3><p><img src="/.io//14.png"> 625us</p>
+<h3 id="确定发送向量-长"><a href="#确定发送向量-长" class="headerlink" title="确定发送向量  长"></a>确定发送向量  长</h3><p><img src="/2020/10/18/buletooth-edrdecode/14.png"> 625us</p>
 <h3 id="构建playload-输入playload数据-packetType，base-waveConfig"><a href="#构建playload-输入playload数据-packetType，base-waveConfig" class="headerlink" title="构建playload (输入playload数据  packetType，base waveConfig )"></a>构建playload (输入playload数据  packetType，base waveConfig )</h3><ul>
-<li><p>得到设备地址48bit UAP 8bit并构建crc 初始填充0 得到16bit<br><img src="/.io//15.png"></p>
+<li><p>得到设备地址48bit UAP 8bit并构建crc 初始填充0 得到16bit<br><img src="/2020/10/18/buletooth-edrdecode/15.png"></p>
 </li>
-<li><p>playload头部  EDR16bit<br><img src="/.io//16.png"></p>
+<li><p>playload头部  EDR16bit<br><img src="/2020/10/18/buletooth-edrdecode/16.png"></p>
 </li>
-<li><p>加上data的头部  之前data 11bytes 88bit  88+16=104bit<br><img src="/.io//17.png"></p>
+<li><p>加上data的头部  之前data 11bytes 88bit  88+16=104bit<br><img src="/2020/10/18/buletooth-edrdecode/17.png"></p>
 </li>
 <li><p>在加上根据CRC初始条件的CRC校验 16bit 120bit</p>
 </li>
 </ul>
-<h3 id="packet-header-payload-whileteData"><a href="#packet-header-payload-whileteData" class="headerlink" title="packet header + payload= whileteData"></a>packet header + payload= whileteData</h3><h3 id="给payload-部分添加FEC（如有需要"><a href="#给payload-部分添加FEC（如有需要" class="headerlink" title="给payload 部分添加FEC（如有需要"></a>给payload 部分添加FEC（如有需要</h3><p><img src="/.io//18.png"></p>
-<h3 id="给header添加1-3FEC"><a href="#给header添加1-3FEC" class="headerlink" title="给header添加1/3FEC"></a>给header添加1/3FEC</h3><p><img src="/.io//19.png"></p>
+<h3 id="packet-header-payload-whileteData"><a href="#packet-header-payload-whileteData" class="headerlink" title="packet header + payload= whileteData"></a>packet header + payload= whileteData</h3><h3 id="给payload-部分添加FEC（如有需要"><a href="#给payload-部分添加FEC（如有需要" class="headerlink" title="给payload 部分添加FEC（如有需要"></a>给payload 部分添加FEC（如有需要</h3><p><img src="/2020/10/18/buletooth-edrdecode/18.png"></p>
+<h3 id="给header添加1-3FEC"><a href="#给header添加1-3FEC" class="headerlink" title="给header添加1/3FEC"></a>给header添加1/3FEC</h3><p><img src="/2020/10/18/buletooth-edrdecode/19.png"></p>
 <h3 id="生成基带信号"><a href="#生成基带信号" class="headerlink" title="生成基带信号"></a>生成基带信号</h3><ul>
-<li><p>前面由由 accessCode headerFEC组成 GPSK组成<br><img src="/.io//20.png"></p>
+<li><p>前面由由 accessCode headerFEC组成 GPSK组成<br><img src="/2020/10/18/buletooth-edrdecode/20.png"></p>
 </li>
 <li><p>edr Packet 由 同步序列 payloadFEC 和尾部组成</p>
 </li>
@@ -640,7 +640,7 @@
 </li>
 <li><p>把edr Packet用变成3bit表示一位形势 相当于 159bit 变成53 double</p>
 </li>
-<li><p>初始相位 0 然后后续根据前面53double 根据相位旋转 变成53 复数代表相位<br><img src="/.io//21.png"></p>
+<li><p>初始相位 0 然后后续根据前面53double 根据相位旋转 变成53 复数代表相位<br><img src="/2020/10/18/buletooth-edrdecode/21.png"></p>
 </li>
 <li><p>加滤波器的窗 53+8 =61 61根据</p>
 </li>
@@ -649,41 +649,41 @@
 <li><p>最后把GPSK +GI + 标准化后的DPSK点 放入 625us里面 当前19200</p>
 </li>
 </ul>
-<p><img src="/.io//22.png"></p>
+<p><img src="/2020/10/18/buletooth-edrdecode/22.png"></p>
 <h2 id="生成理想的EDRsymbols"><a href="#生成理想的EDRsymbols" class="headerlink" title="生成理想的EDRsymbols"></a>生成理想的EDRsymbols</h2><ul>
-<li>包持续时间<br><img src="/.io//23.png"></li>
+<li>包持续时间<br><img src="/2020/10/18/buletooth-edrdecode/23.png"></li>
 <li>得到包含窗的（也是之前放入的点）</li>
 <li>EDR的理想Wave</li>
 </ul>
-<h2 id="升余弦匹配回来-6100-到-69"><a href="#升余弦匹配回来-6100-到-69" class="headerlink" title="升余弦匹配回来 6100 到 69"></a>升余弦匹配回来 6100 到 69</h2><p><img src="/.io//24.png"></p>
-<h2 id="解除delay"><a href="#解除delay" class="headerlink" title="解除delay"></a>解除delay</h2><p><img src="/.io//25.png"></p>
+<h2 id="升余弦匹配回来-6100-到-69"><a href="#升余弦匹配回来-6100-到-69" class="headerlink" title="升余弦匹配回来 6100 到 69"></a>升余弦匹配回来 6100 到 69</h2><p><img src="/2020/10/18/buletooth-edrdecode/24.png"></p>
+<h2 id="解除delay"><a href="#解除delay" class="headerlink" title="解除delay"></a>解除delay</h2><p><img src="/2020/10/18/buletooth-edrdecode/25.png"></p>
 <h2 id="添加频率偏移"><a href="#添加频率偏移" class="headerlink" title="添加频率偏移"></a>添加频率偏移</h2><ul>
 <li>漂移率 最大漂移1000</li>
 <li>根据漂移率算出每个采样点的漂移</li>
-<li>每个漂移加上固定频偏 （第一个图 固定频偏400k导致后续频偏估计错误）<br><img src="/.io//26.png"><br>第二个图为加上40k固定频率和漂流的结果）<br><img src="/.io//33.png"></li>
+<li>每个漂移加上固定频偏 （第一个图 固定频偏400k导致后续频偏估计错误）<br><img src="/2020/10/18/buletooth-edrdecode/26.png"><br>第二个图为加上40k固定频率和漂流的结果）<br><img src="/2020/10/18/buletooth-edrdecode/33.png"></li>
 </ul>
 <h2 id="添加噪声"><a href="#添加噪声" class="headerlink" title="添加噪声"></a>添加噪声</h2><h2 id="初始频偏估计"><a href="#初始频偏估计" class="headerlink" title="初始频偏估计"></a>初始频偏估计</h2><ul>
-<li><p>用基带信号header部分 <img src="/.io//37.png"></p>
+<li><p>用基带信号header部分 <img src="/2020/10/18/buletooth-edrdecode/37.png"></p>
 </li>
-<li><p>算每个角度和以及他们之间的相差的比例 ，unwarp当检测到相位跳变pi时，就自动纠正（加 减pi）<br><img src="/.io//32.png"></p>
+<li><p>算每个角度和以及他们之间的相差的比例 ，unwarp当检测到相位跳变pi时，就自动纠正（加 减pi）<br><img src="/2020/10/18/buletooth-edrdecode/32.png"></p>
 </li>
-<li><p>把正负差的相位的所有sample平均 在乘采样率 就是频偏估计<br><img src="/.io//34.png"></p>
+<li><p>把正负差的相位的所有sample平均 在乘采样率 就是频偏估计<br><img src="/2020/10/18/buletooth-edrdecode/34.png"></p>
 </li>
 </ul>
-<h2 id="补偿算出的频偏"><a href="#补偿算出的频偏" class="headerlink" title="补偿算出的频偏"></a>补偿算出的频偏</h2><p><img src="/.io//35.png"></p>
+<h2 id="补偿算出的频偏"><a href="#补偿算出的频偏" class="headerlink" title="补偿算出的频偏"></a>补偿算出的频偏</h2><p><img src="/2020/10/18/buletooth-edrdecode/35.png"></p>
 <ul>
-<li>补偿用算的相位<br><img src="/.io//36.png"></li>
+<li>补偿用算的相位<br><img src="/2020/10/18/buletooth-edrdecode/36.png"></li>
 </ul>
-<h2 id="Remove-GPSK的-得到EDR的wave"><a href="#Remove-GPSK的-得到EDR的wave" class="headerlink" title="Remove GPSK的 得到EDR的wave"></a>Remove GPSK的 得到EDR的wave</h2><p><img src="/.io//38.png"></p>
-<h2 id="再次经过匹配滤波器-在标准化"><a href="#再次经过匹配滤波器-在标准化" class="headerlink" title="再次经过匹配滤波器 在标准化"></a>再次经过匹配滤波器 在标准化</h2><p><img src="/.io//39.png"><br><img src="/.io//40.png"></p>
-<h2 id="计算DEVM"><a href="#计算DEVM" class="headerlink" title="计算DEVM"></a>计算DEVM</h2><p><img src="/.io//41.png"></p>
+<h2 id="Remove-GPSK的-得到EDR的wave"><a href="#Remove-GPSK的-得到EDR的wave" class="headerlink" title="Remove GPSK的 得到EDR的wave"></a>Remove GPSK的 得到EDR的wave</h2><p><img src="/2020/10/18/buletooth-edrdecode/38.png"></p>
+<h2 id="再次经过匹配滤波器-在标准化"><a href="#再次经过匹配滤波器-在标准化" class="headerlink" title="再次经过匹配滤波器 在标准化"></a>再次经过匹配滤波器 在标准化</h2><p><img src="/2020/10/18/buletooth-edrdecode/39.png"><br><img src="/2020/10/18/buletooth-edrdecode/40.png"></p>
+<h2 id="计算DEVM"><a href="#计算DEVM" class="headerlink" title="计算DEVM"></a>计算DEVM</h2><p><img src="/2020/10/18/buletooth-edrdecode/41.png"></p>
 <ul>
 <li>输入理想的符号（psk调制后直接经过匹配滤波器，在标准化，在匹配滤波回来的值）</li>
 <li>和接受的符号共轭得到Q 、差值得到E</li>
-<li><img src="/.io//42.png"></li>
+<li><img src="/2020/10/18/buletooth-edrdecode/42.png"></li>
 <li>50symbol一个Block</li>
 <li>计算Block的采样频率错误，记录频率漂移</li>
-<li><img src="/.io//43.png"></li>
+<li><img src="/2020/10/18/buletooth-edrdecode/43.png"></li>
 </ul>
 
                 

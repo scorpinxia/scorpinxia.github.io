@@ -560,7 +560,7 @@
 <!-- /TOC -->
 <h1 id="应用层协议原理"><a href="#应用层协议原理" class="headerlink" title="应用层协议原理"></a>应用层协议原理</h1><h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><ul>
 <li>Client-Server </li>
-<li>P2P : BitTorrent 用户到用户的报文不需要通过中间服务器<br><img src="/.io//1.png"></li>
+<li>P2P : BitTorrent 用户到用户的报文不需要通过中间服务器<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/1.png"></li>
 </ul>
 <h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><p>发起C 等待S  Socket</p>
 <h2 id="可供应用程序使用的运输服务"><a href="#可供应用程序使用的运输服务" class="headerlink" title="可供应用程序使用的运输服务"></a>可供应用程序使用的运输服务</h2><blockquote>
@@ -572,7 +572,7 @@
 <li>定时，发送注入套接字的每个bit到接收方不迟于100ms</li>
 <li>安全性</li>
 </ul>
-<h2 id="Intenet-运输服务"><a href="#Intenet-运输服务" class="headerlink" title="Intenet 运输服务"></a>Intenet 运输服务</h2><p><img src="/.io//2.png"></p>
+<h2 id="Intenet-运输服务"><a href="#Intenet-运输服务" class="headerlink" title="Intenet 运输服务"></a>Intenet 运输服务</h2><p><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/2.png"></p>
 <ul>
 <li>TCP<ul>
 <li>面向连接 全双工 需要拆除连接</li>
@@ -599,7 +599,7 @@
 </li>
 </ul>
 <blockquote>
-<p>应用协议<br><img src="/.io//3.png"></p>
+<p>应用协议<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/3.png"></p>
 </blockquote>
 <blockquote>
 <p>注意的是许多防火墙设置阻挡UDP，所以SIP、Skype UDP通信失败就用TCP备份</p>
@@ -632,7 +632,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="/.io//4.png"></p>
+<p><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/4.png"></p>
 <h2 id="非持续连接和持续连接"><a href="#非持续连接和持续连接" class="headerlink" title="非持续连接和持续连接"></a>非持续连接和持续连接</h2><blockquote>
 <p>单独TCP还是每次就一个，HTTP都支持，默认使用持续</p>
 </blockquote>
@@ -648,7 +648,7 @@
 <p>从上述看要，一共产生了11个连接。有些Jepg图形可能使用并行的TCP连接（大部分浏览器默认5~10）。用户可以设置最大并行连接数1，这样10个就会一条条串行建立</p>
 </blockquote>
 <ul>
-<li>往返时间：RoundTrip Time RTT ，请求到收到整个文件的时间<br><img src="/.io//5.png"></li>
+<li>往返时间：RoundTrip Time RTT ，请求到收到整个文件的时间<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/5.png"></li>
 </ul>
 <h3 id="持续连接的HTTP"><a href="#持续连接的HTTP" class="headerlink" title="持续连接的HTTP"></a>持续连接的HTTP</h3><blockquote>
 <p>非持续连接的问题</p>
@@ -660,7 +660,7 @@
 <blockquote>
 <p>上面的11个对象通过一个连接传输,服务器发现连接时间间隔超过配置就关闭连接</p>
 </blockquote>
-<h2 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h2><h3 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h3><p><img src="/.io//6.png"></p>
+<h2 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h2><h3 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h3><p><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/6.png"></p>
 <blockquote>
 <p>分析报文</p>
 </blockquote>
@@ -677,7 +677,7 @@
 </li>
 </ul>
 <blockquote>
-<p>通用格式<br><img src="/.io//7.png"></p>
+<p>通用格式<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/7.png"></p>
 </blockquote>
 <blockquote>
 <p>实体体 entity body</p>
@@ -699,13 +699,13 @@
 <blockquote>
 <p>DELETE:允许用户和应用程序删除Server上的对象</p>
 </blockquote>
-<h3 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h3><p><img src="/.io//8.png"></p>
+<h3 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h3><p><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/8.png"></p>
 <blockquote>
 <p>分析报文</p>
 </blockquote>
 <ul>
 <li>初始状态行 status line<ul>
-<li>3个字段 版本字段 状态码 相应的状态信息<br><img src="/.io//9.png"></li>
+<li>3个字段 版本字段 状态码 相应的状态信息<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/9.png"></li>
 </ul>
 </li>
 <li>6个首部行<ul>
@@ -736,14 +736,14 @@
 <p>例子</p>
 </blockquote>
 <pre class="line-numbers language-none"><code class="language-none">假设Susan已经访问过eBay站点，它首次和Amazon。com联系，该Web站点产生一个唯一识别码作为索引在后端数据库产生一个表项。接下来Amazon web Server用一个包含set-cookoe的响应对Susan浏览器响应<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="/.io//10.png"></p>
+<p><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/10.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">浏览器收到报文，看到set-cookie在特定的cookie文件中添加一行，包含服务器主机名和对应的自己的识别码，sunan继续浏览Amazon网站，每请求一个Web Page 发往Amazon服务器的每个HTTP请求报文都包含
 ![](计算机网络-ToptoDown-chap02-Application-Layer/11.png)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <blockquote>
-<p>示意图<br><img src="/.io//12.png"><br>Amazon使用cookie来提供购物车服务</p>
+<p>示意图<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/12.png"><br>Amazon使用cookie来提供购物车服务</p>
 </blockquote>
 <h2 id="Web缓存（-proxy-server）"><a href="#Web缓存（-proxy-server）" class="headerlink" title="Web缓存（ proxy server）"></a>Web缓存（ proxy server）</h2><blockquote>
-<p>示意图<br><img src="/.io//13.png"></p>
+<p>示意图<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/13.png"></p>
 </blockquote>
 <blockquote>
 <p>请求对象<a target="_blank" rel="noopener" href="http://www.someschool.edu/campus.gif">www.someschool.edu/campus.gif</a></p>
@@ -766,14 +766,14 @@
 <li>大大减少一个机构接入到Intenet的通信量</li>
 </ul>
 <blockquote>
-<p>原始网络<br><img src="/.io//14.png"></p>
+<p>原始网络<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/14.png"></p>
 </blockquote>
 <ul>
 <li>流量强度： 假设1s15个请求 每个对象的平均长度1Mb<ul>
-<li>局域网的流量强度<br><img src="/.io//15.png"></li>
+<li>局域网的流量强度<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/15.png"></li>
 </ul>
   0.15强度大概最多导致数10ms延时<ul>
-<li>接入链路的流量强度<br><img src="/.io//16.png"><br>1强度会让时延很大且无限增长</li>
+<li>接入链路的流量强度<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/16.png"><br>1强度会让时延很大且无限增长</li>
 </ul>
 </li>
 </ul>
@@ -782,7 +782,7 @@
 </blockquote>
 <ul>
 <li>加链路速率（贵）</li>
-<li>加Web 缓存器<br><img src="/.io//17.png"><br>假设命中率是0.4，流量强度就减小到0.6对应延时几十ms和Internet延时比就微不足道了</li>
+<li>加Web 缓存器<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/17.png"><br>假设命中率是0.4，流量强度就减小到0.6对应延时几十ms和Internet延时比就微不足道了</li>
 </ul>
 <h2 id="条件GET"><a href="#条件GET" class="headerlink" title="条件GET"></a>条件GET</h2><blockquote>
 <p>缓存问题<br>缓存能减少用户感受响应时间,但是可能存放的对象是旧的</p>
@@ -794,19 +794,19 @@
 <p>步骤 </p>
 </blockquote>
 <ul>
-<li>刚开始给Web server发送请求报文<br><img src="/.io//18.png"></li>
-<li>Web响应<br><img src="/.io//19.png"></li>
+<li>刚开始给Web server发送请求报文<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/18.png"></li>
+<li>Web响应<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/19.png"></li>
 <li>缓存器本地缓存对象，以及最后修改日期</li>
-<li>一星期后再收到，缓存器发送<br><img src="/.io//20.png"></li>
-<li>Server回复<br><img src="/.io//21.png"></li>
+<li>一星期后再收到，缓存器发送<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/20.png"></li>
+<li>Server回复<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/21.png"></li>
 </ul>
 <h1 id="Internet电子邮件"><a href="#Internet电子邮件" class="headerlink" title="Internet电子邮件"></a>Internet电子邮件</h1><ul>
 <li>分为user agent 、mail server、Simple Mail Transfer protocol STMP。</li>
 </ul>
-<p><img src="/.io//22.png"></p>
+<p><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/22.png"></p>
 <p>每台邮件服务器即是Server、又是Client （看是收还是发）</p>
 <h2 id="STMP"><a href="#STMP" class="headerlink" title="STMP"></a>STMP</h2><p>TCP底层 25端口</p>
-<p><img src="/.io//23.png"></p>
+<p><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/23.png"></p>
 <blockquote>
 <p>步骤</p>
 </blockquote>
@@ -822,7 +822,7 @@
 <p>SMTP一般不使用中间服务器（就算离的特别远）</p>
 </blockquote>
 <blockquote>
-<p>SMTP client SMTP Server 的交换报文<br>Client 主机crepes.fr Server 主机 hamburger.edu<br><img src="/.io//24.png"></p>
+<p>SMTP client SMTP Server 的交换报文<br>Client 主机crepes.fr Server 主机 hamburger.edu<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/24.png"></p>
 </blockquote>
 <blockquote>
 <p>发送的报文 （“do you …… how about……”）用一个只包含句号的行给服务器表示报文结束了</p>
@@ -833,7 +833,7 @@
 <li>报文类型 ：SMTP每个报文7bitascii形式（不是就自己编码）HTTP不是</li>
 <li>处理文本和图片：HTTP对象封装，SMTP所有报文对象放在一个报文里</li>
 </ul>
-<h2 id="邮件访问协议"><a href="#邮件访问协议" class="headerlink" title="邮件访问协议"></a>邮件访问协议</h2><p>Bob怎么拉报文下来<br><img src="/.io//25.png"></p>
+<h2 id="邮件访问协议"><a href="#邮件访问协议" class="headerlink" title="邮件访问协议"></a>邮件访问协议</h2><p>Bob怎么拉报文下来<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/25.png"></p>
 <ul>
 <li>POP</li>
 <li>IMAP</li>
@@ -875,7 +875,7 @@
 <li>维护（太庞大了）</li>
 </ul>
 <blockquote>
-<p>设计<br><img src="/.io//26.png"></p>
+<p>设计<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/26.png"></p>
 </blockquote>
 <blockquote>
 <p>决定<a target="_blank" rel="noopener" href="http://www.amazon.com的ip/">www.amazon.com的Ip</a></p>
@@ -900,8 +900,8 @@
 <ul>
 <li>ISP的提供的一个主机的DNS IP（通常通过DHCP）</li>
 <li>临近本主机</li>
-<li>交互步骤：假设TLD服务器 知道主机的权威DNS服务器IP<br><img src="/.io//27.png"></li>
-<li>交互步骤：TLD服务器一般只知道中间磨合DNS服务器，该服务器依次才能知道知道主机的权威DNS服务器IP （递归查询）<br><img src="/.io//28.png"></li>
+<li>交互步骤：假设TLD服务器 知道主机的权威DNS服务器IP<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/27.png"></li>
+<li>交互步骤：TLD服务器一般只知道中间磨合DNS服务器，该服务器依次才能知道知道主机的权威DNS服务器IP （递归查询）<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/28.png"></li>
 </ul>
 <h3 id="DNS缓存"><a href="#DNS缓存" class="headerlink" title="DNS缓存"></a>DNS缓存</h3><ul>
 <li>收到回答能映射缓存在本地存储器中，（就不需要权威服务器，也能提供 ）</li>
@@ -917,10 +917,10 @@
 </ul>
 </li>
 <li>type决定 name和Value<ul>
-<li>type=A name是主机名，value是主机对应ip<br><img src="/.io//29.png"></li>
-<li>type=NS，name是个域（foo.com),value是个知道如何获得该域权威DNS的 主机名<br><img src="/.io//30.png"></li>
-<li>type=CNAME，value是别名为Name的主机对应的规范主机名。<br><img src="/.io//31.png"></li>
-<li>type=MX，value是别名为Name的邮件服务器对应的规范主机名。<br><img src="/.io//32.png"></li>
+<li>type=A name是主机名，value是主机对应ip<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/29.png"></li>
+<li>type=NS，name是个域（foo.com),value是个知道如何获得该域权威DNS的 主机名<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/30.png"></li>
+<li>type=CNAME，value是别名为Name的主机对应的规范主机名。<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/31.png"></li>
+<li>type=MX，value是别名为Name的邮件服务器对应的规范主机名。<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/32.png"></li>
 </ul>
 </li>
 </ul>
@@ -929,10 +929,10 @@
 </blockquote>
 <ul>
 <li>权威服务器只有一条包含类型A的记录</li>
-<li>非权威服务器<br><img src="/.io//33.png"></li>
+<li>非权威服务器<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/33.png"></li>
 </ul>
 <h3 id="DNS报文"><a href="#DNS报文" class="headerlink" title="DNS报文"></a>DNS报文</h3><blockquote>
-<p>查询和回答一致<br><img src="/.io//34.png"></p>
+<p>查询和回答一致<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/34.png"></p>
 </blockquote>
 <ul>
 <li>前12字节的首部<ul>
@@ -969,7 +969,7 @@
 <p>注册域名 XXXX.com需要向机构提供基本和辅助权威DNS服务器的名字和IP<br>dns1.xxxx.com 212.212.212.1 dns2.xxxx.com 212.212.212.2</p>
 </blockquote>
 <blockquote>
-<p>对应的机构将下面两个记录插入TLD com服务器<br><img src="/.io//35.png"></p>
+<p>对应的机构将下面两个记录插入TLD com服务器<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/35.png"></p>
 </blockquote>
 <blockquote>
 <p>DDos攻击通过层次结构能有效瓦解</p>
@@ -978,7 +978,7 @@
 <p>其中最流行的文件分发协议 BitTorrent</p>
 </blockquote>
 <blockquote>
-<p>CS结构下列情况随着客户数量变大 时延很大<br><img src="/.io//36.png"></p>
+<p>CS结构下列情况随着客户数量变大 时延很大<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/36.png"></p>
 </blockquote>
 <blockquote>
 <p>分发步骤</p>
@@ -993,7 +993,7 @@
 <ul>
 <li><p>参与特定文件转发的所有对等方集合是一个洪流（torrent），一个洪流里面的对等方彼此下载等长度的文件块（chunk） 一般256KB。</p>
 </li>
-<li><p>追踪器 追踪自己在注册<br><img src="/.io//37.png"></p>
+<li><p>追踪器 追踪自己在注册<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/37.png"></p>
 </li>
 <li><p>TCP多个近的</p>
 </li>
@@ -1006,7 +1006,7 @@
 </blockquote>
 <h2 id="内容分发网-Content-Distribution-Network-CDN"><a href="#内容分发网-Content-Distribution-Network-CDN" class="headerlink" title="内容分发网 Content Distribution Network CDN"></a>内容分发网 Content Distribution Network CDN</h2><p>CDN有自己的，也可以租借</p>
 <blockquote>
-<p>CDN 操作步骤<br><img src="/.io//38.png"><br>内容提供商NetCinema雇佣了第三方CDN KingCDN分发视频。NetCinema的Web网页上，每个视频URL都包含“video”和独特的标识符。 <a target="_blank" rel="noopener" href="http://video.netcinema.com/6Y2414V">http://video.netcinema.com/6Y2414V</a></p>
+<p>CDN 操作步骤<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/38.png"><br>内容提供商NetCinema雇佣了第三方CDN KingCDN分发视频。NetCinema的Web网页上，每个视频URL都包含“video”和独特的标识符。 <a target="_blank" rel="noopener" href="http://video.netcinema.com/6Y2414V">http://video.netcinema.com/6Y2414V</a></p>
 </blockquote>
 <ul>
 <li>用户访问<a target="_blank" rel="noopener" href="http://video.netcinema.com/6Y2414V">http://video.netcinema.com/6Y2414V</a></li>
@@ -1019,13 +1019,13 @@
 <li>流量实时策略 ：（CDN让集群周期向全世界Local DNS发送探测分组（ping或者DNS）问题是大部分LDNS不会响应</li>
 </ul>
 <h1 id="TCP-UDP编程"><a href="#TCP-UDP编程" class="headerlink" title="TCP UDP编程"></a>TCP UDP编程</h1><h2 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h2><blockquote>
-<p>UDPClient<br>类型 DATA_GRAM<br><img src="/.io//39.png"><br>recvfrom 当分组到达该客户套接字，分组数据被放到modifiedMessage</p>
+<p>UDPClient<br>类型 DATA_GRAM<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/39.png"><br>recvfrom 当分组到达该客户套接字，分组数据被放到modifiedMessage</p>
 </blockquote>
 <blockquote>
-<p>UDPServer<br><img src="/.io//40.png"><br>recvfrom 等待分组到来</p>
+<p>UDPServer<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/40.png"><br>recvfrom 等待分组到来</p>
 </blockquote>
 <h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><blockquote>
-<p>TCPClient<br><img src="/.io//41.png"></p>
+<p>TCPClient<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/41.png"></p>
 </blockquote>
 <ul>
 <li>connect 执行三次握手</li>
@@ -1033,7 +1033,7 @@
 <li>close 执行四次挥手</li>
 </ul>
 <blockquote>
-<p>TCPServer<br><img src="/.io//42.png"></p>
+<p>TCPServer<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/42.png"></p>
 </blockquote>
 <ul>
 <li>serverSocket是欢迎套接字 创建后我们等待和聆听客户敲门<br>1 定义最大请求连接数</li>
@@ -1044,12 +1044,12 @@
 <h1 id="习题实验"><a href="#习题实验" class="headerlink" title="习题实验"></a>习题实验</h1><blockquote>
 <p>Telnet 到一台Web服务器发送一行多个请求报文，请求报文包括if-modified-since 强迫响应出现304 Not Modified 状态</p>
 </blockquote>
-<p><img src="/.io//43.png"></p>
+<p><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/43.png"></p>
 <blockquote>
-<p>whois数据库<br>对给定的域名输入、IP地址，定位响应的注册服务器、whois服务器和DNS服务器<br><img src="/.io//44.png"></p>
+<p>whois数据库<br>对给定的域名输入、IP地址，定位响应的注册服务器、whois服务器和DNS服务器<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/44.png"></p>
 </blockquote>
 <blockquote>
-<p>nslookup 来对本地DNS和上面查到的DNS权威服务器查询<br><img src="/.io//45.png"><br><img src="/.io//46.png"></p>
+<p>nslookup 来对本地DNS和上面查到的DNS权威服务器查询<br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/45.png"><br><img src="/2020/11/06/ji-suan-ji-wang-luo-toptodown-chap02-application-layer/46.png"></p>
 </blockquote>
 <blockquote>
 <p>dig 探索DNS服务器等级</p>

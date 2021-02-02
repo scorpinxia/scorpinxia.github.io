@@ -499,8 +499,8 @@
 </code></pre>
 <h1 id="名副其实"><a href="#名副其实" class="headerlink" title="名副其实"></a>名副其实</h1><pre><code>名称需要注解 补充就不是名副其实
 </code></pre>
-<p><img src="/.io//1.png"></p>
-<h2 id="修改前"><a href="#修改前" class="headerlink" title="修改前"></a>修改前</h2><p><img src="/.io//2.png"></p>
+<p><img src="/2020/08/05/cleancode-chap02-meaningfuldefinition/1.png"></p>
+<h2 id="修改前"><a href="#修改前" class="headerlink" title="修改前"></a>修改前</h2><p><img src="/2020/08/05/cleancode-chap02-meaningfuldefinition/2.png"></p>
 <p>问题</p>
 <ul>
 <li>theList 是什么类型的东西 </li>
@@ -510,14 +510,14 @@
 </ul>
 <h2 id="修改后"><a href="#修改后" class="headerlink" title="修改后"></a>修改后</h2><pre><code>我们是具体扫雷游戏，0小标是状态位，4是代表已标记的状态值
 </code></pre>
-<p><img src="/.io//3.png"></p>
+<p><img src="/2020/08/05/cleancode-chap02-meaningfuldefinition/3.png"></p>
 <h2 id="进一步修改"><a href="#进一步修改" class="headerlink" title="进一步修改"></a>进一步修改</h2><pre><code>不用int表示单元格 ，写一个名副其实的函数
 </code></pre>
-<p><img src="/.io//4.png"></p>
+<p><img src="/2020/08/05/cleancode-chap02-meaningfuldefinition/4.png"></p>
 <h1 id="避免误导"><a href="#避免误导" class="headerlink" title="避免误导"></a>避免误导</h1><pre><code>别用accountList代表一组账户，除非它是List类型，可以用bunchOfAccounts accountGroup。
 提防使用不同之处小的名称，**注意1和O**和0 l
 </code></pre>
-<h1 id="做有意义的区分"><a href="#做有意义的区分" class="headerlink" title="做有意义的区分"></a>做有意义的区分</h1><h2 id="a1、a2-aN-纯属误导"><a href="#a1、a2-aN-纯属误导" class="headerlink" title="a1、a2\aN 纯属误导"></a>a1、a2\aN 纯属误导</h2><p><img src="/.io//5.png"></p>
+<h1 id="做有意义的区分"><a href="#做有意义的区分" class="headerlink" title="做有意义的区分"></a>做有意义的区分</h1><h2 id="a1、a2-aN-纯属误导"><a href="#a1、a2-aN-纯属误导" class="headerlink" title="a1、a2\aN 纯属误导"></a>a1、a2\aN 纯属误导</h2><p><img src="/2020/08/05/cleancode-chap02-meaningfuldefinition/5.png"></p>
 <h2 id="废话没有意义"><a href="#废话没有意义" class="headerlink" title="废话没有意义"></a>废话没有意义</h2><p>Product类 和 ProductData类</p>
 <h2 id="废话都是冗余"><a href="#废话都是冗余" class="headerlink" title="废话都是冗余"></a>废话都是冗余</h2><p>Variable 永远不改出现再变量名，Table 不该出现再表。NameString 不比Name好，Name不可能是浮点数</p>
 <p>无法区分调用什么</p>
@@ -526,12 +526,12 @@
 <li>getActiveAccounts()</li>
 <li>getActiveAccountInfo()</li>
 </ul>
-<h1 id="使用读出来的名称"><a href="#使用读出来的名称" class="headerlink" title="使用读出来的名称"></a>使用读出来的名称</h1><p><img src="/.io//6.png"></p>
+<h1 id="使用读出来的名称"><a href="#使用读出来的名称" class="headerlink" title="使用读出来的名称"></a>使用读出来的名称</h1><p><img src="/2020/08/05/cleancode-chap02-meaningfuldefinition/6.png"></p>
 <h1 id="使用可搜索的名称"><a href="#使用可搜索的名称" class="headerlink" title="使用可搜索的名称"></a>使用可搜索的名称</h1><ul>
 <li>单字母名称和数字常量问题，很难再一大篇文字找出来</li>
 <li>单字母名称用于短方法的本地变量。</li>
 <li>名称长短对应作用域</li>
-<li>变量常量多次使用要给他好搜索的名称<br><img src="/.io//7.png"></li>
+<li>变量常量多次使用要给他好搜索的名称<br><img src="/2020/08/05/cleancode-chap02-meaningfuldefinition/7.png"></li>
 </ul>
 <h1 id="避免编码名称"><a href="#避免编码名称" class="headerlink" title="避免编码名称"></a>避免编码名称</h1><h1 id="避免思维映射"><a href="#避免思维映射" class="headerlink" title="避免思维映射"></a>避免思维映射</h1><pre><code>避免你的名称被他们翻译成他们熟悉的名称，ijk就是循环的
 </code></pre>
@@ -539,7 +539,7 @@
 </code></pre>
 <h1 id="方法名"><a href="#方法名" class="headerlink" title="方法名"></a>方法名</h1><pre><code>动词、动词短语
 </code></pre>
-<p>重载构造器建议<br><img src="/.io//8.png"></p>
+<p>重载构造器建议<br><img src="/2020/08/05/cleancode-chap02-meaningfuldefinition/8.png"></p>
 <h1 id="一个概念一个词forever"><a href="#一个概念一个词forever" class="headerlink" title="一个概念一个词forever"></a>一个概念一个词forever</h1><p>给每个抽象概念选一个词，一以贯之。别使用fetch,retrieve get非多个类同种方法命名</p>
 <p>controller、manager、driver无法区分</p>
 <h1 id="别用双关语"><a href="#别用双关语" class="headerlink" title="别用双关语"></a>别用双关语</h1><pre><code>一词一义，避免用同一个单词表示不同意义，很多人为了“保持一致”，可能很多个类都有add，add参数和返回值语义等价就ok.
@@ -548,7 +548,7 @@ append、insert 和add意义不一样 add一般表示两个相加
 <h1 id="添加有意义的语境（添加类，函数或名称空间）"><a href="#添加有意义的语境（添加类，函数或名称空间）" class="headerlink" title="添加有意义的语境（添加类，函数或名称空间）"></a>添加有意义的语境（添加类，函数或名称空间）</h1><pre><code>很少有名称自我说明，多数不能，添加类，函数或名称空间。或者前缀，
 </code></pre>
 <p>比如</p>
-<p><img src="/.io//9.png"></p>
+<p><img src="/2020/08/05/cleancode-chap02-meaningfuldefinition/9.png"></p>
 <h1 id="不要添加没用的语境"><a href="#不要添加没用的语境" class="headerlink" title="不要添加没用的语境"></a>不要添加没用的语境</h1><p>再GSD应用程序创建一个邮件类，不需要GSDAccountAddress</p>
 
                 

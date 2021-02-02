@@ -502,14 +502,14 @@
 </ul>
 <!-- /TOC -->
 
-<h1 id="1-symple-system-memory-address-translastion"><a href="#1-symple-system-memory-address-translastion" class="headerlink" title="1 symple system memory address translastion"></a>1 symple system memory address translastion</h1><p><img src="/.io//1.png"><br>步骤如下</p>
+<h1 id="1-symple-system-memory-address-translastion"><a href="#1-symple-system-memory-address-translastion" class="headerlink" title="1 symple system memory address translastion"></a>1 symple system memory address translastion</h1><p><img src="/CSAPP18-virtual-memory-real-system/1.png"><br>步骤如下</p>
 <ol>
 <li>得到一个VA 拆解成VPN VPO</li>
 <li>VPN=TLBI+TLBT 去look看TLBI上hit了没</li>
 <li>hit 直接得到PPN 然后VPO和PPO是完全相等的</li>
 <li>再去Cache里面找  CI 找 然后匹配tag 然后取出CO位置</li>
 </ol>
-<p><img src="/.io//1.png"><br>步骤如下</p>
+<p><img src="/CSAPP18-virtual-memory-real-system/1.png"><br>步骤如下</p>
 <ol>
 <li>得到一个VA 拆解成VPN VPO</li>
 <li>VPN=TLBI+TLBT 去look看TLBI上hit了没</li>
@@ -517,19 +517,19 @@
 <li>得到了PPN </li>
 <li>再去Cache里面找  CI 找 然后匹配tag 然后取出CO位置</li>
 </ol>
-<h1 id="2-i7-linux-memory-system"><a href="#2-i7-linux-memory-system" class="headerlink" title="2 i7 linux memory system"></a>2 i7 linux memory system</h1><p><img src="/.io//3.png"><br>Key  Point</p>
+<h1 id="2-i7-linux-memory-system"><a href="#2-i7-linux-memory-system" class="headerlink" title="2 i7 linux memory system"></a>2 i7 linux memory system</h1><p><img src="/CSAPP18-virtual-memory-real-system/3.png"><br>Key  Point</p>
 <ul>
 <li>L1:4 cycle L2:10 cycle L3: 40-50 cyclce ps:L3是四核共用</li>
 <li>有d-cache 和i-cache d-TLB 和 i-TLB</li>
-<li>为什么不把L2 L1 合并原因有: d i占比不一定一样 还有就是缓存的限制大小<br>具体流程<br><img src="/.io//4.png"></li>
+<li>为什么不把L2 L1 合并原因有: d i占比不一定一样 还有就是缓存的限制大小<br>具体流程<br><img src="/CSAPP18-virtual-memory-real-system/4.png"></li>
 </ul>
-<p>技巧可以VPO=PPO=CI+CO先找到对应的位置在等tag（translation）匹配<br><img src="/.io//6.png"></p>
-<p>linux 把VM看做一个链表类似<br><img src="/.io//8.png"></p>
+<p>技巧可以VPO=PPO=CI+CO先找到对应的位置在等tag（translation）匹配<br><img src="/CSAPP18-virtual-memory-real-system/6.png"></p>
+<p>linux 把VM看做一个链表类似<br><img src="/CSAPP18-virtual-memory-real-system/8.png"></p>
 <h1 id="3-memory-mapping"><a href="#3-memory-mapping" class="headerlink" title="3 memory mapping"></a>3 memory mapping</h1><p>两种分享方式</p>
 <ol>
-<li><p>共享地址<br><img src="/.io//9.png"></p>
+<li><p>共享地址<br><img src="/CSAPP18-virtual-memory-real-system/9.png"></p>
 </li>
-<li><p>私密的共享（such as fork and execve)<br><img src="/.io//11.png"></p>
+<li><p>私密的共享（such as fork and execve)<br><img src="/CSAPP18-virtual-memory-real-system/11.png"></p>
 </li>
 </ol>
 

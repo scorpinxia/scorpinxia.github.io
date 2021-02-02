@@ -575,59 +575,59 @@
 </li>
 </ul>
 <!-- /TOC -->
-<h1 id="OFDM（orthogonal-Frequency-division-mutiplexing）"><a href="#OFDM（orthogonal-Frequency-division-mutiplexing）" class="headerlink" title="OFDM（orthogonal Frequency division mutiplexing）"></a>OFDM（orthogonal Frequency division mutiplexing）</h1><p>不同子载波传输<br><img src="/.io//1.png"></p>
-<p><img src="/.io//2.png"></p>
-<p><img src="/.io//3.png"></p>
+<h1 id="OFDM（orthogonal-Frequency-division-mutiplexing）"><a href="#OFDM（orthogonal-Frequency-division-mutiplexing）" class="headerlink" title="OFDM（orthogonal Frequency division mutiplexing）"></a>OFDM（orthogonal Frequency division mutiplexing）</h1><p>不同子载波传输<br><img src="/2020/09/20/wifi4-chap02-phy/1.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/2.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/3.png"></p>
 <p>基本取样 20MHZ，64位FFT/IFFT，△f=20000/64=312.5khz。64子载波，-32 -31 …… -1 0 1  中 52个是合成载波  -26 …… -1 1 25 26 最低的6个子载波 直流子载波 最高的子载波不用 。</p>
 <p>1/20M=0.05us  每0.05us发送一个样本点 0.05us*64=3.2us<br>周期T=3.2us  + GI(guard interval)0.8us 防止码间干扰 ISI</p>
 <h2 id="OFDM限制"><a href="#OFDM限制" class="headerlink" title="OFDM限制"></a>OFDM限制</h2><ul>
 <li>峰均比要小</li>
 <li>对载波频率偏置和相位噪声较高敏感</li>
 </ul>
-<h1 id="MIMO-SDM-基础"><a href="#MIMO-SDM-基础" class="headerlink" title="MIMO/SDM 基础"></a>MIMO/SDM 基础</h1><h2 id="SISO"><a href="#SISO" class="headerlink" title="SISO"></a>SISO</h2><p>通信系统表示<br><img src="/.io//4.png"></p>
-<p>SISO示意图<br><img src="/.io//5.png"></p>
-<p>接收机解调<br><img src="/.io//6.png"></p>
-<h2 id="MIMO"><a href="#MIMO" class="headerlink" title="MIMO"></a>MIMO</h2><p><img src="/.io//8.png"></p>
-<p><img src="/.io//7.png"></p>
-<p><img src="/.io//9.png"></p>
+<h1 id="MIMO-SDM-基础"><a href="#MIMO-SDM-基础" class="headerlink" title="MIMO/SDM 基础"></a>MIMO/SDM 基础</h1><h2 id="SISO"><a href="#SISO" class="headerlink" title="SISO"></a>SISO</h2><p>通信系统表示<br><img src="/2020/09/20/wifi4-chap02-phy/4.png"></p>
+<p>SISO示意图<br><img src="/2020/09/20/wifi4-chap02-phy/5.png"></p>
+<p>接收机解调<br><img src="/2020/09/20/wifi4-chap02-phy/6.png"></p>
+<h2 id="MIMO"><a href="#MIMO" class="headerlink" title="MIMO"></a>MIMO</h2><p><img src="/2020/09/20/wifi4-chap02-phy/8.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/7.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/9.png"></p>
 <h2 id="SDM-空分复用"><a href="#SDM-空分复用" class="headerlink" title="SDM(空分复用)"></a>SDM(空分复用)</h2><p>系统最少数据速率增加量为Min(Tx,Rx,空间流)</p>
-<p><img src="/.io//10.png"></p>
-<p><img src="/.io//12.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/10.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/12.png"></p>
 <p>不能无限增加天线 需要H矩阵非奇异</p>
-<h2 id="802-11n传播模型"><a href="#802-11n传播模型" class="headerlink" title="802.11n传播模型"></a>802.11n传播模型</h2><h3 id="信道模型由脉冲响应决定（SISO）"><a href="#信道模型由脉冲响应决定（SISO）" class="headerlink" title="信道模型由脉冲响应决定（SISO）"></a>信道模型由脉冲响应决定（SISO）</h3><p><img src="/.io//14.png"></p>
+<h2 id="802-11n传播模型"><a href="#802-11n传播模型" class="headerlink" title="802.11n传播模型"></a>802.11n传播模型</h2><h3 id="信道模型由脉冲响应决定（SISO）"><a href="#信道模型由脉冲响应决定（SISO）" class="headerlink" title="信道模型由脉冲响应决定（SISO）"></a>信道模型由脉冲响应决定（SISO）</h3><p><img src="/2020/09/20/wifi4-chap02-phy/14.png"></p>
 <h3 id="在MIMO下"><a href="#在MIMO下" class="headerlink" title="在MIMO下"></a>在MIMO下</h3><h3 id="多普勒模型"><a href="#多普勒模型" class="headerlink" title="多普勒模型"></a>多普勒模型</h3><p>发射机和接收机 之间移动的人 会引起信道变化</p>
 <h3 id="物理层损伤"><a href="#物理层损伤" class="headerlink" title="物理层损伤"></a>物理层损伤</h3><h4 id="相位噪声"><a href="#相位噪声" class="headerlink" title="相位噪声"></a>相位噪声</h4><p>发射、接收都加上了 相位噪声</p>
-<h4 id="PA-功率放大器的非线性"><a href="#PA-功率放大器的非线性" class="headerlink" title="PA 功率放大器的非线性"></a>PA 功率放大器的非线性</h4><p>失真影响发射机 Tx的EVM（误差矢量幅度），增加接收机误差率<br><img src="/.io//15.png"></p>
-<h4 id="路径损失"><a href="#路径损失" class="headerlink" title="路径损失"></a>路径损失</h4><p><img src="/.io//16.png"></p>
+<h4 id="PA-功率放大器的非线性"><a href="#PA-功率放大器的非线性" class="headerlink" title="PA 功率放大器的非线性"></a>PA 功率放大器的非线性</h4><p>失真影响发射机 Tx的EVM（误差矢量幅度），增加接收机误差率<br><img src="/2020/09/20/wifi4-chap02-phy/15.png"></p>
+<h4 id="路径损失"><a href="#路径损失" class="headerlink" title="路径损失"></a>路径损失</h4><p><img src="/2020/09/20/wifi4-chap02-phy/16.png"></p>
 <h2 id="接收机设置"><a href="#接收机设置" class="headerlink" title="接收机设置"></a>接收机设置</h2><p>ZF 迫零算法</p>
 <p>MMSE 最小均方差 (better)</p>
-<p><img src="/.io//17.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/17.png"></p>
 <h2 id="ML接收"><a href="#ML接收" class="headerlink" title="ML接收"></a>ML接收</h2><p>计算复杂</p>
-<h1 id="802-11a-g-OFDM兼容"><a href="#802-11a-g-OFDM兼容" class="headerlink" title="802.11a/g OFDM兼容"></a>802.11a/g OFDM兼容</h1><h2 id="802-11a"><a href="#802-11a" class="headerlink" title="802.11a"></a>802.11a</h2><p><img src="/.io//18.png"></p>
+<h1 id="802-11a-g-OFDM兼容"><a href="#802-11a-g-OFDM兼容" class="headerlink" title="802.11a/g OFDM兼容"></a>802.11a/g OFDM兼容</h1><h2 id="802-11a"><a href="#802-11a" class="headerlink" title="802.11a"></a>802.11a</h2><p><img src="/2020/09/20/wifi4-chap02-phy/18.png"></p>
 <ul>
 <li>STF 短训练字段 初始时间同步、初始频率偏移估计</li>
 <li>LTF 长训练字段 信道估计、精确时间同步、频率偏移估计</li>
 <li>SIG 信令字段 分组速率、长度等</li>
 </ul>
-<p><img src="/.io//19.png"></p>
-<h3 id="STF"><a href="#STF" class="headerlink" title="STF"></a>STF</h3><p>10个 0.8us短训练码元<br><img src="/.io//21.png"><br>只用了12个子载波</p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/19.png"></p>
+<h3 id="STF"><a href="#STF" class="headerlink" title="STF"></a>STF</h3><p>10个 0.8us短训练码元<br><img src="/2020/09/20/wifi4-chap02-phy/21.png"><br>只用了12个子载波</p>
 <p>64位 IFFT =3.2us 序列  产生了0.8us周期 所以重复2.5周期就行</p>
-<p><img src="/.io//20.png"></p>
-<h3 id="LTF"><a href="#LTF" class="headerlink" title="LTF"></a>LTF</h3><p>两个3.2us长训练码元  1.6us循环前缀 （长训练码元后半)<br><img src="/.io//23.png"></p>
-<h3 id="SIG"><a href="#SIG" class="headerlink" title="SIG"></a>SIG</h3><p><img src="/.io//22.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/20.png"></p>
+<h3 id="LTF"><a href="#LTF" class="headerlink" title="LTF"></a>LTF</h3><p>两个3.2us长训练码元  1.6us循环前缀 （长训练码元后半)<br><img src="/2020/09/20/wifi4-chap02-phy/23.png"></p>
+<h3 id="SIG"><a href="#SIG" class="headerlink" title="SIG"></a>SIG</h3><p><img src="/2020/09/20/wifi4-chap02-phy/22.png"></p>
 <p>3.2us OFDM码 和0.8us循环前缀 </p>
-<p><img src="/.io//24.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/24.png"></p>
 <h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><ul>
 <li>服务字段（扰码器）、</li>
 <li>数据字段  每个数据码元4us 3.2usOFDM、0.8CUR,和LTF、SIG一样波形使用52子载波 根据SIG速率信息调制到48子载波上，4个子载波 做相位、频率跟踪训练的导频</li>
 </ul>
-<p><img src="/.io//23.png"></p>
-<p><img src="/.io//26.png"></p>
-<h3 id="分组编码"><a href="#分组编码" class="headerlink" title="分组编码"></a>分组编码</h3><p><img src="/.io//25.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/23.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/26.png"></p>
+<h3 id="分组编码"><a href="#分组编码" class="headerlink" title="分组编码"></a>分组编码</h3><p><img src="/2020/09/20/wifi4-chap02-phy/25.png"></p>
 <p>调制格式，(对载波调制)  ： BPSK、qPSK、16QAM</p>
-<h3 id="接受过程"><a href="#接受过程" class="headerlink" title="接受过程"></a>接受过程</h3><p><img src="/.io//27.png"></p>
-<h2 id="HT分组"><a href="#HT分组" class="headerlink" title="HT分组"></a>HT分组</h2><p><img src="/.io//28.png"></p>
-<h3 id="MF前导码-非HT部分-与前面类似"><a href="#MF前导码-非HT部分-与前面类似" class="headerlink" title="MF前导码 非HT部分 与前面类似"></a>MF前导码 非HT部分 与前面类似</h3><h3 id="HT部分"><a href="#HT部分" class="headerlink" title="HT部分"></a>HT部分</h3><h4 id="HT-SIG1-HT-SIG2"><a href="#HT-SIG1-HT-SIG2" class="headerlink" title="HT-SIG1 HT-SIG2"></a>HT-SIG1 HT-SIG2</h4><p><img src="/.io//29.png"></p>
+<h3 id="接受过程"><a href="#接受过程" class="headerlink" title="接受过程"></a>接受过程</h3><p><img src="/2020/09/20/wifi4-chap02-phy/27.png"></p>
+<h2 id="HT分组"><a href="#HT分组" class="headerlink" title="HT分组"></a>HT分组</h2><p><img src="/2020/09/20/wifi4-chap02-phy/28.png"></p>
+<h3 id="MF前导码-非HT部分-与前面类似"><a href="#MF前导码-非HT部分-与前面类似" class="headerlink" title="MF前导码 非HT部分 与前面类似"></a>MF前导码 非HT部分 与前面类似</h3><h3 id="HT部分"><a href="#HT部分" class="headerlink" title="HT部分"></a>HT部分</h3><h4 id="HT-SIG1-HT-SIG2"><a href="#HT-SIG1-HT-SIG2" class="headerlink" title="HT-SIG1 HT-SIG2"></a>HT-SIG1 HT-SIG2</h4><p><img src="/2020/09/20/wifi4-chap02-phy/29.png"></p>
 <ul>
 <li>前7bit MCS 调制编码方案 <ul>
 <li>（BPSK、……、64QAM)（0~76） code RATE  1/2、2/3/、3/4、5/6   </li>
@@ -636,35 +636,35 @@
 </li>
 </ul>
 <p>通过 阈值区分 传统  和HT MF</p>
-<p><img src="/.io//30.png"></p>
-<h4 id="HT-STF"><a href="#HT-STF" class="headerlink" title="HT-STF"></a>HT-STF</h4><p>同样空间流、不同发送天线 需要大循环移位解除信号相关性<br><img src="/.io//32.png"></p>
-<h4 id="HT-LTF"><a href="#HT-LTF" class="headerlink" title="HT-LTF"></a>HT-LTF</h4><p>同样空间流、不同发送天线 需要大循环移位解除信号相关性<br><img src="/.io//33.png"></p>
-<h4 id="数据字段-1"><a href="#数据字段-1" class="headerlink" title="数据字段"></a>数据字段</h4><p><img src="/.io//34.png"></p>
-<h5 id="码元数"><a href="#码元数" class="headerlink" title="码元数"></a>码元数</h5><p><img src="/.io//35.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/30.png"></p>
+<h4 id="HT-STF"><a href="#HT-STF" class="headerlink" title="HT-STF"></a>HT-STF</h4><p>同样空间流、不同发送天线 需要大循环移位解除信号相关性<br><img src="/2020/09/20/wifi4-chap02-phy/32.png"></p>
+<h4 id="HT-LTF"><a href="#HT-LTF" class="headerlink" title="HT-LTF"></a>HT-LTF</h4><p>同样空间流、不同发送天线 需要大循环移位解除信号相关性<br><img src="/2020/09/20/wifi4-chap02-phy/33.png"></p>
+<h4 id="数据字段-1"><a href="#数据字段-1" class="headerlink" title="数据字段"></a>数据字段</h4><p><img src="/2020/09/20/wifi4-chap02-phy/34.png"></p>
+<h5 id="码元数"><a href="#码元数" class="headerlink" title="码元数"></a>码元数</h5><p><img src="/2020/09/20/wifi4-chap02-phy/35.png"></p>
 <h5 id="扰码和编码"><a href="#扰码和编码" class="headerlink" title="扰码和编码"></a>扰码和编码</h5><h5 id="流解析-（轮流-发给-空间流NSS"><a href="#流解析-（轮流-发给-空间流NSS" class="headerlink" title="流解析 （轮流 发给 空间流NSS"></a>流解析 （轮流 发给 空间流NSS</h5><h5 id="交织-（ISS-《-NSS）"><a href="#交织-（ISS-《-NSS）" class="headerlink" title="交织 （ISS 《=NSS）"></a>交织 （ISS 《=NSS）</h5><h5 id="调制映射"><a href="#调制映射" class="headerlink" title="调制映射"></a>调制映射</h5><p>交织输出的bit流 映射到 复数星座点</p>
 <h5 id="导频子载波"><a href="#导频子载波" class="headerlink" title="导频子载波"></a>导频子载波</h5><p>-21 -7 1 21</p>
-<h3 id="接受机"><a href="#接受机" class="headerlink" title="接受机"></a>接受机</h3><p><img src="/.io//31.png"></p>
+<h3 id="接受机"><a href="#接受机" class="headerlink" title="接受机"></a>接受机</h3><p><img src="/2020/09/20/wifi4-chap02-phy/31.png"></p>
 <h1 id="HT的"><a href="#HT的" class="headerlink" title="HT的"></a>HT的</h1><p>之前的关键特色  MIMO SDM</p>
 <h2 id="40MHZ信道"><a href="#40MHZ信道" class="headerlink" title="40MHZ信道"></a>40MHZ信道</h2><p>128个子载波 保护带 左边 6个空 右边 5个空 中间 3个空 -1 0 1 ，<br>6个导频 来更精确跟踪相位 </p>
 <h3 id="40mhz信道设计"><a href="#40mhz信道设计" class="headerlink" title="40mhz信道设计"></a>40mhz信道设计</h3><p>相邻结合  NPrimary_ch=36 Secondary=1 代表 36+1*4 次信道</p>
-<h3 id="两个编码器"><a href="#两个编码器" class="headerlink" title="两个编码器"></a>两个编码器</h3><p><img src="/.io//36.png"></p>
+<h3 id="两个编码器"><a href="#两个编码器" class="headerlink" title="两个编码器"></a>两个编码器</h3><p><img src="/2020/09/20/wifi4-chap02-phy/36.png"></p>
 <h2 id="20MHZ-额外-数据子载波"><a href="#20MHZ-额外-数据子载波" class="headerlink" title="20MHZ 额外 数据子载波"></a>20MHZ 额外 数据子载波</h2><p>最左 和最右各拿两个 </p>
-<h2 id="MCS-Modulation-and-coding-scheme-空间流-码率"><a href="#MCS-Modulation-and-coding-scheme-空间流-码率" class="headerlink" title="MCS Modulation and coding scheme 空间流 码率"></a>MCS Modulation and coding scheme 空间流 码率</h2><p><img src="/.io//37.png"></p>
+<h2 id="MCS-Modulation-and-coding-scheme-空间流-码率"><a href="#MCS-Modulation-and-coding-scheme-空间流-码率" class="headerlink" title="MCS Modulation and coding scheme 空间流 码率"></a>MCS Modulation and coding scheme 空间流 码率</h2><p><img src="/2020/09/20/wifi4-chap02-phy/37.png"></p>
 <p>PER packet error rate,错包率</p>
 <h2 id="GreenField-GF-前导码（不支持传统-OFDM）"><a href="#GreenField-GF-前导码（不支持传统-OFDM）" class="headerlink" title="GreenField GF 前导码（不支持传统 OFDM）"></a>GreenField GF 前导码（不支持传统 OFDM）</h2><h2 id="短保护间隔"><a href="#短保护间隔" class="headerlink" title="短保护间隔"></a>短保护间隔</h2><h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="信道分配"><a href="#信道分配" class="headerlink" title="信道分配"></a>信道分配</h2><p>每个信道号 5MHZ 以下都是center频率</p>
 <p>2.4G  1,2   2412,2417 </p>
 <p>5G 36、40、……、64 5180~ 5320</p>
 <p>5G  100<del>140 5500</del>5700<br>    149~165 5745</p>
-<h2 id="MCS"><a href="#MCS" class="headerlink" title="MCS"></a>MCS</h2><p><img src="/.io//39.png"></p>
-<p><img src="/.io//40.png"></p>
-<p><img src="/.io//41.png"></p>
-<p><img src="/.io//42.png"></p>
-<p><img src="/.io//43.png"></p>
-<h2 id="波形参数"><a href="#波形参数" class="headerlink" title="波形参数"></a>波形参数</h2><p><img src="/.io//44.png"></p>
+<h2 id="MCS"><a href="#MCS" class="headerlink" title="MCS"></a>MCS</h2><p><img src="/2020/09/20/wifi4-chap02-phy/39.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/40.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/41.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/42.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/43.png"></p>
+<h2 id="波形参数"><a href="#波形参数" class="headerlink" title="波形参数"></a>波形参数</h2><p><img src="/2020/09/20/wifi4-chap02-phy/44.png"></p>
 <h1 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h1><h2 id="接受分集-MRC-最大比合并"><a href="#接受分集-MRC-最大比合并" class="headerlink" title="接受分集  MRC (最大比合并)"></a>接受分集  MRC (最大比合并)</h2><blockquote>
 <p>接收机的天线数量大于发送信号空间流数量，分集级数增加量等于接受天线和发送空间流数量差。</p>
 </blockquote>
-<p><img src="/.io//47.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/47.png"></p>
 <p>MIMO 改善 SNR</p>
 <h2 id="空间扩展-SE"><a href="#空间扩展-SE" class="headerlink" title="空间扩展 SE"></a>空间扩展 SE</h2><blockquote>
 <p>较多天线发送较少空间流</p>
@@ -672,25 +672,25 @@
 <h2 id="空时块编码-STBC"><a href="#空时块编码-STBC" class="headerlink" title="空时块编码 STBC"></a>空时块编码 STBC</h2><blockquote>
 <p>发送分集，考虑 AP2<em>2  设备1</em>1  Ap到设备 下行线2<em>1STBC<br>设备到AP上行线1</em>2MRC</p>
 </blockquote>
-<p>两组数据取样经过编码 两个天线两个码元周期<br><img src="/.io//45.png"></p>
+<p>两组数据取样经过编码 两个天线两个码元周期<br><img src="/2020/09/20/wifi4-chap02-phy/45.png"></p>
 <blockquote>
 <p>2<em>1 STBC PER1%性能比1</em>1高5.5db，比SE高4db，比MRC少4db<br>相对MRC STBC有3db功率代价</p>
 </blockquote>
-<p><img src="/.io//46.png"></p>
-<p><img src="/.io//47.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/46.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/47.png"></p>
 <blockquote>
-<p>发射机框图<br><img src="/.io//48.png"></p>
+<p>发射机框图<br><img src="/2020/09/20/wifi4-chap02-phy/48.png"></p>
 </blockquote>
 <blockquote>
-<p>字段<br><img src="/.io//49.png"></p>
+<p>字段<br><img src="/2020/09/20/wifi4-chap02-phy/49.png"></p>
 </blockquote>
 <blockquote>
-<p>长度计算<br><img src="/.io//50.png"></p>
+<p>长度计算<br><img src="/2020/09/20/wifi4-chap02-phy/50.png"></p>
 </blockquote>
 <h2 id="LDPC"><a href="#LDPC" class="headerlink" title="LDPC"></a>LDPC</h2><p>三种长度 648bit、1296bit、1944bit，信息bit根据MCS码率</p>
 <p>数据分组长度越长 有效码率越大</p>
 <p>不需要交织</p>
-<p>与BCC比较<br><img src="/.io//51.png"></p>
+<p>与BCC比较<br><img src="/2020/09/20/wifi4-chap02-phy/51.png"></p>
 
                 
             </div>

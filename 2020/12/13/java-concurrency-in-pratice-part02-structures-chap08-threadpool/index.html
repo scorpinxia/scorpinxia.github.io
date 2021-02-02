@@ -517,7 +517,7 @@
 </blockquote>
 <ul>
 <li>更大线程也会因为 所有都在等待其他工作队列的任务阻塞</li>
-<li>单线程executor死锁例子<br><img src="/.io//1.png"><br><img src="/.io//2.png"></li>
+<li>单线程executor死锁例子<br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/1.png"><br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/2.png"></li>
 </ul>
 <h2 id="运行时间长的任务"><a href="#运行时间长的任务" class="headerlink" title="运行时间长的任务"></a>运行时间长的任务</h2><blockquote>
 <p>任务阻塞时间长（就算不死锁，响应也差）</p>
@@ -532,7 +532,7 @@
 <li>根据系统特性，类型决定。配置机制（Runtime.availableProcessors。</li>
 <li>任务计算密集 I/O密集还是二者皆可 ？他们是否需要JDBC这样稀缺资源 。不同类别任务，行为差别很大 考虑使用多个线程池</li>
 </ul>
-<h2 id="计算密集型任务设置线程池"><a href="#计算密集型任务设置线程池" class="headerlink" title="计算密集型任务设置线程池"></a>计算密集型任务设置线程池</h2><p>Ncpu、线程池为Ncpu + 1最优利用（偶尔页缺失故障，这个额外线程确保CPU时钟不会浪费）<br><img src="/.io//3.png"></p>
+<h2 id="计算密集型任务设置线程池"><a href="#计算密集型任务设置线程池" class="headerlink" title="计算密集型任务设置线程池"></a>计算密集型任务设置线程池</h2><p>Ncpu、线程池为Ncpu + 1最优利用（偶尔页缺失故障，这个额外线程确保CPU时钟不会浪费）<br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/3.png"></p>
 <blockquote>
 <p>还有 内存、文件句柄、套接字句柄、数据库连接。</p>
 </blockquote>
@@ -540,7 +540,7 @@
 <li>计算这些资源对线程池容易：每个任务对资源的需求，该资源的可用</li>
 </ul>
 <h1 id="配置ThreadPoolExecutor"><a href="#配置ThreadPoolExecutor" class="headerlink" title="配置ThreadPoolExecutor"></a>配置ThreadPoolExecutor</h1><blockquote>
-<p>Executors的工厂方法返回的<br><img src="/.io//4.png"></p>
+<p>Executors的工厂方法返回的<br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/4.png"></p>
 </blockquote>
 <h2 id="创建和销毁"><a href="#创建和销毁" class="headerlink" title="创建和销毁"></a>创建和销毁</h2><ul>
 <li>Core pool size:基本大小 （没有任务执行 线程池的大小，只有工作队列满了情况才会创建超过这个数量的线程）</li>
@@ -570,32 +570,32 @@
 <li>discardPolicy 多种抛弃方法 （抛弃最旧  或者当前）</li>
 <li>Caller-Runs ：既不抛弃任务，也不抛出异常，任务退回调用者<ul>
 <li>比如WebServer ,线程池所有线程都被占用、工作队列满了，下一个任务在execute时在主线程执行，这时候主线程都不能提交任何任务) 这期间 主线程不会调用accept，因此到达的请求将被保存在TCP层的队列而不是应用程序的队列中。如果持续过载，TCO层会发现它的请求队列填满了，同样开始抛弃请求。</li>
-<li>服务器过载 ，过载情况慢慢向外蔓延—-线程池<del>工作队列</del>应用程序<del>TCP层</del>客户端<br><img src="/.io//5.png"></li>
-<li>信号量控制任务提交速率 （无界队列 ）<br><img src="/.io//6.png"></li>
+<li>服务器过载 ，过载情况慢慢向外蔓延—-线程池<del>工作队列</del>应用程序<del>TCP层</del>客户端<br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/5.png"></li>
+<li>信号量控制任务提交速率 （无界队列 ）<br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/6.png"></li>
 </ul>
 </li>
 </ul>
 <h2 id="线程工厂"><a href="#线程工厂" class="headerlink" title="线程工厂"></a>线程工厂</h2><blockquote>
-<p>每当线程池需要创建一个线程，都是通过线程工厂方法来完成。默认的线程工厂方法将创建一个<br><img src="/.io//7.png"></p>
+<p>每当线程池需要创建一个线程，都是通过线程工厂方法来完成。默认的线程工厂方法将创建一个<br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/7.png"></p>
 </blockquote>
 <blockquote>
-<p>比如名称<br><img src="/.io//8.png"><br>在MyAppThread加上其他行为 （logger 写入信息，统计信息 调试信息）<br><img src="/.io//9.png"><br><img src="/.io//10.png"></p>
+<p>比如名称<br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/8.png"><br>在MyAppThread加上其他行为 （logger 写入信息，统计信息 调试信息）<br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/9.png"><br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/10.png"></p>
 </blockquote>
 <h2 id="调用完构造函数继续定制-ThreadPoolExecutor"><a href="#调用完构造函数继续定制-ThreadPoolExecutor" class="headerlink" title="调用完构造函数继续定制 ThreadPoolExecutor"></a>调用完构造函数继续定制 ThreadPoolExecutor</h2><p>Setter </p>
 <h1 id="扩展ThreadPoolExecutor"><a href="#扩展ThreadPoolExecutor" class="headerlink" title="扩展ThreadPoolExecutor"></a>扩展ThreadPoolExecutor</h1><blockquote>
 <p>可子类化改写方法：beforeExecute AfterExecte terminated(线程池完成关闭操作后调用)</p>
 </blockquote>
 <blockquote>
-<p>添加日志计时<br><img src="/.io//11.png"></p>
+<p>添加日志计时<br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/11.png"></p>
 </blockquote>
 <h1 id="递归并行化"><a href="#递归并行化" class="headerlink" title="递归并行化"></a>递归并行化</h1><blockquote>
-<p>如果循环的迭代操作时独立的，并且不需要等待所有迭代操作都完成在继续执行，就可以用Exector 串行循环转为并行循环<br><img src="/.io//12.png"><br><img src="/.io//13.png"></p>
+<p>如果循环的迭代操作时独立的，并且不需要等待所有迭代操作都完成在继续执行，就可以用Exector 串行循环转为并行循环<br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/12.png"><br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/13.png"></p>
 </blockquote>
 <blockquote>
-<p>深度优先算法遍历一个树（每个节点自己计算，就是compute 串行）<br><img src="/.io//14.png"></p>
+<p>深度优先算法遍历一个树（每个节点自己计算，就是compute 串行）<br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/14.png"></p>
 </blockquote>
 <ul>
-<li>等待结果<br><img src="/.io//15.png"></li>
+<li>等待结果<br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/15.png"></li>
 </ul>
 <h2 id="谜题框架"><a href="#谜题框架" class="headerlink" title="谜题框架"></a>谜题框架</h2><blockquote>
 <p>搬箱子 Hi-Q 四色方柱</p>
@@ -608,19 +608,19 @@
 <li>规则集有：计算从指定位置开始的所有合法移动，以及每次移动的结果位置</li>
 </ul>
 <blockquote>
-<p>定义<br><img src="/.io//16.png"></p>
+<p>定义<br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/16.png"></p>
 </blockquote>
 <blockquote>
-<p>串行解决 ：Node 代表通过一系列移动到达的一个位置 ，保留了到达该位置的移动和前一个Node ，回溯构建<br><img src="/.io//17.png"><br><img src="/.io//18.png"></p>
+<p>串行解决 ：Node 代表通过一系列移动到达的一个位置 ，保留了到达该位置的移动和前一个Node ，回溯构建<br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/17.png"><br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/18.png"></p>
 </blockquote>
 <ul>
-<li>解决方法（深度搜索，但不一定是最短的）<br><img src="/.io//19.png"></li>
+<li>解决方法（深度搜索，但不一定是最短的）<br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/19.png"></li>
 </ul>
 <blockquote>
-<p>并行解决<br><img src="/.io//20.png"></p>
+<p>并行解决<br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/20.png"></p>
 </blockquote>
 <ul>
-<li>保证得到结果就返回 （闭锁）<br><img src="/.io//21.png"></li>
+<li>保证得到结果就返回 （闭锁）<br><img src="/2020/12/13/java-concurrency-in-pratice-part02-structures-chap08-threadpool/21.png"></li>
 <li>不存在解答，遍历了所有（使用限时的getValue( 限时的await)</li>
 </ul>
 

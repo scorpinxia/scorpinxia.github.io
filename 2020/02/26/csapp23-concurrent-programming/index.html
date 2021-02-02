@@ -519,10 +519,10 @@
 <li>Deadlock: 等待着一个永远不发生的信号到来（主程序printf，信号处理程序同时printf；交通谁先谁通过，但是同时到达四个，就不知道怎么走)</li>
 <li>livelock /starvations/ fairness: 两个进程内核总是安排一个</li>
 </ul>
-<h1 id="2-Neccessity"><a href="#2-Neccessity" class="headerlink" title="2. Neccessity"></a>2. Neccessity</h1><p><img src="/.io//1.png"><br>如果不并发 客户端2 connect 就算没建立连接也会return  要等待服务端结束前一个再accept<br>再发</p>
+<h1 id="2-Neccessity"><a href="#2-Neccessity" class="headerlink" title="2. Neccessity"></a>2. Neccessity</h1><p><img src="/2020/02/26/csapp23-concurrent-programming/1.png"><br>如果不并发 客户端2 connect 就算没建立连接也会return  要等待服务端结束前一个再accept<br>再发</p>
 <h1 id="3-Approaches-for-Writing-a-concurrent-program"><a href="#3-Approaches-for-Writing-a-concurrent-program" class="headerlink" title="3. Approaches for Writing a concurrent program"></a>3. Approaches for Writing a concurrent program</h1><h2 id="3-1-Progress-based"><a href="#3-1-Progress-based" class="headerlink" title="3.1. Progress-based"></a>3.1. Progress-based</h2><h3 id="3-1-1-Features"><a href="#3-1-1-Features" class="headerlink" title="3.1.1. Features"></a>3.1.1. Features</h3><ul>
 <li>内核自动调度</li>
-<li>单独地址空间<br>如图<br><img src="/.io//2.png"></li>
+<li>单独地址空间<br>如图<br><img src="/2020/02/26/csapp23-concurrent-programming/2.png"></li>
 </ul>
 <pre class="line-numbers language-C" data-language="C"><code class="language-C">int main(int argc, char **argv)!
 {
@@ -563,7 +563,7 @@ Close(connfd); /* Parent closes connected socket (important!) */
 <li>可以Debug</li>
 </ul>
 <p>对所有输入都挂起读取</p>
-<p><img src="/.io//3.png"><br>如图现在挂起的三个输入然后又三个listenfd 也就是事件来了我再去读</p>
+<p><img src="/2020/02/26/csapp23-concurrent-programming/3.png"><br>如图现在挂起的三个输入然后又三个listenfd 也就是事件来了我再去读</p>
 <h3 id="3-2-1-Pros-and-Cons"><a href="#3-2-1-Pros-and-Cons" class="headerlink" title="3.2.1. Pros and Cons"></a>3.2.1. Pros and Cons</h3><ul>
 <li>pros：<ul>
 <li>一个逻辑流，一个地址空间，可以Debug</li>
@@ -581,7 +581,7 @@ Close(connfd); /* Parent closes connected socket (important!) */
 <li>每个flow 同样的地址</li>
 <li>混合了Progress-based Event-based</li>
 </ul>
-<p>和进程很像<br><img src="/.io//4.png"><br><img src="/.io//5.png"><br><img src="/.io//6.png"><br><img src="/.io//7.png"><br><img src="/.io//8.png"></p>
+<p>和进程很像<br><img src="/2020/02/26/csapp23-concurrent-programming/4.png"><br><img src="/2020/02/26/csapp23-concurrent-programming/5.png"><br><img src="/2020/02/26/csapp23-concurrent-programming/6.png"><br><img src="/2020/02/26/csapp23-concurrent-programming/7.png"><br><img src="/2020/02/26/csapp23-concurrent-programming/8.png"></p>
 <h3 id="3-3-1-differences-and-similarities-between-process-and-thread"><a href="#3-3-1-differences-and-similarities-between-process-and-thread" class="headerlink" title="3.3.1. differences and similarities between process and thread"></a>3.3.1. differences and similarities between process and thread</h3><ul>
 <li>similarities <ul>
 <li>都有自己的逻辑流</li>

@@ -496,7 +496,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Lock-、Reentrantlock"><a href="#Lock-、Reentrantlock" class="headerlink" title="Lock 、Reentrantlock"></a>Lock 、Reentrantlock</h1><blockquote>
-<p>java5  提供的显示锁<br><img src="/.io//1.png"></p>
+<p>java5  提供的显示锁<br><img src="/2021/01/17/java-concurrency-in-pratice-part04-advanced-chap13-explictlock/1.png"></p>
 </blockquote>
 <blockquote>
 <p>ReentranLock</p>
@@ -514,7 +514,7 @@
 <li>内置锁必须在获取该锁的代码块释放，无法实现非租塞结构加锁</li>
 </ul>
 <blockquote>
-<p>显示锁不能完全替代synchronized的原因<br><img src="/.io//2.png"></p>
+<p>显示锁不能完全替代synchronized的原因<br><img src="/2021/01/17/java-concurrency-in-pratice-part04-advanced-chap13-explictlock/2.png"></p>
 </blockquote>
 <ul>
 <li>必须在finally释放锁，不然抛出异常，锁永远无法释放</li>
@@ -529,10 +529,10 @@
 <li>指定时间不能获得所有锁  方法返回一个失败状态</li>
 </ul>
 <blockquote>
-<p>轮查锁例子<br><img src="/.io//3.png"></p>
+<p>轮查锁例子<br><img src="/2021/01/17/java-concurrency-in-pratice-part04-advanced-chap13-explictlock/3.png"></p>
 </blockquote>
 <blockquote>
-<p>时间锁例子<br><img src="/.io//4.png"></p>
+<p>时间锁例子<br><img src="/2021/01/17/java-concurrency-in-pratice-part04-advanced-chap13-explictlock/4.png"></p>
 </blockquote>
 <ul>
 <li>在共享线路发送一条消息，不在指定时间就失败</li>
@@ -541,7 +541,7 @@
 <p>实现机制</p>
 </blockquote>
 <ul>
-<li>lockInterruptibly 在获得锁的同时保持对中断的响应（不需要其他类型不可阻塞机制）<br><img src="/.io//5.png"><br><img src="/.io//6.png"></li>
+<li>lockInterruptibly 在获得锁的同时保持对中断的响应（不需要其他类型不可阻塞机制）<br><img src="/2021/01/17/java-concurrency-in-pratice-part04-advanced-chap13-explictlock/5.png"><br><img src="/2021/01/17/java-concurrency-in-pratice-part04-advanced-chap13-explictlock/6.png"></li>
 </ul>
 <h2 id="非快结构的加锁"><a href="#非快结构的加锁" class="headerlink" title="非快结构的加锁"></a>非快结构的加锁</h2><blockquote>
 <p>例子</p>
@@ -551,7 +551,7 @@
 <li>遍历的时候持有当前节点锁，直到获取到下一个节点，在释放上一个</li>
 </ul>
 <h1 id="性能考虑因素"><a href="#性能考虑因素" class="headerlink" title="性能考虑因素"></a>性能考虑因素</h1><blockquote>
-<p>java5 上 ReentranLock竞争性能更高，java6 改进了内置锁 使得与ReentranLock算法相似。<br><img src="/.io//7.png"></p>
+<p>java5 上 ReentranLock竞争性能更高，java6 改进了内置锁 使得与ReentranLock算法相似。<br><img src="/2021/01/17/java-concurrency-in-pratice-part04-advanced-chap13-explictlock/7.png"></p>
 </blockquote>
 <ul>
 <li>性能几乎一样</li>
@@ -568,13 +568,13 @@
 <li>Semaphore同样也有</li>
 </ul>
 <blockquote>
-<p>非公平性可能带来的性能提升（不必要时不要以公平性为代价）<br><img src="/.io//8.png"></p>
+<p>非公平性可能带来的性能提升（不必要时不要以公平性为代价）<br><img src="/2021/01/17/java-concurrency-in-pratice-part04-advanced-chap13-explictlock/8.png"></p>
 </blockquote>
 <h1 id="什么时候选择ReentranLock"><a href="#什么时候选择ReentranLock" class="headerlink" title="什么时候选择ReentranLock"></a>什么时候选择ReentranLock</h1><ul>
 <li>当内置锁无法满足要求</li>
 <li>synchronized 是JVM内置，可以执行优化。</li>
 </ul>
-<h1 id="读-写锁"><a href="#读-写锁" class="headerlink" title="读-写锁"></a>读-写锁</h1><p><img src="/.io//9.png"></p>
+<h1 id="读-写锁"><a href="#读-写锁" class="headerlink" title="读-写锁"></a>读-写锁</h1><p><img src="/2021/01/17/java-concurrency-in-pratice-part04-advanced-chap13-explictlock/9.png"></p>
 <blockquote>
 <p>作用</p>
 </blockquote>
@@ -662,10 +662,10 @@
 </blockquote>
 <ul>
 <li>ConcurrentHashMap性能很好 ，需要并发基于散列就可以用它</li>
-<li>如果 另一种Map实现 LinkedHashMap  可以用ReentranReadWriteLock<br><img src="/.io//10.png"><br><img src="/.io//11.png"></li>
+<li>如果 另一种Map实现 LinkedHashMap  可以用ReentranReadWriteLock<br><img src="/2021/01/17/java-concurrency-in-pratice-part04-advanced-chap13-explictlock/10.png"><br><img src="/2021/01/17/java-concurrency-in-pratice-part04-advanced-chap13-explictlock/11.png"></li>
 </ul>
 <blockquote>
-<p>ArrayList 封装对比ReentranLock  ReadWriteLock<br><img src="/.io//12.png"></p>
+<p>ArrayList 封装对比ReentranLock  ReadWriteLock<br><img src="/2021/01/17/java-concurrency-in-pratice-part04-advanced-chap13-explictlock/12.png"></p>
 </blockquote>
 
                 

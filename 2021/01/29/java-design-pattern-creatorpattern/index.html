@@ -613,7 +613,7 @@
 </blockquote>
 <ul>
 <li>将udao对象的创建职责从LoginAction类中移除，在LoginAction类之外创建对象</li>
-<li>引入工厂类，客户类（如LoginAction）不涉及对象的创建，对象的创建者也不会涉及对象的使用。<br><img src="/.io//1.jpg"></li>
+<li>引入工厂类，客户类（如LoginAction）不涉及对象的创建，对象的创建者也不会涉及对象的使用。<br><img src="/2021/01/29/java-design-pattern-creatorpattern/1.jpg"></li>
 </ul>
 <blockquote>
 <p>工厂模式要点<br><font size="4" font="" color="red">两个类A和B之间的关系应该仅仅是A创建B或是A使用B，而不能两种关系都有。<br></font></p>
@@ -623,7 +623,7 @@
 </blockquote>
 <ul>
 <li>防止用来实例化一个类的数据和代码在多个类中到处都是，可以将有关创建的知识搬移到一个工厂类中</li>
-<li>可以提供一系列名字完全不同的工厂方法，每一个工厂方法对应一个构造函数<br><img src="/.io//2.jpg"></li>
+<li>可以提供一系列名字完全不同的工厂方法，每一个工厂方法对应一个构造函数<br><img src="/2021/01/29/java-design-pattern-creatorpattern/2.jpg"></li>
 </ul>
 <h1 id="简单工厂模式-Simple-Factory-Pattern-【学习难度：★★☆☆☆，使用频率：★★★☆☆】"><a href="#简单工厂模式-Simple-Factory-Pattern-【学习难度：★★☆☆☆，使用频率：★★★☆☆】" class="headerlink" title="简单工厂模式-Simple    Factory    Pattern 【学习难度：★★☆☆☆，使用频率：★★★☆☆】"></a>简单工厂模式-Simple    Factory    Pattern 【学习难度：★★☆☆☆，使用频率：★★★☆☆】</h1><blockquote>
 <p>简单工厂模式</p>
@@ -709,7 +709,7 @@
 <li>用于创建实例的方法是静态<br>(static)方法，因此简单工厂模式又被称为静态工厂方法(Static    Factory    Method)模式，它属<br>于类创建型模式。</li>
 </ul>
 <blockquote>
-<p>例子<br><img src="/.io//1.png"></p>
+<p>例子<br><img src="/2021/01/29/java-design-pattern-creatorpattern/1.png"></p>
 </blockquote>
 <ul>
 <li>Factory（工厂角色）：工厂角色即工厂类<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1.</span>	<span class="token keyword">class</span>	<span class="token class-name">Factory</span>	<span class="token punctuation">{</span>	
@@ -763,7 +763,7 @@
 <span class="token number">7.</span>	<span class="token punctuation">}</span>	
 
 <span class="token number">8.</span>	<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="图表解决方案"><a href="#图表解决方案" class="headerlink" title="图表解决方案"></a>图表解决方案</h2><img src="/.io//2.png"></li>
+<h2 id="图表解决方案"><a href="#图表解决方案" class="headerlink" title="图表解决方案"></a>图表解决方案</h2><img src="/2021/01/29/java-design-pattern-creatorpattern/2.png"></li>
 </ul>
 <h2 id="方案改进"><a href="#方案改进" class="headerlink" title="方案改进"></a>方案改进</h2><blockquote>
 <p>之前解决方案的问题</p>
@@ -845,7 +845,7 @@
 </li>
 </ul>
 <h2 id="简单工厂模式的简化"><a href="#简单工厂模式的简化" class="headerlink" title="简单工厂模式的简化"></a>简单工厂模式的简化</h2><blockquote>
-<p>为了简化简单工厂模式，我们可以将抽象产品类和工厂类合并，将静态工厂方法移至抽象产品类中<br><img src="/.io//3.png"></p>
+<p>为了简化简单工厂模式，我们可以将抽象产品类和工厂类合并，将静态工厂方法移至抽象产品类中<br><img src="/2021/01/29/java-design-pattern-creatorpattern/3.png"></p>
 </blockquote>
 <h2 id="简单工厂模式优缺点和使用场景"><a href="#简单工厂模式优缺点和使用场景" class="headerlink" title="简单工厂模式优缺点和使用场景"></a>简单工厂模式优缺点和使用场景</h2><blockquote>
 <p>   主要优点</p>
@@ -905,7 +905,7 @@
 <li>(2)    用户可能需要更换日志记录方式，在客户端代码中需要提供一种灵活的方式来选择日志记录器，尽量在不修改源代码的基础上更换或者增加日志记录方式。</li>
 </ul>
 <blockquote>
-<p>简单工厂模式设计<br><img src="/.io//4.png"></p>
+<p>简单工厂模式设计<br><img src="/2021/01/29/java-design-pattern-creatorpattern/4.png"></p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1.</span>	<span class="token comment">//日志记录器工厂	</span>
 <span class="token number">2.</span>	<span class="token keyword">class</span>	<span class="token class-name">LoggerFactory</span>	<span class="token punctuation">{</span>	
@@ -951,7 +951,7 @@
 <li>工厂方法模式又简称为工厂模式(Factory    Pattern)，又可称作虚拟构造器模式(Virtual    Constructor    Pattern)或多态工厂模式(Polymorphic    Factory    Pattern)。</li>
 </ul>
 <blockquote>
-<p>结构<br><img src="/.io//5.png"></p>
+<p>结构<br><img src="/2021/01/29/java-design-pattern-creatorpattern/5.png"></p>
 </blockquote>
 <ul>
 <li>与简单工厂模式相比，工厂方法模式最重要的区别是引入了抽象工厂角色，抽象工厂可以是接口，也可以是抽象类或者具体类，其典型代码如下所示：<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1.</span>	<span class="token keyword">interface</span>	<span class="token class-name">Factory</span>	<span class="token punctuation">{</span>	
@@ -988,7 +988,7 @@
 <li>工厂方法模式中的工厂方法能否为静态方法？为什么？</li>
 <li>不能 ，因为factory.factoryMethod()会调用类方法了，而没延迟到子类</li>
 </ul>
-<h2 id="完整解决方案"><a href="#完整解决方案" class="headerlink" title="完整解决方案"></a>完整解决方案</h2><p><img src="/.io//6.png"></p>
+<h2 id="完整解决方案"><a href="#完整解决方案" class="headerlink" title="完整解决方案"></a>完整解决方案</h2><p><img src="/2021/01/29/java-design-pattern-creatorpattern/6.png"></p>
 <blockquote>
 <p>客户端测试代码：</p>
 </blockquote>
@@ -1148,10 +1148,10 @@
 </li>
 </ul>
 <blockquote>
-<p>可以提供一组重载的工厂方法，以不同的方式对产品对象进行创建。<br><img src="/.io//7.png"></p>
+<p>可以提供一组重载的工厂方法，以不同的方式对产品对象进行创建。<br><img src="/2021/01/29/java-design-pattern-creatorpattern/7.png"></p>
 </blockquote>
 <h2 id="工厂方法的隐藏"><a href="#工厂方法的隐藏" class="headerlink" title="工厂方法的隐藏"></a>工厂方法的隐藏</h2><blockquote>
-<p>为了进一步简化客户端的使用，还可以对客户端隐藏工厂方法,直接通过工厂即可使用所创建的对象中的业务方法。<br><img src="/.io//8.png"></p>
+<p>为了进一步简化客户端的使用，还可以对客户端隐藏工厂方法,直接通过工厂即可使用所创建的对象中的业务方法。<br><img src="/2021/01/29/java-design-pattern-creatorpattern/8.png"></p>
 </blockquote>
 <ul>
 <li>抽象工厂类LoggerFactory的代码修改如下：<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1.</span>	<span class="token comment">//改为抽象类	</span>
@@ -1237,7 +1237,7 @@
 <li>该皮肤库需要具备良好的灵活性和可扩展性，用户可以自由选择不同的皮肤，开发人员可以在不修改既有代码的基础上增加新的皮肤</li>
 </ul>
 <blockquote>
-<p>   基于工厂方法模式的界面皮肤库初始结构图<br><img src="/.io//9.png"></p>
+<p>   基于工厂方法模式的界面皮肤库初始结构图<br><img src="/2021/01/29/java-design-pattern-creatorpattern/9.png"></p>
 </blockquote>
 <ul>
 <li>设计方案问题<ul>
@@ -1247,7 +1247,7 @@
 </li>
 </ul>
 <h2 id="产品等级结构与产品族"><a href="#产品等级结构与产品族" class="headerlink" title="产品等级结构与产品族"></a>产品等级结构与产品族</h2><blockquote>
-<p>为了更好地理解抽象工厂模式，我们先引入两个概<br>念：<br><img src="/.io//10.png"></p>
+<p>为了更好地理解抽象工厂模式，我们先引入两个概<br>念：<br><img src="/2021/01/29/java-design-pattern-creatorpattern/10.png"></p>
 </blockquote>
 <ul>
 <li>(1)产品等级结构：产品等级结构即产品的继承结构。<ul>
@@ -1260,9 +1260,9 @@
 </li>
 </ul>
 <blockquote>
-<p>抽象工厂模式示意图<br><img src="/.io//11.png"></p>
+<p>抽象工厂模式示意图<br><img src="/2021/01/29/java-design-pattern-creatorpattern/11.png"></p>
 </blockquote>
-<h2 id="抽象工厂模式概述"><a href="#抽象工厂模式概述" class="headerlink" title="抽象工厂模式概述"></a>抽象工厂模式概述</h2><p><img src="/.io//12.png"></p>
+<h2 id="抽象工厂模式概述"><a href="#抽象工厂模式概述" class="headerlink" title="抽象工厂模式概述"></a>抽象工厂模式概述</h2><p><img src="/2021/01/29/java-design-pattern-creatorpattern/12.png"></p>
 <blockquote>
 <p>思考：抽象工厂模式是否符合“开闭原则”？【从增加新的产品等级结构和增加新的产品族两方面进行 思考。】</p>
 </blockquote>
@@ -1270,7 +1270,7 @@
 <li>从增加新的产品族来考虑的话，是符合“开闭原则”的。（比如绿色 红色）</li>
 <li>增加新的产品等级结构的话，不符合，需要去抽象工厂那边新增一个产品等级结构了（比如新的控件）。</li>
 </ul>
-<h2 id="抽象工厂完整解决方案"><a href="#抽象工厂完整解决方案" class="headerlink" title="抽象工厂完整解决方案"></a>抽象工厂完整解决方案</h2><p><img src="/.io//13.png"></p>
+<h2 id="抽象工厂完整解决方案"><a href="#抽象工厂完整解决方案" class="headerlink" title="抽象工厂完整解决方案"></a>抽象工厂完整解决方案</h2><p><img src="/2021/01/29/java-design-pattern-creatorpattern/13.png"></p>
 <h2 id="“开闭原则”的倾斜性"><a href="#“开闭原则”的倾斜性" class="headerlink" title="“开闭原则”的倾斜性"></a>“开闭原则”的倾斜性</h2><blockquote>
 <p>抽象工厂模式中，增加新的产品族很方便，但是增加新的产品等级结构很麻烦，抽象工厂模式的这种性质称为“开闭<br>原则”的倾斜性。</p>
 </blockquote>
@@ -1343,7 +1343,7 @@
 
 <span class="token number">8.</span>	<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
-<p>结构图<br><img src="/.io//14.png"></p>
+<p>结构图<br><img src="/2021/01/29/java-design-pattern-creatorpattern/14.png"></p>
 </blockquote>
 </li>
 </ul>
@@ -1354,7 +1354,7 @@
 <li>该软件运行在一台负载均衡服务器上，可以将并发访问和数据流量分发到服务器集群中的多台设备上进行并发处理，提高系统的整体处理能力，缩短响应时间。由于集群中的服务器需要动态删减，且客户端请求需要统一分发，因此需要确保负载均衡器的唯一性，只能有一个负载均衡器来负责服务器的管理和请求的分发，否则将会带来服务器状态的不一致以及请求分配冲突等问题。</li>
 </ul>
 <blockquote>
-<p>实现<br><img src="/.io//15.png"></p>
+<p>实现<br><img src="/2021/01/29/java-design-pattern-creatorpattern/15.png"></p>
 </blockquote>
 <ul>
 <li>将负载均衡器LoadBalancer设计为单例类，其中包含一个存储服务器信息的集合serverList，每次在serverList中随机选择一台服务器来响应客户端的请求</li>
@@ -1369,7 +1369,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="饿汉式单例类"><a href="#饿汉式单例类" class="headerlink" title="饿汉式单例类"></a>饿汉式单例类</h3><p><img src="/.io//16.png"></p>
+<h3 id="饿汉式单例类"><a href="#饿汉式单例类" class="headerlink" title="饿汉式单例类"></a>饿汉式单例类</h3><p><img src="/2021/01/29/java-design-pattern-creatorpattern/16.png"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1.</span>	<span class="token keyword">class</span>	<span class="token class-name">EagerSingleton</span>	<span class="token punctuation">{</span>	
 
 <span class="token number">2.</span>	<span class="token keyword">private</span>	<span class="token keyword">static</span>	<span class="token keyword">final</span>	<span class="token class-name">EagerSingleton</span>	instance	<span class="token operator">=</span>	<span class="token keyword">new</span>	<span class="token class-name">EagerSingleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	
@@ -1620,7 +1620,7 @@
 <h1 id="原型模式-Prototype-Pattern【学习难度：★★★☆☆，使用频率：★★★☆☆】"><a href="#原型模式-Prototype-Pattern【学习难度：★★★☆☆，使用频率：★★★☆☆】" class="headerlink" title="原型模式-Prototype    Pattern【学习难度：★★★☆☆，使用频率：★★★☆☆】"></a>原型模式-Prototype    Pattern【学习难度：★★★☆☆，使用频率：★★★☆☆】</h1><blockquote>
 <p>可以通过一个原型对象克隆出多个一模一样的对象，该模式称之为原型模式。</p>
 </blockquote>
-<h2 id="大同小异的工作周报"><a href="#大同小异的工作周报" class="headerlink" title="大同小异的工作周报"></a>大同小异的工作周报</h2><p><img src="/.io//17.png"></p>
+<h2 id="大同小异的工作周报"><a href="#大同小异的工作周报" class="headerlink" title="大同小异的工作周报"></a>大同小异的工作周报</h2><p><img src="/2021/01/29/java-design-pattern-creatorpattern/17.png"></p>
 <blockquote>
 <p>需求</p>
 </blockquote>
@@ -1630,7 +1630,7 @@
 <li>用户在再次创建周报时，可以创建全新的周报，还可以选择合适的模板复制生成一份相同的周报，然后对新生成的周报根据实际情况进行修改，产生新的周报。</li>
 </ul>
 <h2 id="原型模式概述"><a href="#原型模式概述" class="headerlink" title="原型模式概述"></a>原型模式概述</h2><blockquote>
-<p>结构图<br><img src="/.io//18.png"></p>
+<p>结构图<br><img src="/2021/01/29/java-design-pattern-creatorpattern/18.png"></p>
 </blockquote>
 <ul>
 <li>Prototype（抽象原型类）：它是声明克隆方法的接口，是所有具体原型类的公共父类，可以是抽<br>象类也可以是接口，甚至还可以是具体实现类。</li>
@@ -1720,7 +1720,7 @@
 <ul>
 <li>flase、flase、true、true (<strong>clone()方法是浅拷贝</strong> )</li>
 </ul>
-<h2 id="完整解决方案-1"><a href="#完整解决方案-1" class="headerlink" title="完整解决方案"></a>完整解决方案</h2><p><img src="/.io//19.png"></p>
+<h2 id="完整解决方案-1"><a href="#完整解决方案-1" class="headerlink" title="完整解决方案"></a>完整解决方案</h2><p><img src="/2021/01/29/java-design-pattern-creatorpattern/19.png"></p>
 <h2 id="带附件的周报"><a href="#带附件的周报" class="headerlink" title="带附件的周报"></a>带附件的周报</h2><blockquote>
 <p>需求</p>
 </blockquote>
@@ -1728,9 +1728,9 @@
 <li>有些工作周报带有附件，例如经理助理“小龙女”的周报通常附有本周项目进展报告汇总表、本周客户反馈信息汇总表等，如果使用上述原型模式来复制周报，周报虽然可以复制，但是周报的附件并不能复制，这是由于什么原因导致的呢？如何才能<br>实现周报和附件的同时复制呢？</li>
 </ul>
 <h3 id="浅克隆"><a href="#浅克隆" class="headerlink" title="浅克隆"></a>浅克隆</h3><blockquote>
-<p>覆盖Object类的clone()方法可以实现浅克隆。<br><img src="/.io//20.png"></p>
+<p>覆盖Object类的clone()方法可以实现浅克隆。<br><img src="/2021/01/29/java-design-pattern-creatorpattern/20.png"></p>
 </blockquote>
-<h3 id="深克隆"><a href="#深克隆" class="headerlink" title="深克隆"></a>深克隆</h3><p><img src="/.io//21.png"></p>
+<h3 id="深克隆"><a href="#深克隆" class="headerlink" title="深克隆"></a>深克隆</h3><p><img src="/2021/01/29/java-design-pattern-creatorpattern/21.png"></p>
 <blockquote>
 <p>需要实现深克隆，可以通过序列化(Serialization)等方式来实现,实现Serializable接口</p>
 </blockquote>
@@ -1739,7 +1739,7 @@
 <li> 通过序列化实现的拷贝不仅可以复制对象本身，而且可以复制其引用的成员对象，因此通过序列化将对象写到一个流中，再从流里将其读出来，可以实现深克隆。</li>
 </ul>
 <blockquote>
-<p>带附件的周报结构图（深克隆）<br><img src="/.io//22.png"></p>
+<p>带附件的周报结构图（深克隆）<br><img src="/2021/01/29/java-design-pattern-creatorpattern/22.png"></p>
 </blockquote>
 <blockquote>
 <p>实现</p>
@@ -1871,7 +1871,7 @@ log_new<span class="token punctuation">.</span><span class="token function">getA
 <p>定义</p>
 </blockquote>
 <ul>
-<li>是将多个原型对象存储在一个集合中供客户端使用，它是一个专门负责克隆对象的工厂，其中定义了一个集合用于存储原型对象，如果需要某个原型对象的一个克隆，可以通过复制集合中对应的原型对象来获得<br><img src="/.io//23.png"></li>
+<li>是将多个原型对象存储在一个集合中供客户端使用，它是一个专门负责克隆对象的工厂，其中定义了一个集合用于存储原型对象，如果需要某个原型对象的一个克隆，可以通过复制集合中对应的原型对象来获得<br><img src="/2021/01/29/java-design-pattern-creatorpattern/23.png"></li>
 </ul>
 <blockquote>
 <p>需求</p>
@@ -2029,7 +2029,7 @@ log_new<span class="token punctuation">.</span><span class="token function">getA
 <li>不同类型的游戏角色，其性别、脸型、服装、发型等外部特性都有所差异</li>
 </ul>
 <h2 id="建造者模式概述"><a href="#建造者模式概述" class="headerlink" title="建造者模式概述"></a>建造者模式概述</h2><blockquote>
-<p>建造者模式结构图<br><img src="/.io//24.png"></p>
+<p>建造者模式结构图<br><img src="/2021/01/29/java-design-pattern-creatorpattern/24.png"></p>
 </blockquote>
 <ul>
 <li>●    Builder（抽象建造者）：它为创建一个产品Product对象的各个部件指定抽象接口，在该接口中<br>一般声明两类方法，一类方法是buildPartX()，它们用于创建复杂对象的各个部件；另一类方法是<br>getResult()，它们用于返回复杂对象。Builder既可以是抽象类，也可以是接口。</li>
@@ -2043,7 +2043,7 @@ log_new<span class="token punctuation">.</span><span class="token function">getA
 <ul>
 <li>如果将抽象工厂模式看成一个汽车配件生产厂，生成不同类型的汽车配件，那么建造者模式就是一个汽车组装厂，通过对配件进行组装返回一辆完整的汽车。</li>
 </ul>
-<h2 id="完整解决方案-2"><a href="#完整解决方案-2" class="headerlink" title="完整解决方案"></a>完整解决方案</h2><p><img src="/.io//25.png"></p>
+<h2 id="完整解决方案-2"><a href="#完整解决方案-2" class="headerlink" title="完整解决方案"></a>完整解决方案</h2><p><img src="/2021/01/29/java-design-pattern-creatorpattern/25.png"></p>
 <ul>
 <li>指挥类<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1.</span>	<span class="token comment">//游戏角色创建控制器：指挥者</span>
 <span class="token number">2.</span>	<span class="token keyword">class</span>	<span class="token class-name">ActorController</span>

@@ -590,21 +590,21 @@
 <h1 id="抽象数据类型-（abstract-data-type-ABT）"><a href="#抽象数据类型-（abstract-data-type-ABT）" class="headerlink" title="抽象数据类型 （abstract data type ABT）"></a>抽象数据类型 （abstract data type ABT）</h1><h1 id="List-ADT"><a href="#List-ADT" class="headerlink" title="List ADT"></a>List ADT</h1><p>基本功能 打印全表、清空全表、在某位置insert、delete、<br>查找某位置数 </p>
 <h2 id="用数组完成"><a href="#用数组完成" class="headerlink" title="用数组完成"></a>用数组完成</h2><p>但是在插入和删除花费时间太多 在查找上O(1)</p>
 <h2 id="用简单链表"><a href="#用简单链表" class="headerlink" title="用简单链表"></a>用简单链表</h2><p>但是仍然需要找到位置后  在插入和删除花费时间 O(1) 在查找上O(i)<br>如果插入删除的是最后一个需要遍历整个数组 解决方法双链表</p>
-<h1 id="Java-Collection"><a href="#Java-Collection" class="headerlink" title="Java Collection"></a>Java Collection</h1><h2 id="Collection-接口"><a href="#Collection-接口" class="headerlink" title="Collection 接口"></a>Collection 接口</h2><p><img src="/.io//1.png"></p>
-<h2 id="Itertor-接口"><a href="#Itertor-接口" class="headerlink" title="Itertor 接口"></a>Itertor 接口</h2><p><img src="/.io//2.png"></p>
+<h1 id="Java-Collection"><a href="#Java-Collection" class="headerlink" title="Java Collection"></a>Java Collection</h1><h2 id="Collection-接口"><a href="#Collection-接口" class="headerlink" title="Collection 接口"></a>Collection 接口</h2><p><img src="/2020/06/15/data-structures-and-algorithms-chap03-list-stack-queue/1.png"></p>
+<h2 id="Itertor-接口"><a href="#Itertor-接口" class="headerlink" title="Itertor 接口"></a>Itertor 接口</h2><p><img src="/2020/06/15/data-structures-and-algorithms-chap03-list-stack-queue/2.png"></p>
 <ul>
 <li><p>迭代器就是为了遍历，<br>迭代器的remove 从列表中删除由next()或previous()返回的最后一个元素（可选操作）。 </p>
 </li>
 <li><p>Collection 也有remove 但是可能iter 有更快的效率 比如对集合隔一个删一个  Collection需要每次先找到 </p>
 </li>
-<li><p>增强for 相当于 while(it.hasNext()) 遍历<br><img src="/.io//3.png"></p>
+<li><p>增强for 相当于 while(it.hasNext()) 遍历<br><img src="/2020/06/15/data-structures-and-algorithms-chap03-list-stack-queue/3.png"></p>
 </li>
 <li><p>直接使用迭代器（或者通过for）<font color="red" font="" size="4"><strong>当集合改变时  迭代器无效 抛出异常</strong> 因为不知道改变在前后 或者刚好是当前的  <strong>但是可以通过迭代器的方法remove 元素</strong> </font></p>
 </li>
 </ul>
 <h3 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h3><p>加入了 具体位置 设置获取添加删除的操作 以及特定的迭代器</p>
-<p><img src="/.io//4.png"></p>
-<p><img src="/.io//5.png"></p>
+<p><img src="/2020/06/15/data-structures-and-algorithms-chap03-list-stack-queue/4.png"></p>
+<p><img src="/2020/06/15/data-structures-and-algorithms-chap03-list-stack-queue/5.png"></p>
 <h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h4><p>底层数组 get set O(1)<br>插入 删除 除了 末端 都是O(N)</p>
 <h4 id="MyArrayList-实现细节注意"><a href="#MyArrayList-实现细节注意" class="headerlink" title="MyArrayList 实现细节注意"></a>MyArrayList 实现细节注意</h4><ul>
 <li>底层数组 创建对象时 初始化clean</li>
@@ -623,19 +623,19 @@
 <li><p>利用modconut 看当前迭代器拥有后 表有无add remove操作</p>
 </li>
 </ul>
-<h4 id="二者contains-和find-都是O-N"><a href="#二者contains-和find-都是O-N" class="headerlink" title="二者contains 和find 都是O(N)"></a>二者contains 和find 都是O(N)</h4><h4 id="例子删除表的偶数"><a href="#例子删除表的偶数" class="headerlink" title="例子删除表的偶数"></a>例子删除表的偶数</h4><p>想法1<br><img src="/.io//6.png"></p>
+<h4 id="二者contains-和find-都是O-N"><a href="#二者contains-和find-都是O-N" class="headerlink" title="二者contains 和find 都是O(N)"></a>二者contains 和find 都是O(N)</h4><h4 id="例子删除表的偶数"><a href="#例子删除表的偶数" class="headerlink" title="例子删除表的偶数"></a>例子删除表的偶数</h4><p>想法1<br><img src="/2020/06/15/data-structures-and-algorithms-chap03-list-stack-queue/6.png"></p>
 <p>对于ArrrayList remove 费时 总O(n^2)</p>
 <p>对于LinkedList get 费时 总O(n^2)</p>
-<p>想法2<br><img src="/.io//7.png"></p>
+<p>想法2<br><img src="/2020/06/15/data-structures-and-algorithms-chap03-list-stack-queue/7.png"></p>
 <p>对于ArrrayList remove 费时 总O(n^2)</p>
 <p>对于LinkedList 刚好remove就在旁边的东西就在附近  O(N)</p>
-<h4 id="ListIterator-接口"><a href="#ListIterator-接口" class="headerlink" title="ListIterator 接口"></a>ListIterator 接口</h4><p><img src="/.io//8.png"></p>
+<h4 id="ListIterator-接口"><a href="#ListIterator-接口" class="headerlink" title="ListIterator 接口"></a>ListIterator 接口</h4><p><img src="/2020/06/15/data-structures-and-algorithms-chap03-list-stack-queue/8.png"></p>
 <p>加上了与next()对应的之前项 Previous  用来从后往前遍历<br>add 在当前位置（在next 和previous之间） 插入个对象 </p>
 <p>对于ArrrayList 还是O(n)</p>
 <p>对于LinkedList O(1)</p>
-<p>Set 改变迭代器看到的最后一个值<br><img src="/.io//9.png"></p>
-<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><h3 id="链表实现-（少见）"><a href="#链表实现-（少见）" class="headerlink" title="链表实现 （少见）"></a>链表实现 （少见）</h3><h3 id="数组实现-（常见）用ArrayList-就行"><a href="#数组实现-（常见）用ArrayList-就行" class="headerlink" title="数组实现 （常见）用ArrayList 就行"></a>数组实现 （常见）用ArrayList 就行</h3><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h4 id="符号匹配"><a href="#符号匹配" class="headerlink" title="符号匹配"></a>符号匹配</h4><h4 id="后缀表达式计算-（不需知道任何规则-O-N"><a href="#后缀表达式计算-（不需知道任何规则-O-N" class="headerlink" title="后缀表达式计算 （不需知道任何规则 O(N))"></a>后缀表达式计算 （不需知道任何规则 O(N))</h4><p><img src="/.io//10.png"></p>
-<h4 id="中缀表达式转后缀表达式（正常表达式-只有-转后缀表达式）"><a href="#中缀表达式转后缀表达式（正常表达式-只有-转后缀表达式）" class="headerlink" title="中缀表达式转后缀表达式（正常表达式 只有+-*/转后缀表达式）"></a>中缀表达式转后缀表达式（正常表达式 只有+-*/转后缀表达式）</h4><p><img src="/.io//11.png"><br><img src="/.io//12.png"><br><img src="/.io//13.png"></p>
+<p>Set 改变迭代器看到的最后一个值<br><img src="/2020/06/15/data-structures-and-algorithms-chap03-list-stack-queue/9.png"></p>
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><h3 id="链表实现-（少见）"><a href="#链表实现-（少见）" class="headerlink" title="链表实现 （少见）"></a>链表实现 （少见）</h3><h3 id="数组实现-（常见）用ArrayList-就行"><a href="#数组实现-（常见）用ArrayList-就行" class="headerlink" title="数组实现 （常见）用ArrayList 就行"></a>数组实现 （常见）用ArrayList 就行</h3><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h4 id="符号匹配"><a href="#符号匹配" class="headerlink" title="符号匹配"></a>符号匹配</h4><h4 id="后缀表达式计算-（不需知道任何规则-O-N"><a href="#后缀表达式计算-（不需知道任何规则-O-N" class="headerlink" title="后缀表达式计算 （不需知道任何规则 O(N))"></a>后缀表达式计算 （不需知道任何规则 O(N))</h4><p><img src="/2020/06/15/data-structures-and-algorithms-chap03-list-stack-queue/10.png"></p>
+<h4 id="中缀表达式转后缀表达式（正常表达式-只有-转后缀表达式）"><a href="#中缀表达式转后缀表达式（正常表达式-只有-转后缀表达式）" class="headerlink" title="中缀表达式转后缀表达式（正常表达式 只有+-*/转后缀表达式）"></a>中缀表达式转后缀表达式（正常表达式 只有+-*/转后缀表达式）</h4><p><img src="/2020/06/15/data-structures-and-algorithms-chap03-list-stack-queue/11.png"><br><img src="/2020/06/15/data-structures-and-algorithms-chap03-list-stack-queue/12.png"><br><img src="/2020/06/15/data-structures-and-algorithms-chap03-list-stack-queue/13.png"></p>
 <h4 id="方法调用-（栈帧）"><a href="#方法调用-（栈帧）" class="headerlink" title="方法调用 （栈帧）"></a>方法调用 （栈帧）</h4><h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>排队论</p>
 <h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><p>参数化类型<br>只在编译阶段有用</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> stringArrayList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1231,7 +1231,7 @@ return (obj==null) ? "null" : obj.toString()
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="3-7-TrimSize-N-O-N"><a href="#3-7-TrimSize-N-O-N" class="headerlink" title="3.7 TrimSize(N) O(N)"></a>3.7 TrimSize(N) O(N)</h2><h2 id="3-8-删前半表"><a href="#3-8-删前半表" class="headerlink" title="3.8 删前半表"></a>3.8 删前半表</h2><p><img src="/.io//14.png"></p>
+<h2 id="3-7-TrimSize-N-O-N"><a href="#3-7-TrimSize-N-O-N" class="headerlink" title="3.7 TrimSize(N) O(N)"></a>3.7 TrimSize(N) O(N)</h2><h2 id="3-8-删前半表"><a href="#3-8-删前半表" class="headerlink" title="3.8 删前半表"></a>3.8 删前半表</h2><p><img src="/2020/06/15/data-structures-and-algorithms-chap03-list-stack-queue/14.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">a:size()会变
 b: ArrayList O(n^2/2)
 c:LinkedList O(n/2)

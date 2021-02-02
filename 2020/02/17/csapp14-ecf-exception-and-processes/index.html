@@ -491,9 +491,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h1><p><img src="/.io//1.png"></p>
+                <h1 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h1><p><img src="/2020/02/17/csapp14-ecf-exception-and-processes/1.png"></p>
 <h1 id="exceptions"><a href="#exceptions" class="headerlink" title="exceptions"></a>exceptions</h1><p>异常就是系统状态改变了比如</p>
-<p><img src="/.io//2.png"><br><img src="/.io//3.png"></p>
+<p><img src="/2020/02/17/csapp14-ecf-exception-and-processes/2.png"><br><img src="/2020/02/17/csapp14-ecf-exception-and-processes/3.png"></p>
 <p>每一种异常对应一个句柄</p>
 <ul>
 <li><p>异步异常（Asynchronous Exceptions (Interrupts))  I/O 或者 timer</p>
@@ -509,18 +509,18 @@
 </ul>
 </li>
 </ul>
-<h1 id="system-call"><a href="#system-call" class="headerlink" title="system call"></a>system call</h1><p><img src="/.io//4.png"></p>
-<p><img src="/.io//5.png"></p>
-<p><img src="/.io//6.png"></p>
-<p><img src="/.io//7.png"></p>
+<h1 id="system-call"><a href="#system-call" class="headerlink" title="system call"></a>system call</h1><p><img src="/2020/02/17/csapp14-ecf-exception-and-processes/4.png"></p>
+<p><img src="/2020/02/17/csapp14-ecf-exception-and-processes/5.png"></p>
+<p><img src="/2020/02/17/csapp14-ecf-exception-and-processes/6.png"></p>
+<p><img src="/2020/02/17/csapp14-ecf-exception-and-processes/7.png"></p>
 <h1 id="processes"><a href="#processes" class="headerlink" title="processes"></a>processes</h1><p>每个进程单独似乎上单独享有cpu 内存</p>
 <p>实际上是cpu 去并发执行这些进程</p>
-<p><img src="/.io//8.png"></p>
+<p><img src="/2020/02/17/csapp14-ecf-exception-and-processes/8.png"></p>
 <p>虽然现代系统有多核 但是本质没有变 只不过 可以同时的多了</p>
-<p><img src="/.io//9.png"></p>
-<h2 id="并发-或者连续"><a href="#并发-或者连续" class="headerlink" title="并发 或者连续"></a>并发 或者连续</h2><p><img src="/.io//10.png"></p>
+<p><img src="/2020/02/17/csapp14-ecf-exception-and-processes/9.png"></p>
+<h2 id="并发-或者连续"><a href="#并发-或者连续" class="headerlink" title="并发 或者连续"></a>并发 或者连续</h2><p><img src="/2020/02/17/csapp14-ecf-exception-and-processes/10.png"></p>
 <p>进程切换通过上下文 交换 （context switch）操作系统常驻的内存 叫做 内存</p>
-<p><img src="/.io//11.png"></p>
+<p><img src="/2020/02/17/csapp14-ecf-exception-and-processes/11.png"></p>
 <h1 id="processes-control"><a href="#processes-control" class="headerlink" title="processes control"></a>processes control</h1><p>使用syscall一定要检查返回值 可以用wrapper 来装饰 简化代码</p>
 <p>就是在fork 变大写</p>
 <p>程序员角度 进程的三种状态</p>
@@ -530,22 +530,22 @@
 <li>3.停止（terminated） ：永远停止了</li>
 </ul>
 <p>进程停止通过：1.收到信号 2. 主函数返回 3。exit</p>
-<p>exit 从不返回<br><img src="/.io//12.png"></p>
+<p>exit 从不返回<br><img src="/2020/02/17/csapp14-ecf-exception-and-processes/12.png"></p>
 <p>fork 创建进程  自进程和自己享受同样的内存和栈堆</p>
 <p><font color="red" font="" size="4"><strong>调用一次返回两次  返回0代表是子进程 返回pid号代表父进程</strong></font></p>
 <p>用进程图来看</p>
-<p><img src="/.io//13.png"></p>
+<p><img src="/2020/02/17/csapp14-ecf-exception-and-processes/13.png"></p>
 <h2 id="进程停止了-为何还是消耗系统资源"><a href="#进程停止了-为何还是消耗系统资源" class="headerlink" title="进程停止了 为何还是消耗系统资源"></a>进程停止了 为何还是消耗系统资源</h2><ul>
-<li>第一种 子进程停止 但是父进程没有  杀死父进程时会回收<br><img src="/.io//14.png"></li>
+<li>第一种 子进程停止 但是父进程没有  杀死父进程时会回收<br><img src="/2020/02/17/csapp14-ecf-exception-and-processes/14.png"></li>
 <li>第二种  子进程不停止 父进程停止 只能单独杀子进程</li>
 </ul>
-<p><img src="/.io//15.png"></p>
+<p><img src="/2020/02/17/csapp14-ecf-exception-and-processes/15.png"></p>
 <p>用wait 等待子进程 来回收 </p>
-<p><img src="/.io//16.png"></p>
+<p><img src="/2020/02/17/csapp14-ecf-exception-and-processes/16.png"></p>
 <p>execve 会重写 栈 推 数据 而且永不返回 </p>
-<p><img src="/.io//17.png"></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><img src="/.io//18.png"></p>
-<p><img src="/.io//16.png"></p>
+<p><img src="/2020/02/17/csapp14-ecf-exception-and-processes/17.png"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><img src="/2020/02/17/csapp14-ecf-exception-and-processes/18.png"></p>
+<p><img src="/2020/02/17/csapp14-ecf-exception-and-processes/16.png"></p>
 
                 
             </div>

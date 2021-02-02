@@ -508,10 +508,10 @@
 </ul>
 <!-- /TOC -->
 <h1 id="1-free-block-strategy"><a href="#1-free-block-strategy" class="headerlink" title="1.free block strategy"></a>1.free block strategy</h1><p>除了前一天的隐式表(implicit free list)：最原始的方法需要大量搜索时间(吞吐量)，以及内存利用率也不高(字节对齐)<br>衍生出更现代的方法</p>
-<h2 id="1-1-显示表（explicit-free-list"><a href="#1-1-显示表（explicit-free-list" class="headerlink" title="1.1 显示表（explicit free list)"></a>1.1 显示表（explicit free list)</h2><p>已分配的和隐式表一样 非分配用双向链表链接(不一定地址连续) 空闲的表<br><img src="/.io//1.png"></p>
+<h2 id="1-1-显示表（explicit-free-list"><a href="#1-1-显示表（explicit-free-list" class="headerlink" title="1.1 显示表（explicit free list)"></a>1.1 显示表（explicit free list)</h2><p>已分配的和隐式表一样 非分配用双向链表链接(不一定地址连续) 空闲的表<br><img src="/2020/02/23/csapp20-shortage-allocation-advanced/1.png"></p>
 <h3 id="1-1-1-显示表的两种插入规则（在free-list-里面加新块）"><a href="#1-1-1-显示表的两种插入规则（在free-list-里面加新块）" class="headerlink" title="1.1.1 显示表的两种插入规则（在free list 里面加新块）"></a>1.1.1 显示表的两种插入规则（在free list 里面加新块）</h3><ul>
 <li>LIFO （last-in-first-out）<ul>
-<li>把新块加入到free list 首部<br><img src="/.io//2.png"></li>
+<li>把新块加入到free list 首部<br><img src="/2020/02/23/csapp20-shortage-allocation-advanced/2.png"></li>
 <li>优点: 简单的常数时间</li>
 <li>缺点：研究表示内部碎片比地址顺序多</li>
 </ul>
@@ -524,7 +524,7 @@
 </li>
 </ul>
 <p><strong>summary</strong> 显示表的搜索时间从隐式表的所有block到现在只是free的block，多了点内部碎片（两个指针)</p>
-<h2 id="1-2-独立分散表（根据大小）"><a href="#1-2-独立分散表（根据大小）" class="headerlink" title="1.2 独立分散表（根据大小）"></a>1.2 独立分散表（根据大小）</h2><p>根据size分配到地方 地方不够就找更大的size<br><img src="/.io//3.png"></p>
+<h2 id="1-2-独立分散表（根据大小）"><a href="#1-2-独立分散表（根据大小）" class="headerlink" title="1.2 独立分散表（根据大小）"></a>1.2 独立分散表（根据大小）</h2><p>根据size分配到地方 地方不够就找更大的size<br><img src="/2020/02/23/csapp20-shortage-allocation-advanced/3.png"></p>
 <p>优点：搜索时间更快 （吞吐量） 内存利用率高（内部碎片少 因为对应大小</p>
 <h1 id="2-垃圾回收策略"><a href="#2-垃圾回收策略" class="headerlink" title="2 垃圾回收策略"></a>2 垃圾回收策略</h1><p>在动态语言差不多相同 （python java等）C++、C也有了 但是由于指针（会把大整数当指针)存在导致很多垃圾回收不了<br><strong>可以确定回收的垃圾，没有被指向或者间接指向</strong></p>
 <p>最基础的 标记清理法（又可以利用字节对齐的3-4位bit）</p>

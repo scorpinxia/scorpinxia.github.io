@@ -493,19 +493,19 @@
             <div id="articleContent">
                 <h1 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h1><h2 id="版本控制是什么"><a href="#版本控制是什么" class="headerlink" title="版本控制是什么"></a>版本控制是什么</h2><p>记录若干文件变化</p>
 <h2 id="为什么版本控制"><a href="#为什么版本控制" class="headerlink" title="为什么版本控制"></a>为什么版本控制</h2><p>回溯状态 对比文件 找BUG</p>
-<h2 id="本地版本控制"><a href="#本地版本控制" class="headerlink" title="本地版本控制"></a>本地版本控制</h2><p>直接复制目录 或者利用本地数据库<br><img src="/.io//1.png"></p>
-<h2 id="集中化版本控制"><a href="#集中化版本控制" class="headerlink" title="集中化版本控制"></a>集中化版本控制</h2><p>单一集中服务器 去服务器取得最新 （单点故障 联网）<br><img src="/.io//2.png"></p>
+<h2 id="本地版本控制"><a href="#本地版本控制" class="headerlink" title="本地版本控制"></a>本地版本控制</h2><p>直接复制目录 或者利用本地数据库<br><img src="/2020/04/26/git-ban-ben-kong-zhi/1.png"></p>
+<h2 id="集中化版本控制"><a href="#集中化版本控制" class="headerlink" title="集中化版本控制"></a>集中化版本控制</h2><p>单一集中服务器 去服务器取得最新 （单点故障 联网）<br><img src="/2020/04/26/git-ban-ben-kong-zhi/2.png"></p>
 <h2 id="分布式版本控制"><a href="#分布式版本控制" class="headerlink" title="分布式版本控制"></a>分布式版本控制</h2><p>GIT 客户端不只提取最新文件快照，而把代码仓库完整镜像。<br>大家不用联网， 将更改推送他人就可以 ，实际中可能需要一个<br>中心服务器 只是为了推送更改</p>
-<p><img src="/.io//3.png"></p>
+<p><img src="/2020/04/26/git-ban-ben-kong-zhi/3.png"></p>
 <h1 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h1><h2 id="与其他版本管理区别"><a href="#与其他版本管理区别" class="headerlink" title="与其他版本管理区别"></a>与其他版本管理区别</h2><p>差别： 对待数据方式</p>
-<h3 id="其他版本控制"><a href="#其他版本控制" class="headerlink" title="其他版本控制"></a>其他版本控制</h3><p>提交更新文件用Delta表示<br><strong>如何得到最新版本</strong><br>通过原始文件和加减得到最终文件<br><img src="/.io//4.png"></p>
-<h3 id="GIT控制"><a href="#GIT控制" class="headerlink" title="GIT控制"></a>GIT控制</h3><p><font color="blue">快照流 对全部文件制作快照，保存索引,如果文件没有更改就不再重新存储 只保留一个链接指向之前存储 </font><br><img src="/.io//5.png"></p>
+<h3 id="其他版本控制"><a href="#其他版本控制" class="headerlink" title="其他版本控制"></a>其他版本控制</h3><p>提交更新文件用Delta表示<br><strong>如何得到最新版本</strong><br>通过原始文件和加减得到最终文件<br><img src="/2020/04/26/git-ban-ben-kong-zhi/4.png"></p>
+<h3 id="GIT控制"><a href="#GIT控制" class="headerlink" title="GIT控制"></a>GIT控制</h3><p><font color="blue">快照流 对全部文件制作快照，保存索引,如果文件没有更改就不再重新存储 只保留一个链接指向之前存储 </font><br><img src="/2020/04/26/git-ban-ben-kong-zhi/5.png"></p>
 <h4 id="GIT三种状态"><a href="#GIT三种状态" class="headerlink" title="GIT三种状态"></a>GIT三种状态</h4><ol>
 <li><strong>已提交（committed）</strong>：数据已经安全的保存在本地数据库中。</li>
 <li><strong>已修改（modified</strong>）：已修改表示修改了文件，但还没保存到数据库中。</li>
 <li><strong>已暂存（staged）</strong>：表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。</li>
 </ol>
-<h4 id="Git-三个工作区域"><a href="#Git-三个工作区域" class="headerlink" title="Git 三个工作区域"></a>Git 三个工作区域</h4><p><img src="/.io//6.png"></p>
+<h4 id="Git-三个工作区域"><a href="#Git-三个工作区域" class="headerlink" title="Git 三个工作区域"></a>Git 三个工作区域</h4><p><img src="/2020/04/26/git-ban-ben-kong-zhi/6.png"></p>
 <ul>
 <li>Git 仓库(.git directoty)、</li>
 <li>工作目录(Working Directory) </li>
@@ -530,29 +530,29 @@ cd tutorial
 git init<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>请使用status命令确认工作树和索引的状态。</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">git status<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="/.io//7.png"><br>新建一个 sample.txt<br>从status响应我们可以看到‘sample.txt’目前不是历史记录对象。请首先把‘sample.txt’加入到索引，就可以追踪它的变更了。</p>
+<p><img src="/2020/04/26/git-ban-ben-kong-zhi/7.png"><br>新建一个 sample.txt<br>从status响应我们可以看到‘sample.txt’目前不是历史记录对象。请首先把‘sample.txt’加入到索引，就可以追踪它的变更了。</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">git add sample<span class="token punctuation">.</span>txt
 git status<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="/.io//8.png"></p>
+<p><img src="/2020/04/26/git-ban-ben-kong-zhi/8.png"></p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">git commit <span class="token operator">-</span>m <span class="token string">"first commit"</span>
 git status
 git log<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//9.png"></p>
-<h2 id="共享数据库"><a href="#共享数据库" class="headerlink" title="共享数据库"></a>共享数据库</h2><h3 id="将本地数据库修改记录共享到远程PUSH"><a href="#将本地数据库修改记录共享到远程PUSH" class="headerlink" title="将本地数据库修改记录共享到远程PUSH"></a>将本地数据库修改记录共享到远程PUSH</h3><p>创建一个数据库<br><img src="/.io//10.png"></p>
+<p><img src="/2020/04/26/git-ban-ben-kong-zhi/9.png"></p>
+<h2 id="共享数据库"><a href="#共享数据库" class="headerlink" title="共享数据库"></a>共享数据库</h2><h3 id="将本地数据库修改记录共享到远程PUSH"><a href="#将本地数据库修改记录共享到远程PUSH" class="headerlink" title="将本地数据库修改记录共享到远程PUSH"></a>将本地数据库修改记录共享到远程PUSH</h3><p>创建一个数据库<br><img src="/2020/04/26/git-ban-ben-kong-zhi/10.png"></p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">git remote add origin https<span class="token operator">:</span><span class="token comment">//gitee.com/scorpin_xia/tutorial.git</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>添加远程数据库 名称origin</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">git push <span class="token operator">-</span>u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>如果您指定了-u选项，那么下一次推送时就可以省略分支名称了。但是，首次运行指令向空的远程数据库推送时，必须指定远程数据库名称和分支名称。</p>
-<p><img src="/.io//11.png"></p>
+<p><img src="/2020/04/26/git-ban-ben-kong-zhi/11.png"></p>
 <h3 id="克隆远程数据库-clone"><a href="#克隆远程数据库-clone" class="headerlink" title="克隆远程数据库 clone"></a>克隆远程数据库 clone</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">git clone https<span class="token operator">:</span><span class="token comment">//gitee.com/scorpin_xia/tutorial.git tutorial2</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="推送变更"><a href="#推送变更" class="headerlink" title="推送变更"></a>推送变更</h3><p>当在克隆的数据库目录执行推送时，您可以省略数据库和分支名称。</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">git add sample<span class="token punctuation">.</span>txt
 git commit <span class="token operator">-</span>m <span class="token string">"添加add的说明"</span>
 git push<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//12.png"></p>
+<p><img src="/2020/04/26/git-ban-ben-kong-zhi/12.png"></p>
 <h3 id="从远程数据库-pull-更新"><a href="#从远程数据库-pull-更新" class="headerlink" title="从远程数据库 pull 更新"></a>从远程数据库 pull 更新</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">git pull origin master
 git log<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="/.io//13.png"></p>
+<p><img src="/2020/04/26/git-ban-ben-kong-zhi/13.png"></p>
 <h1 id="整合修改记录"><a href="#整合修改记录" class="headerlink" title="整合修改记录"></a>整合修改记录</h1><h2 id="pull-冲突状态"><a href="#pull-冲突状态" class="headerlink" title="pull 冲突状态"></a>pull 冲突状态</h2><p>在执行pull之后，进行下一次push之前，如果其他人进行了推送内容到远程数据库的话，那么你的push将被拒绝。</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//tutorial</span>
 git add sample<span class="token punctuation">.</span>txt
@@ -564,7 +564,7 @@ git push
 
 <span class="token comment">//tutorial</span>
 git push<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//14.png"></p>
+<p><img src="/2020/04/26/git-ban-ben-kong-zhi/14.png"></p>
 <h2 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//tutorial</span>
 git push origin master
 cat sample<span class="token punctuation">.</span>txt
@@ -573,7 +573,7 @@ git add sample<span class="token punctuation">.</span>txt
 git commit <span class="token operator">-</span>m <span class="token string">"合并"</span>
 
 git log <span class="token operator">--</span>graph <span class="token operator">--</span>oneline<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//15.png"><br>指定–graph选项，能以文本形式显示更新记录的流程图。指定–oneline选项，能在一行中显示提交的信息。<br><img src="/.io//16.png"></p>
+<p><img src="/2020/04/26/git-ban-ben-kong-zhi/15.png"><br>指定–graph选项，能以文本形式显示更新记录的流程图。指定–oneline选项，能在一行中显示提交的信息。<br><img src="/2020/04/26/git-ban-ben-kong-zhi/16.png"></p>
 
                 
             </div>

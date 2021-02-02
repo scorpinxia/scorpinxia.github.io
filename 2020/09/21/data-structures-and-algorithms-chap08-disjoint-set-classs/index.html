@@ -505,7 +505,7 @@
 </ul>
 <!-- /TOC -->
 
-<h1 id="等价关系"><a href="#等价关系" class="headerlink" title="等价关系"></a>等价关系</h1><p><img src="/.io//1.png"></p>
+<h1 id="等价关系"><a href="#等价关系" class="headerlink" title="等价关系"></a>等价关系</h1><p><img src="/2020/09/21/data-structures-and-algorithms-chap08-disjoint-set-classs/1.png"></p>
 <h1 id="动态等价关系"><a href="#动态等价关系" class="headerlink" title="动态等价关系"></a>动态等价关系</h1><blockquote>
 <p>S={5个元素}，定义一个等价关系。25对元素，每一对有关系或者没关系。我们需要快速推断关系</p>
 </blockquote>
@@ -530,28 +530,28 @@
 <li>脱机：(笔试)</li>
 </ul>
 <h1 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h1><p>数组存放 s[i]=-1</p>
-<p><img src="/.io//2.png"></p>
-<p>Union<br><img src="/.io//3.png"></p>
-<p><img src="/.io//4.png"></p>
+<p><img src="/2020/09/21/data-structures-and-algorithms-chap08-disjoint-set-classs/2.png"></p>
+<p>Union<br><img src="/2020/09/21/data-structures-and-algorithms-chap08-disjoint-set-classs/3.png"></p>
+<p><img src="/2020/09/21/data-structures-and-algorithms-chap08-disjoint-set-classs/4.png"></p>
 <p>find(x) 与x深度有关，返回x的根 最坏O(N)</p>
 <p>Union O(1)</p>
 <h1 id="灵巧求并-union"><a href="#灵巧求并-union" class="headerlink" title="灵巧求并 (union)"></a>灵巧求并 (union)</h1><ul>
-<li>以大小求并 小子树 是大子树的子树<br><img src="/.io//5.png"></li>
+<li>以大小求并 小子树 是大子树的子树<br><img src="/2020/09/21/data-structures-and-algorithms-chap08-disjoint-set-classs/5.png"></li>
 </ul>
-<p>对比之前<br><img src="/.io//6.png"></p>
-<p>最坏结果  平均O(1)union  O(LogN) find<br><img src="/.io//7.png"></p>
+<p>对比之前<br><img src="/2020/09/21/data-structures-and-algorithms-chap08-disjoint-set-classs/6.png"></p>
+<p>最坏结果  平均O(1)union  O(LogN) find<br><img src="/2020/09/21/data-structures-and-algorithms-chap08-disjoint-set-classs/7.png"></p>
 <ul>
 <li>按高度合并</li>
 </ul>
-<p><img src="/.io//8.png"></p>
+<p><img src="/2020/09/21/data-structures-and-algorithms-chap08-disjoint-set-classs/8.png"></p>
 <h1 id="路径压缩（find）"><a href="#路径压缩（find）" class="headerlink" title="路径压缩（find）"></a>路径压缩（find）</h1><p>如果find很多，对find改进</p>
 <p>让每个点父节点 等于根</p>
-<p><img src="/.io//9.png"></p>
-<p><img src="/.io//10.png"></p>
+<p><img src="/2020/09/21/data-structures-and-algorithms-chap08-disjoint-set-classs/9.png"></p>
+<p><img src="/2020/09/21/data-structures-and-algorithms-chap08-disjoint-set-classs/10.png"></p>
 <p>与大小Union兼容 ，和高度不兼容 ，因为压缩路径改变高</p>
-<h1 id="应用-（迷宫）"><a href="#应用-（迷宫）" class="headerlink" title="应用 （迷宫）"></a>应用 （迷宫）</h1><p><img src="/.io//11.png"></p>
+<h1 id="应用-（迷宫）"><a href="#应用-（迷宫）" class="headerlink" title="应用 （迷宫）"></a>应用 （迷宫）</h1><p><img src="/2020/09/21/data-structures-and-algorithms-chap08-disjoint-set-classs/11.png"></p>
 <p>让开始和结束通就好，不断的随机选择 两个元素拆墙</p>
-<p><img src="/.io//12.png"></p>
+<p><img src="/2020/09/21/data-structures-and-algorithms-chap08-disjoint-set-classs/12.png"></p>
 
                 
             </div>

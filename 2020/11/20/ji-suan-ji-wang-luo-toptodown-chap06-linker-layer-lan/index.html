@@ -550,13 +550,13 @@
 <li>有的需要局域网内所有其他适配器处理  MAC广播地址FF-FF-FF-FF-FF-FF</li>
 </ul>
 <h3 id="ARP"><a href="#ARP" class="headerlink" title="ARP"></a>ARP</h3><blockquote>
-<p>假设简单的一个主机1Ip和1MAC,交换机广播帧<br><img src="/.io//1.png"></p>
+<p>假设简单的一个主机1Ip和1MAC,交换机广播帧<br><img src="/2020/11/20/ji-suan-ji-wang-luo-toptodown-chap06-linker-layer-lan/1.png"></p>
 </blockquote>
 <ul>
 <li>过程<ul>
 <li>222.222.222.220向222.222.222.222发IP数据报。他们在相同的子网里面。</li>
 <li>为了发送需要向适配器提供IP数据报和目的222.222.222.222的MAC地址</li>
-<li>ARP在发送主机的ARP模块（<strong>局域网</strong>内然后IP输入就能得到AMC）<br><img src="/.io//2.png"></li>
+<li>ARP在发送主机的ARP模块（<strong>局域网</strong>内然后IP输入就能得到AMC）<br><img src="/2020/11/20/ji-suan-ji-wang-luo-toptodown-chap06-linker-layer-lan/2.png"></li>
 <li>当ARP表没有的时候，发送方构造一个特殊的ARP Packet。（包括 发送、接受IP 接受MAC字段） 广播<blockquote>
 <p>ARP是封装在链路层的，也包含网络层地址（可以是跨越链路层和网络层的协议）不一定在哪个层</p>
 </blockquote>
@@ -564,7 +564,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="发送数据到子网以外"><a href="#发送数据到子网以外" class="headerlink" title="发送数据到子网以外"></a>发送数据到子网以外</h3><p><img src="/.io//3.png"></p>
+<h3 id="发送数据到子网以外"><a href="#发送数据到子网以外" class="headerlink" title="发送数据到子网以外"></a>发送数据到子网以外</h3><p><img src="/2020/11/20/ji-suan-ji-wang-luo-toptodown-chap06-linker-layer-lan/3.png"></p>
 <blockquote>
 <p>过程</p>
 </blockquote>
@@ -573,7 +573,7 @@
 <li>这个MAC是111.111.111.110 路由器接口的MAC。通往最终目的的第一跳路由器IP. </li>
 <li>路由器得到这个数据 查表继续向222.222.222.220转发</li>
 </ul>
-<h2 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h2><h3 id="帧结构"><a href="#帧结构" class="headerlink" title="帧结构"></a>帧结构</h3><p><img src="/.io//4.png"></p>
+<h2 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h2><h3 id="帧结构"><a href="#帧结构" class="headerlink" title="帧结构"></a>帧结构</h3><p><img src="/2020/11/20/ji-suan-ji-wang-luo-toptodown-chap06-linker-layer-lan/4.png"></p>
 <ul>
 <li>数据字段 46~1500bytes</li>
 <li>目的地址</li>
@@ -587,7 +587,7 @@
 </li>
 <li><p>转发：决定一个帧被导向哪个接口</p>
 </li>
-<li><p>交换机表：<br>  <img src="/.io//5.png"></p>
+<li><p>交换机表：<br>  <img src="/2020/11/20/ji-suan-ji-wang-luo-toptodown-chap06-linker-layer-lan/5.png"></p>
 <ul>
 <li>一个MAC</li>
 <li>一个通往MAC的接口</li>
@@ -611,7 +611,7 @@
 <li>即插即用（不用网络管理员）</li>
 </ul>
 <h3 id="交换机的自学习"><a href="#交换机的自学习" class="headerlink" title="交换机的自学习"></a>交换机的自学习</h3><blockquote>
-<p>学习MAC到达的接口和时间（设置老化期）<br><img src="/.io//6.png"></p>
+<p>学习MAC到达的接口和时间（设置老化期）<br><img src="/2020/11/20/ji-suan-ji-wang-luo-toptodown-chap06-linker-layer-lan/6.png"></p>
 </blockquote>
 <blockquote>
 <p>交换机毒化</p>
@@ -638,7 +638,7 @@
 </li>
 </ul>
 <blockquote>
-<p>优缺点对比<br><img src="/.io//7.png"></p>
+<p>优缺点对比<br><img src="/2020/11/20/ji-suan-ji-wang-luo-toptodown-chap06-linker-layer-lan/7.png"></p>
 </blockquote>
 <blockquote>
 <p>组网意见</p>
@@ -653,7 +653,7 @@
 <ul>
 <li>缺乏流量隔离。有些广播帧跨域了 整个机构网络</li>
 <li>交换机的无效使用。单个96端口的不能隔离10个组</li>
-<li>管理用户。改变物理布线，才能连到不同交换机<br><img src="/.io//8.png"></li>
+<li>管理用户。改变物理布线，才能连到不同交换机<br><img src="/2020/11/20/ji-suan-ji-wang-luo-toptodown-chap06-linker-layer-lan/8.png"></li>
 </ul>
 <blockquote>
 <p>VLAN的作用</p>
@@ -671,10 +671,10 @@
 </li>
 </ul>
 <h3 id="VLAN-trunking"><a href="#VLAN-trunking" class="headerlink" title="VLAN trunking"></a>VLAN trunking</h3><blockquote>
-<p>特殊的端口被配置为干线trunking，发送到任何VLAN的帧，通过干线链路转发到其他交换机<br><img src="/.io//9.png"></p>
+<p>特殊的端口被配置为干线trunking，发送到任何VLAN的帧，通过干线链路转发到其他交换机<br><img src="/2020/11/20/ji-suan-ji-wang-luo-toptodown-chap06-linker-layer-lan/9.png"></p>
 </blockquote>
 <blockquote>
-<p>扩展的以太网帧 802.1q VLAN<br><img src="/.io//10.png"></p>
+<p>扩展的以太网帧 802.1q VLAN<br><img src="/2020/11/20/ji-suan-ji-wang-luo-toptodown-chap06-linker-layer-lan/10.png"></p>
 </blockquote>
 <ul>
 <li>VLAN还能基于IP 和MAC</li>
@@ -686,7 +686,7 @@
 <li>一个学生用便携机和学校的以太网交换机相连，交换机又与学校的路由器相连。</li>
 <li> 学校的路由器和一个ISP相连（Comcast.net) </li>
 <li>这里comcast.net为学校提供DNS服务。DNS服务器在Comcast网络，而不是学校网络</li>
-<li>DHCP服务器在路由器中<br><img src="/.io//11.png"></li>
+<li>DHCP服务器在路由器中<br><img src="/2020/11/20/ji-suan-ji-wang-luo-toptodown-chap06-linker-layer-lan/11.png"></li>
 </ul>
 <h2 id="准备1、DHCP、UDP、IP-以太网"><a href="#准备1、DHCP、UDP、IP-以太网" class="headerlink" title="准备1、DHCP、UDP、IP 以太网"></a>准备1、DHCP、UDP、IP 以太网</h2><blockquote>
 <p>过程</p>

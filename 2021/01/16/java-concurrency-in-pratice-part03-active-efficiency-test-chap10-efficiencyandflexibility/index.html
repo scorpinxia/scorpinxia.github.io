@@ -526,12 +526,12 @@
 <li>大多数提高单线程程序性能技术，会破坏可伸缩性</li>
 <li>服务器往往多少重要（除了交互应用）</li>
 </ul>
-<h1 id="Amadahl"><a href="#Amadahl" class="headerlink" title="Amadahl"></a>Amadahl</h1><p><img src="/.io//1.png"></p>
+<h1 id="Amadahl"><a href="#Amadahl" class="headerlink" title="Amadahl"></a>Amadahl</h1><p><img src="/2021/01/16/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-efficiencyandflexibility/1.png"></p>
 <ul>
 <li>N无穷大 加速比趋近与1/F  串行10% 最高10 50% 最高2</li>
 </ul>
 <h2 id="找出框架隐藏的串行"><a href="#找出框架隐藏的串行" class="headerlink" title="找出框架隐藏的串行"></a>找出框架隐藏的串行</h2><blockquote>
-<p>不同队列的吞吐量<br><img src="/.io//2.png"></p>
+<p>不同队列的吞吐量<br><img src="/2021/01/16/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-efficiencyandflexibility/2.png"></p>
 </blockquote>
 <ul>
 <li>差异由于两个队列不同比例的串行，同步是用单个锁保持整个队列状态。（offer，remove都持有）</li>
@@ -554,7 +554,7 @@
 </ul>
 <h2 id="内存同步"><a href="#内存同步" class="headerlink" title="内存同步"></a>内存同步</h2><ul>
 <li>Memory Barrier：synchronized volatile 刷新缓存（会抑制编译器优化）</li>
-<li>逸出分析（Escape Analysis）：找出不发布到堆的本地对象（去掉锁）<br><img src="/.io//3.png"></li>
+<li>逸出分析（Escape Analysis）：找出不发布到堆的本地对象（去掉锁）<br><img src="/2021/01/16/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-efficiencyandflexibility/3.png"></li>
 <li>锁粒度粗化（Lock Coarsening）(合并锁）)</li>
 </ul>
 <h2 id="阻塞"><a href="#阻塞" class="headerlink" title="阻塞"></a>阻塞</h2><ul>
@@ -578,18 +578,18 @@
 <li>使用带有协调机制的独占锁</li>
 </ul>
 <h2 id="减少锁范围"><a href="#减少锁范围" class="headerlink" title="减少锁范围"></a>减少锁范围</h2><blockquote>
-<p>锁过长例子<br><img src="/.io//4.png"></p>
+<p>锁过长例子<br><img src="/2021/01/16/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-efficiencyandflexibility/4.png"></p>
 </blockquote>
 <ul>
-<li>只有Map.get需要<br><img src="/.io//5.png"></li>
+<li>只有Map.get需要<br><img src="/2021/01/16/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-efficiencyandflexibility/5.png"></li>
 <li>只有一个状态变量 ，可以把线程安全委托其他类提升性能。（Hashtable,synchronizedMap ConcurrentHashMap)，就可以<strong>不再AttributeStore用显示同步</strong>，将来维护代码也好。</li>
 </ul>
 <h2 id="减少锁粒度-多锁"><a href="#减少锁粒度-多锁" class="headerlink" title="减少锁粒度(多锁)"></a>减少锁粒度(多锁)</h2><blockquote>
 <p>锁请求分布更多的锁</p>
 </blockquote>
 <ul>
-<li>一个锁保护多个相互独立状态，可以分解多个锁<br><img src="/.io//6.png"></li>
-<li>分解后<br><img src="/.io//7.png"><br><img src="/.io//8.png"></li>
+<li>一个锁保护多个相互独立状态，可以分解多个锁<br><img src="/2021/01/16/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-efficiencyandflexibility/6.png"></li>
+<li>分解后<br><img src="/2021/01/16/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-efficiencyandflexibility/7.png"><br><img src="/2021/01/16/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-efficiencyandflexibility/8.png"></li>
 </ul>
 <h2 id="锁分段"><a href="#锁分段" class="headerlink" title="锁分段"></a>锁分段</h2><blockquote>
 <p>定义</p>
@@ -599,7 +599,7 @@
 <li>ConcurrentHashMap 用16个锁的数组，每个锁保护所有散列桶的1/16  N mod 16(把锁请求减少到1/16)</li>
 </ul>
 <blockquote>
-<p>锁分段技术 例子<br><img src="/.io//9.png"></p>
+<p>锁分段技术 例子<br><img src="/2021/01/16/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-efficiencyandflexibility/9.png"></p>
 </blockquote>
 <ul>
 <li>S个锁 每个保护一个子集</li>
@@ -640,7 +640,7 @@
 <h2 id="向对象池说不"><a href="#向对象池说不" class="headerlink" title="向对象池说不"></a>向对象池说不</h2><blockquote>
 <p>早期 对象分配 回收操作缓慢的产物</p>
 </blockquote>
-<h1 id="例子：比较Map的性能"><a href="#例子：比较Map的性能" class="headerlink" title="例子：比较Map的性能"></a>例子：比较Map的性能</h1><p><img src="/.io//10.png"></p>
+<h1 id="例子：比较Map的性能"><a href="#例子：比较Map的性能" class="headerlink" title="例子：比较Map的性能"></a>例子：比较Map的性能</h1><p><img src="/2021/01/16/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-efficiencyandflexibility/10.png"></p>
 <ul>
 <li>对同步容器 负载变成竞争</li>
 </ul>

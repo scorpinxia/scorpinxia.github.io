@@ -590,7 +590,7 @@
 
 <span class="token class-name">Collection</span><span class="token operator">&lt;</span>？ extend <span class="token class-name">Shape</span><span class="token operator">&gt;</span> arr
 <span class="token class-name">T</span> ISA <span class="token class-name">Shape</span> <span class="token punctuation">(</span>继承或者实现类或方法<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/.io//1.png"></p>
+<p><img src="/2020/06/01/data-structures-and-algorithms-chap01-baseidea/1.png"></p>
 <h3 id="下界通配符"><a href="#下界通配符" class="headerlink" title="下界通配符"></a>下界通配符</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">
  <span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> <span class="token class-name">C</span><span class="token punctuation">&gt;</span></span>
 <span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span>编译器只知道类型是 <span class="token class-name">C</span> 或者 <span class="token class-name">C</span> 的父类，所以有可能是 <span class="token class-name">A</span> <span class="token class-name">B</span> <span class="token class-name">C</span> 其中一个类型。编译器知道下界是 <span class="token class-name">C</span> ，根据类型向上兼容所以可以添加的元素是 <span class="token class-name">C</span> 以及 <span class="token class-name">C</span> 的子类<span class="token punctuation">(</span>单车可以代表车<span class="token punctuation">)</span>。
@@ -643,21 +643,21 @@
         
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="泛型static"><a href="#泛型static" class="headerlink" title="泛型static"></a>泛型static</h2><p>代替Object的非泛型方法 能得到编译错误<br><img src="/.io//2.png"></p>
-<h2 id="类型限界"><a href="#类型限界" class="headerlink" title="类型限界"></a>类型限界</h2><p>找最大值 要保证传入的type是可以有实现comparable的<br><img src="/.io//3.png"></p>
+<h2 id="泛型static"><a href="#泛型static" class="headerlink" title="泛型static"></a>泛型static</h2><p>代替Object的非泛型方法 能得到编译错误<br><img src="/2020/06/01/data-structures-and-algorithms-chap01-baseidea/2.png"></p>
+<h2 id="类型限界"><a href="#类型限界" class="headerlink" title="类型限界"></a>类型限界</h2><p>找最大值 要保证传入的type是可以有实现comparable的<br><img src="/2020/06/01/data-structures-and-algorithms-chap01-baseidea/3.png"></p>
 <ul>
 <li>方法一：public static <anytpye extend="" comparable=""></anytpye></li>
 <li>方法二：comparable接口现在是泛型<br>public static &lt;Anytpye extend comparable<anytpye>&gt;</anytpye></li>
 <li><font color="red">方法三:</font><br>假设shape 实现类Comparable《shape》 square 继承shape square IS-A comparable《shape》 但他IS-NOT-A comparable《square》<br>编译器将接受类型T的数组，只是使得T实现Comparable《S》接口 T IS-A S</li>
 </ul>
-<p><img src="/.io//4.png"></p>
+<p><img src="/2020/06/01/data-structures-and-algorithms-chap01-baseidea/4.png"></p>
 <h3 id="PECS-原则"><a href="#PECS-原则" class="headerlink" title="PECS 原则"></a>PECS 原则</h3><pre class="line-numbers language-none"><code class="language-none">&lt;? extends C&gt; 适合大量做获取操作的情景，&lt;? super C&gt; 适合大量做添加操作的情景。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="类型擦除"><a href="#类型擦除" class="headerlink" title="类型擦除"></a>类型擦除</h2><p>泛型类可以通过编译器类型擦除变成非泛型</p>
 <p>好处：泛型生成代码和之前的差不多 运行也不会快 但是类型转换不用放在代码里 编译器来类型检验</p>
-<h2 id="泛型的限制"><a href="#泛型的限制" class="headerlink" title="泛型的限制"></a>泛型的限制</h2><h3 id="基本类型不行"><a href="#基本类型不行" class="headerlink" title="基本类型不行"></a>基本类型不行</h3><h3 id="Instanceof-检测"><a href="#Instanceof-检测" class="headerlink" title="Instanceof 检测"></a>Instanceof 检测</h3><p><img src="/.io//5.png"><br>最后出错 因为instanceof 不过</p>
+<h2 id="泛型的限制"><a href="#泛型的限制" class="headerlink" title="泛型的限制"></a>泛型的限制</h2><h3 id="基本类型不行"><a href="#基本类型不行" class="headerlink" title="基本类型不行"></a>基本类型不行</h3><h3 id="Instanceof-检测"><a href="#Instanceof-检测" class="headerlink" title="Instanceof 检测"></a>Instanceof 检测</h3><p><img src="/2020/06/01/data-structures-and-algorithms-chap01-baseidea/5.png"><br>最后出错 因为instanceof 不过</p>
 <h3 id="泛型类-static-方法作用域均不可引用类的类型变量-因为类擦除类型变量不存在"><a href="#泛型类-static-方法作用域均不可引用类的类型变量-因为类擦除类型变量不存在" class="headerlink" title="泛型类 static 方法作用域均不可引用类的类型变量 因为类擦除类型变量不存在"></a>泛型类 static 方法作用域均不可引用类的类型变量 因为类擦除类型变量不存在</h3><h2 id="函数对象"><a href="#函数对象" class="headerlink" title="函数对象"></a>函数对象</h2><p>比如Comparator 对象 作为一个函数的用途</p>
-<h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><h2 id="1-1-选择最大值"><a href="#1-1-选择最大值" class="headerlink" title="1.1 选择最大值"></a>1.1 选择最大值</h2><p>用书的两种方法 求第k个最大值<br>第一种：直接排序<br>第二种：排序k个后慢慢插入<br><img src="/.io//6.png"></p>
+<h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><h2 id="1-1-选择最大值"><a href="#1-1-选择最大值" class="headerlink" title="1.1 选择最大值"></a>1.1 选择最大值</h2><p>用书的两种方法 求第k个最大值<br>第一种：直接排序<br>第二种：排序k个后慢慢插入<br><img src="/2020/06/01/data-structures-and-algorithms-chap01-baseidea/6.png"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">chap01</span><span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Random</span><span class="token punctuation">;</span>

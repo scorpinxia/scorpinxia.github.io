@@ -491,41 +491,41 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Cache-Meories"><a href="#Cache-Meories" class="headerlink" title="Cache Meories"></a>Cache Meories</h1><p><img src="/.io//1.png"></p>
-<h1 id="典型结构"><a href="#典型结构" class="headerlink" title="典型结构"></a>典型结构</h1><p><img src="/.io//2.png"></p>
-<h1 id="Direct-Mapped-Cache-直接映射寻址-E-1"><a href="#Direct-Mapped-Cache-直接映射寻址-E-1" class="headerlink" title="Direct Mapped Cache(直接映射寻址) (E=1)"></a>Direct Mapped Cache(直接映射寻址) (E=1)</h1><h2 id="直接find-set-（valid-标志位相同）-hit-后在返回对应的block"><a href="#直接find-set-（valid-标志位相同）-hit-后在返回对应的block" class="headerlink" title="直接find set + （valid+标志位相同） =hit  后在返回对应的block"></a>直接find set + （valid+标志位相同） =hit  后在返回对应的block</h2><p><img src="/.io//3.png"></p>
-<p><img src="/.io//4.png"></p>
+                <h1 id="Cache-Meories"><a href="#Cache-Meories" class="headerlink" title="Cache Meories"></a>Cache Meories</h1><p><img src="/2020/02/15/csapp12-cache-memory/1.png"></p>
+<h1 id="典型结构"><a href="#典型结构" class="headerlink" title="典型结构"></a>典型结构</h1><p><img src="/2020/02/15/csapp12-cache-memory/2.png"></p>
+<h1 id="Direct-Mapped-Cache-直接映射寻址-E-1"><a href="#Direct-Mapped-Cache-直接映射寻址-E-1" class="headerlink" title="Direct Mapped Cache(直接映射寻址) (E=1)"></a>Direct Mapped Cache(直接映射寻址) (E=1)</h1><h2 id="直接find-set-（valid-标志位相同）-hit-后在返回对应的block"><a href="#直接find-set-（valid-标志位相同）-hit-后在返回对应的block" class="headerlink" title="直接find set + （valid+标志位相同） =hit  后在返回对应的block"></a>直接find set + （valid+标志位相同） =hit  后在返回对应的block</h2><p><img src="/2020/02/15/csapp12-cache-memory/3.png"></p>
+<p><img src="/2020/02/15/csapp12-cache-memory/4.png"></p>
 <p>这样的问题  很容易miss（并且是在还有set 的情况下）  之前存过的又没了 </p>
-<h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><p><img src="/.io//5.png"></p>
+<h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><p><img src="/2020/02/15/csapp12-cache-memory/5.png"></p>
 <h2 id="写命中呢？-（write-hit"><a href="#写命中呢？-（write-hit" class="headerlink" title="写命中呢？ （write hit)"></a>写命中呢？ （write hit)</h2><p>两种方法 一种直接写内存（write through’） 另一种等到这个缓存被替代在写 （write back）</p>
-<h2 id="Write-miss"><a href="#Write-miss" class="headerlink" title="Write miss?"></a>Write miss?</h2><p>一种 直接写内存（no-write-allocate) 另一种 还是写缓存等待替换(write-allocate)<br><img src="/.io//6.png"></p>
-<p><img src="/.io//7.png"></p>
-<h1 id="命中率差-2百分-性能可能差一倍"><a href="#命中率差-2百分-性能可能差一倍" class="headerlink" title="命中率差 2百分 性能可能差一倍"></a>命中率差 2百分 性能可能差一倍</h1><p><img src="/.io//8.png"></p>
+<h2 id="Write-miss"><a href="#Write-miss" class="headerlink" title="Write miss?"></a>Write miss?</h2><p>一种 直接写内存（no-write-allocate) 另一种 还是写缓存等待替换(write-allocate)<br><img src="/2020/02/15/csapp12-cache-memory/6.png"></p>
+<p><img src="/2020/02/15/csapp12-cache-memory/7.png"></p>
+<h1 id="命中率差-2百分-性能可能差一倍"><a href="#命中率差-2百分-性能可能差一倍" class="headerlink" title="命中率差 2百分 性能可能差一倍"></a>命中率差 2百分 性能可能差一倍</h1><p><img src="/2020/02/15/csapp12-cache-memory/8.png"></p>
 <p>所以后面都使用miss rate 来看倍数</p>
 <h1 id="利用对缓存的了解在程序运用"><a href="#利用对缓存的了解在程序运用" class="headerlink" title="利用对缓存的了解在程序运用"></a>利用对缓存的了解在程序运用</h1><p>通过读取吞吐量来算速度内存山</p>
-<p><img src="/.io//9.png"></p>
+<p><img src="/2020/02/15/csapp12-cache-memory/9.png"></p>
 <p>可以看出 遍历数组不同的大小（时间本地性）决定了 缓存的级别   （stride 决定空间复杂的miss rate 也就是坡度）当到达8的时候就平坦了 因为缓存本来就最多8个double （注意在stride1 的时候就算size 大 可以在L2 和L1时候保持 相同的速度 应该是intel工程师对stride1 的优化)</p>
 <h1 id="空间本地性"><a href="#空间本地性" class="headerlink" title="空间本地性"></a>空间本地性</h1><p>要点尽可能访问 行 </p>
 <p>矩阵乘法里</p>
 <p>ijk</p>
-<p><img src="/.io//10.png"></p>
-<p><img src="/.io//11.png"></p>
+<p><img src="/2020/02/15/csapp12-cache-memory/10.png"></p>
+<p><img src="/2020/02/15/csapp12-cache-memory/11.png"></p>
 <p>ikj</p>
-<p><img src="/.io//12.png"></p>
-<p><img src="/.io//13.png"></p>
+<p><img src="/2020/02/15/csapp12-cache-memory/12.png"></p>
+<p><img src="/2020/02/15/csapp12-cache-memory/13.png"></p>
 <p>kji</p>
-<p><img src="/.io//14.png"></p>
-<p><img src="/.io//15.png"></p>
+<p><img src="/2020/02/15/csapp12-cache-memory/14.png"></p>
+<p><img src="/2020/02/15/csapp12-cache-memory/15.png"></p>
 <p><strong>就是看哪两个是固定的就是 比如 kj固定 就是kji (和jki相等）</strong></p>
-<p><img src="/.io//16.png"></p>
+<p><img src="/2020/02/15/csapp12-cache-memory/16.png"></p>
 <h2 id="通过分块（BLOCKing-来改善时间本地性）"><a href="#通过分块（BLOCKing-来改善时间本地性）" class="headerlink" title="通过分块（BLOCKing 来改善时间本地性）"></a>通过分块（BLOCKing 来改善时间本地性）</h2><p>正常访问</p>
 <p>总共一行miss rate ：1/8  列miss rate ：1   个数一行n个  一列也是n个</p>
-<p><img src="/.io//17.png">   </p>
+<p><img src="/2020/02/15/csapp12-cache-memory/17.png">   </p>
 <p>分块访问 </p>
 <p>分块 每一块用 ijk 这样missrate 都是1/8 </p>
-<p><img src="/.io//18.png"></p>
-<p><img src="/.io//19.png"></p>
-<p><img src="/.io//20.png"></p>
+<p><img src="/2020/02/15/csapp12-cache-memory/18.png"></p>
+<p><img src="/2020/02/15/csapp12-cache-memory/19.png"></p>
+<p><img src="/2020/02/15/csapp12-cache-memory/20.png"></p>
 <p>C是Cache size</p>
 <p>有至少3个block 放进去运算 所以 这些block要小于总的cache size</p>
 

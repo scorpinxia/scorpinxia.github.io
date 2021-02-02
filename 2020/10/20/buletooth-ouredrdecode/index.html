@@ -496,67 +496,67 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="load-data-初始配置"><a href="#load-data-初始配置" class="headerlink" title="load data 初始配置"></a>load data 初始配置</h1><ul>
-<li>采样率、时隙、中心频率、symbol 时间 最小包长<br><img src="/.io//1.png"></li>
+<li>采样率、时隙、中心频率、symbol 时间 最小包长<br><img src="/2020/10/20/buletooth-ouredrdecode/1.png"></li>
 </ul>
-<h1 id="边缘检测包头、包尾"><a href="#边缘检测包头、包尾" class="headerlink" title="边缘检测包头、包尾"></a>边缘检测包头、包尾</h1><p>最少包长 64symbol<br><img src="/.io//2.png"></p>
-<p><img src="/.io//3.png"></p>
-<h1 id="处理包初始化配置"><a href="#处理包初始化配置" class="headerlink" title="处理包初始化配置"></a>处理包初始化配置</h1><p><img src="/.io//4.png"></p>
+<h1 id="边缘检测包头、包尾"><a href="#边缘检测包头、包尾" class="headerlink" title="边缘检测包头、包尾"></a>边缘检测包头、包尾</h1><p>最少包长 64symbol<br><img src="/2020/10/20/buletooth-ouredrdecode/2.png"></p>
+<p><img src="/2020/10/20/buletooth-ouredrdecode/3.png"></p>
+<h1 id="处理包初始化配置"><a href="#处理包初始化配置" class="headerlink" title="处理包初始化配置"></a>处理包初始化配置</h1><p><img src="/2020/10/20/buletooth-ouredrdecode/4.png"></p>
 <h1 id="提取包"><a href="#提取包" class="headerlink" title="提取包"></a>提取包</h1><ul>
-<li>算平均功率<br><img src="/.io//5.png"></li>
+<li>算平均功率<br><img src="/2020/10/20/buletooth-ouredrdecode/5.png"></li>
 </ul>
 <h2 id="相位检测"><a href="#相位检测" class="headerlink" title="相位检测"></a>相位检测</h2><ul>
-<li><p>removeDC<br><img src="/.io//6.png"></p>
+<li><p>removeDC<br><img src="/2020/10/20/buletooth-ouredrdecode/6.png"></p>
 </li>
-<li><p>fft<br><img src="/.io//7.png"></p>
+<li><p>fft<br><img src="/2020/10/20/buletooth-ouredrdecode/7.png"></p>
 </li>
-<li><p>得到频谱<br><img src="/.io//8.png"></p>
+<li><p>得到频谱<br><img src="/2020/10/20/buletooth-ouredrdecode/8.png"></p>
 </li>
 </ul>
 <ul>
-<li><p>量化到1Mhz 0~101<img src="/.io//10.png"><br><img src="/.io//9.png"><br>这时候 M级f_offset=0;</p>
+<li><p>量化到1Mhz 0~101<img src="/2020/10/20/buletooth-ouredrdecode/10.png"><br><img src="/2020/10/20/buletooth-ouredrdecode/9.png"><br>这时候 M级f_offset=0;</p>
 </li>
 <li><p>采样相位漂移补偿（没有真正实施）</p>
 </li>
-<li><p>滤波LPF 0.015*100Mhz=1.5Mhz (变成低通)<br>滤波前后<img src="/.io//13.png"></p>
+<li><p>滤波LPF 0.015*100Mhz=1.5Mhz (变成低通)<br>滤波前后<img src="/2020/10/20/buletooth-ouredrdecode/13.png"></p>
 </li>
 <li><p>得到初始相位差估计（频偏）</p>
 </li>
 </ul>
-<p><img src="/.io//14.png"></p>
-<h1 id="同步化"><a href="#同步化" class="headerlink" title="同步化"></a>同步化</h1><p>temp_pack是频率相关<br><img src="/.io//16.png"></p>
+<p><img src="/2020/10/20/buletooth-ouredrdecode/14.png"></p>
+<h1 id="同步化"><a href="#同步化" class="headerlink" title="同步化"></a>同步化</h1><p>temp_pack是频率相关<br><img src="/2020/10/20/buletooth-ouredrdecode/16.png"></p>
 <ul>
-<li><p>使用 包头 15~75 symbol ，找符号平均的中心<br><img src="/.io//17.png"></p>
+<li><p>使用 包头 15~75 symbol ，找符号平均的中心<br><img src="/2020/10/20/buletooth-ouredrdecode/17.png"></p>
 </li>
-<li><p>取150us <img src="/.io//18.png"></p>
+<li><p>取150us <img src="/2020/10/20/buletooth-ouredrdecode/18.png"></p>
 </li>
 <li><p>取符号平均作为bits</p>
 </li>
-<li><p>Binary Demod<br><img src="/.io//19.png"></p>
+<li><p>Binary Demod<br><img src="/2020/10/20/buletooth-ouredrdecode/19.png"></p>
 <blockquote>
 <p>移动的找Access code（直到校验通过）<br>得到LAP的EST<br>复原acesscode </p>
 </blockquote>
 </li>
 </ul>
 <blockquote>
-<p>通过acesscode生成的理想GFSK 就是频率 syncword<br><img src="/.io//20.png"></p>
+<p>通过acesscode生成的理想GFSK 就是频率 syncword<br><img src="/2020/10/20/buletooth-ouredrdecode/20.png"></p>
 </blockquote>
 <blockquote>
-<p>找到同步位置<br>同步字算平均的频率差值<br><img src="/.io//21.png"><br><img src="/.io//23.png"></p>
+<p>找到同步位置<br>同步字算平均的频率差值<br><img src="/2020/10/20/buletooth-ouredrdecode/21.png"><br><img src="/2020/10/20/buletooth-ouredrdecode/23.png"></p>
 </blockquote>
 <blockquote>
-<p>matlab 频偏估计<br><img src="/.io//24.png"></p>
+<p>matlab 频偏估计<br><img src="/2020/10/20/buletooth-ouredrdecode/24.png"></p>
 </blockquote>
-<h1 id="EDR-demod"><a href="#EDR-demod" class="headerlink" title="EDR demod"></a>EDR demod</h1><p><img src="/.io//22.png"></p>
+<h1 id="EDR-demod"><a href="#EDR-demod" class="headerlink" title="EDR demod"></a>EDR demod</h1><p><img src="/2020/10/20/buletooth-ouredrdecode/22.png"></p>
 <blockquote>
 <p>输入EDR sample，平均频偏粗估，rate</p>
 </blockquote>
 <blockquote>
-<p>初始化 同步bit ，其中的ref_seq是 EDR2M  2bit 表示1相位的DPSK调制  24bit变成13bit 定义如下<br><img src="/.io//26.png"><br><img src="/.io//25.png"></p>
+<p>初始化 同步bit ，其中的ref_seq是 EDR2M  2bit 表示1相位的DPSK调制  24bit变成13bit 定义如下<br><img src="/2020/10/20/buletooth-ouredrdecode/26.png"><br><img src="/2020/10/20/buletooth-ouredrdecode/25.png"></p>
 </blockquote>
 <ul>
-<li><p><font color="red" font="" size="4"> 可能存在错误 rcc 把13的序列变成900sample<br><img src="/.io//27.png"><br><img src="/.io//28.png"></font></p>
+<li><p><font color="red" font="" size="4"> 可能存在错误 rcc 把13的序列变成900sample<br><img src="/2020/10/20/buletooth-ouredrdecode/27.png"><br><img src="/2020/10/20/buletooth-ouredrdecode/28.png"></font></p>
 </li>
-<li><p>上采样方法 fir 1. 补齐法  补同样的序列值 2.后续补0上采样（错误） 3.中间补0和系统函数一样( 对的方法） <br><img src="/.io//29.png"><br><img src="/.io//30.png"></p>
+<li><p>上采样方法 fir 1. 补齐法  补同样的序列值 2.后续补0上采样（错误） 3.中间补0和系统函数一样( 对的方法） <br><img src="/2020/10/20/buletooth-ouredrdecode/29.png"><br><img src="/2020/10/20/buletooth-ouredrdecode/30.png"></p>
 </li>
 </ul>
 

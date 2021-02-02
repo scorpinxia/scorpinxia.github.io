@@ -513,17 +513,17 @@
 <h2 id="2-1-通过将变量放入内存搞清一个变量有多少个实例"><a href="#2-1-通过将变量放入内存搞清一个变量有多少个实例" class="headerlink" title="2.1. 通过将变量放入内存搞清一个变量有多少个实例"></a>2.1. 通过将变量放入内存搞清一个变量有多少个实例</h2><ul>
 <li>global variables<br>放在全局区，在链接时链接器就只存放了同名全局变量的一个实例在虚拟内存里面</li>
 <li>local variables<br>非static 变量放在栈上 每个进程有自己的栈</li>
-<li>local static variables<br>放在全局区 虚拟内存里面只有一个实例<br><img src="/.io//1.png"><br>从share的角度<br><img src="/.io//2.png"></li>
+<li>local static variables<br>放在全局区 虚拟内存里面只有一个实例<br><img src="/2020/02/27/csapp24-synchronization-basic/1.png"><br>从share的角度<br><img src="/2020/02/27/csapp24-synchronization-basic/2.png"></li>
 <li>*ptr, cnt, and msgs are shared<br>n i and myid are not shared**</li>
 </ul>
-<h1 id="3-probelems"><a href="#3-probelems" class="headerlink" title="3. probelems"></a>3. probelems</h1><p>volatile 可以防止变量一直存在寄存器里面 （不写回）<br>交给内核完成上下文交换 只有系统调用和定时器中断 所以数字大的话错误概率就高<br><img src="/.io//3.png"><br><strong>反汇编</strong> 发现改变cnt需要三个步骤 只有最后一个步骤写回<br><img src="/.io//4.png"><br>正确顺序<br><img src="/.io//5.png"><br>可能的顺序<br><img src="/.io//6.png"><br><img src="/.io//7.png"></p>
-<h2 id="3-1-进程图分析"><a href="#3-1-进程图分析" class="headerlink" title="3.1. 进程图分析"></a>3.1. 进程图分析</h2><p><img src="/.io//8.png"></p>
+<h1 id="3-probelems"><a href="#3-probelems" class="headerlink" title="3. probelems"></a>3. probelems</h1><p>volatile 可以防止变量一直存在寄存器里面 （不写回）<br>交给内核完成上下文交换 只有系统调用和定时器中断 所以数字大的话错误概率就高<br><img src="/2020/02/27/csapp24-synchronization-basic/3.png"><br><strong>反汇编</strong> 发现改变cnt需要三个步骤 只有最后一个步骤写回<br><img src="/2020/02/27/csapp24-synchronization-basic/4.png"><br>正确顺序<br><img src="/2020/02/27/csapp24-synchronization-basic/5.png"><br>可能的顺序<br><img src="/2020/02/27/csapp24-synchronization-basic/6.png"><br><img src="/2020/02/27/csapp24-synchronization-basic/7.png"></p>
+<h2 id="3-1-进程图分析"><a href="#3-1-进程图分析" class="headerlink" title="3.1. 进程图分析"></a>3.1. 进程图分析</h2><p><img src="/2020/02/27/csapp24-synchronization-basic/8.png"></p>
 <h2 id="3-2-信号量（Semaphores）"><a href="#3-2-信号量（Semaphores）" class="headerlink" title="3.2. 信号量（Semaphores）"></a>3.2. 信号量（Semaphores）</h2><p>Monitors (Java)<br>Semaphores 是非负全局**<em>同步**</em>变量。</p>
 <p>因此可以通过PV加减信号量来保证不会进入危险区域</p>
-<p><img src="/.io//9.png"></p>
+<p><img src="/2020/02/27/csapp24-synchronization-basic/9.png"></p>
 <ul>
 <li>P 减少 信号量 如果信号量是0 那么就会阻塞等待V增加信号量</li>
-<li>V 不会阻塞 只是在增加后 会随机选择 多个阻塞线程中的一个<br><img src="/.io//10.png"></li>
+<li>V 不会阻塞 只是在增加后 会随机选择 多个阻塞线程中的一个<br><img src="/2020/02/27/csapp24-synchronization-basic/10.png"></li>
 </ul>
 
                 

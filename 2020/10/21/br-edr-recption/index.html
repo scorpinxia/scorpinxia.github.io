@@ -495,21 +495,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="接收机"><a href="#接收机" class="headerlink" title="接收机"></a>接收机</h1><h2 id="生成acesscode-wave"><a href="#生成acesscode-wave" class="headerlink" title="生成acesscode wave"></a>生成acesscode wave</h2><p><img src="/.io//1.png"></p>
-<h2 id="Remove-收到的wave-DC"><a href="#Remove-收到的wave-DC" class="headerlink" title="Remove 收到的wave DC"></a>Remove 收到的wave DC</h2><p><img src="/.io//2.png"></p>
+                <h1 id="接收机"><a href="#接收机" class="headerlink" title="接收机"></a>接收机</h1><h2 id="生成acesscode-wave"><a href="#生成acesscode-wave" class="headerlink" title="生成acesscode wave"></a>生成acesscode wave</h2><p><img src="/2020/10/21/br-edr-recption/1.png"></p>
+<h2 id="Remove-收到的wave-DC"><a href="#Remove-收到的wave-DC" class="headerlink" title="Remove 收到的wave DC"></a>Remove 收到的wave DC</h2><p><img src="/2020/10/21/br-edr-recption/2.png"></p>
 <h2 id="通过跳变检测信号"><a href="#通过跳变检测信号" class="headerlink" title="通过跳变检测信号"></a>通过跳变检测信号</h2><ul>
 <li>用100的窗 检测</li>
-<li>把每100的叠加<br><img src="/.io//3.png"><br><img src="/.io//4.png"></li>
+<li>把每100的叠加<br><img src="/2020/10/21/br-edr-recption/3.png"><br><img src="/2020/10/21/br-edr-recption/4.png"></li>
 </ul>
-<h2 id="初始化decodeInfo"><a href="#初始化decodeInfo" class="headerlink" title="初始化decodeInfo"></a>初始化decodeInfo</h2><p><img src="/.io//5.png"></p>
+<h2 id="初始化decodeInfo"><a href="#初始化decodeInfo" class="headerlink" title="初始化decodeInfo"></a>初始化decodeInfo</h2><p><img src="/2020/10/21/br-edr-recption/5.png"></p>
 <h2 id="分步处理每个包"><a href="#分步处理每个包" class="headerlink" title="分步处理每个包"></a>分步处理每个包</h2><h3 id="时间和频率估计补偿"><a href="#时间和频率估计补偿" class="headerlink" title="时间和频率估计补偿"></a>时间和频率估计补偿</h3><ul>
 <li>和第一个符号卷积</li>
-<li>同样把收到的信号和rcV卷积<br><img src="/.io//7.png"></li>
+<li>同样把收到的信号和rcV卷积<br><img src="/2020/10/21/br-edr-recption/7.png"></li>
 </ul>
 <ul>
-<li><p>检测前后相位差<br><img src="/.io//9.png"><br><img src="/.io//6.png"></p>
+<li><p>检测前后相位差<br><img src="/2020/10/21/br-edr-recption/9.png"><br><img src="/2020/10/21/br-edr-recption/6.png"></p>
 </li>
-<li><p>计算相位差的互相关 （表示移位后的相似度）<br><img src="/.io//8.png"></p>
+<li><p>计算相位差的互相关 （表示移位后的相似度）<br><img src="/2020/10/21/br-edr-recption/8.png"></p>
 </li>
 <li><p>找到互相关相似度最大的位置 延时 确定延时时间lagTimeDiff =-13927</p>
 </li>
@@ -519,23 +519,23 @@
 </li>
 </ul>
 <ul>
-<li>通过同步后的acesscode的与标准的aceesCode平均相位差算频偏<br><img src="/.io//10.png"></li>
+<li>通过同步后的acesscode的与标准的aceesCode平均相位差算频偏<br><img src="/2020/10/21/br-edr-recption/10.png"></li>
 </ul>
 <ul>
-<li>补足到5个时隙<img src="/.io//12.png"></li>
+<li>补足到5个时隙<img src="/2020/10/21/br-edr-recption/12.png"></li>
 </ul>
 <h2 id="Decode-信号"><a href="#Decode-信号" class="headerlink" title="Decode 信号"></a>Decode 信号</h2><ul>
-<li><p>初始化包设置<br><img src="/.io//13.png"></p>
+<li><p>初始化包设置<br><img src="/2020/10/21/br-edr-recption/13.png"></p>
 </li>
-<li><p>地址<br><img src="/.io//15.png"></p>
+<li><p>地址<br><img src="/2020/10/21/br-edr-recption/15.png"></p>
 </li>
-<li><p>字段长度<br><img src="/.io//14.png"></p>
+<li><p>字段长度<br><img src="/2020/10/21/br-edr-recption/14.png"></p>
 </li>
-<li><p>EDR / BR<br><img src="/.io//16.png"></p>
+<li><p>EDR / BR<br><img src="/2020/10/21/br-edr-recption/16.png"></p>
 </li>
 </ul>
-<h2 id="Gfsk解码access-code-packHearLen-和trailerLen"><a href="#Gfsk解码access-code-packHearLen-和trailerLen" class="headerlink" title="Gfsk解码access code packHearLen 和trailerLen"></a>Gfsk解码access code packHearLen 和trailerLen</h2><p><img src="/.io//17.png"></p>
-<h2 id="判断packgettype"><a href="#判断packgettype" class="headerlink" title="判断packgettype"></a>判断packgettype</h2><p><img src="/.io//18.png"></p>
+<h2 id="Gfsk解码access-code-packHearLen-和trailerLen"><a href="#Gfsk解码access-code-packHearLen-和trailerLen" class="headerlink" title="Gfsk解码access code packHearLen 和trailerLen"></a>Gfsk解码access code packHearLen 和trailerLen</h2><p><img src="/2020/10/21/br-edr-recption/17.png"></p>
+<h2 id="判断packgettype"><a href="#判断packgettype" class="headerlink" title="判断packgettype"></a>判断packgettype</h2><p><img src="/2020/10/21/br-edr-recption/18.png"></p>
 
                 
             </div>

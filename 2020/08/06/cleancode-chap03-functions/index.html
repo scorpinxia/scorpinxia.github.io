@@ -496,15 +496,15 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="overview"><a href="#overview" class="headerlink" title="overview"></a>overview</h1><p>看下面两个函数</p>
-<p><img src="/.io//1.png"><br><img src="/.io//2.png"></p>
+<p><img src="/2020/08/06/cleancode-chap03-functions/1.png"><br><img src="/2020/08/06/cleancode-chap03-functions/2.png"></p>
 <p>太多事发生，太多不同的层级抽象。奇怪的字符串和函数调用，混合双重嵌套、标识控制的if语句，不一而足</p>
-<p><img src="/.io//3.png"></p>
+<p><img src="/2020/08/06/cleancode-chap03-functions/3.png"></p>
 <h1 id="短小"><a href="#短小" class="headerlink" title="短小"></a>短小</h1><p>再次重构</p>
-<p><img src="/.io//4.png"></p>
+<p><img src="/2020/08/06/cleancode-chap03-functions/4.png"></p>
 <p>函数缩进不该多于一层或两层。</p>
 <h1 id="只做一件事"><a href="#只做一件事" class="headerlink" title="只做一件事"></a>只做一件事</h1><h1 id="每个函数一个抽象层级"><a href="#每个函数一个抽象层级" class="headerlink" title="每个函数一个抽象层级"></a>每个函数一个抽象层级</h1><p>3-1的问题：getHtml较高抽象级，PathParser.render(pagePath) 中间抽象层、.append(“\n)较低抽象层</p>
 <p>自顶而下。<br>每个函数后面跟着位于下一抽象层级函数。</p>
-<h1 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h1><p><img src="/.io//5.png"></p>
+<h1 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h1><p><img src="/2020/08/06/cleancode-chap03-functions/5.png"></p>
 <p>问题：</p>
 <ul>
 <li>太长了</li>
@@ -513,7 +513,7 @@
 <li>开放闭合原则，添加新类型就需要修改</li>
 </ul>
 <p>用抽象工厂解决</p>
-<p><img src="/.io//6.png"></p>
+<p><img src="/2020/08/06/cleancode-chap03-functions/6.png"></p>
 <h1 id="使用描述性名称"><a href="#使用描述性名称" class="headerlink" title="使用描述性名称"></a>使用描述性名称</h1><p>一致命名</p>
 <h1 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h1>
                 

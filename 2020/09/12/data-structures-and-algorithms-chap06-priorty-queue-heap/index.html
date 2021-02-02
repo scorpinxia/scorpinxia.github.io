@@ -500,7 +500,7 @@
 <li>操作系统调度，某些作业优先权</li>
 </ul>
 <blockquote>
-<p>和一般队列对比：入队出队。对应优先队列插入和删除最小<br><img src="/.io//1.png"></p>
+<p>和一般队列对比：入队出队。对应优先队列插入和删除最小<br><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/1.png"></p>
 </blockquote>
 <h1 id="简单实现"><a href="#简单实现" class="headerlink" title="简单实现"></a>简单实现</h1><ul>
 <li>链表<ul>
@@ -514,9 +514,9 @@
 </li>
 </ul>
 <h1 id="二叉堆-binary-heap"><a href="#二叉堆-binary-heap" class="headerlink" title="二叉堆(binary heap)"></a>二叉堆(binary heap)</h1><p>最快O(logN)</p>
-<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p><img src="/.io//2.png"></p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/2.png"></p>
 <blockquote>
-<p>可使用数组实现<br><img src="/.io//3.png"></p>
+<p>可使用数组实现<br><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/3.png"></p>
 </blockquote>
 <ul>
 <li>特点<ul>
@@ -527,16 +527,16 @@
 </ul>
 <h2 id="堆序性质"><a href="#堆序性质" class="headerlink" title="堆序性质"></a>堆序性质</h2><p>最小元在根上</p>
 <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><blockquote>
-<p>插入<br><img src="/.io//4.png"><br>上溢法</p>
+<p>插入<br><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/4.png"><br>上溢法</p>
 </blockquote>
 <blockquote>
-<p>实现：从下置上，循环比较。注意将数组0空的好处，放入x用于插入最小值的跳出循环<br><img src="/.io//6.png"></p>
+<p>实现：从下置上，循环比较。注意将数组0空的好处，放入x用于插入最小值的跳出循环<br><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/6.png"></p>
 </blockquote>
 <blockquote>
-<p>DeleteMin<br>堆少了一个元素 最后一个元素必须移走<br><img src="/.io//5.png"><br>下滤法</p>
+<p>DeleteMin<br>堆少了一个元素 最后一个元素必须移走<br><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/5.png"><br>下滤法</p>
 </blockquote>
 <blockquote>
-<p>实现：把根结点置空，将小的结点替代，直到放入找到小于的位置，当偶数时。节点不总是有两个儿子，简单的方法时检测在最后放入一个备用值，奇数时用不到，偶数时可用<br><img src="/.io//7.png"></p>
+<p>实现：把根结点置空，将小的结点替代，直到放入找到小于的位置，当偶数时。节点不总是有两个儿子，简单的方法时检测在最后放入一个备用值，奇数时用不到，偶数时可用<br><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/7.png"></p>
 </blockquote>
 <p>最坏O(LogN)</p>
 <h2 id="其他堆操作"><a href="#其他堆操作" class="headerlink" title="其他堆操作"></a>其他堆操作</h2><p>最小元堆的序信号很少，上述操作无法知道元素都在什么地方,下三个都是最坏O(logN)</p>
@@ -550,7 +550,7 @@
 <p>delete(删除)<br>先decreaseKey(p,无穷大), 在deleMin()</p>
 </blockquote>
 <blockquote>
-<p>buildHeap<br>N项输入，N个insert  平均O(N) 一般可以直接将N项放入树，然后对节点下溢<br><img src="/.io//8.png"><br><img src="/.io//9.png"><br>虚线的大小就是运行时间，所有节点高度和，易得O(N)</p>
+<p>buildHeap<br>N项输入，N个insert  平均O(N) 一般可以直接将N项放入树，然后对节点下溢<br><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/8.png"><br><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/9.png"><br>虚线的大小就是运行时间，所有节点高度和，易得O(N)</p>
 </blockquote>
 <h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><h2 id="选择问题"><a href="#选择问题" class="headerlink" title="选择问题"></a>选择问题</h2><blockquote>
 <p>找出一个集合第K个元素,第一章算法 1A:简单排序O(N^2)和 1B:读k排序,在读入每个元素排序插入 O(N*k) K最差取N/2</p>
@@ -564,25 +564,25 @@
 </blockquote>
 <h2 id="事件模拟"><a href="#事件模拟" class="headerlink" title="事件模拟"></a>事件模拟</h2><p>银行排队到k个出纳员</p>
 <h1 id="d-堆"><a href="#d-堆" class="headerlink" title="d-堆"></a>d-堆</h1><p>树变浅了,insert O(log<sub>d</sub> N),DeleteMin  O(dLog<sub>d</sub> N)</p>
-<p>可以看做主存装不下，加上的,特别是2的N次方 可以用位移<br><img src="/.io//10.png"></p>
-<h1 id="左式堆（为了Merge"><a href="#左式堆（为了Merge" class="headerlink" title="左式堆（为了Merge)"></a>左式堆（为了Merge)</h1><h1 id="斜堆（自适应左式堆）"><a href="#斜堆（自适应左式堆）" class="headerlink" title="斜堆（自适应左式堆）"></a>斜堆（自适应左式堆）</h1><h1 id="二项队列-也是Merge"><a href="#二项队列-也是Merge" class="headerlink" title="二项队列 (也是Merge)"></a>二项队列 (也是Merge)</h1><p><img src="/.io//11.png"></p>
+<p>可以看做主存装不下，加上的,特别是2的N次方 可以用位移<br><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/10.png"></p>
+<h1 id="左式堆（为了Merge"><a href="#左式堆（为了Merge" class="headerlink" title="左式堆（为了Merge)"></a>左式堆（为了Merge)</h1><h1 id="斜堆（自适应左式堆）"><a href="#斜堆（自适应左式堆）" class="headerlink" title="斜堆（自适应左式堆）"></a>斜堆（自适应左式堆）</h1><h1 id="二项队列-也是Merge"><a href="#二项队列-也是Merge" class="headerlink" title="二项队列 (也是Merge)"></a>二项队列 (也是Merge)</h1><p><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/11.png"></p>
 <p>高度k的二项树节点2^k次方，深度d节点C<sub>k</sub><sup>d</sup> 例如 B4 d=2 C42=6</p>
 <p>大小13的优先队列可以表示成1101  用B3 B2 B0</p>
-<p><img src="/.io//12.png"></p>
+<p><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/12.png"></p>
 <blockquote>
 <p>合并过程 H2 的0是H3的部分， H1、H2都有1变成高度2 三个高度2，取一个到2 其他合并成3 </p>
 </blockquote>
-<p><img src="/.io//12.png"></p>
-<p>删除最小<br><img src="/.io//13.png"></p>
-<p><img src="/.io//14.png"></p>
-<p>删除值<br><img src="/.io//15.png"></p>
-<h1 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h1><p>PriorityQueue<br><img src="/.io//16.png"></p>
+<p><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/12.png"></p>
+<p>删除最小<br><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/13.png"></p>
+<p><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/14.png"></p>
+<p>删除值<br><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/15.png"></p>
+<h1 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h1><p>PriorityQueue<br><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/16.png"></p>
 <h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><h2 id="6-1-Insert和FindMin-都能常数吗？"><a href="#6-1-Insert和FindMin-都能常数吗？" class="headerlink" title="6.1 Insert和FindMin 都能常数吗？"></a>6.1 Insert和FindMin 都能常数吗？</h2><p>可以,比如链表直接插入 维护一个最小值 但是会影响deleteMin</p>
 <h2 id="6-2-二叉堆插入-以及直接建立O-N"><a href="#6-2-二叉堆插入-以及直接建立O-N" class="headerlink" title="6.2 二叉堆插入 以及直接建立O(N)"></a>6.2 二叉堆插入 以及直接建立O(N)</h2><p>分别利用insert 和buildHeap</p>
-<p><img src="/.io//17.png"></p>
-<p><img src="/.io//18.png"></p>
-<h2 id="6-3-对6-2-3次deleteMin"><a href="#6-3-对6-2-3次deleteMin" class="headerlink" title="6.3 对6.2 3次deleteMin"></a>6.3 对6.2 3次deleteMin</h2><p><img src="/.io//19.png"></p>
-<h2 id="6-4-不完全二叉树数组表示"><a href="#6-4-不完全二叉树数组表示" class="headerlink" title="6.4 不完全二叉树数组表示"></a>6.4 不完全二叉树数组表示</h2><p><img src="/.io//20.png"></p>
+<p><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/17.png"></p>
+<p><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/18.png"></p>
+<h2 id="6-3-对6-2-3次deleteMin"><a href="#6-3-对6-2-3次deleteMin" class="headerlink" title="6.3 对6.2 3次deleteMin"></a>6.3 对6.2 3次deleteMin</h2><p><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/19.png"></p>
+<h2 id="6-4-不完全二叉树数组表示"><a href="#6-4-不完全二叉树数组表示" class="headerlink" title="6.4 不完全二叉树数组表示"></a>6.4 不完全二叉树数组表示</h2><p><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/20.png"></p>
 <ul>
 <li>a: 两个附加层，一层多N 两层多2N 一个多3N 4N数组</li>
 <li>b: 深度d 节点总数最多为2<sup>d+1</sup>-1  2<sup>2logN+1</sup> =2N^2= O（N^2)</li>
@@ -597,9 +597,9 @@
 </ul>
 </li>
 </ul>
-<h2 id="6-6-堆大小"><a href="#6-6-堆大小" class="headerlink" title="6.6 堆大小"></a>6.6 堆大小</h2><p><img src="/.io//21.png"></p>
+<h2 id="6-6-堆大小"><a href="#6-6-堆大小" class="headerlink" title="6.6 堆大小"></a>6.6 堆大小</h2><p><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/21.png"></p>
 <p>2^(h+1)-1 -2^(h-2) +2</p>
-<h2 id="6-7-证明buildHeap-比较上界"><a href="#6-7-证明buildHeap-比较上界" class="headerlink" title="6.7 证明buildHeap 比较上界"></a>6.7 证明buildHeap 比较上界</h2><p><img src="/.io//22.png"></p>
+<h2 id="6-7-证明buildHeap-比较上界"><a href="#6-7-证明buildHeap-比较上界" class="headerlink" title="6.7 证明buildHeap 比较上界"></a>6.7 证明buildHeap 比较上界</h2><p><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/22.png"></p>
 <p>证明：</p>
 <ul>
 <li><p>所有节点总高度 = 根节点高度 + 左子树所有节点高度 + 右子树所有节点高度</p>
@@ -609,9 +609,9 @@
 <li><p>L+R=N-1 </p>
 </li>
 </ul>
-<p><img src="/.io//23.png"></p>
+<p><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/23.png"></p>
 <h2 id="6-12-Buildheap-和-一项项插入对比"><a href="#6-12-Buildheap-和-一项项插入对比" class="headerlink" title="6.12 Buildheap 和 一项项插入对比"></a>6.12 Buildheap 和 一项项插入对比</h2><p>仿真表明，线性时间算法不仅在最坏情况的输入上而且在随机数据上都更快。</p>
-<h2 id="6-13-将二分查找应用在Deletemin"><a href="#6-13-将二分查找应用在Deletemin" class="headerlink" title="6.13 将二分查找应用在Deletemin"></a>6.13 将二分查找应用在Deletemin</h2><p><img src="/.io//24.png"></p>
+<h2 id="6-13-将二分查找应用在Deletemin"><a href="#6-13-将二分查找应用在Deletemin" class="headerlink" title="6.13 将二分查找应用在Deletemin"></a>6.13 将二分查找应用在Deletemin</h2><p><img src="/2020/09/12/data-structures-and-algorithms-chap06-priorty-queue-heap/24.png"></p>
 <p>（a）如果将堆组织为（最小）堆，则从根的孔开始，通过最小子集找到一条通往叶子的路径。要求大致进行log N比较。要找到移动孔的正确位置，请对对数N个元素执行二进制搜索。这需要O（log log N）比较。 </p>
 <p>（b）找到最小子路径，在log N − log log N级后停止。此时，很容易确定孔是应放置在停止点上方还是下方。如果它走到下面，则继续查找路径，但是仅对路径上最后一个日志log N个元素执行二进制搜索，以进行日志N +日志log N的比较。否则，对第一个日志N-日志N个元素执行二进制搜索。二分查找最多进行log log N个比较，而路径查找仅取log N-log log N，因此在这种情况下的总数为logN。因此，最坏的情况是第一种情况。 </p>
 <p>（c）可以将边界改进为log N + log ∗ N + O（1），其中log ∗ N是逆阿克曼函数（请参阅第8章）。</p>

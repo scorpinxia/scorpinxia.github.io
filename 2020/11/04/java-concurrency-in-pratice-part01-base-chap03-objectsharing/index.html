@@ -501,7 +501,7 @@
 <blockquote>
 <p>需要保证多个线程对内存写入同步</p>
 </blockquote>
-<p><img src="/.io//1.png"><br><img src="/.io//2.png"></p>
+<p><img src="/2020/11/04/java-concurrency-in-pratice-part01-base-chap03-objectsharing/1.png"><br><img src="/2020/11/04/java-concurrency-in-pratice-part01-base-chap03-objectsharing/2.png"></p>
 <ul>
 <li><p>问题</p>
 <ul>
@@ -517,7 +517,7 @@
 </li>
 </ul>
 <h2 id="失效数据"><a href="#失效数据" class="headerlink" title="失效数据"></a>失效数据</h2><blockquote>
-<p>调用get 任然可能看到失效值<br><img src="/.io//3.png"></p>
+<p>调用get 任然可能看到失效值<br><img src="/2020/11/04/java-concurrency-in-pratice-part01-base-chap03-objectsharing/3.png"></p>
 </blockquote>
 <h2 id="非原子的64位操作"><a href="#非原子的64位操作" class="headerlink" title="非原子的64位操作"></a>非原子的64位操作</h2><blockquote>
 <p>最低安全性：线程没同步读取，读取 </p>
@@ -525,7 +525,7 @@
 <blockquote>
 <p>对非volatile的LONG 和double 变量，JVM允许64bit的读写分为两个32bit的操作。读写在不同线程，可能读到某个值的高32bit和另一个的低32bit</p>
 </blockquote>
-<h2 id="加锁和可见性"><a href="#加锁和可见性" class="headerlink" title="加锁和可见性"></a>加锁和可见性</h2><p><img src="/.io//4.png"></p>
+<h2 id="加锁和可见性"><a href="#加锁和可见性" class="headerlink" title="加锁和可见性"></a>加锁和可见性</h2><p><img src="/2020/11/04/java-concurrency-in-pratice-part01-base-chap03-objectsharing/4.png"></p>
 <blockquote>
 <p>为什么所以线程同一个锁同步，确保B执行锁保护代码时，可以看到线程A之前在同一个同步代码快的所有操作</p>
 </blockquote>
@@ -544,7 +544,7 @@
 <li>确保它们引用变量状态的可见性</li>
 <li>标识 重要程序什么周期事件发生（初始化，关闭）</li>
 </ul>
-<p><img src="/.io//5.png"></p>
+<p><img src="/2020/11/04/java-concurrency-in-pratice-part01-base-chap03-objectsharing/5.png"></p>
 <h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul>
 <li>不足以确保递增原子性conut++</li>
 <li>加锁可以确保，可见性和原子性，volatile只能确保可见性</li>
@@ -555,15 +555,15 @@
 <li>访问变量时不需要锁</li>
 </ul>
 <h1 id="发布-publish-和逸出-escape"><a href="#发布-publish-和逸出-escape" class="headerlink" title="发布(publish)和逸出(escape)"></a>发布(publish)和逸出(escape)</h1><ul>
-<li><p>发布(publish): 使对象能够在当前作用域之外代码使用。例子，发布到公有的静态变量<br><img src="/.io//6.png"></p>
+<li><p>发布(publish): 使对象能够在当前作用域之外代码使用。例子，发布到公有的静态变量<br><img src="/2020/11/04/java-concurrency-in-pratice-part01-base-chap03-objectsharing/6.png"></p>
 </li>
-<li><p>逸出(escape)：某个不该发布的对象被发布<br><img src="/.io//7.png"></p>
+<li><p>逸出(escape)：某个不该发布的对象被发布<br><img src="/2020/11/04/java-concurrency-in-pratice-part01-base-chap03-objectsharing/7.png"></p>
 <blockquote>
 <p>本应私有的变量被发布了（可以修改）</p>
 </blockquote>
 </li>
 </ul>
-<p><img src="/.io//8.png"></p>
+<p><img src="/2020/11/04/java-concurrency-in-pratice-part01-base-chap03-objectsharing/8.png"></p>
 <blockquote>
 <p>隐含的发布了ThisEscape实例本身（内部类实例包含对ThisEscape实例的隐含引用</p>
 </blockquote>
@@ -574,7 +574,7 @@
 <p>常见错误：在构造函数注册一个事件监听、或者启动线程</p>
 </blockquote>
 <blockquote>
-<p>解决例子，用私有构造加上工厂方法（factory Method）：只在构造函数返回的时候从线程escape this引用<br><img src="/.io//9.png"></p>
+<p>解决例子，用私有构造加上工厂方法（factory Method）：只在构造函数返回的时候从线程escape this引用<br><img src="/2020/11/04/java-concurrency-in-pratice-part01-base-chap03-objectsharing/9.png"></p>
 </blockquote>
 <h1 id="线程封闭-（Thread-confinement）"><a href="#线程封闭-（Thread-confinement）" class="headerlink" title="线程封闭 （Thread confinement）"></a>线程封闭 （Thread confinement）</h1><blockquote>
 <p>不共享数据，在单线程内访问数据</p>
@@ -595,7 +595,7 @@
 <h2 id="栈封闭"><a href="#栈封闭" class="headerlink" title="栈封闭"></a>栈封闭</h2><blockquote>
 <p>只能通过局部变量才能访问对象</p>
 </blockquote>
-<p><img src="/.io//10.png"></p>
+<p><img src="/2020/11/04/java-concurrency-in-pratice-part01-base-chap03-objectsharing/10.png"></p>
 <ul>
 <li>基本类型的局部变量，无论如何都不会破坏栈封闭</li>
 <li>实例化一个TreeSet对象，对象引用保存到animals,被封闭在局部变量里面</li>
@@ -603,7 +603,7 @@
 <h2 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h2><blockquote>
 <p>最规范的方法:这个类使线程中某个值与保存值的对象关联。为每个使用该变量的线程存有独立的副本。get总是返回当前执行线程set的最新值</p>
 </blockquote>
-<p><img src="/.io//11.png"></p>
+<p><img src="/2020/11/04/java-concurrency-in-pratice-part01-base-chap03-objectsharing/11.png"></p>
 <blockquote>
 <p>通过将JDBC连接保存到ThreadLocal对象，每个线程有自己的连接</p>
 </blockquote>
@@ -620,7 +620,7 @@
 <ul>
 <li>对象创建后，状态不可变</li>
 <li>对象的所有域是final类型</li>
-<li>对象正确创建 （this引用无escape)<br><img src="/.io//12.png"></li>
+<li>对象正确创建 （this引用无escape)<br><img src="/2020/11/04/java-concurrency-in-pratice-part01-base-chap03-objectsharing/12.png"></li>
 </ul>
 <blockquote>
 <p>不可变的对象和不可变的对象引用有差别</p>
@@ -631,14 +631,14 @@
 <li>除非需要变化  final</li>
 </ul>
 <h2 id="Volatile发布不可变对象"><a href="#Volatile发布不可变对象" class="headerlink" title="Volatile发布不可变对象"></a>Volatile发布不可变对象</h2><blockquote>
-<p>对相关数据原子操作时，可考虑用不可变类包含这些数据<br><img src="/.io//14.png"></p>
+<p>对相关数据原子操作时，可考虑用不可变类包含这些数据<br><img src="/2020/11/04/java-concurrency-in-pratice-part01-base-chap03-objectsharing/14.png"></p>
 </blockquote>
 <blockquote>
-<p>使用指向不可变容器对象的Volatile类型缓存最新的结果<br><img src="/.io//15.png"></p>
+<p>使用指向不可变容器对象的Volatile类型缓存最新的结果<br><img src="/2020/11/04/java-concurrency-in-pratice-part01-base-chap03-objectsharing/15.png"></p>
 </blockquote>
-<h1 id="安全发布"><a href="#安全发布" class="headerlink" title="安全发布"></a>安全发布</h1><p><img src="/.io//16.png"></p>
+<h1 id="安全发布"><a href="#安全发布" class="headerlink" title="安全发布"></a>安全发布</h1><p><img src="/2020/11/04/java-concurrency-in-pratice-part01-base-chap03-objectsharing/16.png"></p>
 <h2 id="不正确的发布"><a href="#不正确的发布" class="headerlink" title="不正确的发布"></a>不正确的发布</h2><blockquote>
-<p>可能看到尚未创建完成的对象<br><img src="/.io//17.png"></p>
+<p>可能看到尚未创建完成的对象<br><img src="/2020/11/04/java-concurrency-in-pratice-part01-base-chap03-objectsharing/17.png"></p>
 </blockquote>
 <blockquote>
 <p>其他线程看到的Holder 对象可能是失效值。 某线程第一次读取域读到失效值，第二次读取域得到更新值 就throw Assertion</p>
@@ -673,7 +673,7 @@
 <p>对象技术可变，但是状态发布后不会改变<br>Effectively Immutable Obeject</p>
 </blockquote>
 <blockquote>
-<p>比如Date 本身可变，可以当做不可变对象使用<br><img src="/.io//18.png"></p>
+<p>比如Date 本身可变，可以当做不可变对象使用<br><img src="/2020/11/04/java-concurrency-in-pratice-part01-base-chap03-objectsharing/18.png"></p>
 </blockquote>
 <blockquote>
 <p>如果Date对象值放入Map之后不会改变，synchronizedMap的同步机制就够让Date值安全发布</p>

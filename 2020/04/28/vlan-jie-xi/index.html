@@ -496,7 +496,7 @@
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zjkc050818/article/details/80663886">https://blog.csdn.net/zjkc050818/article/details/80663886</a></p>
 </blockquote>
 <h1 id="为什么需要VLAN"><a href="#为什么需要VLAN" class="headerlink" title="为什么需要VLAN"></a>为什么需要VLAN</h1><h2 id="什么是VLAN"><a href="#什么是VLAN" class="headerlink" title="什么是VLAN"></a>什么是VLAN</h2><p>用路由分割的 网络（广播域）</p>
-<h2 id="非分割广播域时"><a href="#非分割广播域时" class="headerlink" title="非分割广播域时"></a>非分割广播域时</h2><p>原网络<br><img src="/.io//1.png"><br>当A 与 B通信 交换机会转发到其他端口 <strong>Flooding</strong><br><img src="/.io//2.png"><br>这导致了网络带宽和CPU运算能力无谓消耗</p>
+<h2 id="非分割广播域时"><a href="#非分割广播域时" class="headerlink" title="非分割广播域时"></a>非分割广播域时</h2><p>原网络<br><img src="/2020/04/28/vlan-jie-xi/1.png"><br>当A 与 B通信 交换机会转发到其他端口 <strong>Flooding</strong><br><img src="/2020/04/28/vlan-jie-xi/2.png"><br>这导致了网络带宽和CPU运算能力无谓消耗</p>
 <h2 id="常用广播通信"><a href="#常用广播通信" class="headerlink" title="常用广播通信"></a>常用广播通信</h2><ul>
 <li>ARP请求</li>
 <li>RIP </li>
@@ -513,14 +513,14 @@
 <li><p>二层交换机上分割广播域的技术，就是VLAN。通过利用VLAN，我们可以自由设计广播域的构成，提高网络设计的自由度。</p>
 </li>
 </ul>
-<h1 id="VLAN-机制"><a href="#VLAN-机制" class="headerlink" title="VLAN 机制"></a>VLAN 机制</h1><h2 id="VLAN-id"><a href="#VLAN-id" class="headerlink" title="VLAN id"></a>VLAN id</h2><p><img src="/.io//3.png"><br><img src="/.io//4.png"></p>
-<h2 id="直观描述"><a href="#直观描述" class="headerlink" title="直观描述"></a>直观描述</h2><p><img src="/.io//5.png"></p>
+<h1 id="VLAN-机制"><a href="#VLAN-机制" class="headerlink" title="VLAN 机制"></a>VLAN 机制</h1><h2 id="VLAN-id"><a href="#VLAN-id" class="headerlink" title="VLAN id"></a>VLAN id</h2><p><img src="/2020/04/28/vlan-jie-xi/3.png"><br><img src="/2020/04/28/vlan-jie-xi/4.png"></p>
+<h2 id="直观描述"><a href="#直观描述" class="headerlink" title="直观描述"></a>直观描述</h2><p><img src="/2020/04/28/vlan-jie-xi/5.png"></p>
 <p>但是虽然连在同一个交换机 不同VLAN 不能直接通信</p>
 <h2 id="VLAN通信"><a href="#VLAN通信" class="headerlink" title="VLAN通信"></a>VLAN通信</h2><p>VLAN是广播域。而通常两个广播域之间来往的数据包都是由路由器中继的。因此，<font color="red">VLAN间的通信也需要路由器提供中继服务，这被称作“VLAN间路由”。</font> </p>
 <h1 id="端口访问方式"><a href="#端口访问方式" class="headerlink" title="端口访问方式"></a>端口访问方式</h1><pre><code>分为访问链接和汇聚链接
 </code></pre>
 <h2 id="VLAN访问链接"><a href="#VLAN访问链接" class="headerlink" title="VLAN访问链接"></a>VLAN访问链接</h2><p>只属于一个VLAN 端口转发数据帧</p>
-<h3 id="静态VLAN-基于端口"><a href="#静态VLAN-基于端口" class="headerlink" title="静态VLAN-基于端口"></a>静态VLAN-基于端口</h3><p><img src="/.io//6.png"><br>很难频繁修改</p>
+<h3 id="静态VLAN-基于端口"><a href="#静态VLAN-基于端口" class="headerlink" title="静态VLAN-基于端口"></a>静态VLAN-基于端口</h3><p><img src="/2020/04/28/vlan-jie-xi/6.png"><br>很难频繁修改</p>
 <h3 id="动态VLAN"><a href="#动态VLAN" class="headerlink" title="动态VLAN"></a>动态VLAN</h3><p>根据端口连的计算机</p>
 <ul>
 <li>根据MAC的VLAN</li>
@@ -528,31 +528,31 @@
 <li>根据用户的VLAN</li>
 </ul>
 <p>差异：<font color="red">根据OSI参照模型哪一层的信息决定端口所属的VLAN。</font> </p>
-<h4 id="根据MAC的VLAN"><a href="#根据MAC的VLAN" class="headerlink" title="根据MAC的VLAN"></a>根据MAC的VLAN</h4><p><img src="/.io//7.png"><br>OSI二层访问链接方法 更换网卡要改设定</p>
-<h4 id="基于子网的VLAN"><a href="#基于子网的VLAN" class="headerlink" title="基于子网的VLAN"></a>基于子网的VLAN</h4><p><img src="/.io//8.png"><br>OSI三层访问链接方法 比较灵活</p>
+<h4 id="根据MAC的VLAN"><a href="#根据MAC的VLAN" class="headerlink" title="根据MAC的VLAN"></a>根据MAC的VLAN</h4><p><img src="/2020/04/28/vlan-jie-xi/7.png"><br>OSI二层访问链接方法 更换网卡要改设定</p>
+<h4 id="基于子网的VLAN"><a href="#基于子网的VLAN" class="headerlink" title="基于子网的VLAN"></a>基于子网的VLAN</h4><p><img src="/2020/04/28/vlan-jie-xi/8.png"><br>OSI三层访问链接方法 比较灵活</p>
 <h4 id="基于用户的VLAN"><a href="#基于用户的VLAN" class="headerlink" title="基于用户的VLAN"></a>基于用户的VLAN</h4><p>根据当前登录用户  OSI四层以上</p>
-<h2 id="汇聚链接"><a href="#汇聚链接" class="headerlink" title="汇聚链接"></a>汇聚链接</h2><h3 id="需要设置跨越多台交换机VLAN-（同一部门不同楼层）"><a href="#需要设置跨越多台交换机VLAN-（同一部门不同楼层）" class="headerlink" title="需要设置跨越多台交换机VLAN （同一部门不同楼层）"></a>需要设置跨越多台交换机VLAN （同一部门不同楼层）</h3><p><img src="/.io//9.png"></p>
-<p><strong>简单方法</strong> 添加口互连 端口效率比较低<br><img src="/.io//10.png"></p>
-<h3 id="汇聚链接-（用一个口互连）"><a href="#汇聚链接-（用一个口互连）" class="headerlink" title="汇聚链接 （用一个口互连）"></a>汇聚链接 （用一个口互连）</h3><p><font color="blue" font="" face="微软雅黑" size="4">汇聚链接（Trunk Link）指的是能够转发多个不同VLAN的通信的端口。</font><br>汇聚链路上流通的数据帧，都被附加了用于识别分属于哪个VLAN的特殊信息。<br><img src="/.io//11.png"></p>
-<h4 id="汇聚方式"><a href="#汇聚方式" class="headerlink" title="汇聚方式"></a>汇聚方式</h4><h5 id="IEEE-802-1Q"><a href="#IEEE-802-1Q" class="headerlink" title="IEEE 802.1Q"></a>IEEE 802.1Q</h5><p><img src="/.io//12.png"></p>
-<h5 id="ISL"><a href="#ISL" class="headerlink" title="ISL"></a>ISL</h5><p>Cisco产品支持的<br><img src="/.io//13.png"></p>
+<h2 id="汇聚链接"><a href="#汇聚链接" class="headerlink" title="汇聚链接"></a>汇聚链接</h2><h3 id="需要设置跨越多台交换机VLAN-（同一部门不同楼层）"><a href="#需要设置跨越多台交换机VLAN-（同一部门不同楼层）" class="headerlink" title="需要设置跨越多台交换机VLAN （同一部门不同楼层）"></a>需要设置跨越多台交换机VLAN （同一部门不同楼层）</h3><p><img src="/2020/04/28/vlan-jie-xi/9.png"></p>
+<p><strong>简单方法</strong> 添加口互连 端口效率比较低<br><img src="/2020/04/28/vlan-jie-xi/10.png"></p>
+<h3 id="汇聚链接-（用一个口互连）"><a href="#汇聚链接-（用一个口互连）" class="headerlink" title="汇聚链接 （用一个口互连）"></a>汇聚链接 （用一个口互连）</h3><p><font color="blue" font="" face="微软雅黑" size="4">汇聚链接（Trunk Link）指的是能够转发多个不同VLAN的通信的端口。</font><br>汇聚链路上流通的数据帧，都被附加了用于识别分属于哪个VLAN的特殊信息。<br><img src="/2020/04/28/vlan-jie-xi/11.png"></p>
+<h4 id="汇聚方式"><a href="#汇聚方式" class="headerlink" title="汇聚方式"></a>汇聚方式</h4><h5 id="IEEE-802-1Q"><a href="#IEEE-802-1Q" class="headerlink" title="IEEE 802.1Q"></a>IEEE 802.1Q</h5><p><img src="/2020/04/28/vlan-jie-xi/12.png"></p>
+<h5 id="ISL"><a href="#ISL" class="headerlink" title="ISL"></a>ISL</h5><p>Cisco产品支持的<br><img src="/2020/04/28/vlan-jie-xi/13.png"></p>
 <h1 id="VLAN间路由"><a href="#VLAN间路由" class="headerlink" title="VLAN间路由"></a>VLAN间路由</h1><h2 id="VLAN间路由必要性"><a href="#VLAN间路由必要性" class="headerlink" title="VLAN间路由必要性"></a>VLAN间路由必要性</h2><p>因为收不到ARP（广播） 不同VLAN无法直接通信</p>
-<h2 id="使用路由器VLAN间路由"><a href="#使用路由器VLAN间路由" class="headerlink" title="使用路由器VLAN间路由"></a>使用路由器VLAN间路由</h2><p><font color="blue" font="" face="微软雅黑" size="4">简单方法</font><br><img src="/.io//14.png"><br>扩展性问题增加一个VLAN 路由要多一个LAN口</p>
-<p><img src="/.io//15.png"><br><font color="blue" font="" face="微软雅黑" size="4">汇聚链接</font><br>路由器上定义各个VLAN的子接口</p>
-<h2 id="同一VLAN通信"><a href="#同一VLAN通信" class="headerlink" title="同一VLAN通信"></a>同一VLAN通信</h2><p>网络<br><img src="/.io//16.png"><br><strong>ABCDR 为MAC地址</strong> <strong>原网络</strong></p>
-<p><img src="/.io//17.png"><br><font color="blue" font="" face="微软雅黑" size="4">A到B通信在交换机内完成</font> </p>
-<h2 id="不同VLAN-间通信"><a href="#不同VLAN-间通信" class="headerlink" title="不同VLAN 间通信"></a>不同VLAN 间通信</h2><p><img src="/.io//18.png"><br>知道不是一个网段，就向默认网关转发，ARP获取路由MAC<br><font color="red" font="" face="微软雅黑" size="4">进行VLAN间通信时，即使通信双方都连接在同一台交换机上，也必须经过：“发送方——交换机——路由器——交换机——接收方”这样一个流程。</font> </p>
+<h2 id="使用路由器VLAN间路由"><a href="#使用路由器VLAN间路由" class="headerlink" title="使用路由器VLAN间路由"></a>使用路由器VLAN间路由</h2><p><font color="blue" font="" face="微软雅黑" size="4">简单方法</font><br><img src="/2020/04/28/vlan-jie-xi/14.png"><br>扩展性问题增加一个VLAN 路由要多一个LAN口</p>
+<p><img src="/2020/04/28/vlan-jie-xi/15.png"><br><font color="blue" font="" face="微软雅黑" size="4">汇聚链接</font><br>路由器上定义各个VLAN的子接口</p>
+<h2 id="同一VLAN通信"><a href="#同一VLAN通信" class="headerlink" title="同一VLAN通信"></a>同一VLAN通信</h2><p>网络<br><img src="/2020/04/28/vlan-jie-xi/16.png"><br><strong>ABCDR 为MAC地址</strong> <strong>原网络</strong></p>
+<p><img src="/2020/04/28/vlan-jie-xi/17.png"><br><font color="blue" font="" face="微软雅黑" size="4">A到B通信在交换机内完成</font> </p>
+<h2 id="不同VLAN-间通信"><a href="#不同VLAN-间通信" class="headerlink" title="不同VLAN 间通信"></a>不同VLAN 间通信</h2><p><img src="/2020/04/28/vlan-jie-xi/18.png"><br>知道不是一个网段，就向默认网关转发，ARP获取路由MAC<br><font color="red" font="" face="微软雅黑" size="4">进行VLAN间通信时，即使通信双方都连接在同一台交换机上，也必须经过：“发送方——交换机——路由器——交换机——接收方”这样一个流程。</font> </p>
 <h1 id="三层交换机"><a href="#三层交换机" class="headerlink" title="三层交换机"></a>三层交换机</h1><h2 id="路由器-来进行VLAN间路由问题"><a href="#路由器-来进行VLAN间路由问题" class="headerlink" title="路由器 来进行VLAN间路由问题"></a>路由器 来进行VLAN间路由问题</h2><p><font color="red" font="" face="微软雅黑" size="4">随着VLAN之间流量的不断增加，很可能导致路由器成为整个网络的瓶颈。</font> </p>
 <ul>
 <li>交换机ASIC，专用硬件处理数据帧，很多能达到wired Speed </li>
 <li>路由器 软件处理不能不限速转发</li>
 </ul>
 <h2 id="三层交换机-1"><a href="#三层交换机-1" class="headerlink" title="三层交换机"></a>三层交换机</h2><p><font color="red" font="" face="微软雅黑" size="4">本质上带有 路由（第三层功能）的交换机，使用ASIC硬件处理路由，高速路由</font> </p>
-<p><img src="/.io//19.png"></p>
-<h3 id="三层交换机同一VLAN通信"><a href="#三层交换机同一VLAN通信" class="headerlink" title="三层交换机同一VLAN通信"></a>三层交换机同一VLAN通信</h3><p><img src="/.io//20.png"></p>
-<h3 id="三层交换机不同一VLAN通信"><a href="#三层交换机不同一VLAN通信" class="headerlink" title="三层交换机不同一VLAN通信"></a>三层交换机不同一VLAN通信</h3><p><img src="/.io//21.png"><br><font color="red" font="" face="微软雅黑" size="4">都需要经过“发送方→交换模块→路由模块→交换模块→接收方”</font> </p>
+<p><img src="/2020/04/28/vlan-jie-xi/19.png"></p>
+<h3 id="三层交换机同一VLAN通信"><a href="#三层交换机同一VLAN通信" class="headerlink" title="三层交换机同一VLAN通信"></a>三层交换机同一VLAN通信</h3><p><img src="/2020/04/28/vlan-jie-xi/20.png"></p>
+<h3 id="三层交换机不同一VLAN通信"><a href="#三层交换机不同一VLAN通信" class="headerlink" title="三层交换机不同一VLAN通信"></a>三层交换机不同一VLAN通信</h3><p><img src="/2020/04/28/vlan-jie-xi/21.png"><br><font color="red" font="" face="微软雅黑" size="4">都需要经过“发送方→交换模块→路由模块→交换模块→接收方”</font> </p>
 <h1 id="加速VLAN通信手段"><a href="#加速VLAN通信手段" class="headerlink" title="加速VLAN通信手段"></a>加速VLAN通信手段</h1><h2 id="流（flow）"><a href="#流（flow）" class="headerlink" title="流（flow）"></a>流（flow）</h2><p>如FTP传输较大文件 MTU（Maximum Transmission Unit）限制 会分割小块<br><font color="blue" font="" face="微软雅黑" size="4">只要将流最初的数据正确地路由以后，后继的数据理应也会被同样地路由。据此，后继的数据不再需要路由器进行路由处理；通过省略反复进行的路由操作，可以进一步提高VLAN间路由的速度。</font> </p>
-<h2 id="加速VLAN间路由的机制"><a href="#加速VLAN间路由的机制" class="headerlink" title="加速VLAN间路由的机制"></a>加速VLAN间路由的机制</h2><p><img src="/.io//23.png"><br><font color="red" font="" face="微软雅黑" size="4">第一块数据路由结果记录到缓存保存</font> </p>
+<h2 id="加速VLAN间路由的机制"><a href="#加速VLAN间路由的机制" class="headerlink" title="加速VLAN间路由的机制"></a>加速VLAN间路由的机制</h2><p><img src="/2020/04/28/vlan-jie-xi/23.png"><br><font color="red" font="" face="微软雅黑" size="4">第一块数据路由结果记录到缓存保存</font> </p>
 <ol>
 <li><p>目标IP地址</p>
 </li>
@@ -575,20 +575,20 @@
 <li>保证网络安全<br>路由器网络安全功能多，除了三层也有的数据报过滤，还有基于IPSec构建VPN（VirtualPrivate Network）、利用RADIUS进行用户认证等等。</li>
 <li>支持除TCP/IP以外的异构网络结构<br>除了高端三层一般三层交换只支持TCP/IP</li>
 </ul>
-<h2 id="传统路由器和交换机配合构建LAN-实例"><a href="#传统路由器和交换机配合构建LAN-实例" class="headerlink" title="传统路由器和交换机配合构建LAN 实例"></a>传统路由器和交换机配合构建LAN 实例</h2><p>各楼层配置二层定义VLAN 楼层间用三层交换高速<br>与WAN的连接，则通过带有各种网络接口的路由器进行。并且，通过路由器的数据包过滤和VPN等功能实现网络安全。<br><img src="/.io//24.png"></p>
+<h2 id="传统路由器和交换机配合构建LAN-实例"><a href="#传统路由器和交换机配合构建LAN-实例" class="headerlink" title="传统路由器和交换机配合构建LAN 实例"></a>传统路由器和交换机配合构建LAN 实例</h2><p>各楼层配置二层定义VLAN 楼层间用三层交换高速<br>与WAN的连接，则通过带有各种网络接口的路由器进行。并且，通过路由器的数据包过滤和VPN等功能实现网络安全。<br><img src="/2020/04/28/vlan-jie-xi/24.png"></p>
 <h1 id="使用VLAN设计局域网"><a href="#使用VLAN设计局域网" class="headerlink" title="使用VLAN设计局域网"></a>使用VLAN设计局域网</h1><h2 id="使用VLAN设计局域网特点"><a href="#使用VLAN设计局域网特点" class="headerlink" title="使用VLAN设计局域网特点"></a>使用VLAN设计局域网特点</h2><ul>
 <li>不收物理链路现在自由分割广播域，能够适应灵活多变的网络构成。</li>
-<li>但是，由于利用VLAN容易导致网络构成复杂化，因此也会造成整个网络的组成难以把握。<h2 id="不使用VLAN的局域网中网络构成的改变"><a href="#不使用VLAN的局域网中网络构成的改变" class="headerlink" title="不使用VLAN的局域网中网络构成的改变"></a>不使用VLAN的局域网中网络构成的改变</h2><img src="/.io//25.png"><br>图中的路由器，带有2个LAN接口。左侧的网络是192.168.1.0/24，右侧是192.168.2.0/24。</li>
+<li>但是，由于利用VLAN容易导致网络构成复杂化，因此也会造成整个网络的组成难以把握。<h2 id="不使用VLAN的局域网中网络构成的改变"><a href="#不使用VLAN的局域网中网络构成的改变" class="headerlink" title="不使用VLAN的局域网中网络构成的改变"></a>不使用VLAN的局域网中网络构成的改变</h2><img src="/2020/04/28/vlan-jie-xi/25.png"><br>图中的路由器，带有2个LAN接口。左侧的网络是192.168.1.0/24，右侧是192.168.2.0/24。</li>
 </ul>
 <p>现在如果想将192.168.1.0/24这个网络上的计算机A转移到192.168.2.0/24上去，就需要改变物理连接、将A接到右侧的交换机上。</p>
 <p>并且，当需要新增一个地址为192.168.3.0/24的网络时，还要在路由器上再占用一个LAN接口并添置一台交换机。而由于这台路由器上只带了2个LAN接口，因此为了新增网络还必须将路由器升级为带有3个以上LAN接口的产品。</p>
-<h2 id="使用VLAN局域网中网络构成的改变"><a href="#使用VLAN局域网中网络构成的改变" class="headerlink" title="使用VLAN局域网中网络构成的改变"></a>使用VLAN局域网中网络构成的改变</h2><p>只要在交换机上生成蓝色VLAN，然后将计算机A所连的端口1加入到蓝色VLAN中去，使它成为访问链接即可。<font color="red" font="" face="微软雅黑" size="4">ip如果是DHCP获取 那都不需要对客户机任何改变</font><br><img src="/.io//26.png"></p>
+<h2 id="使用VLAN局域网中网络构成的改变"><a href="#使用VLAN局域网中网络构成的改变" class="headerlink" title="使用VLAN局域网中网络构成的改变"></a>使用VLAN局域网中网络构成的改变</h2><p>只要在交换机上生成蓝色VLAN，然后将计算机A所连的端口1加入到蓝色VLAN中去，使它成为访问链接即可。<font color="red" font="" face="微软雅黑" size="4">ip如果是DHCP获取 那都不需要对客户机任何改变</font><br><img src="/2020/04/28/vlan-jie-xi/26.png"></p>
 <p>经常需要改变网络布局 VLAN优势明显</p>
-<h2 id="利用VLAN而导致的网络结构复杂化"><a href="#利用VLAN而导致的网络结构复杂化" class="headerlink" title="利用VLAN而导致的网络结构复杂化"></a>利用VLAN而导致的网络结构复杂化</h2><p>由于数据流纵横交错，一旦发生故障时，准确定位并排除故障会比较困难。<br><img src="/.io//27.png"></p>
-<h2 id="把握网络的逻辑结构与物理结构"><a href="#把握网络的逻辑结构与物理结构" class="headerlink" title="把握网络的逻辑结构与物理结构"></a>把握网络的逻辑结构与物理结构</h2><p><img src="/.io//28.png"></p>
+<h2 id="利用VLAN而导致的网络结构复杂化"><a href="#利用VLAN而导致的网络结构复杂化" class="headerlink" title="利用VLAN而导致的网络结构复杂化"></a>利用VLAN而导致的网络结构复杂化</h2><p>由于数据流纵横交错，一旦发生故障时，准确定位并排除故障会比较困难。<br><img src="/2020/04/28/vlan-jie-xi/27.png"></p>
+<h2 id="把握网络的逻辑结构与物理结构"><a href="#把握网络的逻辑结构与物理结构" class="headerlink" title="把握网络的逻辑结构与物理结构"></a>把握网络的逻辑结构与物理结构</h2><p><img src="/2020/04/28/vlan-jie-xi/28.png"></p>
 <p><font color="red" font="" face="微软雅黑" size="4">物理结构</font> </p>
 <p><font color="blue" font="" face="微软雅黑" size="4">当进行路由和数据包过滤的时候，需要逻辑结构</font> </p>
-<p><img src="/.io//29.png"></p>
+<p><img src="/2020/04/28/vlan-jie-xi/29.png"></p>
 
                 
             </div>

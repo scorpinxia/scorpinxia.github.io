@@ -491,15 +491,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="多核和超线程"><a href="#多核和超线程" class="headerlink" title="多核和超线程"></a>多核和超线程</h1><p><img src="/.io//1.png"><br>现在的计算机都是并行流水线<br><img src="/.io//2.png"><br>超线程(hpyerthreading)意味着在单核的情况下多个线程同时走</p>
-<h1 id="并行加法"><a href="#并行加法" class="headerlink" title="并行加法"></a>并行加法</h1><p>目标：加0到n-1<br>想法：使用多个进程用互斥量来加globel sum<br>结果<br><img src="/.io//3.png"></p>
-<p>改进：信号同步是很慢的，每个进程单独使用数组不同步,主进程等待所有进程结束然后相加<br>结果:<br><img src="/.io//4.png"></p>
-<p>再改进：不用每次改数组，而是用局部变量（寄存器)累加，最后给数组<br><img src="/.io//5.png"><br><img src="/.io//6.png"><br>可以看到这里超线程并没有帮到我们（本身就在很好的使用寄存器)<br><strong>但是实际中的程序复杂的多，并不是这么简单利用</strong></p>
-<h1 id="Amdahl’s-Law（阿姆达尔定律）"><a href="#Amdahl’s-Law（阿姆达尔定律）" class="headerlink" title="Amdahl’s Law（阿姆达尔定律）"></a>Amdahl’s Law（阿姆达尔定律）</h1><p>研究一部分性能提升（使用并行)对总体性能的影响<br><img src="/.io//7.png"></p>
-<h1 id="快速排序（利用并行）"><a href="#快速排序（利用并行）" class="headerlink" title="快速排序（利用并行）"></a>快速排序（利用并行）</h1><p>原来的 排左 排右<br><img src="/.io//8.png"></p>
-<p>用线程递归  直到够小<br><img src="/.io//9.png"><br>还要注意的是碎片太小 就不够并行性 太大就线程开销就太大了<br><img src="/.io//10.png"></p>
-<h1 id="线程连续性法则（Thread-consistency）"><a href="#线程连续性法则（Thread-consistency）" class="headerlink" title="线程连续性法则（Thread consistency）"></a>线程连续性法则（Thread consistency）</h1><p>决定了不会出现1，100  或者100,1<br><img src="/.io//11.png"><br>但是如果有不耦合的缓存，就可能出现。<br><img src="/.io//12.png"></p>
-<h2 id="Snoopy-Cache-史努比缓存"><a href="#Snoopy-Cache-史努比缓存" class="headerlink" title="Snoopy Cache(史努比缓存)"></a>Snoopy Cache(史努比缓存)</h2><p>对缓存进行了三种标记<br><img src="/.io//13.png"><br><img src="/.io//14.png"></p>
+                <h1 id="多核和超线程"><a href="#多核和超线程" class="headerlink" title="多核和超线程"></a>多核和超线程</h1><p><img src="/2020/03/01/csapp26-thread-level-parallelism/1.png"><br>现在的计算机都是并行流水线<br><img src="/2020/03/01/csapp26-thread-level-parallelism/2.png"><br>超线程(hpyerthreading)意味着在单核的情况下多个线程同时走</p>
+<h1 id="并行加法"><a href="#并行加法" class="headerlink" title="并行加法"></a>并行加法</h1><p>目标：加0到n-1<br>想法：使用多个进程用互斥量来加globel sum<br>结果<br><img src="/2020/03/01/csapp26-thread-level-parallelism/3.png"></p>
+<p>改进：信号同步是很慢的，每个进程单独使用数组不同步,主进程等待所有进程结束然后相加<br>结果:<br><img src="/2020/03/01/csapp26-thread-level-parallelism/4.png"></p>
+<p>再改进：不用每次改数组，而是用局部变量（寄存器)累加，最后给数组<br><img src="/2020/03/01/csapp26-thread-level-parallelism/5.png"><br><img src="/2020/03/01/csapp26-thread-level-parallelism/6.png"><br>可以看到这里超线程并没有帮到我们（本身就在很好的使用寄存器)<br><strong>但是实际中的程序复杂的多，并不是这么简单利用</strong></p>
+<h1 id="Amdahl’s-Law（阿姆达尔定律）"><a href="#Amdahl’s-Law（阿姆达尔定律）" class="headerlink" title="Amdahl’s Law（阿姆达尔定律）"></a>Amdahl’s Law（阿姆达尔定律）</h1><p>研究一部分性能提升（使用并行)对总体性能的影响<br><img src="/2020/03/01/csapp26-thread-level-parallelism/7.png"></p>
+<h1 id="快速排序（利用并行）"><a href="#快速排序（利用并行）" class="headerlink" title="快速排序（利用并行）"></a>快速排序（利用并行）</h1><p>原来的 排左 排右<br><img src="/2020/03/01/csapp26-thread-level-parallelism/8.png"></p>
+<p>用线程递归  直到够小<br><img src="/2020/03/01/csapp26-thread-level-parallelism/9.png"><br>还要注意的是碎片太小 就不够并行性 太大就线程开销就太大了<br><img src="/2020/03/01/csapp26-thread-level-parallelism/10.png"></p>
+<h1 id="线程连续性法则（Thread-consistency）"><a href="#线程连续性法则（Thread-consistency）" class="headerlink" title="线程连续性法则（Thread consistency）"></a>线程连续性法则（Thread consistency）</h1><p>决定了不会出现1，100  或者100,1<br><img src="/2020/03/01/csapp26-thread-level-parallelism/11.png"><br>但是如果有不耦合的缓存，就可能出现。<br><img src="/2020/03/01/csapp26-thread-level-parallelism/12.png"></p>
+<h2 id="Snoopy-Cache-史努比缓存"><a href="#Snoopy-Cache-史努比缓存" class="headerlink" title="Snoopy Cache(史努比缓存)"></a>Snoopy Cache(史努比缓存)</h2><p>对缓存进行了三种标记<br><img src="/2020/03/01/csapp26-thread-level-parallelism/13.png"><br><img src="/2020/03/01/csapp26-thread-level-parallelism/14.png"></p>
 
                 
             </div>

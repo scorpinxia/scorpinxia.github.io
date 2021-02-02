@@ -502,7 +502,7 @@
 <li>并不是一定发生，死锁往往发生在高负载</li>
 </ul>
 <h2 id="简单顺序死锁"><a href="#简单顺序死锁" class="headerlink" title="简单顺序死锁"></a>简单顺序死锁</h2><blockquote>
-<p>例子<br><img src="/.io//1.png"></p>
+<p>例子<br><img src="/2020/12/30/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-activedanger/1.png"></p>
 </blockquote>
 <blockquote>
 <p>解决方法</p>
@@ -511,13 +511,13 @@
 <li>如果所有线程以固定的顺序获得锁，程序中就不会出现锁顺序死锁。</li>
 </ul>
 <h2 id="动态的锁顺序死锁"><a href="#动态的锁顺序死锁" class="headerlink" title="动态的锁顺序死锁"></a>动态的锁顺序死锁</h2><blockquote>
-<p>例子1 锁住账户原子转账<br><img src="/.io//2.png"></p>
+<p>例子1 锁住账户原子转账<br><img src="/2020/12/30/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-activedanger/2.png"></p>
 </blockquote>
 <ul>
 <li>当X向Y Y向X可能死锁</li>
 </ul>
 <blockquote>
-<p>解决办法 System.identityHashCode 定义顺序<br><img src="/.io//3.png"><br><img src="/.io//4.png"></p>
+<p>解决办法 System.identityHashCode 定义顺序<br><img src="/2020/12/30/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-activedanger/3.png"><br><img src="/2020/12/30/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-activedanger/4.png"></p>
 </blockquote>
 <ul>
 <li>可能Hashcode 相等，但是如果Account有唯一不可变键值</li>
@@ -529,7 +529,7 @@
 <li>短时间持有锁，看似降低竞争难度，增加了测试中找出潜在死锁的风险</li>
 </ul>
 <blockquote>
-<p>例子2 相互协作对象<br><img src="/.io//5.png"><br><img src="/.io//6.png"></p>
+<p>例子2 相互协作对象<br><img src="/2020/12/30/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-activedanger/5.png"><br><img src="/2020/12/30/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-activedanger/6.png"></p>
 </blockquote>
 <ul>
 <li>setLocation 和getImage都会尝试获得2个锁<ul>
@@ -547,7 +547,7 @@
 <li>同步代码块仅用于保护涉及共享状态的操作</li>
 </ul>
 <blockquote>
-<p>公开调用避免死锁<br><img src="/.io//7.png"></p>
+<p>公开调用避免死锁<br><img src="/2020/12/30/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-activedanger/7.png"></p>
 </blockquote>
 <ul>
 <li>丢失了一点原子性。（位置快照）</li>
@@ -583,7 +583,7 @@
 <li>可以设置Timeout 等待超过就返回失败</li>
 </ul>
 <h2 id="线程转储信息分析死锁（Thread-Dump"><a href="#线程转储信息分析死锁（Thread-Dump" class="headerlink" title="线程转储信息分析死锁（Thread Dump)"></a>线程转储信息分析死锁（Thread Dump)</h2><blockquote>
-<p>JVM 功能（许多IDE支持）<br><img src="/.io//8.png"></p>
+<p>JVM 功能（许多IDE支持）<br><img src="/2020/12/30/java-concurrency-in-pratice-part03-active-efficiency-test-chap10-activedanger/8.png"></p>
 </blockquote>
 <ul>
 <li>三个组件 只有交互才会显现出来 </li>

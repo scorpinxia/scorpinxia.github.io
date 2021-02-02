@@ -492,7 +492,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="802-11a"><a href="#802-11a" class="headerlink" title="802.11a"></a>802.11a</h1><h2 id="SIG"><a href="#SIG" class="headerlink" title="SIG"></a>SIG</h2><p>本身通过 BPSK 1/2rate 二进制卷积码（BCC)(其后是交织) ，为了接受最大</p>
-<p><img src="/.io//1.png"></p>
+<p><img src="/2020/09/22/wifi5-chap2-phy/1.png"></p>
 <ul>
 <li>速率field（调制和编码）</li>
 <li>Length(八进制被传输数据量) </li>
@@ -512,7 +512,7 @@
 </li>
 </ul>
 <h2 id="分组编码"><a href="#分组编码" class="headerlink" title="分组编码"></a>分组编码</h2><p>先按照上面的协议产生STF、LTF、SIG 在按照下面对数据字段编码</p>
-<p><img src="/.io//2.png"></p>
+<p><img src="/2020/09/22/wifi5-chap2-phy/2.png"></p>
 <ul>
 <li><p>数据bit前面是服务字段，后面6尾部0bit，</p>
 </li>
@@ -536,17 +536,17 @@
 </li>
 <li><p>接下来4us SIG，接收机遵循和数据相同的码元处理，只是不用解扰器，SIGbit没有被绕码，获取SIGbit，判断校验，错误就恢复空闲，正确，安装信息速率和长度配置。</p>
 </li>
-<li><p>数组字段 如下 去掉GI FFT，用信道估计均衡子载波数据。4个导频子载波来用于相位旋转纠错、频率偏移和码元定时纠错<br><img src="/.io//3.png"></p>
+<li><p>数组字段 如下 去掉GI FFT，用信道估计均衡子载波数据。4个导频子载波来用于相位旋转纠错、频率偏移和码元定时纠错<br><img src="/2020/09/22/wifi5-chap2-phy/3.png"></p>
 </li>
 <li><p>从最近的星座点到权衡信号的bit概率解映射子载波数据、之后解交织器</p>
 </li>
 </ul>
 <h2 id="HT-MF码"><a href="#HT-MF码" class="headerlink" title="HT MF码"></a>HT MF码</h2><h3 id="非HT"><a href="#非HT" class="headerlink" title="非HT"></a>非HT</h3><p>多个发送天线的单个空间流。 传统前导码是单个流，同样的信号可能导致无意的波束成形，而且 L-STF 用于AGC 功率变换大 也会导致饱和</p>
 <blockquote>
-<p>循环移位<br>问题：破除单个空间流与从不同天线传输的信号相关性 破除<br><img src="/.io//4.png"></p>
+<p>循环移位<br>问题：破除单个空间流与从不同天线传输的信号相关性 破除<br><img src="/2020/09/22/wifi5-chap2-phy/4.png"></p>
 </blockquote>
 <p>前面部分类型</p>
-<h3 id="HT"><a href="#HT" class="headerlink" title="HT"></a>HT</h3><h4 id="HT-SIG1-HT-SIG2"><a href="#HT-SIG1-HT-SIG2" class="headerlink" title="HT-SIG1 HT-SIG2"></a>HT-SIG1 HT-SIG2</h4><p><img src="/.io//6.png"></p>
+<h3 id="HT"><a href="#HT" class="headerlink" title="HT"></a>HT</h3><h4 id="HT-SIG1-HT-SIG2"><a href="#HT-SIG1-HT-SIG2" class="headerlink" title="HT-SIG1 HT-SIG2"></a>HT-SIG1 HT-SIG2</h4><p><img src="/2020/09/22/wifi5-chap2-phy/6.png"></p>
 <ul>
 <li><p>HT-SIG1</p>
 <ul>
@@ -563,7 +563,7 @@
 </li>
 <li><p>聚合bit 代表带个MPDU 扩展空间流bit、与Tx波束成型有关</p>
 </li>
-<li><p>两个STBCbit代表 操作维度<br><img src="/.io//7.png"><br><img src="/.io//8.png"></p>
+<li><p>两个STBCbit代表 操作维度<br><img src="/2020/09/22/wifi5-chap2-phy/7.png"><br><img src="/2020/09/22/wifi5-chap2-phy/8.png"></p>
 </li>
 <li><p>FEC编码 0 代表BCC 1LDPC</p>
 </li>
@@ -571,16 +571,16 @@
 </li>
 <li><p>保留bit 默认1</p>
 </li>
-<li><p>CRC 保护前32位 （HT-SIG1 0<del>23 HT-SIG2 0</del>9<br><img src="/.io//9.png"></p>
+<li><p>CRC 保护前32位 （HT-SIG1 0<del>23 HT-SIG2 0</del>9<br><img src="/2020/09/22/wifi5-chap2-phy/9.png"></p>
 </li>
 </ul>
 </li>
 </ul>
-<p>通过阈值 旋转 区分 传统服务字段和HT-SIG<br><img src="/.io//5.png"></p>
+<p>通过阈值 旋转 区分 传统服务字段和HT-SIG<br><img src="/2020/09/22/wifi5-chap2-phy/5.png"></p>
 <h4 id="HT-STF"><a href="#HT-STF" class="headerlink" title="HT-STF"></a>HT-STF</h4><p>HT-STF 添加额外字段 得到MIMO更精确的AGC </p>
 <h4 id="HT-LTF"><a href="#HT-LTF" class="headerlink" title="HT-LTF"></a>HT-LTF</h4><p>由正交映射矩阵生成，HT长训练频率矩阵乘以正交映射矩阵的一个值</p>
 <h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>可以用 低密度奇偶校验 替代BCC （二进制卷积码）</p>
-<h1 id="VHT"><a href="#VHT" class="headerlink" title="VHT"></a>VHT</h1><h2 id="VHT-SIG"><a href="#VHT-SIG" class="headerlink" title="VHT-SIG"></a>VHT-SIG</h2><p><img src="/.io//12.png"></p>
+<h1 id="VHT"><a href="#VHT" class="headerlink" title="VHT"></a>VHT</h1><h2 id="VHT-SIG"><a href="#VHT-SIG" class="headerlink" title="VHT-SIG"></a>VHT-SIG</h2><p><img src="/2020/09/22/wifi5-chap2-phy/12.png"></p>
 <h1 id="STBC-空时块编码"><a href="#STBC-空时块编码" class="headerlink" title="STBC 空时块编码"></a>STBC 空时块编码</h1><p>2<em>2 的AP  1</em>1的设备</p>
 <p>单一发送天线设备输出功率17dbm  同样输出功率天线的两个天线 就是14dbm，STBC需要额外的信道估计长训练</p>
 

@@ -555,7 +555,7 @@
 <p>近十年虚拟机的出现，程序编译成二进制本地机器码不再是唯一选择。大多程序选择了指令无关、平台中立的格式来作为编译后的存储格式</p>
 </blockquote>
 <h1 id="发展由来（平台无关系、语言无关系也正在发展）"><a href="#发展由来（平台无关系、语言无关系也正在发展）" class="headerlink" title="发展由来（平台无关系、语言无关系也正在发展）"></a>发展由来（平台无关系、语言无关系也正在发展）</h1><blockquote>
-<p>如果指令集只有x86 OS 只有windows也看就没有Java了。<br>利用与平台无关的字节码 Write Once,Run Anywhere<br>语言无关系的发展<br><img src="/.io//1.png"></p>
+<p>如果指令集只有x86 OS 只有windows也看就没有Java了。<br>利用与平台无关的字节码 Write Once,Run Anywhere<br>语言无关系的发展<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/1.png"></p>
 </blockquote>
 <h1 id="类文件结构"><a href="#类文件结构" class="headerlink" title="类文件结构"></a>类文件结构</h1><blockquote>
 <p>Java 良好向后兼容的原因 Class文件结构稳定（升级版本后 旧版本编译产品的可运行性）</p>
@@ -570,7 +570,7 @@
 <li>表：由多个无符号数或者其他表作为数据项构成的复合数据类型，所有表命名习惯以“_info”结尾</li>
 </ul>
 </li>
-<li>整个Class文件本质上可以看成一个表 按严格顺序排列<br><img src="/.io//2.png"></li>
+<li>整个Class文件本质上可以看成一个表 按严格顺序排列<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/2.png"></li>
 <li>由于Class 没有任何分隔符，表中的数据项、顺序、数量、数据存储的字节序（Class 是Big-Endian 我们的阅读方式存储9437 指数据的高字节，保存在内存的低地址中)</li>
 </ul>
 <h2 id="魔数与Class文件版本"><a href="#魔数与Class文件版本" class="headerlink" title="魔数与Class文件版本"></a>魔数与Class文件版本</h2><ul>
@@ -584,10 +584,10 @@
 </li>
 </ul>
 <blockquote>
-<p>例子 JDK6<br><img src="/.io//3.png"><br><img src="/.io//4.png"></p>
+<p>例子 JDK6<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/3.png"><br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/4.png"></p>
 </blockquote>
 <blockquote>
-<p>版本表<br><img src="/.io//5.png"></p>
+<p>版本表<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/5.png"></p>
 </blockquote>
 <h2 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h2><blockquote>
 <p>存放位置</p>
@@ -617,16 +617,16 @@
 <p>javac编译的时候，不像C C++那样连接，而且虚拟机加载Class文件的时候动态连接。Ckass未捕获不会保存各个方法字段最终在内存的布局信息（需要虚拟机运行期转换得到真正的内存入口）</p>
 </blockquote>
 <blockquote>
-<p>常量类型<br><img src="/.io//6.png"></p>
+<p>常量类型<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/6.png"></p>
 </blockquote>
 <blockquote>
 <p>不同常量类型有不同的数据结构</p>
 </blockquote>
 <ul>
-<li>第一项常量 （A地址 ） 0x07也就是CONSTANT——CLASS——info  类和接口的符号引用<br><img src="/.io//7.png"></li>
+<li>第一项常量 （A地址 ） 0x07也就是CONSTANT——CLASS——info  类和接口的符号引用<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/7.png"></li>
 <li>Tag 区分常量类型  </li>
 <li>name_index 是常量池的索引值 指向一个CONSTANT_UTF8_info类型常量，代表这个类的全限定名 0x0002执行常量池第二个项常量 </li>
-<li>标志位 0x01 就是 CONSTANT_UTF8_info<br><img src="/.io//9.png"></li>
+<li>标志位 0x01 就是 CONSTANT_UTF8_info<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/9.png"></li>
 <li>length值代表字符串长度 使用UTF-8缩略编码表示字符串</li>
 <li>UTF-8缩略编码和UTF-8普通编码的区别<ul>
 <li>从\u0001<del>007f （1</del>127的ASCII编码）的字符用一个字节表示  \u0080~07ff 的所有缩略码用两个字节表示 </li>
@@ -638,35 +638,35 @@
 <p>Class 文件 的方法字段都引用CONSTANT_UTF8_info型常量描述 最大长度就length 的u2  <strong>定义了超过64KB的英文字符或者方法名，就算全部合法，也无法编译</strong></p>
 </blockquote>
 <h3 id="命令计算分析-其余19个常量"><a href="#命令计算分析-其余19个常量" class="headerlink" title="命令计算分析 其余19个常量"></a>命令计算分析 其余19个常量</h3><blockquote>
-<p>javap  -verbose<br><img src="/.io//10.png"></p>
+<p>javap  -verbose<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/10.png"></p>
 </blockquote>
-<h3 id="常量池17中数据类型的结构总表"><a href="#常量池17中数据类型的结构总表" class="headerlink" title="常量池17中数据类型的结构总表"></a>常量池17中数据类型的结构总表</h3><p><img src="/.io//11.png"><br><img src="/.io//12.png"><br><img src="/.io//13.png"><br><img src="/.io//14.png"></p>
+<h3 id="常量池17中数据类型的结构总表"><a href="#常量池17中数据类型的结构总表" class="headerlink" title="常量池17中数据类型的结构总表"></a>常量池17中数据类型的结构总表</h3><p><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/11.png"><br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/12.png"><br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/13.png"><br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/14.png"></p>
 <h2 id="访问标志"><a href="#访问标志" class="headerlink" title="访问标志"></a>访问标志</h2><blockquote>
 <p>常量池结束后就是2个字节的访问标志</p>
 </blockquote>
 <ul>
-<li>一个16个现在用到了9个 （没用到都是0）<br><img src="/.io//15.png"></li>
+<li>一个16个现在用到了9个 （没用到都是0）<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/15.png"></li>
 </ul>
 <blockquote>
-<p>public super  0x0001|0x0020<br><img src="/.io//16.png"></p>
+<p>public super  0x0001|0x0020<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/16.png"></p>
 </blockquote>
 <h2 id="类索引、父类索引、接口索引集合"><a href="#类索引、父类索引、接口索引集合" class="headerlink" title="类索引、父类索引、接口索引集合"></a>类索引、父类索引、接口索引集合</h2><blockquote>
 <p>类所有和父类索引都是一个u2类型,接口索引集合是一组u2类型数据集合 </p>
 </blockquote>
 <blockquote>
-<p>类索引、父类索引、接口索引集合顺序在访问标志之后，查找全限定名过程<br><img src="/.io//17.png"></p>
+<p>类索引、父类索引、接口索引集合顺序在访问标志之后，查找全限定名过程<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/17.png"></p>
 </blockquote>
 <blockquote>
-<p>例子<br><img src="/.io//18.png"></p>
+<p>例子<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/18.png"></p>
 </blockquote>
 <ul>
-<li>0x0001 0x0003 0x0000 类索引 1 父类索引 3 接口索引结合大小 0<br><img src="/.io//19.png"><br><img src="/.io//20.png"></li>
+<li>0x0001 0x0003 0x0000 类索引 1 父类索引 3 接口索引结合大小 0<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/19.png"><br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/20.png"></li>
 </ul>
 <h2 id="字段表集合"><a href="#字段表集合" class="headerlink" title="字段表集合"></a>字段表集合</h2><blockquote>
-<p>描述接口和类中声明的变量 类级变量和实例型<br><img src="/.io//21.png"></p>
+<p>描述接口和类中声明的变量 类级变量和实例型<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/21.png"></p>
 </blockquote>
 <ul>
-<li>访问标志<br>  <img src="/.io//22.png"><ul>
+<li>访问标志<br>  <img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/22.png"><ul>
 <li>name_index descriptor_index 对应常量池的引用，字段的简单名称和字段描述符</li>
 </ul>
 </li>
@@ -676,7 +676,7 @@
 <li>全限定名 org/fenixsoft/clazz/TestClass;</li>
 <li>简单名称 没有类型和参数修饰的方法或者字段 inc() 就是inc </li>
 <li>方法字段描述符<ul>
-<li>基本数据类型<br><img src="/.io//23.png"></li>
+<li>基本数据类型<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/23.png"></li>
 <li>对象类型 比如String 二维数组 [[Ljava/lang/String  整形数组[I</li>
 <li>描述方法  先参数列表后返回。void inc() == ()V  int indexOf(char[] source,int sourcecon) == ([CI)I</li>
 </ul>
@@ -685,7 +685,7 @@
 </li>
 </ul>
 <blockquote>
-<p>描述字段例子<br><img src="/.io//24.png"></p>
+<p>描述字段例子<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/24.png"></p>
 </blockquote>
 <ul>
 <li>fields_count=1代表 字段只有一个</li>
@@ -702,16 +702,16 @@
 <li>另外，在Java语言中字段是无法重载的，两个字段的数据类型、修饰符不管是否相同，都必须使用不一样的名称，但是对于Class文件格式来讲，只要两个字段的描述符不是完全相同，那字段重名就是合法的。</li>
 </ul>
 <h2 id="方法表集合"><a href="#方法表集合" class="headerlink" title="方法表集合"></a>方法表集合</h2><blockquote>
-<p>与字段差不多<br>方法表结构<br><img src="/.io//25.png"></p>
+<p>与字段差不多<br>方法表结构<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/25.png"></p>
 </blockquote>
 <ul>
-<li>访问标志<br><img src="/.io//26.png"></li>
+<li>访问标志<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/26.png"></li>
 </ul>
 <blockquote>
-<p>例子<br><img src="/.io//27.png"></p>
+<p>例子<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/27.png"></p>
 </blockquote>
 <ul>
-<li>方法表<br>  <img src="/.io//28.png"><ul>
+<li>方法表<br>  <img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/28.png"><ul>
 <li>如果没有override 就不会出现父类信息</li>
 <li>可能出现编译器自动添加方法 类构造器<clinit>()<br>和实例构造器 <init>()</init></clinit></li>
 <li>java里重载 必须有一个不同的特征签名（返回值不包含在特征签名里面），但是在Class文件格式里，特征签名包含返回值</li>
@@ -720,14 +720,14 @@
 </ul>
 <h2 id="属性表集合"><a href="#属性表集合" class="headerlink" title="属性表集合"></a>属性表集合</h2><p>attribute_info</p>
 <blockquote>
-<p>JDK12 总共29属性  开始9属性<br><img src="/.io//29.png"><br><img src="/.io//30.png"><br><img src="/.io//31.png"></p>
+<p>JDK12 总共29属性  开始9属性<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/29.png"><br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/30.png"><br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/31.png"></p>
 </blockquote>
 <ul>
-<li>每个属性，它的名称都要从常量池引用一个CONSTANT_Utf8_info类型 属性值的结构完全自定义 需要u4长度说明属性值所占用的位数<br><img src="/.io//32.png"></li>
+<li>每个属性，它的名称都要从常量池引用一个CONSTANT_Utf8_info类型 属性值的结构完全自定义 需要u4长度说明属性值所占用的位数<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/32.png"></li>
 </ul>
 <h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><ul>
 <li>CODE 属性<ul>
-<li>java方法体里的代码经过编译器处理，变成字节码指令放在COde属性（接口和抽象类的方法 不存在Code属性）<br><img src="/.io//33.png"></li>
+<li>java方法体里的代码经过编译器处理，变成字节码指令放在COde属性（接口和抽象类的方法 不存在Code属性）<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/33.png"></li>
 <li>atrribute_name_index 执行CONSTANT_Utf8_info,此常量值固定“Code” 代表属性名称 </li>
 <li>attribute_length指示了属性值长度</li>
 <li>max_stack 代表操作数栈深度的最大值 （任意时刻都不会超过这个深度，虚拟机根据这个值分配栈帧操作栈深度</li>
@@ -737,7 +737,7 @@
 </li>
 </ul>
 <blockquote>
-<p>Code 例子<br><img src="/.io//35.png"></p>
+<p>Code 例子<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/35.png"></p>
 </blockquote>
 <ul>
 <li>1）读入2A，查表得0x2A对应的指令为aload_0，这个指令的含义是将第0个变量槽中为reference类型的本地变量推送到操作数栈顶。</li>
@@ -746,25 +746,25 @@
 <li>4）读入B1，查表得0xB1对应的指令为return，含义是从方法的返回，并且返回值为void。这条指<br>令执行后，当前方法正常结束。</li>
 </ul>
 <blockquote>
-<p>Class 解析中的CODE例子<br><img src="/.io//36.png"><br><img src="/.io//37.png"></p>
+<p>Class 解析中的CODE例子<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/36.png"><br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/37.png"></p>
 </blockquote>
 <ul>
 <li>注意到 两个方法实例构造器<init>()和inc() Args_size=1,但是他们都没参数，而且也没有任何局部变量Locals也等于1  <strong>（Java语言里面的潜规则：任何实例方法都可以通过“this访问此方法对象” 静态的话Args_size=0了）</strong></init></li>
 </ul>
 <h3 id="异常表"><a href="#异常表" class="headerlink" title="异常表"></a>异常表</h3><blockquote>
-<p>显示异常表：JAVA语言 通过异常表来实现异常 和finally<br><img src="/.io//38.png"></p>
+<p>显示异常表：JAVA语言 通过异常表来实现异常 和finally<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/38.png"></p>
 </blockquote>
 <h3 id="Exceptions-属性"><a href="#Exceptions-属性" class="headerlink" title="Exceptions 属性"></a>Exceptions 属性</h3><blockquote>
-<p>Exceptions属性的作用是列举出方法中可能抛出的受查异常（Checked Excepitons），也就是方法描述时在throws关键字后面列举的异常。<br><img src="/.io//39.png"></p>
+<p>Exceptions属性的作用是列举出方法中可能抛出的受查异常（Checked Excepitons），也就是方法描述时在throws关键字后面列举的异常。<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/39.png"></p>
 </blockquote>
 <h3 id="LineNumberTable属性"><a href="#LineNumberTable属性" class="headerlink" title="LineNumberTable属性"></a>LineNumberTable属性</h3><blockquote>
-<p>LineNumberTable属性用于描述Java源码行号与字节码行号（字节码的偏移量）之间的对应关系。<br>它并不是运行时必需的属性，但默认会生成到Class文件之中(调试错误用)<br><img src="/.io//40.png"></p>
+<p>LineNumberTable属性用于描述Java源码行号与字节码行号（字节码的偏移量）之间的对应关系。<br>它并不是运行时必需的属性，但默认会生成到Class文件之中(调试错误用)<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/40.png"></p>
 </blockquote>
 <ul>
 <li>找到 对应错误行</li>
 </ul>
 <h3 id="LocalVariableTable及LocalVariableTypeTable属性"><a href="#LocalVariableTable及LocalVariableTypeTable属性" class="headerlink" title="LocalVariableTable及LocalVariableTypeTable属性"></a>LocalVariableTable及LocalVariableTypeTable属性</h3><blockquote>
-<p>LocalVariableTable属性用于描述栈帧中局部变量表的变量与Java源码中定义的变量之间的关系，它也不是运行时必需的属性<br><img src="/.io//41.png"></p>
+<p>LocalVariableTable属性用于描述栈帧中局部变量表的变量与Java源码中定义的变量之间的关系，它也不是运行时必需的属性<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/41.png"></p>
 </blockquote>
 <ul>
 <li>找到对应参数值 调试<blockquote>
@@ -773,7 +773,7 @@
 </li>
 </ul>
 <h3 id="SourceFile及SourceDebugExtension属性"><a href="#SourceFile及SourceDebugExtension属性" class="headerlink" title="SourceFile及SourceDebugExtension属性"></a>SourceFile及SourceDebugExtension属性</h3><blockquote>
-<p>找到对应源文件<br><img src="/.io//42.png"><br>JDK加入定位额外的自定义内容文件<br><img src="/.io//43.png"></p>
+<p>找到对应源文件<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/42.png"><br>JDK加入定位额外的自定义内容文件<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/43.png"></p>
 </blockquote>
 <h3 id="ConstantValue属性"><a href="#ConstantValue属性" class="headerlink" title="ConstantValue属性"></a>ConstantValue属性</h3><blockquote>
 <p>通知虚拟机自动为静态变量赋值。只有被static关键字修饰的变量（类变量）才可以使用这项属性。</p>
@@ -783,24 +783,24 @@
 <li>而对于类变量，则有两种方式可以选择：在类构造器<clinit>()方法中或者使用ConstantValue属性。</clinit></li>
 <li>目前，类型是基本类型或者java.lang.String的话，就将会生成ConstantValue属性来进行初始化；如果这个变量没<br>有被final修饰，或者并非基本类型及字符串，则将会选择在<clinit>()方法中进行初始化。</clinit></li>
 </ul>
-<p><img src="/.io//44.png"></p>
+<p><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/44.png"></p>
 <h3 id="InnerClasses属性"><a href="#InnerClasses属性" class="headerlink" title="InnerClasses属性"></a>InnerClasses属性</h3><p>InnerClasses属性用于记录内部类与宿主类之间的关联。如果一个类中定义了内部类，那编译器将会为它以及它所包含的内部类生成InnerClasses属性。</p>
-<p><img src="/.io//45.png"></p>
+<p><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/45.png"></p>
 <h3 id="Deprecated及Synthetic属性"><a href="#Deprecated及Synthetic属性" class="headerlink" title="Deprecated及Synthetic属性"></a>Deprecated及Synthetic属性</h3><blockquote>
 <p>Deprecated和Synthetic两个属性都属于标志类型的布尔属性，只存在有和没有的区别，没有属性值<br>的概念。<br>Deprecated属性用于表示某个类、字段或者方法，已经被程序作者定为不再推荐使用，它可以通<br>过代码中使用“@deprecated”注解进行设置。</p>
 </blockquote>
 <blockquote>
-<p>Synthetic属性代表此字段或者方法并不是由Java源码直接产生的，而是由编译器自行添加的<br><img src="/.io//46.png"></p>
+<p>Synthetic属性代表此字段或者方法并不是由Java源码直接产生的，而是由编译器自行添加的<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/46.png"></p>
 </blockquote>
 <h3 id="StackMapTable属性"><a href="#StackMapTable属性" class="headerlink" title="StackMapTable属性"></a>StackMapTable属性</h3><blockquote>
-<p>JDK 6 新的验证器在同样能保证Class文件合法性的前提下，省略了在运行<br>期通过数据流分析去确认字节码的行为逻辑合法性的步骤，而在编译阶段将一系列的验证类型<br><img src="/.io//47.png"></p>
+<p>JDK 6 新的验证器在同样能保证Class文件合法性的前提下，省略了在运行<br>期通过数据流分析去确认字节码的行为逻辑合法性的步骤，而在编译阶段将一系列的验证类型<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/47.png"></p>
 </blockquote>
 <h3 id="Signature属性"><a href="#Signature属性" class="headerlink" title="Signature属性"></a>Signature属性</h3><blockquote>
 <p>JDK5  Signature属性会记录泛型签名信息,因为Java语言的泛型采用的是擦除法实现的伪泛型，字节码（Code属性）中所有的泛型信息编译（类型变量、参数化类型）在编译之后都通通被擦除掉。</p>
 </blockquote>
 <ul>
 <li>好处：实现简单（主要修改Javac编译器，虚拟机内部只做了很少的改动）、非常容易实现Backport，运行期也能够节省一些类型所占的内存空间。</li>
-<li>坏处是运行期就无法像C#等有真泛型支持的语言那样，将泛型类型与用户定义的普通类型同等对待，例如运行期做反射时无法获得泛型信息。现在Java的反射API能够获取的泛型类型，最终的数据来源也是这个属性。<br><img src="/.io//48.png"></li>
+<li>坏处是运行期就无法像C#等有真泛型支持的语言那样，将泛型类型与用户定义的普通类型同等对待，例如运行期做反射时无法获得泛型信息。现在Java的反射API能够获取的泛型类型，最终的数据来源也是这个属性。<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/48.png"></li>
 </ul>
 <h3 id="BootstrapMethods属性"><a href="#BootstrapMethods属性" class="headerlink" title="BootstrapMethods属性"></a>BootstrapMethods属性</h3><h3 id="MethodParameters属性"><a href="#MethodParameters属性" class="headerlink" title="MethodParameters属性"></a>MethodParameters属性</h3><p>JDK8</p>
 <h3 id="模块化相关属性"><a href="#模块化相关属性" class="headerlink" title="模块化相关属性"></a>模块化相关属性</h3><h1 id="字节码指令简介"><a href="#字节码指令简介" class="headerlink" title="字节码指令简介"></a>字节码指令简介</h1><blockquote>
@@ -824,7 +824,7 @@
 <li>也是为了尽可能获得短小精干的编译代码。这种追求尽可能小数据量、高传输效率的设计是由Java语言设计之初主要面向网络、智能家电的技术背景所决定的，并一直沿用至今。</li>
 </ul>
 <h2 id="字节码和数据类型"><a href="#字节码和数据类型" class="headerlink" title="字节码和数据类型"></a>字节码和数据类型</h2><blockquote>
-<p>为了指令集控制在一自己，不能支持所有数据类型<br><img src="/.io//49.png"></p>
+<p>为了指令集控制在一自己，不能支持所有数据类型<br><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/49.png"></p>
 </blockquote>
 <ul>
 <li>大部分不支持 整形 byte char short 和boolean ,编译运行期间会带符号 或者无符号或者成int</li>
@@ -918,7 +918,7 @@
 <h2 id="同步指令"><a href="#同步指令" class="headerlink" title="同步指令"></a>同步指令</h2><blockquote>
 <p>Java虚拟机可以支持方法级的同步和方法内部一段指令序列的同步，这两种同步结构都是使用管程（Monitor，更常见的是直接将它称为“锁”）来实现的。</p>
 </blockquote>
-<p><img src="/.io//50.png"></p>
+<p><img src="/2020/12/15/deepinjvm-part03-jvmsubsystem-chap06-classstructure/50.png"></p>
 <h1 id="公有设计-私有实现"><a href="#公有设计-私有实现" class="headerlink" title="公有设计 私有实现"></a>公有设计 私有实现</h1><blockquote>
 <p>满足规范 优化CLASS文件也可以<br>虚拟机实现的方式主要有以下两种：</p>
 </blockquote>

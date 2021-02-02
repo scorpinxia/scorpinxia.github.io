@@ -491,22 +491,22 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="每一次-都strlen"><a href="#每一次-都strlen" class="headerlink" title="每一次 都strlen"></a>每一次 都strlen</h1><p><img src="/.io//1.png"></p>
-<h1 id="内存的反复的读取b-i-和写入"><a href="#内存的反复的读取b-i-和写入" class="headerlink" title="内存的反复的读取b[i] 和写入"></a>内存的反复的读取b[i] 和写入</h1><p><img src="/.io//2.png"></p>
+                <h1 id="每一次-都strlen"><a href="#每一次-都strlen" class="headerlink" title="每一次 都strlen"></a>每一次 都strlen</h1><p><img src="/2020/02/13/csapp10-program-optimization/1.png"></p>
+<h1 id="内存的反复的读取b-i-和写入"><a href="#内存的反复的读取b-i-和写入" class="headerlink" title="内存的反复的读取b[i] 和写入"></a>内存的反复的读取b[i] 和写入</h1><p><img src="/2020/02/13/csapp10-program-optimization/2.png"></p>
 <p>修改</p>
-<p><img src="/.io//3.png"></p>
-<h1 id="程序流水线"><a href="#程序流水线" class="headerlink" title="程序流水线"></a>程序流水线</h1><p><img src="/.io//4.png"></p>
+<p><img src="/2020/02/13/csapp10-program-optimization/3.png"></p>
+<h1 id="程序流水线"><a href="#程序流水线" class="headerlink" title="程序流水线"></a>程序流水线</h1><p><img src="/2020/02/13/csapp10-program-optimization/4.png"></p>
 <p>除法是比较耗内存的 开源库 都会把除法换成 乘以倒数分之一</p>
 <p>Latency Bound 机器延迟的限制（顺序执行）</p>
-<h1 id="Loop-Unrooling-每次处理两个"><a href="#Loop-Unrooling-每次处理两个" class="headerlink" title="Loop Unrooling  每次处理两个"></a>Loop Unrooling  每次处理两个</h1><p><img src="/.io//5.png"></p>
+<h1 id="Loop-Unrooling-每次处理两个"><a href="#Loop-Unrooling-每次处理两个" class="headerlink" title="Loop Unrooling  每次处理两个"></a>Loop Unrooling  每次处理两个</h1><p><img src="/2020/02/13/csapp10-program-optimization/5.png"></p>
 <p>这样没改乘法流水线</p>
-<p><img src="/.io//6.png"></p>
+<p><img src="/2020/02/13/csapp10-program-optimization/6.png"></p>
 <p>因为d[i]和x 没关系 所以可以同时进行</p>
-<h1 id="浮点的话不一定满足结合-和交换-所以优化的时候一般不改结合性"><a href="#浮点的话不一定满足结合-和交换-所以优化的时候一般不改结合性" class="headerlink" title="浮点的话不一定满足结合 和交换 所以优化的时候一般不改结合性"></a>浮点的话不一定满足结合 和交换 所以优化的时候一般不改结合性</h1><h1 id="Throughput-吞吐量极限（硬件限制）"><a href="#Throughput-吞吐量极限（硬件限制）" class="headerlink" title="Throughput 吞吐量极限（硬件限制）"></a>Throughput 吞吐量极限（硬件限制）</h1><p><img src="/.io//7.png"></p>
-<p><img src="/.io//8.png"></p>
+<h1 id="浮点的话不一定满足结合-和交换-所以优化的时候一般不改结合性"><a href="#浮点的话不一定满足结合-和交换-所以优化的时候一般不改结合性" class="headerlink" title="浮点的话不一定满足结合 和交换 所以优化的时候一般不改结合性"></a>浮点的话不一定满足结合 和交换 所以优化的时候一般不改结合性</h1><h1 id="Throughput-吞吐量极限（硬件限制）"><a href="#Throughput-吞吐量极限（硬件限制）" class="headerlink" title="Throughput 吞吐量极限（硬件限制）"></a>Throughput 吞吐量极限（硬件限制）</h1><p><img src="/2020/02/13/csapp10-program-optimization/7.png"></p>
+<p><img src="/2020/02/13/csapp10-program-optimization/8.png"></p>
 <p>gcc  做的不好 这方面  可以利用扩展补充</p>
 <p>intel 自带编译器 </p>
-<h1 id="现代-为了读取尽可能多指令-分支预测"><a href="#现代-为了读取尽可能多指令-分支预测" class="headerlink" title="现代 为了读取尽可能多指令 分支预测"></a>现代 为了读取尽可能多指令 分支预测</h1><p><img src="/.io//9.png"></p>
+<h1 id="现代-为了读取尽可能多指令-分支预测"><a href="#现代-为了读取尽可能多指令-分支预测" class="headerlink" title="现代 为了读取尽可能多指令 分支预测"></a>现代 为了读取尽可能多指令 分支预测</h1><p><img src="/2020/02/13/csapp10-program-optimization/9.png"></p>
 <p>CPU 对每个寄存器有多个副本（几百个时间点）  </p>
 
                 

@@ -494,7 +494,7 @@
                 <h1 id="信道"><a href="#信道" class="headerlink" title="信道"></a>信道</h1><ul>
 <li><p>增加了144信道</p>
 </li>
-<li><p>可以选择 80+80<br><img src="/.io//1.png"></p>
+<li><p>可以选择 80+80<br><img src="/2020/09/21/wifi5-vht/1.png"></p>
 </li>
 </ul>
 <ul>
@@ -503,10 +503,10 @@
 <ul>
 <li>160mhz 512fft 两个 80mhz组成 486data</li>
 </ul>
-<h1 id="Single-user-SU-VHT-packet-structure"><a href="#Single-user-SU-VHT-packet-structure" class="headerlink" title="Single user (SU) VHT packet structure"></a>Single user (SU) VHT packet structure</h1><p><img src="/.io//2.png"></p>
-<h1 id="VHT-format-preamble"><a href="#VHT-format-preamble" class="headerlink" title="VHT format preamble"></a>VHT format preamble</h1><p><img src="/.io//3.png"></p>
+<h1 id="Single-user-SU-VHT-packet-structure"><a href="#Single-user-SU-VHT-packet-structure" class="headerlink" title="Single user (SU) VHT packet structure"></a>Single user (SU) VHT packet structure</h1><p><img src="/2020/09/21/wifi5-vht/2.png"></p>
+<h1 id="VHT-format-preamble"><a href="#VHT-format-preamble" class="headerlink" title="VHT format preamble"></a>VHT format preamble</h1><p><img src="/2020/09/21/wifi5-vht/3.png"></p>
 <p>MF前导码 相同  ，和HT概念 差不多 主要增加了 VHT-LTF 对导频子载波跟踪和、VHT-SIG-B、增加 MU-MIMO的支持</p>
-<h1 id="VHT格式前导的VHT部分"><a href="#VHT格式前导的VHT部分" class="headerlink" title="VHT格式前导的VHT部分"></a>VHT格式前导的VHT部分</h1><h2 id="VHT-SIGA"><a href="#VHT-SIGA" class="headerlink" title="VHT-SIGA"></a>VHT-SIGA</h2><p><img src="/.io//4.png"></p>
+<h1 id="VHT格式前导的VHT部分"><a href="#VHT格式前导的VHT部分" class="headerlink" title="VHT格式前导的VHT部分"></a>VHT格式前导的VHT部分</h1><h2 id="VHT-SIGA"><a href="#VHT-SIGA" class="headerlink" title="VHT-SIGA"></a>VHT-SIGA</h2><p><img src="/2020/09/21/wifi5-vht/4.png"></p>
 <ul>
 <li><p>BW 2bit </p>
 </li>
@@ -520,13 +520,13 @@
 </li>
 <li><p>Short GI 0 0.8us 1 0.4us</p>
 </li>
-<li><p>Nsym 使用短且NSYMOD 10=9，则此位设置为1<br><img src="/.io//5.png"></p>
+<li><p>Nsym 使用短且NSYMOD 10=9，则此位设置为1<br><img src="/2020/09/21/wifi5-vht/5.png"></p>
 </li>
 <li><p>Coding bit 0:BCC 1:LDPC</p>
 </li>
 <li><p>LPDPC extra采用LDPC编码，在编码过程中加入额外的符号，LDPC额外的OFDM符号比特被设置为1。否则，该位设置为0。</p>
 </li>
-<li><p>MCS:和空间流分开了<br><img src="/.io//6.png"></p>
+<li><p>MCS:和空间流分开了<br><img src="/2020/09/21/wifi5-vht/6.png"></p>
 </li>
 <li><p>Beamformed如图7.7所示，只有一个比特与发射波束形成有关，而在802.11n HT-SIG中有三个。在802.11ac中，我们只拥有波束形成的VHT-SIG-A2。如果将波束形成转向矩阵应用于波形，则设置为1，否则设置为0。不需要确定信道延迟扩展。由于波束形成可能导致相邻子载波之间的相位不连续，因此当波束形成比特设置为1时，应用平滑时需要小心</p>
 </li>

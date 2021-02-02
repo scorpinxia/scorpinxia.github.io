@@ -491,30 +491,30 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="signals-是更高层的ECF-利用应用软件和内核软件"><a href="#signals-是更高层的ECF-利用应用软件和内核软件" class="headerlink" title="signals 是更高层的ECF 利用应用软件和内核软件"></a>signals 是更高层的ECF 利用应用软件和内核软件</h1><h1 id="linux-处理分层"><a href="#linux-处理分层" class="headerlink" title="linux 处理分层"></a>linux 处理分层</h1><p>初始化一些服务 然后<br><img src="/.io//1.png"></p>
-<h1 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h1><p>shell其实是一个应用程序<br><img src="/.io//2.png"></p>
-<h1 id="signals"><a href="#signals" class="headerlink" title="signals"></a>signals</h1><p><img src="/.io//3.png"></p>
-<p><img src="/.io//4.png"></p>
-<p><img src="/.io//5.png"></p>
+                <h1 id="signals-是更高层的ECF-利用应用软件和内核软件"><a href="#signals-是更高层的ECF-利用应用软件和内核软件" class="headerlink" title="signals 是更高层的ECF 利用应用软件和内核软件"></a>signals 是更高层的ECF 利用应用软件和内核软件</h1><h1 id="linux-处理分层"><a href="#linux-处理分层" class="headerlink" title="linux 处理分层"></a>linux 处理分层</h1><p>初始化一些服务 然后<br><img src="/2020/02/18/csapp15-ecf-signals/1.png"></p>
+<h1 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h1><p>shell其实是一个应用程序<br><img src="/2020/02/18/csapp15-ecf-signals/2.png"></p>
+<h1 id="signals"><a href="#signals" class="headerlink" title="signals"></a>signals</h1><p><img src="/2020/02/18/csapp15-ecf-signals/3.png"></p>
+<p><img src="/2020/02/18/csapp15-ecf-signals/4.png"></p>
+<p><img src="/2020/02/18/csapp15-ecf-signals/5.png"></p>
 <h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><ul>
 <li>1.信号不会排队 一个进程正挂起一种类型的信号（信号发送 但未接受）</li>
 <li>2.相同的信号给这个进程会被取消  </li>
 <li>3.挂起的信号只能被接受一次</li>
 </ul>
 <p>因为本质上是置位一些bit位</p>
-<p>杀死进程 和进程组  利用SIGKILL信号<br><img src="/.io//6.png"></p>
+<p>杀死进程 和进程组  利用SIGKILL信号<br><img src="/2020/02/18/csapp15-ecf-signals/6.png"></p>
 <p>ctrl+c （ctrl+z ） 发出SIGINT 停止信号 （ SIGTSTP 挂起信号）</p>
-<h1 id="处理信号过程"><a href="#处理信号过程" class="headerlink" title="处理信号过程"></a>处理信号过程</h1><p><img src="/.io//7.png"></p>
+<h1 id="处理信号过程"><a href="#处理信号过程" class="headerlink" title="处理信号过程"></a>处理信号过程</h1><p><img src="/2020/02/18/csapp15-ecf-signals/7.png"></p>
 <p>A发生异常  交给内核处理 在内核处理玩然后上下文交换到B时会检查所有挂起的信号 （pending signals)</p>
 <h1 id="信号处理函数"><a href="#信号处理函数" class="headerlink" title="信号处理函数"></a>信号处理函数</h1><p>是一个单独的类似过程一样的 逻辑流 也会并发</p>
-<p><img src="/.io//8.png"></p>
-<p><img src="/.io//9.png"></p>
+<p><img src="/2020/02/18/csapp15-ecf-signals/8.png"></p>
+<p><img src="/2020/02/18/csapp15-ecf-signals/9.png"></p>
 <p>处理能被其他信号函数打断（除了相同的信号）</p>
-<p><img src="/.io//10.png"></p>
+<p><img src="/2020/02/18/csapp15-ecf-signals/10.png"></p>
 <h1 id="Block-singals-method"><a href="#Block-singals-method" class="headerlink" title="Block singals method"></a>Block singals method</h1><p>1.信号处理时会屏蔽本身的interrupt</p>
 <p>2.显式屏蔽sigprocmask</p>
-<p><img src="/.io//11.png"></p>
-<h1 id="safe-signals-handlers"><a href="#safe-signals-handlers" class="headerlink" title="safe signals handlers"></a>safe signals handlers</h1><p>它和主程序并发且享有相同的全局变量（这会很脆弱）<br><img src="/.io//12.png"></p>
+<p><img src="/2020/02/18/csapp15-ecf-signals/11.png"></p>
+<h1 id="safe-signals-handlers"><a href="#safe-signals-handlers" class="headerlink" title="safe signals handlers"></a>safe signals handlers</h1><p>它和主程序并发且享有相同的全局变量（这会很脆弱）<br><img src="/2020/02/18/csapp15-ecf-signals/12.png"></p>
 <p>第一 就是尽量简单 </p>
 <p>第二 只调用异步信号安全的函数 （就是变量都在栈上 或者不怕被打断）</p>
 <p>第三 保存errno 避免被重写</p>

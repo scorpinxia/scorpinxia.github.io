@@ -491,7 +491,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>专注于密集用户场景，之前协议 根据<img src="/.io//wifi6-concept%5C1.png">,SNR不变加带宽就加吞吐。ax的设计思想和传统不一样，同带宽情况下</p>
+                <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>专注于密集用户场景，之前协议 根据<img src="/2020/09/30/wifi6-concept/wifi6-concept%5C1.png">,SNR不变加带宽就加吞吐。ax的设计思想和传统不一样，同带宽情况下</p>
 <h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
 <li><p>协议兼容性：802.11ax要求与以往的802.11a/b/h/n/ac都进行兼容，这也证明了其是第二款同时能工作在2.4G和5G频段下的协议（802.11ac仅工作在5G频段）。故在其数据帧结构和MAC接入协议上，都需要兼容设计，以便于传统协议兼容。</p>
 </li>
@@ -500,31 +500,31 @@
 <li><p>更高的传输速率以及覆盖范围：在802.11ax中，更高的速率分别体现在PHY层和MAC层的改进上，其具体改进包含如下：</p>
 <ul>
 <li>提供更高阶的编码组合（MCS10和MCS11）。其中主要是QAM-1024的引入，在802.11ac中，最高阶是256QAM。</li>
-<li>在相同带宽下，802.11ax采用点数更多的FFT（即原始的FFT的4倍大小）。FFT点数越多，说明其子载波数越多，以及子载波的带宽也就越小（带宽从312.5kHz降到78.125kHz。其对应的symbol时间也增加了4倍），从而可以覆盖更远的范围。（覆盖范围与相干带宽有关。只要信道的带宽小于相干带宽的话，那么就是平坦衰落，信号不会受到多径的影响。所以越小的信道带宽，可以覆盖更远的范围）<br><img src="/.io//wifi6-concept%5C2.png"></li>
-<li>引入上行MU-MIMO。在802.11ac中，协议只规定了下行的MU-MIMO。上行还是单个节点独立传输的，而在802.11ax中，上下行都需要支持MU-MIMO。<br><img src="/.io//wifi6-concept%5C3.png"></li>
-<li>引入OFDMA技术。802.11ax设计中参考了LTE中OFDMA的使用，可以让多个用户通过不同子载波资源同时接入信道，提高信道的利用率。不过因为802.11是一个分布式接入的场景，所以802.11ax中的OFDMA实际是比LTE中复杂度要低一些。<br><img src="/.io//wifi6-concept%5C4.png"></li>
+<li>在相同带宽下，802.11ax采用点数更多的FFT（即原始的FFT的4倍大小）。FFT点数越多，说明其子载波数越多，以及子载波的带宽也就越小（带宽从312.5kHz降到78.125kHz。其对应的symbol时间也增加了4倍），从而可以覆盖更远的范围。（覆盖范围与相干带宽有关。只要信道的带宽小于相干带宽的话，那么就是平坦衰落，信号不会受到多径的影响。所以越小的信道带宽，可以覆盖更远的范围）<br><img src="/2020/09/30/wifi6-concept/wifi6-concept%5C2.png"></li>
+<li>引入上行MU-MIMO。在802.11ac中，协议只规定了下行的MU-MIMO。上行还是单个节点独立传输的，而在802.11ax中，上下行都需要支持MU-MIMO。<br><img src="/2020/09/30/wifi6-concept/wifi6-concept%5C3.png"></li>
+<li>引入OFDMA技术。802.11ax设计中参考了LTE中OFDMA的使用，可以让多个用户通过不同子载波资源同时接入信道，提高信道的利用率。不过因为802.11是一个分布式接入的场景，所以802.11ax中的OFDMA实际是比LTE中复杂度要低一些。<br><img src="/2020/09/30/wifi6-concept/wifi6-concept%5C4.png"></li>
 </ul>
 </li>
 </ul>
-<h1 id="OFMDA"><a href="#OFMDA" class="headerlink" title="OFMDA"></a>OFMDA</h1><p><img src="/.io//wifi6-concept%5C4.png"></p>
+<h1 id="OFMDA"><a href="#OFMDA" class="headerlink" title="OFMDA"></a>OFMDA</h1><p><img src="/2020/09/30/wifi6-concept/wifi6-concept%5C4.png"></p>
 <ul>
 <li>OFDM：用户是通过不同时间</li>
 <li>OFDMA：用户通过RU（Resource unit）块</li>
 </ul>
 <h2 id="RU"><a href="#RU" class="headerlink" title="RU"></a>RU</h2><ul>
-<li><p><img src="/.io//wifi6-concept%5C5.png"> </p>
+<li><p><img src="/2020/09/30/wifi6-concept/wifi6-concept%5C5.png"> </p>
 <ul>
 <li>CBW20 相当于9个人竞争占据全部信道 一个人 26个载波 26*9=234&lt;256</li>
 </ul>
 </li>
-<li><p><img src="/.io//wifi6-concept%5C6.png"> </p>
+<li><p><img src="/2020/09/30/wifi6-concept/wifi6-concept%5C6.png"> </p>
 <ul>
 <li>DC保护：以中心子载波为核心，一共有7个子载波作为DC保护的，即DC的保护带宽一共是7*78.125kHz=546.875kHz，与原来的一个DC保护（即312.5kHz）是比较接近的。</li>
 <li>Guard Sub-carriers：保护子载波这里指的是信道之间的保护子载波了（比如20MHz信道之间的保护），如上图所示，其选取了左边的6个子载波以及右边的5个子载波作为保护，这点设计是和802.11a的载波设计是一样的，只是子载波的带宽不一样而已。</li>
-<li>Null Sub-carriers：在一些早期的书里面，比如《MIMO-OFDM Wireless Communications with MATLAB》，其中是将Guard Sub-carriers和Null Sub-carriers等价看待的。不过在802.11ax中，Null子载波是指的RU之间的保护间隔，一般是1个子载波。<br><img src="/.io//wifi6-concept%5C7.png"> </li>
+<li>Null Sub-carriers：在一些早期的书里面，比如《MIMO-OFDM Wireless Communications with MATLAB》，其中是将Guard Sub-carriers和Null Sub-carriers等价看待的。不过在802.11ax中，Null子载波是指的RU之间的保护间隔，一般是1个子载波。<br><img src="/2020/09/30/wifi6-concept/wifi6-concept%5C7.png"> </li>
 </ul>
 </li>
-<li><p>子载波<br>  <img src="/.io//wifi6-concept%5C8.png"> </p>
+<li><p>子载波<br>  <img src="/2020/09/30/wifi6-concept/wifi6-concept%5C8.png"> </p>
 </li>
 </ul>
 <h1 id="上行随机接入（TF，TF-R）"><a href="#上行随机接入（TF，TF-R）" class="headerlink" title="上行随机接入（TF，TF-R）"></a>上行随机接入（TF，TF-R）</h1>

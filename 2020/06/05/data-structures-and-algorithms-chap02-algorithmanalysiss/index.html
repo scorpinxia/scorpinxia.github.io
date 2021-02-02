@@ -544,7 +544,7 @@
 <li>粗心使用递归的后果</li>
 <li>将数自乘得幂，计算两个数最大公因数的非常有效方法</li>
 </ul>
-<h1 id="数学基础"><a href="#数学基础" class="headerlink" title="数学基础"></a>数学基础</h1><p><img src="/.io//1.png"></p>
+<h1 id="数学基础"><a href="#数学基础" class="headerlink" title="数学基础"></a>数学基础</h1><p><img src="/2020/06/05/data-structures-and-algorithms-chap02-algorithmanalysiss/1.png"></p>
 <ul>
 <li><p>第一个定义<font color="red" font="" size="4">(大O标记法)</font>：某个点N0开始 c*f(N)总是大于T（N)  比如T(N)=1000N f(N)=N^2 N0=1000 c=1<br>或者N0=10 c=100  1000N=O(N^2)  增长率小于等于f(N); <font color="red" font="" size="4">(上界)</font></p>
 </li>
@@ -561,22 +561,22 @@
 <blockquote>
 <p>f(N)=N^2 和g(N)=2N^2 增长率一样 f(N)=O(g(N)) f(N)=∩(g(N))都对 用f(N)=θ(N^2)最好<br>准确</p>
 </blockquote>
-<p><img src="/.io//2.png"></p>
+<p><img src="/2020/06/05/data-structures-and-algorithms-chap02-algorithmanalysiss/2.png"></p>
 <p><font color="red" font="" size="4">洛必达来计算相对增长率</font></p>
-<p><img src="/.io//3.png"></p>
+<p><img src="/2020/06/05/data-structures-and-algorithms-chap02-algorithmanalysiss/3.png"></p>
 <h1 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h1><p>Tavg 反应典型 行为Tworst 反应对任何输入的性能保证 Tbest 没什么意义<br>以下只考虑算法 不考虑实现 <font color="red" font="" size="4">编译器和操作系统</font></p>
-<h2 id="最大子序和问题"><a href="#最大子序和问题" class="headerlink" title="最大子序和问题"></a>最大子序和问题</h2><p><img src="/.io//4.png"><br>小量输入不值得<br><img src="/.io//5.png"></p>
+<h2 id="最大子序和问题"><a href="#最大子序和问题" class="headerlink" title="最大子序和问题"></a>最大子序和问题</h2><p><img src="/2020/06/05/data-structures-and-algorithms-chap02-algorithmanalysiss/4.png"><br>小量输入不值得<br><img src="/2020/06/05/data-structures-and-algorithms-chap02-algorithmanalysiss/5.png"></p>
 <h2 id="分析运行时间准则"><a href="#分析运行时间准则" class="headerlink" title="分析运行时间准则"></a>分析运行时间准则</h2><ul>
 <li><p>for准则 一般只看for 就行 从内往外</p>
 </li>
 <li><p>if-else 准则  取最长运行时间的</p>
 </li>
 <li><p>其中的方法也用运行时间带入进去</p>
-<p>注意递归的分析<br><img src="/.io//6.png"><br><img src="/.io//7.png"><br>慢的原因<br>计算fn(n-1)实际上算了fn(n-2)  违反递归第四条准则</p>
+<p>注意递归的分析<br><img src="/2020/06/05/data-structures-and-algorithms-chap02-algorithmanalysiss/6.png"><br><img src="/2020/06/05/data-structures-and-algorithms-chap02-algorithmanalysiss/7.png"><br>慢的原因<br>计算fn(n-1)实际上算了fn(n-2)  违反递归第四条准则</p>
 </li>
 </ul>
 <h2 id="最大子序和问题的四种算法"><a href="#最大子序和问题的四种算法" class="headerlink" title="最大子序和问题的四种算法"></a>最大子序和问题的四种算法</h2><h3 id="O-N-3-O-N-2-直观法-计算每个元素的最大子序和"><a href="#O-N-3-O-N-2-直观法-计算每个元素的最大子序和" class="headerlink" title="O(N^3) O(N^2) 直观法 计算每个元素的最大子序和"></a>O(N^3) O(N^2) 直观法 计算每个元素的最大子序和</h3><h3 id="O-NlogN-分治法递归"><a href="#O-NlogN-分治法递归" class="headerlink" title="O(NlogN) 分治法递归"></a>O(NlogN) 分治法递归</h3><pre class="line-numbers language-none"><code class="language-none">计算前一半 和 后一半最大子序  中间的最大子序 然后把包含前一半最后一个元素的最大子序和后一半第一个元素的最大子序相加<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="O-N-边走-边算"><a href="#O-N-边走-边算" class="headerlink" title="O(N)  边走 边算"></a>O(N)  边走 边算</h3><p><img src="/.io//8.png"></p>
+<h3 id="O-N-边走-边算"><a href="#O-N-边走-边算" class="headerlink" title="O(N)  边走 边算"></a>O(N)  边走 边算</h3><p><img src="/2020/06/05/data-structures-and-algorithms-chap02-algorithmanalysiss/8.png"></p>
 <p><font color="red" font="" size="4">也叫联机算法 任意时刻的输出都是最大的</font></p>
 <h2 id="运行中的对数"><a href="#运行中的对数" class="headerlink" title="运行中的对数"></a>运行中的对数</h2><p>一个问题常数时间O(1)消减成一小部分    后面的性能就是 O(logN)</p>
 <h3 id="折半查找"><a href="#折半查找" class="headerlink" title="折半查找"></a>折半查找</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">AnyType</span> <span class="token keyword">extends</span> <span class="token class-name">Comparable</span><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> <span class="token class-name">AnyType</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span>
@@ -610,7 +610,7 @@
 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><font color="red" font="" size="4"> 定理：M&gt;N M mod N &lt; M/2</font><br>所以算法时间 O(logN)</p>
-<h3 id="幂函数"><a href="#幂函数" class="headerlink" title="幂函数"></a>幂函数</h3><p><img src="/.io//9.png"></p>
+<h3 id="幂函数"><a href="#幂函数" class="headerlink" title="幂函数"></a>幂函数</h3><p><img src="/2020/06/05/data-structures-and-algorithms-chap02-algorithmanalysiss/9.png"></p>
 <p>直接就O(N)</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">isEven</span><span class="token punctuation">(</span> <span class="token keyword">int</span> n <span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
@@ -630,7 +630,7 @@
         <span class="token keyword">return</span> <span class="token function">pow</span><span class="token punctuation">(</span> x <span class="token operator">*</span> x<span class="token punctuation">,</span> n <span class="token operator">/</span> <span class="token number">2</span> <span class="token punctuation">)</span> <span class="token operator">*</span> x<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><h2 id="2-7-程序执行时间"><a href="#2-7-程序执行时间" class="headerlink" title="2.7 程序执行时间"></a>2.7 程序执行时间</h2><p><img src="/.io//12.png"></p>
+<h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><h2 id="2-7-程序执行时间"><a href="#2-7-程序执行时间" class="headerlink" title="2.7 程序执行时间"></a>2.7 程序执行时间</h2><p><img src="/2020/06/05/data-structures-and-algorithms-chap02-algorithmanalysiss/12.png"></p>
 <p>注意是O(N^5)  不是O(N^4)</p>
 <h2 id="2-8-生成一个（0，N）的随机数字的三种方法"><a href="#2-8-生成一个（0，N）的随机数字的三种方法" class="headerlink" title="2.8 生成一个（0，N）的随机数字的三种方法"></a>2.8 生成一个（0，N）的随机数字的三种方法</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">chap02</span><span class="token punctuation">;</span>
 

@@ -550,7 +550,7 @@
 </blockquote>
 <ul>
 <li>在多路处理器系统中，每个处理器都有自己的高速缓存，而它们又共享同一主内存（Main Memory），这种系统称为共享内存多核系统（Shared Memory Multiprocessors System）</li>
-<li>各个处理器访问缓存时都遵循一些协议，在读写时要根据协议来进行操作，这类协议有MSI、MESI（Illinois Protocol）、MOSI、Synapse、Firefly及Dragon Protocol等。<br><img src="/.io//1.png"></li>
+<li>各个处理器访问缓存时都遵循一些协议，在读写时要根据协议来进行操作，这类协议有MSI、MESI（Illinois Protocol）、MOSI、Synapse、Firefly及Dragon Protocol等。<br><img src="/2020/12/29/deepinjvm-part05-heconcurrency-chap12-javamemorymodel/1.png"></li>
 </ul>
 <blockquote>
 <p>内存模型</p>
@@ -582,7 +582,7 @@
 <li>JMM规定所有的变量都存储在主内存（Main Memory）中</li>
 <li>线程的工作内存中保存了被该线程使用的变量的主内存副本</li>
 <li>线程对变量的所有操作（读取、赋值等）都必须在工作内<br>存中进行，而不能直接读写主内存中的数据</li>
-<li>不同的线程之间也无法直接访问对方工作内存中的变<br>量<br><img src="/.io//2.png"></li>
+<li>不同的线程之间也无法直接访问对方工作内存中的变<br>量<br><img src="/2020/12/29/deepinjvm-part05-heconcurrency-chap12-javamemorymodel/2.png"></li>
 </ul>
 <blockquote>
 <p>主内存、工作内存与 Java内存区 堆、栈方法区概念</p>
@@ -889,7 +889,7 @@ pubilc <span class="token keyword">void</span> <span class="token function">setV
 <ul>
 <li>使用内核线程实现的方式也被称为1：1实现。<ul>
 <li>内核线程（Kernel-Level Thread，KLT），这种线程由内核来完成线程切换，内核通过操纵调度器（Scheduler）对线程进行调度，并负责将线程的任务映射到各个处理器上。</li>
-<li>程序一般不会直接使用内核线程，而是使用内核线程的一种高级接口——轻量级进程（Light Weight Process，LWP）通常意义上所讲的线程。每个轻量级进程都由一个内核线程支持。也就是一对一的线程模型<br><img src="/.io//3.png"></li>
+<li>程序一般不会直接使用内核线程，而是使用内核线程的一种高级接口——轻量级进程（Light Weight Process，LWP）通常意义上所讲的线程。每个轻量级进程都由一个内核线程支持。也就是一对一的线程模型<br><img src="/2020/12/29/deepinjvm-part05-heconcurrency-chap12-javamemorymodel/3.png"></li>
 <li>好处<ul>
 <li>每个轻量级进程都成为一个独立的调度单元，即使其中某一个轻量级进程在系统调用中被阻塞了，也不会影响整个进程继续工作。</li>
 </ul>
@@ -915,13 +915,13 @@ pubilc <span class="token keyword">void</span> <span class="token function">setV
 </ul>
 </li>
 <li>Golang Erlang使用 （高并发卖点）</li>
-<li>Java、Ruby放弃<br><img src="/.io//4.png"></li>
+<li>Java、Ruby放弃<br><img src="/2020/12/29/deepinjvm-part05-heconcurrency-chap12-javamemorymodel/4.png"></li>
 </ul>
 </li>
 <li>混合实现<ul>
 <li>用户线程还是完全建立在用户空间中，因此用户线程的创建、切换、析构等操作依然廉价，并且可以支持大规模的用户线程并发。</li>
 <li>而操作系统支持的轻量级进程则作为用户线程和内核线程之间的桥梁，这样可以使用内核提供的线程调度功能及处理器映射，并且用户线程的系统调用要通过轻量级进程来完成，这大大降低了整个进程被完全阻塞的风险。</li>
-<li>Unix操作系统实现（Solaris HP-UX)<br><img src="/.io//5.png"></li>
+<li>Unix操作系统实现（Solaris HP-UX)<br><img src="/2020/12/29/deepinjvm-part05-heconcurrency-chap12-javamemorymodel/5.png"></li>
 </ul>
 </li>
 </ul>
@@ -979,7 +979,7 @@ pubilc <span class="token keyword">void</span> <span class="token function">setV
 <li>·结束（Terminated）：已终止线程的线程状态，线程已经结束执行。</li>
 </ul>
 <blockquote>
-<p>线程状态转换关系<br><img src="/.io//6.png"></p>
+<p>线程状态转换关系<br><img src="/2020/12/29/deepinjvm-part05-heconcurrency-chap12-javamemorymodel/6.png"></p>
 </blockquote>
 <h1 id="Java与协程"><a href="#Java与协程" class="headerlink" title="Java与协程"></a>Java与协程</h1><h2 id="内核线程的局限"><a href="#内核线程的局限" class="headerlink" title="内核线程的局限"></a>内核线程的局限</h2><ul>
 <li>传统的Java Web服务器的线程池的容量通常在几十个到两百之间，当程序员把数以百万计的请求往线程池里面灌时，系统即使能处理得过来，但其中的切换损耗也是相当可观的。</li>
@@ -1019,7 +1019,7 @@ pubilc <span class="token keyword">void</span> <span class="token function">setV
 <p>目的</p>
 </blockquote>
 <ul>
-<li>Loom项目背后的意图是重新提供对用户线程的支持，但与过去的绿色线程不同，这些新功能不是为了取代当前基于操作系统的线程实现，而是会有两个并发编程模型在Java虚拟机中并存，可以在程序中同时使用。<br><img src="/.io//7.png"></li>
+<li>Loom项目背后的意图是重新提供对用户线程的支持，但与过去的绿色线程不同，这些新功能不是为了取代当前基于操作系统的线程实现，而是会有两个并发编程模型在Java虚拟机中并存，可以在程序中同时使用。<br><img src="/2020/12/29/deepinjvm-part05-heconcurrency-chap12-javamemorymodel/7.png"></li>
 </ul>
 
                 

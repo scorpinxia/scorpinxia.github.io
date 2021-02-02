@@ -572,13 +572,13 @@
 <p>通常关键词是字符串</p>
 <ul>
 <li>第一种：简单的字符串Ascii或者Unicode相加<ul>
-<li>如果表大小很大10007 8字符0~1016 不均匀<br><img src="/.io//1.png"></li>
+<li>如果表大小很大10007 8字符0~1016 不均匀<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/1.png"></li>
 </ul>
 </li>
-<li>第二种：假设至少3字符 26字母+空格 27^3=17576 看起来均匀，但是英文不是随机的 实际只有2851种结果<br><img src="/.io//2.png"></li>
-<li>第三种 Horner法则<br><img src="/.io//3.png"><br><img src="/.io//4.png"><br>为了计算简单通常不使用所有字符作为关键字</li>
+<li>第二种：假设至少3字符 26字母+空格 27^3=17576 看起来均匀，但是英文不是随机的 实际只有2851种结果<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/2.png"></li>
+<li>第三种 Horner法则<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/3.png"><br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/4.png"><br>为了计算简单通常不使用所有字符作为关键字</li>
 </ul>
-<h1 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h1><h2 id="分离链接法"><a href="#分离链接法" class="headerlink" title="分离链接法"></a>分离链接法</h2><p> <img src="/.io//5.png"></p>
+<h1 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h1><h2 id="分离链接法"><a href="#分离链接法" class="headerlink" title="分离链接法"></a>分离链接法</h2><p> <img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/5.png"></p>
 <p>冲突插入的放在最前面（最可能访问）</p>
 <ul>
 <li><p>装填因子（load factor）λ 表元素个数和表大小的比。链表的平均长度也是λ</p>
@@ -589,19 +589,19 @@
 </li>
 </ul>
 <h2 id="无链表散列"><a href="#无链表散列" class="headerlink" title="无链表散列"></a>无链表散列</h2><p>由于分离链接需要分配新链表需要时间，需要有第二种数据结构实现</p>
-<h3 id="线性探测法"><a href="#线性探测法" class="headerlink" title="线性探测法"></a>线性探测法</h3><p>典型的f(i)=i f是i的线性函数<br> <img src="/.io//6.png"></p>
+<h3 id="线性探测法"><a href="#线性探测法" class="headerlink" title="线性探测法"></a>线性探测法</h3><p>典型的f(i)=i f是i的线性函数<br> <img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/6.png"></p>
 <ul>
 <li><p>一次聚集问题： 可能表相对空 但是在一堆块中任何块都需要很久插入</p>
 </li>
 <li><p>预期探测次数 不成功查找和插入一致 1/2(1+1/(1-λ)^2) 成功 1/2(1+1/(1-λ))</p>
 </li>
-<li><p>λ从0到当前值直接变化<br><img src="/.io//7.png"><br>公式好于线性探测。</p>
+<li><p>λ从0到当前值直接变化<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/7.png"><br>公式好于线性探测。</p>
 </li>
-<li><p>减低聚集的更随机算法<br><img src="/.io//8.png"><br>λ=0.75 插入预计8.5次，λ=2.5 插入平均2.5次探测</p>
+<li><p>减低聚集的更随机算法<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/8.png"><br>λ=0.75 插入预计8.5次，λ=2.5 插入平均2.5次探测</p>
 </li>
 </ul>
 <h3 id="平方探测"><a href="#平方探测" class="headerlink" title="平方探测"></a>平方探测</h3><p>典型的f(i)=i^2</p>
-<p> <img src="/.io//9.png"></p>
+<p> <img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/9.png"></p>
 <ul>
 <li>平方探测表填充超过一半，或者表大小不是素数在填充超过一半之前（素数重要）</li>
 </ul>
@@ -614,11 +614,11 @@
 </ul>
 <p>25~28 平方检测快速法 f(i)=f(i-1)+2i-1  相当于f(i)=i^2</p>
 <p>23测试顺序很重要</p>
-<p> <img src="/.io//10.png"></p>
+<p> <img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/10.png"></p>
 <h3 id="双散列"><a href="#双散列" class="headerlink" title="双散列"></a>双散列</h3><p>新的问题出现 二次聚集</p>
 <p>f(i)=i<em>hash2(x), 在距离 hash2(x)、2</em>hash2(x)……探测，hash2函数不能是0 </p>
 <blockquote>
-<p>hash2(x)=R-(x mod R) R为小于tablesize 的素数<br> <img src="/.io//11.png"></p>
+<p>hash2(x)=R-(x mod R) R为小于tablesize 的素数<br> <img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/11.png"></p>
 </blockquote>
 <ul>
 <li>如果表大小不是素数，唯一备选位置就可能被使用了</li>
@@ -627,7 +627,7 @@
 <li>平方探测和双散列，各有优点。实践中平方探测更快，因为对于字符串这些关键字散列函数相当耗时</li>
 </ul>
 <h1 id="再散列"><a href="#再散列" class="headerlink" title="再散列"></a>再散列</h1><blockquote>
-<p>到了一半，再散列，花费时间很长O（N），但是次数比较少，N/2insert一次Rehashing<br> <img src="/.io//12.png"></p>
+<p>到了一半，再散列，花费时间很长O（N），但是次数比较少，N/2insert一次Rehashing<br> <img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/12.png"></p>
 </blockquote>
 <ul>
 <li>策略1：表一半再散列</li>
@@ -635,10 +635,10 @@
 <li><font color="red,font" size="4">策略3：途中（middle-of-the-road）：表达到一个装填因子再散列（好的实现，the best）</font></li>
 </ul>
 <blockquote>
-<p>线性探测再散列<br> <img src="/.io//13.png"></p>
+<p>线性探测再散列<br> <img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/13.png"></p>
 </blockquote>
 <blockquote>
-<p>分离链接再散列<br> <img src="/.io//14.png"></p>
+<p>分离链接再散列<br> <img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/14.png"></p>
 </blockquote>
 <h1 id="标准库散列"><a href="#标准库散列" class="headerlink" title="标准库散列"></a>标准库散列</h1><blockquote>
 <p>HashSet、HashMap。HashSet 的关键字必须实现Hashcode和equals(显然)，他们通常是分离链接散列</p>
@@ -655,7 +655,7 @@
 <p>通常HashMap优于TreeMap,都可以接受时可以用接口Map来计时</p>
 </blockquote>
 <blockquote>
-<p>闪存散列代码，避免对不变的对象重新计算Hash,(还是利用Honer多项式计算，用31是因为好计算32-1 i*31=(i &lt;&lt; 5) - i)<br> <img src="/.io//15.png"></p>
+<p>闪存散列代码，避免对不变的对象重新计算Hash,(还是利用Honer多项式计算，用31是因为好计算32-1 i*31=(i &lt;&lt; 5) - i)<br> <img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/15.png"></p>
 </blockquote>
 <h1 id="最坏O-1-的散列表"><a href="#最坏O-1-的散列表" class="headerlink" title="最坏O(1)的散列表"></a>最坏O(1)的散列表</h1><blockquote>
 <p>合理装填因子和散列函数 插入、删除、查找都是O(1)。假设散列函数良好，最坏情形的期望。</p>
@@ -671,7 +671,7 @@
 </blockquote>
 <p>证明：一共有N(N-1)/2对冲突，冲突最多N(N-1)/2对，冲突概率是1/M 所以最大为N(N-1)/2N^2=1/2</p>
 <p>但是不能那么大的M，只用N个盒子，用散列表解决盒子冲突，根据每个位置的项数决定二级散列表</p>
-<p> <img src="/.io//17.png"></p>
+<p> <img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/17.png"></p>
 <blockquote>
 <p>N个球放入M=N个盒子的主散列表，二级散列表容量期望最多为2N</p>
 </blockquote>
@@ -681,7 +681,7 @@
 </blockquote>
 <p>一次查找最多访问两次表，找到删除也简单（不需懒惰删除）</p>
 <blockquote>
-<p>示意图<br>    <img src="/.io//18.png"><br>  <img src="/.io//19.png"><br>   <img src="/.io//20.png"><br>    <img src="/.io//21.png"></p>
+<p>示意图<br>    <img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/18.png"><br>  <img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/19.png"><br>   <img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/20.png"><br>    <img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/21.png"></p>
 </blockquote>
 <blockquote>
 <p>可以看出函数选的不好，表再大都没用</p>
@@ -690,13 +690,13 @@
 <blockquote>
 <p>用三个四个表扩展，或者一个项数多个关键词</p>
 </blockquote>
-<p> <img src="/.io//22.png"></p>
-<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><p>  <img src="/.io//23.png"></p>
+<p> <img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/22.png"></p>
+<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><p>  <img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/23.png"></p>
 <blockquote>
 <p>重点理解插入</p>
 </blockquote>
 <ul>
-<li>基本计划：存在返回，满载扩展，正常情况的插入<br><img src="/.io//24.png"></li>
+<li>基本计划：存在返回，满载扩展，正常情况的插入<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/24.png"></li>
 <li>正常情况的插入：rehashs跟踪再散列次数，基本逻辑和经典方法不一样，检测任何有效位置是否是空的，放在第一个空的位置，不然就替换其中一个已经存在的。<ul>
 <li>出现的问题：替换第一项实验表现不好</li>
 <li>替换最后一项实验表现不好</li>
@@ -767,14 +767,14 @@
 <p>跳房子散列：用事先确定对底层体系最优常数。给探测序列最大长度加上界，给出常数最坏，和布谷鸟一样查询并行化。 </p>
 </blockquote>
 <blockquote>
-<p>思路：给一个探测上界，用额外Hop数组维护。Max_dist=4。hop[6]= 1000 代表pos6只有一项散列值6。hop[7]=1100代表pos7、pos8都是散列值7的项。<br><img src="/.io//25.png"></p>
+<p>思路：给一个探测上界，用额外Hop数组维护。Max_dist=4。hop[6]= 1000 代表pos6只有一项散列值6。hop[7]=1100代表pos7、pos8都是散列值7的项。<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/25.png"></p>
 </blockquote>
 <p>Max_dist&lt;=32就只用32位整数空间，</p>
 <blockquote>
-<p>插入9 线性探测是要到13 超过了max_dist 所以找Hop[10] 没有Hash=10的候选 ，Hash[11] 有候选<br><img src="/.io//26.png"></p>
+<p>插入9 线性探测是要到13 超过了max_dist 所以找Hop[10] 没有Hash=10的候选 ，Hash[11] 有候选<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/26.png"></p>
 </blockquote>
 <blockquote>
-<p>插入6 要到pos14<br><img src="/.io//27.png"><br><img src="/.io//28.png"></p>
+<p>插入6 要到pos14<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/27.png"><br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/28.png"></p>
 </blockquote>
 <h1 id="通用散列法（通用散列函数）"><a href="#通用散列法（通用散列函数）" class="headerlink" title="通用散列法（通用散列函数）"></a>通用散列法（通用散列函数）</h1><p>性质：</p>
 <ul>
@@ -788,7 +788,7 @@
 <p>定义2，通用族H，任意K对不同项冲突概率至多1/M^k，加入N项后至多N/M或者λ</p>
 </blockquote>
 <blockquote>
-<p>简单通用散列函数 大整数映射到0<del>M-1<br><img src="/.io//29.png"><br><font color="red,font" size="4"><br><img src="/.io//30.png"><br>证明：x&gt;y 使H(x)=H(y). (ax+b)mod p=(ay+b)mod p 就有冲突，将他们相减a(x-y)=0(mod p),p需要整除a或者(x-y)但是P是素数，且a和(x-y)属于（1</font></del>p-1) 他们相乘等于素数不可能。一共有r p个值，s p-1个值 p(p-1)对。冲突的概率为 r=s(mod M) 至多(p-1)/M<br> </p>
+<p>简单通用散列函数 大整数映射到0<del>M-1<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/29.png"><br><font color="red,font" size="4"><br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/30.png"><br>证明：x&gt;y 使H(x)=H(y). (ax+b)mod p=(ay+b)mod p 就有冲突，将他们相减a(x-y)=0(mod p),p需要整除a或者(x-y)但是P是素数，且a和(x-y)属于（1</font></del>p-1) 他们相乘等于素数不可能。一共有r p个值，s p-1个值 p(p-1)对。冲突的概率为 r=s(mod M) 至多(p-1)/M<br> </p>
 </blockquote>
 <h2 id="梅森素数（Mersenne）"><a href="#梅森素数（Mersenne）" class="headerlink" title="梅森素数（Mersenne）"></a>梅森素数（Mersenne）</h2><p>由上可以选择任何计算有利的素数 P=2^31-1 2^5-1 2^61-1.乘以这样的p可以用位运算和减法完成。取模运算也可以用位移运算和加法完成</p>
 <blockquote>
@@ -817,7 +817,7 @@
 <p>卡特-韦格曼Trick。r=y(mod p)。 y除以(p+1),y=q’(p+1)+r’,两边同时取mod   所以r=q’+r’(mod p)</p>
 </blockquote>
 <blockquote>
-<p>当x = 2 ^ n(n为自然数)时，a % x = a &amp; (x - 1)。显然<br><img src="/.io//31.png"></p>
+<p>当x = 2 ^ n(n为自然数)时，a % x = a &amp; (x - 1)。显然<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/31.png"></p>
 </blockquote>
 <h1 id="可扩散列"><a href="#可扩散列" class="headerlink" title="可扩散列"></a>可扩散列</h1><blockquote>
 <p>数据不再主存里面，任意时刻有N个记录存储。 最多可以把M个记录放在一个磁盘，对于前面的散列需要O(N)次磁盘</p>
@@ -825,9 +825,9 @@
 <blockquote>
 <p>可扩散列，可以用两次磁盘访问执行，如下D是bit数，按照第四章的B树，每个树叶最多M个袁术，数据前2bit相等</p>
 </blockquote>
-<p><img src="/.io//46.png"></p>
+<p><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/46.png"></p>
 <blockquote>
-<p>性能： 目录大小期望O(N^(1+1/M)/M) M太小 主存装不下 就需要第二次磁盘<br><img src="/.io//47.png"></p>
+<p>性能： 目录大小期望O(N^(1+1/M)/M) M太小 主存装不下 就需要第二次磁盘<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/47.png"></p>
 </blockquote>
 <h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><ul>
 <li>符号表</li>
@@ -862,7 +862,7 @@
 <h2 id="平方探测实现注意"><a href="#平方探测实现注意" class="headerlink" title="平方探测实现注意"></a>平方探测实现注意</h2><p>分占用的和实际的大小<br>占用的来计算λ</p>
 <p>插入、删除、查询都是先找到位置<br>位置+=1 、3 、5……相当于 +1 +4 +9</p>
 <p>重复的代码抽象成函数</p>
-<h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><h2 id="5-1-计算各种散列表"><a href="#5-1-计算各种散列表" class="headerlink" title="5.1 计算各种散列表"></a>5.1 计算各种散列表</h2><p><img src="/.io//32.png"></p>
+<h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><h2 id="5-1-计算各种散列表"><a href="#5-1-计算各种散列表" class="headerlink" title="5.1 计算各种散列表"></a>5.1 计算各种散列表</h2><p><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/32.png"></p>
 <p>a分离散列:  1-4371  3-6173、1323 4-4344 9-1989、9679、4199</p>
 <p>b线性探测：1-4371 3-1323 4-6173 5-4344 9-4199 0-9679 2-1989</p>
 <p>c平方探测：1-4371 3-1323 4-6173 9-4199 5-4344 0-9679 7-1989</p>
@@ -870,13 +870,13 @@
 <h2 id="5-2-5-1的再散列"><a href="#5-2-5-1的再散列" class="headerlink" title="5.2 5.1的再散列"></a>5.2 5.1的再散列</h2><p>表大小10 扩充到大于20最近素数23 （或者19） 然后替换散列函数重新计算</p>
 <h2 id="5-3-冲突计算"><a href="#5-3-冲突计算" class="headerlink" title="5.3 冲突计算"></a>5.3 冲突计算</h2><pre><code>直接加上一个冲突因子就行
 </code></pre>
-<h2 id="5-4-分离散列链表的稀疏问题"><a href="#5-4-分离散列链表的稀疏问题" class="headerlink" title="5.4 分离散列链表的稀疏问题"></a>5.4 分离散列链表的稀疏问题</h2><p><img src="/.io//33.png"></p>
+<h2 id="5-4-分离散列链表的稀疏问题"><a href="#5-4-分离散列链表的稀疏问题" class="headerlink" title="5.4 分离散列链表的稀疏问题"></a>5.4 分离散列链表的稀疏问题</h2><p><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/33.png"></p>
 <blockquote>
 <p>假设一个阈值p=0~1 小于等于该阈值，就再散列更小的，比如0.4 原来是2N Table大小  有X项，经过一些删除后    变成了2pN项 然后就散列到N大小，里面有2pN项，那么经过2N-2pN次插入在散列成2N项的表，或者pN次删除在散列成N/2大小的表 。P的取值呢，如果是均匀插入和删除，2N-2pN=pN p=2/3.</p>
 </blockquote>
 <p>插入更多 就增加p, 反之减少p为了保证尽可能少的Rehasing</p>
 <h2 id="5-6平方探测-IsEmpty-能通过currentSize判断吗"><a href="#5-6平方探测-IsEmpty-能通过currentSize判断吗" class="headerlink" title="5.6平方探测 IsEmpty 能通过currentSize判断吗"></a>5.6平方探测 IsEmpty 能通过currentSize判断吗</h2><p>不可以,有占用不活跃的值</p>
-<h2 id="5-7平方探测插入第一个非活跃元素"><a href="#5-7平方探测插入第一个非活跃元素" class="headerlink" title="5.7平方探测插入第一个非活跃元素"></a>5.7平方探测插入第一个非活跃元素</h2><p><img src="/.io//34.png"></p>
+<h2 id="5-7平方探测插入第一个非活跃元素"><a href="#5-7平方探测插入第一个非活跃元素" class="headerlink" title="5.7平方探测插入第一个非活跃元素"></a>5.7平方探测插入第一个非活跃元素</h2><p><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/34.png"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token function">findPos1</span><span class="token punctuation">(</span><span class="token class-name">Anytype</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">int</span> pos<span class="token operator">=</span><span class="token function">myHash</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> offset<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
@@ -909,9 +909,9 @@
 <li><p>Gonnet和Baeza-Yates<br>比较几种哈希策略； 他们的结果表明，二次探测是最快的方法。</p>
 </li>
 </ul>
-<h2 id="5-11-用新的冲突函数减轻二次聚集"><a href="#5-11-用新的冲突函数减轻二次聚集" class="headerlink" title="5.11 用新的冲突函数减轻二次聚集"></a>5.11 用新的冲突函数减轻二次聚集</h2><p><img src="/.io//35.png"></p>
+<h2 id="5-11-用新的冲突函数减轻二次聚集"><a href="#5-11-用新的冲突函数减轻二次聚集" class="headerlink" title="5.11 用新的冲突函数减轻二次聚集"></a>5.11 用新的冲突函数减轻二次聚集</h2><p><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/35.png"></p>
 <p>相当于双散列中的函数取新的哈希,计算相对</p>
-<h2 id="5-12-类内含散列值有效的问题"><a href="#5-12-类内含散列值有效的问题" class="headerlink" title="5.12 类内含散列值有效的问题"></a>5.12 类内含散列值有效的问题</h2><p><img src="/.io//35.png"></p>
+<h2 id="5-12-类内含散列值有效的问题"><a href="#5-12-类内含散列值有效的问题" class="headerlink" title="5.12 类内含散列值有效的问题"></a>5.12 类内含散列值有效的问题</h2><p><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/35.png"></p>
 <p>只要Employ对象的值不变或者没有重新散列</p>
 <h2 id="5-13-M多项式和N多项式相乘-边计算边排序"><a href="#5-13-M多项式和N多项式相乘-边计算边排序" class="headerlink" title="5.13 M多项式和N多项式相乘 边计算边排序"></a>5.13 M多项式和N多项式相乘 边计算边排序</h2><p>a:实现</p>
 <p>思路：</p>
@@ -1008,9 +1008,9 @@
 
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5-14-描述避免初始化散列表的过程（内存消耗为代价）"><a href="#5-14-描述避免初始化散列表的过程（内存消耗为代价）" class="headerlink" title="5.14 描述避免初始化散列表的过程（内存消耗为代价）"></a>5.14 描述避免初始化散列表的过程（内存消耗为代价）</h2><p>给每个Hashtable槽，附加额外的成员变量，whereOnStack,弄另一个栈，当插入一个槽时，将地址push进去，引用在顶部</p>
-<h2 id="5-15-字符串子串匹配"><a href="#5-15-字符串子串匹配" class="headerlink" title="5.15 字符串子串匹配"></a>5.15 字符串子串匹配</h2><p><img src="/.io//38.png"></p>
+<h2 id="5-15-字符串子串匹配"><a href="#5-15-字符串子串匹配" class="headerlink" title="5.15 字符串子串匹配"></a>5.15 字符串子串匹配</h2><p><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/38.png"></p>
 <blockquote>
-<p>a:<br><img src="/.io//37.png"></p>
+<p>a:<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/37.png"></p>
 </blockquote>
 <blockquote>
 <p>b:<br>滑动：先计算k再滑动N次</p>
@@ -1093,7 +1093,7 @@
 <p>f:待续<br>动态规划</p>
 </blockquote>
 <h2 id="5-16-解释编译器允许java7-允许Switch处理字符串-（如何把散列表来实现）"><a href="#5-16-解释编译器允许java7-允许Switch处理字符串-（如何把散列表来实现）" class="headerlink" title="5.16 解释编译器允许java7 允许Switch处理字符串 （如何把散列表来实现）"></a>5.16 解释编译器允许java7 允许Switch处理字符串 （如何把散列表来实现）</h2><p>就是Hash值，然后在对比</p>
-<h2 id="5-18-第一章字谜优化"><a href="#5-18-第一章字谜优化" class="headerlink" title="5.18 第一章字谜优化"></a>5.18 第一章字谜优化</h2><p><img src="/.io//39.png"></p>
+<h2 id="5-18-第一章字谜优化"><a href="#5-18-第一章字谜优化" class="headerlink" title="5.18 第一章字谜优化"></a>5.18 第一章字谜优化</h2><p><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/39.png"></p>
 <p>A:如下<br>B:如下</p>
 <p>C:递归散列函数 快一点<br>D:折半找子串</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
@@ -1376,14 +1376,14 @@
         <span class="token class-name">Problem5_18</span> p<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Problem5_18</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         p<span class="token punctuation">.</span><span class="token function">test3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="5-19-二次聚集插入期望计算"><a href="#5-19-二次聚集插入期望计算" class="headerlink" title="5.19 二次聚集插入期望计算"></a>5.19 二次聚集插入期望计算</h2><p><img src="/.io//40.png"></p>
+<h2 id="5-19-二次聚集插入期望计算"><a href="#5-19-二次聚集插入期望计算" class="headerlink" title="5.19 二次聚集插入期望计算"></a>5.19 二次聚集插入期望计算</h2><p><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/40.png"></p>
 <blockquote>
 <p>a: 不成功查找就等于探测 </p>
 </blockquote>
 <blockquote>
 <p>b: 成功查找等于 不成功的在平均积分  </p>
 </blockquote>
-<p><img src="/.io//41.png"></p>
+<p><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/41.png"></p>
 <h2 id="5-20-实现Map"><a href="#5-20-实现Map" class="headerlink" title="5.20 实现Map"></a>5.20 实现Map</h2><p>注意点 ：重写Hascode 和equals 来实现put</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">chap05</span><span class="token punctuation">;</span>
 
@@ -1462,15 +1462,15 @@
         <span class="token keyword">return</span> obj <span class="token keyword">instanceof</span> <span class="token class-name">Entry</span> <span class="token operator">&amp;&amp;</span> key<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">Entry</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Key</span><span class="token punctuation">,</span><span class="token class-name">Value</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span>obj<span class="token punctuation">)</span><span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="5-22-马尔科夫不等式证明"><a href="#5-22-马尔科夫不等式证明" class="headerlink" title="5.22 马尔科夫不等式证明"></a>5.22 马尔科夫不等式证明</h2><p><img src="/.io//43.png"></p>
+<h2 id="5-22-马尔科夫不等式证明"><a href="#5-22-马尔科夫不等式证明" class="headerlink" title="5.22 马尔科夫不等式证明"></a>5.22 马尔科夫不等式证明</h2><p><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/43.png"></p>
 <blockquote>
-<p>a<br><img src="/.io//42.png"></p>
+<p>a<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/42.png"></p>
 </blockquote>
 <blockquote>
-<p>b<br>定理5.2<br><img src="/.io//44.png"><br>证明 设X为任意一个盒子的球的数量，Ex=1/N;P(X&gt;=2)&lt;=1/2N 求至少一个盒子大于等于2个球的概率，总共N个球概率为P(Y&gt;=2)&lt;=1/2<br>得证</p>
+<p>b<br>定理5.2<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/44.png"><br>证明 设X为任意一个盒子的球的数量，Ex=1/N;P(X&gt;=2)&lt;=1/2N 求至少一个盒子大于等于2个球的概率，总共N个球概率为P(Y&gt;=2)&lt;=1/2<br>得证</p>
 </blockquote>
 <blockquote>
-<p>c<br><img src="/.io//45.png"><br>X为二级散列表容量，对任意的a,P(X&lt;=a)&gt;=EX/a 取a=1 </p>
+<p>c<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/45.png"><br>X为二级散列表容量，对任意的a,P(X&lt;=a)&gt;=EX/a 取a=1 </p>
 </blockquote>
 <h2 id="5-23跳房子散列的插入再散列概率"><a href="#5-23跳房子散列的插入再散列概率" class="headerlink" title="5.23跳房子散列的插入再散列概率"></a>5.23跳房子散列的插入再散列概率</h2><p>λ=0.5，附近MaxDIST都满了 概率 0.5^MaxDIST</p>
 <h2 id="5-24-布谷鸟实现-（多散列-单表）"><a href="#5-24-布谷鸟实现-（多散列-单表）" class="headerlink" title="5.24 布谷鸟实现 （多散列 单表）"></a>5.24 布谷鸟实现 （多散列 单表）</h2><ul>

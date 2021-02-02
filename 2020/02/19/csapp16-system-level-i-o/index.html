@@ -492,7 +492,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>一个文件就是一串字节 所有的I/O设备都被当做文件（linux）</p>
-<p><img src="/.io//1.png"></p>
+<p><img src="/2020/02/19/csapp16-system-level-i-o/1.png"></p>
 <p>unix IO open close read write seek(当前读的位置）</p>
 <h1 id="type"><a href="#type" class="headerlink" title="type"></a>type</h1><ul>
 <li><p>（1）平常的文件  应用程序会区分文本文件（ASCII 或者Unicode为了非英文的编码的文件）结束读一行是以‘\n’  （0xa)决定的。（EOL end of line) linx mac 是’\n’ windows 和internet protocol 是’/r /n’ (0xd 0xa)回车换行和二进制文件（以某种编码存放的 如图片 ）</p>
@@ -503,8 +503,8 @@
 </li>
 </ul>
 <h1 id="file-operate"><a href="#file-operate" class="headerlink" title="file operate"></a>file operate</h1><p>对文件的操作</p>
-<h2 id="open-会返回文件描述符-int-型-每个进程linux-shell-都会打开3个文件描述符链接终端"><a href="#open-会返回文件描述符-int-型-每个进程linux-shell-都会打开3个文件描述符链接终端" class="headerlink" title="open 会返回文件描述符 int 型  每个进程linux shell 都会打开3个文件描述符链接终端"></a>open 会返回文件描述符 int 型  每个进程linux shell 都会打开3个文件描述符链接终端</h2><p><img src="/.io//2.png"></p>
-<h2 id="close-已经close-的会出错（尤其是并发的这种）"><a href="#close-已经close-的会出错（尤其是并发的这种）" class="headerlink" title="close 已经close 的会出错（尤其是并发的这种）"></a>close 已经close 的会出错（尤其是并发的这种）</h2><p><img src="/.io//3.png"></p>
+<h2 id="open-会返回文件描述符-int-型-每个进程linux-shell-都会打开3个文件描述符链接终端"><a href="#open-会返回文件描述符-int-型-每个进程linux-shell-都会打开3个文件描述符链接终端" class="headerlink" title="open 会返回文件描述符 int 型  每个进程linux shell 都会打开3个文件描述符链接终端"></a>open 会返回文件描述符 int 型  每个进程linux shell 都会打开3个文件描述符链接终端</h2><p><img src="/2020/02/19/csapp16-system-level-i-o/2.png"></p>
+<h2 id="close-已经close-的会出错（尤其是并发的这种）"><a href="#close-已经close-的会出错（尤其是并发的这种）" class="headerlink" title="close 已经close 的会出错（尤其是并发的这种）"></a>close 已经close 的会出错（尤其是并发的这种）</h2><p><img src="/2020/02/19/csapp16-system-level-i-o/3.png"></p>
 <p>nbytes小于0代表出错了  但是 很有可能小于sizeof(buf)并不是错误（short count）</p>
 <p>wirte 一样 也有可能Short count</p>
 <h3 id="Short-conut的出现"><a href="#Short-conut的出现" class="headerlink" title="Short conut的出现"></a>Short conut的出现</h3><ul>
@@ -519,23 +519,23 @@
 <p>永远允许short count</p>
 <h1 id="Rio-package-对robust-IO的封装使得-不出现short-count-在socket中特别有用）"><a href="#Rio-package-对robust-IO的封装使得-不出现short-count-在socket中特别有用）" class="headerlink" title="Rio package (对robust IO的封装使得 不出现short count  在socket中特别有用）"></a>Rio package (对robust IO的封装使得 不出现short count  在socket中特别有用）</h1><p>没带cache的rio read write  就是反复读取直到 读到目标数目 或者EOF</p>
 <p>带cache的rio read write (就是  已经读取从文件中 但是还未被读在缓存里</p>
-<p><img src="/.io//4.png"></p>
-<h1 id="metedata"><a href="#metedata" class="headerlink" title="metedata"></a>metedata</h1><p>每个文件在内核有个元数据<br><img src="/.io//5.png"></p>
-<h1 id="kernel-response-to-kernel"><a href="#kernel-response-to-kernel" class="headerlink" title="kernel response to kernel"></a>kernel response to kernel</h1><p><img src="/.io//6.png">    </p>
-<p>两个文件描述符指向相同磁盘<br><img src="/.io//7.png"></p>
-<p>fork 之后 子进程和父进程共享 文件描述符 但是refcnt+1<br><img src="/.io//8.png"></p>
-<h1 id="Redirection"><a href="#Redirection" class="headerlink" title="Redirection"></a>Redirection</h1><p><img src="/.io//9.png"></p>
-<p><img src="/.io//10.png"></p>
-<h1 id="Standard-IO"><a href="#Standard-IO" class="headerlink" title="Standard IO"></a>Standard IO</h1><p><img src="/.io//11.png"></p>
-<p><img src="/.io//12.png"></p>
-<h1 id="Sum-up"><a href="#Sum-up" class="headerlink" title="Sum up"></a>Sum up</h1><p><img src="/.io//13.png"></p>
+<p><img src="/2020/02/19/csapp16-system-level-i-o/4.png"></p>
+<h1 id="metedata"><a href="#metedata" class="headerlink" title="metedata"></a>metedata</h1><p>每个文件在内核有个元数据<br><img src="/2020/02/19/csapp16-system-level-i-o/5.png"></p>
+<h1 id="kernel-response-to-kernel"><a href="#kernel-response-to-kernel" class="headerlink" title="kernel response to kernel"></a>kernel response to kernel</h1><p><img src="/2020/02/19/csapp16-system-level-i-o/6.png">    </p>
+<p>两个文件描述符指向相同磁盘<br><img src="/2020/02/19/csapp16-system-level-i-o/7.png"></p>
+<p>fork 之后 子进程和父进程共享 文件描述符 但是refcnt+1<br><img src="/2020/02/19/csapp16-system-level-i-o/8.png"></p>
+<h1 id="Redirection"><a href="#Redirection" class="headerlink" title="Redirection"></a>Redirection</h1><p><img src="/2020/02/19/csapp16-system-level-i-o/9.png"></p>
+<p><img src="/2020/02/19/csapp16-system-level-i-o/10.png"></p>
+<h1 id="Standard-IO"><a href="#Standard-IO" class="headerlink" title="Standard IO"></a>Standard IO</h1><p><img src="/2020/02/19/csapp16-system-level-i-o/11.png"></p>
+<p><img src="/2020/02/19/csapp16-system-level-i-o/12.png"></p>
+<h1 id="Sum-up"><a href="#Sum-up" class="headerlink" title="Sum up"></a>Sum up</h1><p><img src="/2020/02/19/csapp16-system-level-i-o/13.png"></p>
 <ul>
 <li>unix IO 更底层（系统调用 信号处理）  </li>
 <li>standard IO  适用绝大数场景 除了网络 </li>
 <li>rio  used for Socket</li>
 </ul>
 <p>二进制文件不应该 读行的这种  需要特殊字符</p>
-<p><img src="/.io//14.png"></p>
+<p><img src="/2020/02/19/csapp16-system-level-i-o/14.png"></p>
 
                 
             </div>

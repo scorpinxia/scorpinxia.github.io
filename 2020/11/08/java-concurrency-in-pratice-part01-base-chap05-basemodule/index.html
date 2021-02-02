@@ -503,24 +503,24 @@
 <blockquote>
 <p>虽然没有加锁，复合操作任然线程安全，但是多线程并发修改的时候可能出现意料之外的行为</p>
 </blockquote>
-<p><img src="/.io//1.png"><br><img src="/.io//2.png"></p>
+<p><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/1.png"><br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/2.png"></p>
 <blockquote>
-<p>例子问题 size的变化<br><img src="/.io//3.png"></p>
+<p>例子问题 size的变化<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/3.png"></p>
 </blockquote>
 <blockquote>
-<p>解决办法<br><img src="/.io//4.png"></p>
+<p>解决办法<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/4.png"></p>
 </blockquote>
 <blockquote>
-<p>例子2问题 size可能的变化<br><img src="/.io//5.png"></p>
+<p>例子2问题 size可能的变化<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/5.png"></p>
 </blockquote>
 <blockquote>
-<p>解决办法<br><img src="/.io//6.png"></p>
+<p>解决办法<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/6.png"></p>
 </blockquote>
 <h2 id="迭代器与ConcurrentModificationException"><a href="#迭代器与ConcurrentModificationException" class="headerlink" title="迭代器与ConcurrentModificationException"></a>迭代器与ConcurrentModificationException</h2><ul>
 <li>发现迭代过程被修改抛出的（通过修改次数计数器实现）。但是也可能有失效的计数值</li>
 </ul>
 <blockquote>
-<p>迭代例子<br><img src="/.io//7.png"></p>
+<p>迭代例子<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/7.png"></p>
 </blockquote>
 <blockquote>
 <p>解决方法的权衡</p>
@@ -533,7 +533,7 @@
 <h2 id="隐藏的迭代器操作"><a href="#隐藏的迭代器操作" class="headerlink" title="隐藏的迭代器操作"></a>隐藏的迭代器操作</h2><blockquote>
 <p>编译器把字符串的连接操作，转换为调用StringBuilder.append(Object),然后会调用容器的toString，会迭代器容器</p>
 </blockquote>
-<p><img src="/.io//8.png"><br>可能抛出ConcurrentModificationException。addTenThing不是线程安全的</p>
+<p><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/8.png"><br>可能抛出ConcurrentModificationException。addTenThing不是线程安全的</p>
 <blockquote>
 <p>容器的hashcode和equals 也会间接执行迭代</p>
 </blockquote>
@@ -603,7 +603,7 @@
 <p>只有独占访问，才应该放弃ConcurrentHashMap 用Hashtable</p>
 </blockquote>
 <h2 id="额外的原子Map操作"><a href="#额外的原子Map操作" class="headerlink" title="额外的原子Map操作"></a>额外的原子Map操作</h2><blockquote>
-<p>ConcurrentMap接口 添加了一些常见的复合操作 也都实现了原子操作<br><img src="/.io//9.png"></p>
+<p>ConcurrentMap接口 添加了一些常见的复合操作 也都实现了原子操作<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/9.png"></p>
 </blockquote>
 <h2 id="CopyOnWriteArrayList"><a href="#CopyOnWriteArrayList" class="headerlink" title="CopyOnWriteArrayList"></a>CopyOnWriteArrayList</h2><blockquote>
 <p>代替同步的List</p>
@@ -670,14 +670,14 @@
 </li>
 </ul>
 <h2 id="生产者消费者例子–桌面搜索"><a href="#生产者消费者例子–桌面搜索" class="headerlink" title="生产者消费者例子–桌面搜索"></a>生产者消费者例子–桌面搜索</h2><blockquote>
-<p>代理程序 ，扫描本地驱动器的文件建立索引方便搜索<br><img src="/.io//10.png"><br><img src="/.io//11.png"></p>
+<p>代理程序 ，扫描本地驱动器的文件建立索引方便搜索<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/10.png"><br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/11.png"></p>
 </blockquote>
 <ul>
 <li>生产者：找出所有文件 put </li>
 <li>消费者：把队列的文件index</li>
 </ul>
 <blockquote>
-<p>多个爬虫和索引建立程序<br><img src="/.io//12.png"></p>
+<p>多个爬虫和索引建立程序<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/12.png"></p>
 </blockquote>
 <ul>
 <li>消费者线程永远不退出，程序无法终止（后续解决）</li>
@@ -752,7 +752,7 @@
 <li>捕获该异常，执行简单的清理工作在抛出这个异常</li>
 </ul>
 </li>
-<li>恢复中断<br><img src="/.io//13.png"></li>
+<li>恢复中断<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/13.png"></li>
 </ul>
 <blockquote>
 <p>不应该做的事</p>
@@ -799,7 +799,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="/.io//14.png"><br><img src="/.io//15.png"></p>
+<p><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/14.png"><br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/15.png"></p>
 <ul>
 <li>两个门<ul>
 <li>开始门：等所有线程创建完毕，开门 计时</li>
@@ -824,7 +824,7 @@
 <li>get 阻塞到任务完成状态返回</li>
 </ul>
 <blockquote>
-<p>例子<br><img src="/.io//16.png"></p>
+<p>例子<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/16.png"></p>
 </blockquote>
 <ul>
 <li><p>Preloader 创建一个futureTask 包含从数据库加载产品信息的任务，执行运算的线程</p>
@@ -844,7 +844,7 @@
 </li>
 <li><p>首先Preloader会检查已知的受检查异常，并重新抛出他们</p>
 </li>
-<li><p>然后调用launderThrowable抛出<br><img src="/.io//17.png"></p>
+<li><p>然后调用launderThrowable抛出<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/17.png"></p>
 </li>
 </ul>
 <h2 id="信号量Semaphore"><a href="#信号量Semaphore" class="headerlink" title="信号量Semaphore"></a>信号量Semaphore</h2><blockquote>
@@ -868,7 +868,7 @@
 </blockquote>
 <ul>
 <li>资源地，数据库连接池 （我们希望看的是阻塞而不是失败）<br>（blockQueue也可以）</li>
-<li>将任何一个容器变成有界阻塞容器<br><img src="/.io//18.png"></li>
+<li>将任何一个容器变成有界阻塞容器<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/18.png"></li>
 </ul>
 <h2 id="栅栏-Barrier"><a href="#栅栏-Barrier" class="headerlink" title="栅栏 Barrier"></a>栅栏 Barrier</h2><blockquote>
 <p>定义</p>
@@ -905,7 +905,7 @@
 <li>利用索引“选举”一个领导线程，在下一次的迭代由领导线程执行一些特殊工作。</li>
 </ul>
 <blockquote>
-<p>例子：细胞自动衍生<br><img src="/.io//19.png"><br><img src="/.io//20.png"></p>
+<p>例子：细胞自动衍生<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/19.png"><br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/20.png"></p>
 </blockquote>
 <ul>
 <li>构造函数根据CPU数量创建栅栏任务</li>
@@ -927,33 +927,33 @@
 <li>提高吞吐量，消耗更多内存</li>
 </ul>
 <h2 id="从HashMap出发，分析并发性缺陷"><a href="#从HashMap出发，分析并发性缺陷" class="headerlink" title="从HashMap出发，分析并发性缺陷"></a>从HashMap出发，分析并发性缺陷</h2><blockquote>
-<p>第一种 HashMap （并发性差）<br><img src="/.io//21.png"></p>
+<p>第一种 HashMap （并发性差）<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/21.png"></p>
 </blockquote>
 <ul>
-<li>用HashMap作为cache,但是HashMap补上线程安全，需要确保两个线程不会同时访问(但是只要一个线程能够执行compute)<br><img src="/.io//22.png"></li>
+<li>用HashMap作为cache,但是HashMap补上线程安全，需要确保两个线程不会同时访问(但是只要一个线程能够执行compute)<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/22.png"></li>
 </ul>
 <blockquote>
-<p>第二种 ConcurrentHashMap （还可能有重复的计算（两个compute 一样）<br><img src="/.io//23.png"></p>
+<p>第二种 ConcurrentHashMap （还可能有重复的计算（两个compute 一样）<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/23.png"></p>
 </blockquote>
 <ul>
-<li>存在问题<br><img src="/.io//24.png"></li>
+<li>存在问题<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/24.png"></li>
 </ul>
 <blockquote>
-<p>第三种 Future<v>替代<v>，检测某个计算是否开始，没有启动就创建futureTask注册到Map，已启动就等待计算结果<br><img src="/.io//25.png"></v></v></p>
+<p>第三种 Future<v>替代<v>，检测某个计算是否开始，没有启动就创建futureTask注册到Map，已启动就等待计算结果<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/25.png"></v></v></p>
 </blockquote>
 <ul>
-<li>仍然可能的问题 （概率很小） conput 的if块 是非原子的<br><img src="/.io//26.png"></li>
+<li>仍然可能的问题 （概率很小） conput 的if块 是非原子的<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/26.png"></li>
 </ul>
 <blockquote>
-<p>第四种  利用自带的原子putifabsent<br><img src="/.io//27.png"></p>
+<p>第四种  利用自带的原子putifabsent<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/27.png"></p>
 </blockquote>
 <ul>
 <li>定期扫描缓存清理</li>
 </ul>
 <blockquote>
-<p>因式分解使用缓存<br><img src="/.io//28.png"></p>
+<p>因式分解使用缓存<br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/28.png"></p>
 </blockquote>
-<h1 id="小结法则"><a href="#小结法则" class="headerlink" title="小结法则"></a>小结法则</h1><p><img src="/.io//29.png"><br><img src="/.io//30.png"></p>
+<h1 id="小结法则"><a href="#小结法则" class="headerlink" title="小结法则"></a>小结法则</h1><p><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/29.png"><br><img src="/2020/11/08/java-concurrency-in-pratice-part01-base-chap05-basemodule/30.png"></p>
 
                 
             </div>

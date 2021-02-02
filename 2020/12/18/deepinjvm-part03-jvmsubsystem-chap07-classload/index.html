@@ -552,7 +552,7 @@
 <blockquote>
 <p>规定<br>所提到的“Class文件”也并非特指某个存在于具体磁盘中的文件，而应当是一串二进制字节流，无论其以何种形式存在，包括但不限于磁盘文件、网络、数据库、内存或者动态产生等。</p>
 </blockquote>
-<h1 id="类加载时机"><a href="#类加载时机" class="headerlink" title="类加载时机"></a>类加载时机</h1><p><img src="/.io//1.png"></p>
+<h1 id="类加载时机"><a href="#类加载时机" class="headerlink" title="类加载时机"></a>类加载时机</h1><p><img src="/2020/12/18/deepinjvm-part03-jvmsubsystem-chap07-classload/1.png"></p>
 <h2 id="类加载顺序-（特别的解析阶段-）"><a href="#类加载顺序-（特别的解析阶段-）" class="headerlink" title="类加载顺序 （特别的解析阶段 ）"></a>类加载顺序 （特别的解析阶段 ）</h2><blockquote>
 <p>加载、验证、准备、初始化和卸载这五个阶段的顺序是确定的，类型的加载过程必须按照这种顺序按部就班地开始，而解析阶段则不一定.它在某些情况下可以在初始化阶段之后再开始，这是为了支持Java语言的运行时绑定特性（也称为动态绑定或晚期绑定）</p>
 </blockquote>
@@ -775,7 +775,7 @@
 <li>其次是这里所说的初始值“通常情况”下是数据类型的零值，假设一个类变量的定义为：<pre class="line-numbers language-none"><code class="language-none">public static int value = 123;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>那变量value在准备阶段过后的初始值为0而不是123，因为这时尚未开始执行任何Java方法，而把value赋值为123的putstatic指令是程序被编译后，存放于类构造器<clinit>()方法之中，所以把value赋值为123的动作要到类的初始化阶段才会被执行。表7-1列出了Java中所有基本数据类型的零值。</clinit></li>
 </ul>
-<p><img src="/.io//2.png"></p>
+<p><img src="/2020/12/18/deepinjvm-part03-jvmsubsystem-chap07-classload/2.png"></p>
 <blockquote>
 <p>初始化为ConstantValue属性所指定的初始值，假设上面类变量value的定义修改为：</p>
 </blockquote>
@@ -1007,7 +1007,7 @@ Returns the class loader for the class.  Some implementations may use null to re
 <li>·应用程序类加载器（Application Class Loader）：这个类加载器由<br>sun.misc.Launcher$AppClassLoader来实现。由于应用程序类加载器是ClassLoader类中的getSystem-<br>ClassLoader()方法的返回值，所以有些场合中也称它为“系统类加载器”。它负责加载用户类路径（ClassPath）上所有的类库(默认的类加载器。)</li>
 </ul>
 <blockquote>
-<p>JDK9之前类加载器双亲委派模型<br><img src="/.io//3.png"></p>
+<p>JDK9之前类加载器双亲委派模型<br><img src="/2020/12/18/deepinjvm-part03-jvmsubsystem-chap07-classload/3.png"></p>
 </blockquote>
 <blockquote>
 <p>双亲委派模型 协作关系</p>
@@ -1145,11 +1145,11 @@ java.management@12.0.1<span aria-hidden="true" class="line-numbers-rows"><span><
 </ul>
 </li>
 <li>其次，平台类加载器和应用程序类加载器都不再派生自java.net.URLClassLoader<ul>
-<li>现在启动类加载器、平台类加载器、应用程序类加载器全都继承于<br>jdk.internal.loader.BuiltinClassLoader<br><img src="/.io//4.png"><br><img src="/.io//5.png"></li>
+<li>现在启动类加载器、平台类加载器、应用程序类加载器全都继承于<br>jdk.internal.loader.BuiltinClassLoader<br><img src="/2020/12/18/deepinjvm-part03-jvmsubsystem-chap07-classload/4.png"><br><img src="/2020/12/18/deepinjvm-part03-jvmsubsystem-chap07-classload/5.png"></li>
 </ul>
 </li>
 <li>最后，JDK 9中虽然仍然维持着三层类加载器和双亲委派的架构，但类加载的委派关系也发生了变动。<ul>
-<li>当平台及应用程序类加载器收到类加载请求，在委派给父加载器加载前，要先判断该类是否能<br>够归属到某一个系统模块中，如果可以找到这样的归属关系，就要优先委派给负责那个模块的加载器<br>完成加载，也许这可以算是对双亲委派的第四次破坏。<br><img src="/.io//6.png"></li>
+<li>当平台及应用程序类加载器收到类加载请求，在委派给父加载器加载前，要先判断该类是否能<br>够归属到某一个系统模块中，如果可以找到这样的归属关系，就要优先委派给负责那个模块的加载器<br>完成加载，也许这可以算是对双亲委派的第四次破坏。<br><img src="/2020/12/18/deepinjvm-part03-jvmsubsystem-chap07-classload/6.png"></li>
 </ul>
 </li>
 </ul>

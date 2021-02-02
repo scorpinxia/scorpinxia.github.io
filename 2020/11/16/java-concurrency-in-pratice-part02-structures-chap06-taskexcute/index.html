@@ -495,7 +495,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="在线程执行任务"><a href="#在线程执行任务" class="headerlink" title="在线程执行任务"></a>在线程执行任务</h1><h2 id="串行执行任务"><a href="#串行执行任务" class="headerlink" title="串行执行任务"></a>串行执行任务</h2><p><img src="/.io//1.png"></p>
+                <h1 id="在线程执行任务"><a href="#在线程执行任务" class="headerlink" title="在线程执行任务"></a>在线程执行任务</h1><h2 id="串行执行任务"><a href="#串行执行任务" class="headerlink" title="串行执行任务"></a>串行执行任务</h2><p><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/1.png"></p>
 <ul>
 <li>特点<ul>
 <li>简单、理论正确</li>
@@ -505,7 +505,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="/.io//2.png"></p>
+<p><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/2.png"></p>
 <ul>
 <li>特点<ul>
 <li>结构类似单线程版本 （主线程不断交替 接受 和分发）</li>
@@ -521,14 +521,14 @@
 <li>资源消耗 （内存开销）你有足够多的线程使CPU忙碌，在创建更多的线程反而降低性能</li>
 <li>稳定性 </li>
 </ul>
-<h1 id="Executor框架"><a href="#Executor框架" class="headerlink" title="Executor框架"></a>Executor框架</h1><p><img src="/.io//3.png"></p>
+<h1 id="Executor框架"><a href="#Executor框架" class="headerlink" title="Executor框架"></a>Executor框架</h1><p><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/3.png"></p>
 <blockquote>
 <p>基于生产者–消费者模式，提交任务–生产者，执行任务消费者</p>
 </blockquote>
-<h2 id="基于Executor的Web服务器"><a href="#基于Executor的Web服务器" class="headerlink" title="基于Executor的Web服务器"></a>基于Executor的Web服务器</h2><p><img src="/.io//4.png"></p>
+<h2 id="基于Executor的Web服务器"><a href="#基于Executor的Web服务器" class="headerlink" title="基于Executor的Web服务器"></a>基于Executor的Web服务器</h2><p><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/4.png"></p>
 <ul>
 <li>任务提交和处理解耦，另一种Exector 就可以改变服务器行为。<ul>
-<li>修改行为的Excutor<br><img src="/.io//5.png"></li>
+<li>修改行为的Excutor<br><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/5.png"></li>
 <li>类似单线程的行为的Executor</li>
 </ul>
 </li>
@@ -541,7 +541,7 @@
 </ul>
 </li>
 </ul>
-<p>执行原因：<br><img src="/.io//6.png"></p>
+<p>执行原因：<br><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/6.png"></p>
 <h2 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h2><p>exectors 静态工厂方法</p>
 <ul>
 <li><p>newFixedThreadPool.固定长度线程池</p>
@@ -556,10 +556,10 @@
 </li>
 </ul>
 <h2 id="Executor的生命周期"><a href="#Executor的生命周期" class="headerlink" title="Executor的生命周期"></a>Executor的生命周期</h2><blockquote>
-<p>扩展接口 Executor<br><img src="/.io//7.png"></p>
+<p>扩展接口 Executor<br><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/7.png"></p>
 </blockquote>
 <blockquote>
-<p>生命周期管理的例子<br><img src="/.io//8.png"><br><img src="/.io//9.png"></p>
+<p>生命周期管理的例子<br><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/8.png"><br><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/9.png"></p>
 </blockquote>
 <blockquote>
 <p>延迟任务与周期任务</p>
@@ -567,7 +567,7 @@
 <ul>
 <li><p>Timer 支持基于绝对时间而不是相对时间的调度，任务对系统时钟敏感。jdk5 以上基本不用了，单个线程执行延迟 周期</p>
 <ul>
-<li>Timer不捕获异常，抛出未检查异常会终止定时线程。（线程泄露）<br><img src="/.io//10.png"></li>
+<li>Timer不捕获异常，抛出未检查异常会终止定时线程。（线程泄露）<br><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/10.png"></li>
 </ul>
 </li>
 <li><p>ScheduledThreadExecutor 只支持相对时间的调度，多个线程执行延迟 周期</p>
@@ -584,7 +584,7 @@
 </blockquote>
 <ul>
 <li>从头开始 等图像下载完在继续（Bad)</li>
-<li>先绘制文本，同时为图像留下矩形占位空间，处理完文本在下载图像放到之前的空间。<br><img src="/.io//11.png"></li>
+<li>先绘制文本，同时为图像留下矩形占位空间，处理完文本在下载图像放到之前的空间。<br><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/11.png"></li>
 </ul>
 <p>这种方法，图像下载大部分时间在等待IO，这期间CPU基本不动。</p>
 <h2 id="携带结果的任务Callable-Future"><a href="#携带结果的任务Callable-Future" class="headerlink" title="携带结果的任务Callable Future"></a>携带结果的任务Callable Future</h2><blockquote>
@@ -620,7 +620,7 @@
 <li>get<ul>
 <li>任务完成：会立即返回或者抛出一个Excepiton 无完成，get阻塞到任务完成</li>
 <li>任务抛出异常 封装成ExecutionException 重新抛出，getCause获取被封装的异常</li>
-<li>任务被取消抛出CancellationException<br><img src="/.io//12.png"></li>
+<li>任务被取消抛出CancellationException<br><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/12.png"></li>
 </ul>
 </li>
 </ul>
@@ -628,10 +628,10 @@
 <p>创建Future，描述任务。<br>ExectorService的submit方法将返回Future,将Runnable Callable提交给Executor得到一个Future用来获得任务执行结果。</p>
 </blockquote>
 <blockquote>
-<p>显式指定Runnable\Callable实例化为FutureTask<br><img src="/.io//13.png"></p>
+<p>显式指定Runnable\Callable实例化为FutureTask<br><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/13.png"></p>
 </blockquote>
 <h2 id="例子：Future页面渲染"><a href="#例子：Future页面渲染" class="headerlink" title="例子：Future页面渲染"></a>例子：Future页面渲染</h2><blockquote>
-<p>分解任务 渲染所有文本（CPU密集型） 下载图像（IO密集型）<br><img src="/.io//14.png"></p>
+<p>分解任务 渲染所有文本（CPU密集型） 下载图像（IO密集型）<br><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/14.png"></p>
 </blockquote>
 <ul>
 <li>缺点<ul>
@@ -659,19 +659,19 @@
 </blockquote>
 <ul>
 <li>ExecutorCompletionService 实现<ul>
-<li>计算部分委托Executor,提交某个任务，先包装为QueueingFuture(FutureTask子类)<br><img src="/.io//15.png"></li>
+<li>计算部分委托Executor,提交某个任务，先包装为QueueingFuture(FutureTask子类)<br><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/15.png"></li>
 <li>计算完成 调用Future-Task的done方法结果放入BlockingQueue（ take poll在得出结果先阻塞）</li>
 </ul>
 </li>
 </ul>
 <h2 id="例子：CompletionService的页面渲染器"><a href="#例子：CompletionService的页面渲染器" class="headerlink" title="例子：CompletionService的页面渲染器"></a>例子：CompletionService的页面渲染器</h2><blockquote>
-<p>每一幅图片下载独立任务（在线程池执行），串行下载到并行。通过在CompletionService获得结果，使得每张图像下载完成就立刻显示<br> <img src="/.io//16.png"></p>
+<p>每一幅图片下载独立任务（在线程池执行），串行下载到并行。通过在CompletionService获得结果，使得每张图像下载完成就立刻显示<br> <img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/16.png"></p>
 </blockquote>
 <blockquote>
 <p>多个ExecutorCompletionService 可以共享一个Exector 。</p>
 </blockquote>
 <h2 id="任务的时间限制"><a href="#任务的时间限制" class="headerlink" title="任务的时间限制"></a>任务的时间限制</h2><blockquote>
-<p>例子：Web从外部广告服务器获取广告信息，超过2s就显示默认广告；超过等待时间，只显示已经获得数据<br><img src="/.io//17.png"><br><img src="/.io//18.png"></p>
+<p>例子：Web从外部广告服务器获取广告信息，超过2s就显示默认广告；超过等待时间，只显示已经获得数据<br><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/17.png"><br><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/18.png"></p>
 </blockquote>
 <h2 id="例子：旅行预订门户网站"><a href="#例子：旅行预订门户网站" class="headerlink" title="例子：旅行预订门户网站"></a>例子：旅行预订门户网站</h2><blockquote>
 <p>背景</p>
@@ -687,7 +687,7 @@
 </li>
 </ul>
 <blockquote>
-<p>预订时间请求报价<br><img src="/.io//19.png"><br><img src="/.io//20.png"></p>
+<p>预订时间请求报价<br><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/19.png"><br><img src="/2020/11/16/java-concurrency-in-pratice-part02-structures-chap06-taskexcute/20.png"></p>
 </blockquote>
 <h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><pre class="line-numbers language-none"><code class="language-none">Executor框架把任务提交和执行策略解耦，支持多种不同类型执行策略。 粒度更细的并行性 以及任务边界的 在应用中十分重要。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
                 

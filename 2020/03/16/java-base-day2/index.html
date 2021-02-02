@@ -541,7 +541,7 @@
 <h3 id="什么是字节码-采用字节码的好处是什么"><a href="#什么是字节码-采用字节码的好处是什么" class="headerlink" title="什么是字节码?采用字节码的好处是什么?"></a>什么是字节码?采用字节码的好处是什么?</h3><blockquote>
 <p>在 Java 中，JVM 可以理解的代码就叫做字节码（即扩展名为 .class 的文件），它不面向任何特定的处理器，只面向虚拟机。Java 语言通过字节码的方式，在一定程度上解决了传统解释型语言执行效率低的问题，同时又保留了解释型语言可移植的特点。所以 Java 程序运行时比较高效，而且，由于字节码并不针对一种特定的机器，因此，Java 程序无须重新编译便可在多种不同操作系统的计算机上运行。</p>
 </blockquote>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p><img src="/.io//1.png"><br>我们需要格外注意的是 .class-&gt;机器码 这一步。在这一步 JVM 类加载器首先加载字节码文件，然后通过解释器逐行解释执行，这种方式的执行速度会相对比较慢。而且，有些方法和代码块是经常需要被调用的(也就是所谓的热点代码)，所以后面引进了 JIT 编译器，而 JIT 属于运行时编译。当 JIT 编译器完成第一次编译后，其会将字节码对应的机器码保存下来，下次可以直接使用。而我们知道，机器码的运行效率肯定是高于 Java 解释器的。这也解释了我们为什么经常会说 Java 是编译与解释共存的语言。</p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p><img src="/2020/03/16/java-base-day2/1.png"><br>我们需要格外注意的是 .class-&gt;机器码 这一步。在这一步 JVM 类加载器首先加载字节码文件，然后通过解释器逐行解释执行，这种方式的执行速度会相对比较慢。而且，有些方法和代码块是经常需要被调用的(也就是所谓的热点代码)，所以后面引进了 JIT 编译器，而 JIT 属于运行时编译。当 JIT 编译器完成第一次编译后，其会将字节码对应的机器码保存下来，下次可以直接使用。而我们知道，机器码的运行效率肯定是高于 Java 解释器的。这也解释了我们为什么经常会说 Java 是编译与解释共存的语言。</p>
 <h2 id="JDK-JRE"><a href="#JDK-JRE" class="headerlink" title="JDK JRE"></a>JDK JRE</h2><p>JDK 是 Java Development Kit，它是功能齐全的 Java SDK。它拥有 JRE 所拥有的一切，还有编译器（javac）和工具（如 javadoc 和 jdb）。它能够创建和编译程序。<br>JRE 是 Java 运行时环境。</p>
 <h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><p>一个引用变量到底会指向哪个类的实例对象，该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。</p>
 <p>在 Java 中有两种形式可以实现多态：继承（多个子类对同一方法的重写）和接口（实现接口并覆盖接口中同一方法）。</p>
@@ -610,7 +610,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
 <li>String 中的 equals 方法是被重写过的，因为 object 的 equals 方法是比较的对象的内存地址，而 String 的 equals 方法比较的是对象的值。</li>
 <li>当创建 String 类型的对象时，虚拟机会在常量池中查找有没有已经存在的值和要创建的值相同的对象，如果有就把它赋给当前引用。如果没有就在常量池中重新创建一个 String 对象。</li>
 </ul>
-<h1 id="线程基本状态"><a href="#线程基本状态" class="headerlink" title="线程基本状态"></a>线程基本状态</h1><p>Java 线程在运行的生命周期中的指定时刻只可能处于下面 6 种不同状态的其中一个状态（图源《Java 并发编程艺术》4.1.4 节）。<br><img src="/.io//2.png"><br>状态机<br><img src="/.io//3.png"><br>由上图可以看出：</p>
+<h1 id="线程基本状态"><a href="#线程基本状态" class="headerlink" title="线程基本状态"></a>线程基本状态</h1><p>Java 线程在运行的生命周期中的指定时刻只可能处于下面 6 种不同状态的其中一个状态（图源《Java 并发编程艺术》4.1.4 节）。<br><img src="/2020/03/16/java-base-day2/2.png"><br>状态机<br><img src="/2020/03/16/java-base-day2/3.png"><br>由上图可以看出：</p>
 <p>线程创建之后它将处于 NEW（新建） 状态，调用 start() 方法后开始运行，线程这时候处于 READY（可运行） 状态。可运行状态的线程获得了 cpu 时间片（timeslice）后就处于 RUNNING（运行） 状态。</p>
 <blockquote>
 <p>操作系统隐藏 Java 虚拟机（JVM）中的 READY 和 RUNNING 状态，它只能看到 RUNNABLE 状态（图源：HowToDoInJava：Java Thread Life Cycle and Thread States），所以 Java 系统一般将这两个状态统称为 RUNNABLE（运行中） 状态 。</p>
@@ -621,7 +621,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
 <li>当用 final 修饰一个类时，表明这个类不能被继承。final 类中的所有成员方法都会被隐式地指定为 final 方法。</li>
 <li>使用 final 方法的原因有两个。第一个原因是把方法锁定，以防任何继承*类修改它的含义；第二个原因是效率。在早期的 Java 实现版本中，会将 final 方法转为内嵌调用。但是如果方法过于庞大，可能看不到内嵌调用带来的任何性能提升（现在的 Java 版本已经不需要使用 final 方法进行这些优化了）。类中所有的 private 方法都隐式地指定为 final。</li>
 </ul>
-<h1 id="Java-中的异常处理"><a href="#Java-中的异常处理" class="headerlink" title="Java 中的异常处理"></a>Java 中的异常处理</h1><h2 id="Java-异常类层次结构图"><a href="#Java-异常类层次结构图" class="headerlink" title="Java 异常类层次结构图"></a>Java 异常类层次结构图</h2><p><img src="/.io//4.png"></p>
+<h1 id="Java-中的异常处理"><a href="#Java-中的异常处理" class="headerlink" title="Java 中的异常处理"></a>Java 中的异常处理</h1><h2 id="Java-异常类层次结构图"><a href="#Java-异常类层次结构图" class="headerlink" title="Java 异常类层次结构图"></a>Java 异常类层次结构图</h2><p><img src="/2020/03/16/java-base-day2/4.png"></p>
 <p>在 Java 中，所有的异常都有一个共同的祖先 java.lang 包中的 Throwable 类。Throwable： 有两个重要的子类：Exception（异常） 和 Error（错误） ，二者都是 Java 异常处理的重要子类，各自都包含大量子类。</p>
 <p><strong>Error（错误）:是程序无法处理的错误</strong></p>
 <p><strong>Exception（异常）:是程序本身可以处理的异常。</strong><br>Exception 类有一个重要的子类 RuntimeException。RuntimeException 异常由 Java 虚拟机抛出。NullPointerException（要访问的变量没有引用任何对象时，抛出该异常）、ArithmeticException（算术运算异常，一个整数除以 0 时，抛出该异常）和 ArrayIndexOutOfBoundsException （下标越界异常）。</p>
@@ -669,9 +669,9 @@ input<span class="token punctuation">.</span><span class="token function">close<
 </li>
 <li><p>OutputStream/Writer: 所有输出流的基类，前者是字节输出流，后者是字符输出流。</p>
 </li>
-<li><p>*按操作方式分类结构图：**<br><img src="/.io//5.png"></p>
+<li><p>*按操作方式分类结构图：**<br><img src="/2020/03/16/java-base-day2/5.png"></p>
 </li>
-<li><p>*按操作对象分类结构图：**<br><img src="/.io//6.png"></p>
+<li><p>*按操作对象分类结构图：**<br><img src="/2020/03/16/java-base-day2/6.png"></p>
 </li>
 </ul>
 <h2 id="既然有了字节流-为什么还要有字符流"><a href="#既然有了字节流-为什么还要有字符流" class="headerlink" title="既然有了字节流,为什么还要有字符流?"></a>既然有了字节流,为什么还要有字符流?</h2><p>问题本质想问：<strong>不管是文件读写还是网络发送接收，信息的最小存储单元都是字节，那为什么 I/O 流操作要分为字节流操作和字符流操作呢？</strong></p>
@@ -681,7 +681,7 @@ input<span class="token punctuation">.</span><span class="token function">close<
 <h1 id="Collections-工具类和-Arrays-工具类常见方法总结"><a href="#Collections-工具类和-Arrays-工具类常见方法总结" class="headerlink" title="Collections 工具类和 Arrays 工具类常见方法总结"></a>Collections 工具类和 Arrays 工具类常见方法总结</h1><p>详见的这篇文章: <a target="_blank" rel="noopener" href="https://gitee.com/SnailClimb/JavaGuide/blob/master/docs/java/basic/Arrays,CollectionsCommonMethods.md">https://gitee.com/SnailClimb/JavaGuide/blob/master/docs/java/basic/Arrays,CollectionsCommonMethods.md</a></p>
 <h1 id="深拷贝-vs-浅拷贝"><a href="#深拷贝-vs-浅拷贝" class="headerlink" title="深拷贝 vs 浅拷贝"></a>深拷贝 vs 浅拷贝</h1><ul>
 <li>浅拷贝：对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，此为浅拷贝。</li>
-<li>深拷贝：对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容，此为深拷贝。<br><img src="/.io//7.png"></li>
+<li>深拷贝：对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容，此为深拷贝。<br><img src="/2020/03/16/java-base-day2/7.png"></li>
 </ul>
 
                 

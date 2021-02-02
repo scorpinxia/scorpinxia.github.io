@@ -570,7 +570,7 @@
 <li>它允许变量槽的长度可以随着处理器、操作系统或虚拟机实现的不同而发生变化</li>
 </ul>
 <blockquote>
-<p>栈帧图<br><img src="/.io//1.png"></p>
+<p>栈帧图<br><img src="/2020/12/19/deepinjvm-part03-jvmsubsystem-chap08-bytecode-execute/1.png"></p>
 </blockquote>
 <blockquote>
 <p>栈帧局部变量表 特点</p>
@@ -642,7 +642,7 @@
 <p>Java虚拟机的解释执行引擎被称为“基于栈的执行引擎”，里面的“栈”就是操作数栈。</p>
 </blockquote>
 <blockquote>
-<p>概念上 栈帧无重叠 （但可能优化到）<br><img src="/.io//2.png"></p>
+<p>概念上 栈帧无重叠 （但可能优化到）<br><img src="/2020/12/19/deepinjvm-part03-jvmsubsystem-chap08-bytecode-execute/2.png"></p>
 </blockquote>
 <h2 id="动态连接"><a href="#动态连接" class="headerlink" title="动态连接"></a>动态连接</h2><blockquote>
 <p>概念</p>
@@ -1105,7 +1105,7 @@ son choose qq<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 </li>
 </ul>
 <h3 id="动态分配方法的实现"><a href="#动态分配方法的实现" class="headerlink" title="动态分配方法的实现"></a>动态分配方法的实现</h3><blockquote>
-<p>方法区中建立一个虚方法表（Virtual Method Table，也称为vtable，与此对应的，在invokeinterface执行时也<br>会用到接口方法表——Interface Method Table，简称itable），使用虚方法表索引来代替元数据查找以<br>提高性能。<br><img src="/.io//3.png"></p>
+<p>方法区中建立一个虚方法表（Virtual Method Table，也称为vtable，与此对应的，在invokeinterface执行时也<br>会用到接口方法表——Interface Method Table，简称itable），使用虚方法表索引来代替元数据查找以<br>提高性能。<br><img src="/2020/12/19/deepinjvm-part03-jvmsubsystem-chap08-bytecode-execute/3.png"></p>
 </blockquote>
 <ul>
 <li>方法在子类中没有被重写，那子类的虚方法表中的地址入口和父类相同方法的地址入口是一致的。</li>
@@ -1440,7 +1440,7 @@ i am grandfather<span aria-hidden="true" class="line-numbers-rows"><span></span>
 <li>但当主流的虚拟机中都包含了即时编译器后，Class文件中的代码到底会被解释执行还是编译执行，就成了只有虚拟机自己才能准确判断的事</li>
 </ul>
 <blockquote>
-<p>解释执行与编译执行 图示<br><img src="/.io//4.png"></p>
+<p>解释执行与编译执行 图示<br><img src="/2020/12/19/deepinjvm-part03-jvmsubsystem-chap08-bytecode-execute/4.png"></p>
 </blockquote>
 <ul>
 <li>下面的那条分支，就是传统编译原理中程序代码到目标机器代码的生成过程；</li>
@@ -1528,15 +1528,15 @@ add  eax, 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span
         <span class="token number">16</span><span class="token operator">:</span>  ireturn
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
-<p>执行流程图<br><img src="/.io//5.png"></p>
+<p>执行流程图<br><img src="/2020/12/19/deepinjvm-part03-jvmsubsystem-chap08-bytecode-execute/5.png"></p>
 </blockquote>
 </li>
-<li>Bipush指令的作用是将单字节的整型常量值（-128～127）推入操作数栈顶，跟随有一个参数，指明推送的常量值，这里是100。<br><img src="/.io//6.png"></li>
-<li>istore_1指令的作用是将操作数栈顶的整型值出栈并存放到第1个局部变量槽中。 后四个类似<br><img src="/.io//7.png"></li>
-<li>执行偏移地址为11的指令，iload_1指令的作用是将局部变量表第1个变量槽中的整型值复制到操作数栈顶。<br><img src="/.io//8.png"></li>
-<li>执行偏移地址为12的指令，iload_2指令的作用是将局部变量表第2个变量槽中的整型值复制到操作数栈顶。<br><img src="/.io//9.png"></li>
-<li>执行偏移地址为13的指令，iadd指令的作用是将操作数栈中头两个栈顶元素出栈，做整型加法，然后把结果重新入栈。<br><img src="/.io//10.png"></li>
-<li>执行偏移地址为14的指令，iload_3指令把存放在第3个局部变量槽中的300入栈到操作数栈中。这时操作数栈为两个整数300。下一条指令imul是将操作数栈中头两个栈顶元素出栈，做整型乘法，然后把结果重新入栈。<br><img src="/.io//11.png"></li>
+<li>Bipush指令的作用是将单字节的整型常量值（-128～127）推入操作数栈顶，跟随有一个参数，指明推送的常量值，这里是100。<br><img src="/2020/12/19/deepinjvm-part03-jvmsubsystem-chap08-bytecode-execute/6.png"></li>
+<li>istore_1指令的作用是将操作数栈顶的整型值出栈并存放到第1个局部变量槽中。 后四个类似<br><img src="/2020/12/19/deepinjvm-part03-jvmsubsystem-chap08-bytecode-execute/7.png"></li>
+<li>执行偏移地址为11的指令，iload_1指令的作用是将局部变量表第1个变量槽中的整型值复制到操作数栈顶。<br><img src="/2020/12/19/deepinjvm-part03-jvmsubsystem-chap08-bytecode-execute/8.png"></li>
+<li>执行偏移地址为12的指令，iload_2指令的作用是将局部变量表第2个变量槽中的整型值复制到操作数栈顶。<br><img src="/2020/12/19/deepinjvm-part03-jvmsubsystem-chap08-bytecode-execute/9.png"></li>
+<li>执行偏移地址为13的指令，iadd指令的作用是将操作数栈中头两个栈顶元素出栈，做整型加法，然后把结果重新入栈。<br><img src="/2020/12/19/deepinjvm-part03-jvmsubsystem-chap08-bytecode-execute/10.png"></li>
+<li>执行偏移地址为14的指令，iload_3指令把存放在第3个局部变量槽中的300入栈到操作数栈中。这时操作数栈为两个整数300。下一条指令imul是将操作数栈中头两个栈顶元素出栈，做整型乘法，然后把结果重新入栈。<br><img src="/2020/12/19/deepinjvm-part03-jvmsubsystem-chap08-bytecode-execute/11.png"></li>
 <li>执行偏移地址为16的指令，ireturn指令是方法返回指令之一，它将结束方法执行并将操作数栈顶的整型值返回给该方法的调用者。到此为止，这段方法执行结束。</li>
 </ul>
 <blockquote>

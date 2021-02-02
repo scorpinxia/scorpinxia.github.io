@@ -495,26 +495,26 @@
 <p>速率=一次数据量/传输时间</p>
 </blockquote>
 <p>一次传输数据量 就是Symbol QAM每个子载波调制，一起传</p>
-<p><img src="/.io//1.png"></p>
-<p>802.11n提出 减少<br><img src="/.io//2.png"></p>
-<p>wifi6 是4倍的OFDM符号时间<br><img src="/.io//3.png"></p>
-<h1 id="编码率（保证有效）"><a href="#编码率（保证有效）" class="headerlink" title="编码率（保证有效）"></a>编码率（保证有效）</h1><p>802.11n之前是不支持MIMO-OFDM 最高编码3/4  MIMO-OFDM<br><img src="/.io//4.png"></p>
+<p><img src="/2020/09/13/wifi6-rate-caculate/1.png"></p>
+<p>802.11n提出 减少<br><img src="/2020/09/13/wifi6-rate-caculate/2.png"></p>
+<p>wifi6 是4倍的OFDM符号时间<br><img src="/2020/09/13/wifi6-rate-caculate/3.png"></p>
+<h1 id="编码率（保证有效）"><a href="#编码率（保证有效）" class="headerlink" title="编码率（保证有效）"></a>编码率（保证有效）</h1><p>802.11n之前是不支持MIMO-OFDM 最高编码3/4  MIMO-OFDM<br><img src="/2020/09/13/wifi6-rate-caculate/4.png"></p>
 <h1 id="频分多路（FDM-一个信道-多个子信道"><a href="#频分多路（FDM-一个信道-多个子信道" class="headerlink" title="频分多路（FDM) 一个信道 多个子信道"></a>频分多路（FDM) 一个信道 多个子信道</h1><blockquote>
-<p>802.11a之后支持OFDM<br><img src="/.io//5.png"></p>
+<p>802.11a之后支持OFDM<br><img src="/2020/09/13/wifi6-rate-caculate/5.png"></p>
 </blockquote>
 <blockquote>
-<p>802.11ax之后支持OFDMA 单一信道在分多个正交信道<br><img src="/.io//6.png"></p>
+<p>802.11ax之后支持OFDMA 单一信道在分多个正交信道<br><img src="/2020/09/13/wifi6-rate-caculate/6.png"></p>
 </blockquote>
 <p>所有 FDM的802.11协议，最小子载波带宽312.5khz，20MHZ 就有64个载波，原因只有48个传输。 OFMA 载波到234个.</p>
-<p><img src="/.io//7.png"><br>频宽加倍 不一定子载波加倍 ，因为实际使用子信道加起来没那么多</p>
-<h1 id="如何调制-决定一次运输速率"><a href="#如何调制-决定一次运输速率" class="headerlink" title="如何调制 决定一次运输速率"></a>如何调制 决定一次运输速率</h1><p><img src="/.io//8.png"></p>
+<p><img src="/2020/09/13/wifi6-rate-caculate/7.png"><br>频宽加倍 不一定子载波加倍 ，因为实际使用子信道加起来没那么多</p>
+<h1 id="如何调制-决定一次运输速率"><a href="#如何调制-决定一次运输速率" class="headerlink" title="如何调制 决定一次运输速率"></a>如何调制 决定一次运输速率</h1><p><img src="/2020/09/13/wifi6-rate-caculate/8.png"></p>
 <h1 id="如何发送-Spatial-Streams-（MIMO）"><a href="#如何发送-Spatial-Streams-（MIMO）" class="headerlink" title="如何发送 Spatial Streams （MIMO）"></a>如何发送 Spatial Streams （MIMO）</h1><p>空间流数，说白点就是使用多少根天线发送和接收数据。就是多输入多输出技术</p>
-<p><img src="/.io//9.png"></p>
+<p><img src="/2020/09/13/wifi6-rate-caculate/9.png"></p>
 <h1 id="最终计算"><a href="#最终计算" class="headerlink" title="最终计算"></a>最终计算</h1><p>速率=一次传输量/传输时间</p>
 <p>一次传输量=一个Symbol=子载波个数<em>子载波编码数</em>子载波编码率*空间流数（MIMO）</p>
 <p>传输时间=Symbol Time</p>
 <p>WiFi6使用80MHz信道，1024-QAM可以产生600Mb / s的理论单流数据速率，这个速率是如何得到的？ 一个空间流</p>
-<p><img src="/.io//11.png"></p>
+<p><img src="/2020/09/13/wifi6-rate-caculate/11.png"></p>
 <p>根据上文内容查表可得</p>
 <ul>
 <li>子载波个数：980</li>

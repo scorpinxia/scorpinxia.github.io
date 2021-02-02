@@ -495,9 +495,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="自上而下-伸展树"><a href="#自上而下-伸展树" class="headerlink" title="自上而下 伸展树"></a>自上而下 伸展树</h1><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p><img src="/.io//1.png"></p>
-<p><img src="/.io//2.png"></p>
-<p><img src="/.io//3.png"></p>
+                <h1 id="自上而下-伸展树"><a href="#自上而下-伸展树" class="headerlink" title="自上而下 伸展树"></a>自上而下 伸展树</h1><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/1.png"></p>
+<p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/2.png"></p>
+<p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/3.png"></p>
 <blockquote>
 <p>和自下而上的伸展树一样保持了摊还界O(logN)</p>
 </blockquote>
@@ -505,7 +505,7 @@
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/skywang12345/p/3245399.html">https://www.cnblogs.com/skywang12345/p/3245399.html</a></p>
 </blockquote>
-<p><img src="/.io//41.png"></p>
+<p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/41.png"></p>
 <blockquote>
 <p>性质 也是二叉查找树</p>
 </blockquote>
@@ -534,19 +534,19 @@
 
 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>红色是双圆圈<br><img src="/.io//4.png"></p>
+<p>红色是双圆圈<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/4.png"></p>
 <blockquote>
 <p>插入是困难的，新项作为树叶插入树中。黑色一定违反条件4，必须涂成红色，父节点是黑色，插入完成。父节点是红色，违反条件3，我们需要颜色的改变和树的旋转</p>
 </blockquote>
-<h2 id="自底向上的插入"><a href="#自底向上的插入" class="headerlink" title="自底向上的插入"></a>自底向上的插入</h2><p><img src="/.io//5.png"></p>
+<h2 id="自底向上的插入"><a href="#自底向上的插入" class="headerlink" title="自底向上的插入"></a>自底向上的插入</h2><p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/5.png"></p>
 <blockquote>
 <p>如果 S也是红色的，就比较复杂，需要上滤</p>
 </blockquote>
 <ul>
 <li>分为三种情况  <ul>
-<li>情况一、 z的叔节点y是红色，其中z为要调整的节点(下同)：<br><img src="/.io//39.png"><br>其中，单纯旋转没办法解决 所以我们扔给上面循环来解决</li>
-<li>情况二、z的叔节点y是黑色的且z是一个右孩子<br><img src="/.io//40.png"><br>其中，单纯旋转没办法解决 所以我们扔给上面循环来解决<br>转换到情况三</li>
-<li>情况三、z的叔节点y是黑色的且z是一个左孩子<br><img src="/.io//42.png"><br>①染色：通过将21染黑和26染红，我们可以解决性质4，但是却让原本26-39这条路径上少了一个黑色节点，一定会破坏性质5；于是我们接下来借助旋转<br>②左旋：为么右旋在这里能够解决26-39路线上少一个黑色节点的问题，而且能够保证红黑颜色性质。</li>
+<li>情况一、 z的叔节点y是红色，其中z为要调整的节点(下同)：<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/39.png"><br>其中，单纯旋转没办法解决 所以我们扔给上面循环来解决</li>
+<li>情况二、z的叔节点y是黑色的且z是一个右孩子<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/40.png"><br>其中，单纯旋转没办法解决 所以我们扔给上面循环来解决<br>转换到情况三</li>
+<li>情况三、z的叔节点y是黑色的且z是一个左孩子<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/42.png"><br>①染色：通过将21染黑和26染红，我们可以解决性质4，但是却让原本26-39这条路径上少了一个黑色节点，一定会破坏性质5；于是我们接下来借助旋转<br>②左旋：为么右旋在这里能够解决26-39路线上少一个黑色节点的问题，而且能够保证红黑颜色性质。</li>
 </ul>
 </li>
 </ul>
@@ -554,10 +554,10 @@
 <p>看到两个红儿子就改成黑色，把父亲改成红色，如果父亲是根就改成黑色</p>
 </blockquote>
 <blockquote>
-<p>如果此时父亲的父亲是红色 的 那么就利用之前的旋转<br><img src="/.io//7.png"></p>
+<p>如果此时父亲的父亲是红色 的 那么就利用之前的旋转<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/7.png"></p>
 </blockquote>
 <blockquote>
-<p>插入45<br><img src="/.io//4.png"> <img src="/.io//8.png"></p>
+<p>插入45<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/4.png"> <img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/8.png"></p>
 </blockquote>
 <blockquote>
 <p>红黑树一般平衡的很好 和AVL一样 ，插入开销少，实际的旋转少。</p>
@@ -566,7 +566,7 @@
 <p>实际上实现很复杂，需要大量不同的旋转，子树是空的，根的特殊情况。两个标记节点，一个是根，一个是nullNode（null引用）。 </p>
 </blockquote>
 <blockquote>
-<p>根标记存放负无穷和真正的根右链<br><img src="/.io//9.png"></p>
+<p>根标记存放负无穷和真正的根右链<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/9.png"></p>
 </blockquote>
 <blockquote>
 <p>把item 作为参数传递，而不是记录旋转类型，因为期望很少的插入</p>
@@ -578,7 +578,7 @@
 <p>最简单的二叉查找树，像跳跃表用随机数给期望时间O（logN）性能，和非平衡查找树一样</p>
 </blockquote>
 <blockquote>
-<p>每一项存储左链、右链、优先级（由建立节点时间指定，任意节点优先级至少和父节点一样大<br><img src="/.io//11.png"></p>
+<p>每一项存储左链、右链、优先级（由建立节点时间指定，任意节点优先级至少和父节点一样大<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/11.png"></p>
 </blockquote>
 <blockquote>
 <p>树根据优先级得到N!的排列而不是根据项</p>
@@ -587,7 +587,7 @@
 <p>nullNode 优先级无限大，随机优先级用共享Random生成</p>
 </blockquote>
 <blockquote>
-<p>插入：作为树叶插入后，把它沿着treap树向上旋转直到他满足优先级<br><img src="/.io//12.png"><br>删除：找到被删除的项 把它优先级增加到无限大，在沿着低优先级的儿子向下旋转<br><img src="/.io//13.png"></p>
+<p>插入：作为树叶插入后，把它沿着treap树向上旋转直到他满足优先级<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/12.png"><br>删除：找到被删除的项 把它优先级增加到无限大，在沿着低优先级的儿子向下旋转<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/13.png"></p>
 </blockquote>
 <h1 id="后缀数组和后缀树"><a href="#后缀数组和后缀树" class="headerlink" title="后缀数组和后缀树"></a>后缀数组和后缀树</h1><blockquote>
 <p>数据处理基本问题 文本T找到模式P的位置</p>
@@ -610,7 +610,7 @@
 <p>后缀数组和后缀树（听上去不一样，其实上一样，基本是等价的，用空间换时间）</p>
 </blockquote>
 <h2 id="后缀数组"><a href="#后缀数组" class="headerlink" title="后缀数组"></a>后缀数组</h2><blockquote>
-<p>后缀数组,T所以后缀有序排列所组成的数组。1-N 、2-N 、3-N ……<br><img src="/.io//14.png"></p>
+<p>后缀数组,T所以后缀有序排列所组成的数组。1-N 、2-N 、3-N ……<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/14.png"></p>
 </blockquote>
 <blockquote>
 <p>存储看上去需要平方级空间，它对1~N 的 每个长度都存储了一个字符串。Java不一定如此。<strong>Java字符串 维护一个字符数组以及一个开头和结尾索引实现 通过subString，额外的内存需求只是新子串的索引</strong>,但是这样也用了太多空间，常用只保存后缀在后缀数组的起始下标。</p>
@@ -622,13 +622,13 @@
 <p>折半只有可能出现停在P 或者P在两个中间，它是大值的前缀<br>查询时间 O(PlogT) ，P是每步开销造成的</p>
 </blockquote>
 <blockquote>
-<p>出现次数可以通过Longest Common Prefix,LCP加速 到O(P +logT)  后一个是前一个的<br><img src="/.io//15.png"></p>
+<p>出现次数可以通过Longest Common Prefix,LCP加速 到O(P +logT)  后一个是前一个的<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/15.png"></p>
 </blockquote>
 <blockquote>
 <p>后缀数组的主要开销在排序，以及可能的LCP，可能会到 O(N^2LogN)</p>
 </blockquote>
 <h2 id="后缀树"><a href="#后缀树" class="headerlink" title="后缀树"></a>后缀树</h2><p>存在字典树（buffman 树）里面，但是那样浪费了很多空间，压缩单个分支变成  （压缩字典树）</p>
-<p><img src="/.io//16.png"></p>
+<p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/16.png"></p>
 <blockquote>
 <p>只使用线性空间的方法</p>
 </blockquote>
@@ -639,12 +639,12 @@
 </blockquote>
 </li>
 </ul>
-<p><img src="/.io//17.png"></p>
+<p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/17.png"></p>
 <blockquote>
-<p>中序遍历来得到后缀  数组和LCP数组 对比下图<br><img src="/.io//18.png"></p>
+<p>中序遍历来得到后缀  数组和LCP数组 对比下图<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/18.png"></p>
 </blockquote>
 <blockquote>
-<p>LCP方法： 如果后缀节点加上父节点字母深度等于N，将祖父节点作为LCP。否则用父节点的字母深度做作为LCP<br><img src="/.io//19.png"></p>
+<p>LCP方法： 如果后缀节点加上父节点字母深度等于N，将祖父节点作为LCP。否则用父节点的字母深度做作为LCP<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/19.png"></p>
 </blockquote>
 <blockquote>
 <p>后缀数组和LCP数组唯一定义后缀树</p>
@@ -665,48 +665,48 @@
 <li>利用当前有序的后缀样本集A将 剩下的后缀集合B排序</li>
 </ul>
 <blockquote>
-<p>例子 用ABRACADAbRA计算后缀数组<br>约定<br><img src="/.io//26.png"></p>
+<p>例子 用ABRACADAbRA计算后缀数组<br>约定<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/26.png"></p>
 </blockquote>
 <ul>
-<li><p>步骤1 映射排序 填充0防止边界<br><img src="/.io//20.png"></p>
+<li><p>步骤1 映射排序 填充0防止边界<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/20.png"></p>
 </li>
-<li><p>步骤2 分三组  每组由N/3符号组成  S0、S1、S2后缀组成S的后缀  ，如果递归 三个后缀再归并，结果是O(NlogN),计算两个后缀分组，利用信息计算第三个后缀分组。<br><img src="/.io//21.png"></p>
+<li><p>步骤2 分三组  每组由N/3符号组成  S0、S1、S2后缀组成S的后缀  ，如果递归 三个后缀再归并，结果是O(NlogN),计算两个后缀分组，利用信息计算第三个后缀分组。<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/21.png"></p>
 </li>
 </ul>
 <blockquote>
-<p>$代表填充字符<br><img src="/.io//22.png"></p>
+<p>$代表填充字符<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/22.png"></p>
 </blockquote>
 <blockquote>
-<p>S0对应的后缀<br><img src="/.io//23.png"><br>这些后缀是 0、3、6、9的位置</p>
+<p>S0对应的后缀<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/23.png"><br>这些后缀是 0、3、6、9的位置</p>
 </blockquote>
 <blockquote>
 <p>同理可以看出 S1 S2的后缀位置</p>
 </blockquote>
 <ul>
 <li>步骤3： 将S1 S2 接起率递归计算后缀数。<blockquote>
-<p>可以用三趟基数排序来线性完成<br><img src="/.io//27.png"></p>
+<p>可以用三趟基数排序来线性完成<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/27.png"></p>
 </blockquote>
 </li>
 </ul>
-<p><img src="/.io//24.png"><br><img src="/.io//25.png"></p>
+<p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/24.png"><br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/25.png"></p>
 <blockquote>
 <p>第一排是S1S2 字符排序他应该在的位置<br>第二排、第三排是 后缀数组</p>
 </blockquote>
 <ul>
-<li>步骤四 对S0计算后缀  SA代表后缀数组<br><img src="/.io//26.png"></li>
+<li>步骤四 对S0计算后缀  SA代表后缀数组<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/26.png"></li>
 </ul>
 <blockquote>
 <p>两趟基数排序做步骤4：第一趟在S1[i=&gt;] 第二趟 S0[i]</p>
 </blockquote>
-<p><img src="/.io//28.png"></p>
+<p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/28.png"></p>
 <blockquote>
-<p>对S1 S2 后缀分级<br><img src="/.io//29.png"><br><img src="/.io//30.png"></p>
+<p>对S1 S2 后缀分级<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/29.png"><br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/30.png"></p>
 </blockquote>
 <blockquote>
 <p>两趟基数排序得到S0 以及S1、S2组合的后缀数组 一共两个 之后再归并。</p>
 </blockquote>
 <ul>
-<li>步骤5 归并两个后缀 O（N)<br><img src="/.io//31.png"></li>
+<li>步骤5 归并两个后缀 O（N)<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/31.png"></li>
 </ul>
 <blockquote>
 <p>两种情况</p>
@@ -716,14 +716,14 @@
 <li>2.比较S0 S2的元素 最大比较前两个字母 </li>
 </ul>
 <p>比较0 10 都是A 接着比较1 11  11是空 所以10在前面</p>
-<p><img src="/.io//32.png"></p>
+<p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/32.png"></p>
 <p>情况1，比较0 7 都是A 接着比较1 8  8是小 所以7在前面</p>
-<p><img src="/.io//33.png"></p>
+<p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/33.png"></p>
 <p>比较0 5 都是A 接着比较1 6  ，S1 和S0元素比较 不能直接比较结果 ，只能直接比较字符，下标1 包含B，下标6包含D,下标1胜，进入下一级</p>
-<p><img src="/.io//34.png"></p>
-<p>同样的比较 3 5 找不到结果就直接比较<br><img src="/.io//35.png"></p>
-<p><img src="/.io//36.png"></p>
-<p>结果<br><img src="/.io//37.png"></p>
+<p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/34.png"></p>
+<p>同样的比较 3 5 找不到结果就直接比较<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/35.png"></p>
+<p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/36.png"></p>
+<p>结果<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/37.png"></p>
 <p>T(N)=T(2N/3)+O(N) 花费O（N）时间</p>
 <h3 id="倍增"><a href="#倍增" class="headerlink" title="倍增"></a>倍增</h3><blockquote>
 <p>倍增算法的主要思想 ：对于一个后缀Suffix[i],如果想直接得到Rank比较困难，但是我们可以对每个字符开始的长度为2k的字符串求出排名，k从0开始每次递增1(每递增1就成为一轮)，当2k大于Len时，所得到的序列就是Rank，而SA也就知道了。O(logLen)枚举k</p>
@@ -735,7 +735,7 @@
 <p>设SubStr(i, len)为从第i个字符开始，长度为len的字符串我们可以把第k轮SubStr(i, 2k)看成是一个由SubStr(i, 2k−1)和SubStr(i + 2k−1, 2k−1)拼起来的东西。类似rmq算法，这两个长度而2k−1的字符串是上一轮遇到过的！当然上一轮的rank也知道！</p>
 </blockquote>
 <blockquote>
-<p>每一趟rank 排序用基数排序<br><img src="/.io//47.png"></p>
+<p>每一趟rank 排序用基数排序<br><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/47.png"></p>
 </blockquote>
 <h4 id="LCP"><a href="#LCP" class="headerlink" title="LCP"></a>LCP</h4><blockquote>
 <p>Heigth[i] : 表示Suffix[SA[i]]和Suffix[SA[i - 1]]的最长公共前缀，也就是排名相邻的两个后缀的最长公共前缀<br>H[i] : 等于Height[Rank[i]]，也就是后缀Suffix[i]和它前一名的后缀的最长公共前缀<br>而两个排名不相邻的最长公共前缀定义为排名在它们之间的Height的最小值。</p>
@@ -755,15 +755,15 @@
 <ul>
 <li>算法分析<br>平均高度O（logN） 最坏O（N）</li>
 </ul>
-<h1 id="配对堆"><a href="#配对堆" class="headerlink" title="配对堆"></a>配对堆</h1><p><img src="/.io//38.png"></p>
+<h1 id="配对堆"><a href="#配对堆" class="headerlink" title="配对堆"></a>配对堆</h1><p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/38.png"></p>
 <h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><h2 id="12-3-修改伸展树-支持对k项最小查询"><a href="#12-3-修改伸展树-支持对k项最小查询" class="headerlink" title="12.3 修改伸展树 支持对k项最小查询"></a>12.3 修改伸展树 支持对k项最小查询</h2><pre class="line-numbers language-none"><code class="language-none">为每个节点合并一个附加字段，以指示其子树的大小。 这些领域是易于在展开期间进行更新。 在跳过列表中很难做到这一点。
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="12-6-红黑树高度证明"><a href="#12-6-红黑树高度证明" class="headerlink" title="12.6 红黑树高度证明"></a>12.6 红黑树高度证明</h2><p>如上 </p>
 <h2 id="12-7-AVL树和红黑树的转换"><a href="#12-7-AVL树和红黑树的转换" class="headerlink" title="12.7 AVL树和红黑树的转换"></a>12.7 AVL树和红黑树的转换</h2><pre class="line-numbers language-none"><code class="language-none">如果非根节点的高度为偶数且其父代高度为奇数，则将其着色为红色，否则为黑色。
 并非所有的红黑树都是AVL树（因为最深的红黑树比最深的AVL更深树）。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h2 id="12-1-线性时间LCP"><a href="#12-1-线性时间LCP" class="headerlink" title="12.1 线性时间LCP"></a>12.1 线性时间LCP</h2><p><img src="/.io//43.png"></p>
-<p><img src="/.io//44.png"></p>
-<p><img src="/.io//45.png"></p>
+<h2 id="12-1-线性时间LCP"><a href="#12-1-线性时间LCP" class="headerlink" title="12.1 线性时间LCP"></a>12.1 线性时间LCP</h2><p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/43.png"></p>
+<p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/44.png"></p>
+<p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/45.png"></p>
 <p>思路：线性时间的LCP 就是要避免重复比较</p>
 <blockquote>
 <p>从最长的位置开始和它之前的一个位置比较</p>
@@ -771,7 +771,7 @@
 <blockquote>
 <p>保留h因为 如果当前和上面一个有h个公共，下一个和上面的至少有h-1个公共</p>
 </blockquote>
-<p><img src="/.io//46.png"></p>
+<p><img src="/2020/10/15/data-structures-and-algorithms-chap12-advanced-data-structures/46.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">sa[5]=7 rank[7]=5<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
                 
             </div>

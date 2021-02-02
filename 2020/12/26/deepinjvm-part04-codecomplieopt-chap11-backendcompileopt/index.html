@@ -545,7 +545,7 @@
 <p>解释器还可以作为编译器激进优化时后备的“逃生门”</p>
 </blockquote>
 <ul>
-<li>（如果情况允许，HotSpot虚拟机中也会采用不进行激进优化的客户端编译器充当“逃生门”的角色）<br><img src="/.io//1.png"></li>
+<li>（如果情况允许，HotSpot虚拟机中也会采用不进行激进优化的客户端编译器充当“逃生门”的角色）<br><img src="/2020/12/26/deepinjvm-part04-codecomplieopt-chap11-backendcompileopt/1.png"></li>
 <li>当激进优化的假设不成立，如加载了新类以后，类型继承结构出现变化、出现“罕见陷阱”（Uncommon Trap）时可以通<br>过逆优化（Deoptimization）退回到解释状态继续执行</li>
 </ul>
 <blockquote>
@@ -568,7 +568,7 @@
 <ul>
 <li>“混合模式”（Mixed Mode）： 默认</li>
 <li>“解释模式”（Interpreted Mode）：“-Xint”强制</li>
-<li>“编译模式”（Compiled Mode）：“-Xcomp”，优先采用编译方式执行程序，但是解释器仍然要在编译无法进行的情况下介入执行过程。<br><img src="/.io//2.png"></li>
+<li>“编译模式”（Compiled Mode）：“-Xcomp”，优先采用编译方式执行程序，但是解释器仍然要在编译无法进行的情况下介入执行过程。<br><img src="/2020/12/26/deepinjvm-part04-codecomplieopt-chap11-backendcompileopt/2.png"></li>
 </ul>
 <h3 id="分层编译"><a href="#分层编译" class="headerlink" title="分层编译"></a>分层编译</h3><blockquote>
 <p>分层编译的原因</p>
@@ -593,7 +593,7 @@
 <li>解释器、客户端编译器和服务端编译器就会同时工作</li>
 <li>热点代码都可能会被多次编译，用客户端编译器获取更高的编译速度，用服务端编译器来获取更好的编译质量</li>
 <li>解释执行的时候也无须额外承担收集性能监控信息的任务</li>
-<li>而在服务端编译器采用高复杂度的优化算法时，客户端编译器可先采用简单优化来为它争取更多的编译时间。<br><img src="/.io//3.png"></li>
+<li>而在服务端编译器采用高复杂度的优化算法时，客户端编译器可先采用简单优化来为它争取更多的编译时间。<br><img src="/2020/12/26/deepinjvm-part04-codecomplieopt-chap11-backendcompileopt/3.png"></li>
 </ul>
 <h2 id="编译对象与触发条件"><a href="#编译对象与触发条件" class="headerlink" title="编译对象与触发条件"></a>编译对象与触发条件</h2><blockquote>
 <p>编译对象</p>
@@ -630,12 +630,12 @@
 <ul>
 <li>方法调用计数器（Invocation Counter）：方法被调用的次数<ul>
 <li>它的默认阈值在客户端模式下是1500次，在服务端模式下是10000次，可参数设定</li>
-<li>是一个相对的执行频<br>率，即一段时间之内方法被调用的次数。当超过一定的时间限度，如果方法的调用次数仍然不足以让<br>它提交给即时编译器编译，那该方法的调用计数器就会被减少一半（半衰周期）<br><img src="/.io//4.png"></li>
+<li>是一个相对的执行频<br>率，即一段时间之内方法被调用的次数。当超过一定的时间限度，如果方法的调用次数仍然不足以让<br>它提交给即时编译器编译，那该方法的调用计数器就会被减少一半（半衰周期）<br><img src="/2020/12/26/deepinjvm-part04-codecomplieopt-chap11-backendcompileopt/4.png"></li>
 </ul>
 </li>
 <li>回边计数器（Back Edge Counter）：统计一个方法中循环体代码执行的次数 （遇到控制流向后跳转的指令就称为“回边（Back Edge）”） （应当是回边的次数而不是循环次数，因为并非所有的循环都是回边，如空循环实际上就可以视为自己跳转到自己的过程，因此并不算作控制流向后跳转，也不会被回边计数器统计。）<ul>
 <li>它的默认阈值在客户端模式下是9。33×1500=13995次，在服务端模式下是(140-33)×0.01×10000=10700次，可参数设定</li>
-<li>无计数热度衰减<br><img src="/.io//5.png"></li>
+<li>无计数热度衰减<br><img src="/2020/12/26/deepinjvm-part04-codecomplieopt-chap11-backendcompileopt/5.png"></li>
 </ul>
 </li>
 </ul>
@@ -648,7 +648,7 @@
 <ul>
 <li>在第一个阶段，一个平台独立的前端将字节码构造成一种高级中间代码表示（High-LevelIntermediate Representation，HIR，即与目标机器指令集无关的中间表示）</li>
 <li>在第二个阶段，一个平台相关的后端从HIR中产生低级中间代码表示（Low-Level IntermediateRepresentation，LIR，即与目标机器指令集相关的中间表示）</li>
-<li>最后的阶段是在平台相关的后端使用线性扫描算法（Linear Scan Register Allocation）在LIR上分配<br>寄存器，并在LIR上做窥孔（Peephole）优化，然后产生机器代码。<br><img src="/.io//6.png"></li>
+<li>最后的阶段是在平台相关的后端使用线性扫描算法（Linear Scan Register Allocation）在LIR上分配<br>寄存器，并在LIR上做窥孔（Peephole）优化，然后产生机器代码。<br><img src="/2020/12/26/deepinjvm-part04-codecomplieopt-chap11-backendcompileopt/6.png"></li>
 </ul>
 <blockquote>
 <p>服务端编译器:专门面向服务端的典型应用场景，几乎能达到GNU C++编译器使用-O2参数时的优化强度。</p>
@@ -870,7 +870,7 @@ exclude <span class="token class-name"><span class="token namespace">jdk<span cl
 <li>Jaotc做的提前编译属于本节开头所说的“第二条分支”，即做即时编译的缓存；而Substrate VM则是选择的“第<br>一条分支”，做的是传统的静态提前编译</li>
 </ul>
 <h1 id="编译器优化技术"><a href="#编译器优化技术" class="headerlink" title="编译器优化技术"></a>编译器优化技术</h1><h2 id="优化技术概览"><a href="#优化技术概览" class="headerlink" title="优化技术概览"></a>优化技术概览</h2><blockquote>
-<p>参考连接<a target="_blank" rel="noopener" href="https://wiki.openjdk.java.net/display/HotSpot/PerformanceTacticIndex%E3%80%82">https://wiki.openjdk.java.net/display/HotSpot/PerformanceTacticIndex。</a><br><img src="/.io//7.png"><br><img src="/.io//8.png"><br><img src="/.io//9.png"><br><img src="/.io//10.png"></p>
+<p>参考连接<a target="_blank" rel="noopener" href="https://wiki.openjdk.java.net/display/HotSpot/PerformanceTacticIndex%E3%80%82">https://wiki.openjdk.java.net/display/HotSpot/PerformanceTacticIndex。</a><br><img src="/2020/12/26/deepinjvm-part04-codecomplieopt-chap11-backendcompileopt/7.png"><br><img src="/2020/12/26/deepinjvm-part04-codecomplieopt-chap11-backendcompileopt/8.png"><br><img src="/2020/12/26/deepinjvm-part04-codecomplieopt-chap11-backendcompileopt/9.png"><br><img src="/2020/12/26/deepinjvm-part04-codecomplieopt-chap11-backendcompileopt/10.png"></p>
 </blockquote>
 <blockquote>
 <p>优化的例子</p>

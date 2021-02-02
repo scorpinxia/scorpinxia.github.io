@@ -526,12 +526,12 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 </li>
 <li>10.命名规范 add_ end_</li>
 </ul>
-<h2 id="例子问题"><a href="#例子问题" class="headerlink" title="例子问题"></a>例子问题</h2><p><img src="/.io//3.png"></p>
-<h3 id="计数结构"><a href="#计数结构" class="headerlink" title="计数结构"></a>计数结构</h3><p><img src="/.io//2.png"></p>
+<h2 id="例子问题"><a href="#例子问题" class="headerlink" title="例子问题"></a>例子问题</h2><p><img src="/2020/12/23/fpga-designeasy/3.png"></p>
+<h3 id="计数结构"><a href="#计数结构" class="headerlink" title="计数结构"></a>计数结构</h3><p><img src="/2020/12/23/fpga-designeasy/2.png"></p>
 <ul>
 <li>第二个结构：cnt_c判断在哪个阶段</li>
 </ul>
-<h3 id="加1-结束条件"><a href="#加1-结束条件" class="headerlink" title="加1 结束条件"></a>加1 结束条件</h3><p><img src="/.io//4.png"></p>
+<h3 id="加1-结束条件"><a href="#加1-结束条件" class="headerlink" title="加1 结束条件"></a>加1 结束条件</h3><p><img src="/2020/12/23/fpga-designeasy/4.png"></p>
 <ul>
 <li>cnt<ul>
 <li>+1  ~ flag==1  </li>
@@ -544,7 +544,7 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 </ul>
 </li>
 </ul>
-<h3 id="特殊点"><a href="#特殊点" class="headerlink" title="特殊点"></a>特殊点</h3><h3 id="完整性检查"><a href="#完整性检查" class="headerlink" title="完整性检查"></a>完整性检查</h3><p><img src="/.io//5.png"></p>
+<h3 id="特殊点"><a href="#特殊点" class="headerlink" title="特殊点"></a>特殊点</h3><h3 id="完整性检查"><a href="#完整性检查" class="headerlink" title="完整性检查"></a>完整性检查</h3><p><img src="/2020/12/23/fpga-designeasy/5.png"></p>
 <h3 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">reg [2:0] cnt;
 assign add_cnt= flag==1;
 assign  end_cnt= x+y-1;
@@ -688,19 +688,19 @@ assign  s22idle_start = state_cur==S2 &amp;&amp; <span aria-hidden="true" class=
 <li>6.状态不变 state_next=state_cur</li>
 </ul>
 <h1 id="状态机项目实践"><a href="#状态机项目实践" class="headerlink" title="状态机项目实践"></a>状态机项目实践</h1><h2 id="简易报文类型识别器项目"><a href="#简易报文类型识别器项目" class="headerlink" title="简易报文类型识别器项目"></a>简易报文类型识别器项目</h2><blockquote>
-<p>传输图<br><img src="/.io//6.png"></p>
+<p>传输图<br><img src="/2020/12/23/fpga-designeasy/6.png"></p>
 </blockquote>
 <blockquote>
-<p>报文格式<br><img src="/.io//7.png"><br>步骤</p>
+<p>报文格式<br><img src="/2020/12/23/fpga-designeasy/7.png"><br>步骤</p>
 </blockquote>
 <ul>
 <li>复位后，检查输入信号的din 如果连续收到 1个16’h55d5表示检测到报文头</li>
 <li>pkt_type报文类型 0 控制 !=0数据<blockquote>
-<p>信号图<br><img src="/.io//8.png"></p>
+<p>信号图<br><img src="/2020/12/23/fpga-designeasy/8.png"></p>
 </blockquote>
 </li>
 </ul>
-<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p><img src="/.io//9.png"><br><img src="/.io//10.png"></p>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p><img src="/2020/12/23/fpga-designeasy/9.png"><br><img src="/2020/12/23/fpga-designeasy/10.png"></p>
 <h3 id="输出分析"><a href="#输出分析" class="headerlink" title="输出分析"></a>输出分析</h3><ul>
 <li>dout 和din 一拍输出 （为了简化）</li>
 <li>dout——sop 报文头 指示信号<ul>
@@ -724,15 +724,15 @@ assign  s22idle_start = state_cur==S2 &amp;&amp; <span aria-hidden="true" class=
 </ul>
 </li>
 </ul>
-<h3 id="状态合并"><a href="#状态合并" class="headerlink" title="状态合并"></a>状态合并</h3><p><img src="/.io//11.png"></p>
+<h3 id="状态合并"><a href="#状态合并" class="headerlink" title="状态合并"></a>状态合并</h3><p><img src="/2020/12/23/fpga-designeasy/11.png"></p>
 <h3 id="状态转移"><a href="#状态转移" class="headerlink" title="状态转移"></a>状态转移</h3><h1 id="FIFO架构"><a href="#FIFO架构" class="headerlink" title="FIFO架构"></a>FIFO架构</h1><h2 id="FIFO架构八步法"><a href="#FIFO架构八步法" class="headerlink" title="FIFO架构八步法"></a>FIFO架构八步法</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><h4 id="FIFO规则"><a href="#FIFO规则" class="headerlink" title="FIFO规则"></a>FIFO规则</h4><ul>
 <li>1.Show-ahead 读模式： 一般两种 Show-ahead Normal </li>
-<li>2.读写隔离：读控制和写控制是独立的 （不能根据 读状态 读数据 决定写 ）<br>  <img src="/.io//12.png"><ul>
+<li>2.读写隔离：读控制和写控制是独立的 （不能根据 读状态 读数据 决定写 ）<br>  <img src="/2020/12/23/fpga-designeasy/12.png"><ul>
 <li>例子：输入的报文保存FIFO，保存完整报文后，读出传送</li>
-<li>din_eop收到完整报文，是用作读报文的开始吗？<br><img src="/.io//13.png"></li>
+<li>din_eop收到完整报文，是用作读报文的开始吗？<br><img src="/2020/12/23/fpga-designeasy/13.png"></li>
 <li>由于对第一个报文还没有处理，不能处理第二个报文   </li>
 <li>数据要缓存后输出 ，din_eop也要缓存</li>
-<li>双FIFO架构<br><img src="/.io//14.png"></li>
+<li>双FIFO架构<br><img src="/2020/12/23/fpga-designeasy/14.png"></li>
 </ul>
 </li>
 <li>3.读使能必须要判断空状态，并用组合逻辑产生 如上<ul>
@@ -741,18 +741,18 @@ assign  s22idle_start = state_cur==S2 &amp;&amp; <span aria-hidden="true" class=
 </ul>
 </li>
 <li>4.处理报文，把指示信号和数据一起存入FIFO<ul>
-<li>例子<br><img src="/.io//15.png"></li>
-<li>报文缓存格式<br><img src="/.io//16.png"></li>
+<li>例子<br><img src="/2020/12/23/fpga-designeasy/15.png"></li>
+<li>报文缓存格式<br><img src="/2020/12/23/fpga-designeasy/16.png"></li>
 <li>读 最低位 次低位 </li>
 </ul>
 </li>
 <li>读写时钟不一样时必须用异步FIFO</li>
 </ul>
 <h4 id="生成FIFO的IP"><a href="#生成FIFO的IP" class="headerlink" title="生成FIFO的IP"></a>生成FIFO的IP</h4><blockquote>
-<p>同步FIFO<br><img src="/.io//17.png"></p>
+<p>同步FIFO<br><img src="/2020/12/23/fpga-designeasy/17.png"></p>
 </blockquote>
 <blockquote>
-<p>异步FIFO<br><img src="/.io//18.png"></p>
+<p>异步FIFO<br><img src="/2020/12/23/fpga-designeasy/18.png"></p>
 </blockquote>
 <ul>
 <li>FIFO宽度 Data</li>
@@ -764,7 +764,7 @@ assign  s22idle_start = state_cur==S2 &amp;&amp; <span aria-hidden="true" class=
 <li>读速率：  80Mhz*16bit/2=640Mbit/s </li>
 <li>平均速率： </li>
 <li>突发速率：</li>
-<li>算出 最多连续多少写数据有效的<br><img src="/.io//19.png"></li>
+<li>算出 最多连续多少写数据有效的<br><img src="/2020/12/23/fpga-designeasy/19.png"></li>
 </ul>
 </li>
 </ul>
@@ -775,12 +775,12 @@ assign  s22idle_start = state_cur==S2 &amp;&amp; <span aria-hidden="true" class=
 </blockquote>
 <ul>
 <li>Normal模式<ul>
-<li>先有读使能，之后FIFO输出到数据总线，数据在下一个周期才有效<br><img src="/.io//20.png"></li>
+<li>先有读使能，之后FIFO输出到数据总线，数据在下一个周期才有效<br><img src="/2020/12/23/fpga-designeasy/20.png"></li>
 <li>rdreq有效时 q还无效</li>
 </ul>
 </li>
 <li>show-ahead 模式 <ul>
-<li>先输出数据在总线上，没有rdreq 就一直输出D0<br><img src="/.io//21.png"></li>
+<li>先输出数据在总线上，没有rdreq 就一直输出D0<br><img src="/2020/12/23/fpga-designeasy/21.png"></li>
 </ul>
 </li>
 </ul>
@@ -788,7 +788,7 @@ assign  s22idle_start = state_cur==S2 &amp;&amp; <span aria-hidden="true" class=
 <p>例子</p>
 </blockquote>
 <ul>
-<li><p>目标<br><img src="/.io//22.png"></p>
+<li><p>目标<br><img src="/2020/12/23/fpga-designeasy/22.png"></p>
 </li>
 <li><p>第一步 FIFO架构</p>
 <ul>

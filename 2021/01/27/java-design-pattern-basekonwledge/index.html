@@ -495,7 +495,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="面向对象设计原则"><a href="#面向对象设计原则" class="headerlink" title="面向对象设计原则"></a>面向对象设计原则</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><img src="/.io//1.png"></p>
+                <h1 id="面向对象设计原则"><a href="#面向对象设计原则" class="headerlink" title="面向对象设计原则"></a>面向对象设计原则</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><img src="/2021/01/27/java-design-pattern-basekonwledge/1.png"></p>
 <h2 id="单一职责原则-Single-Responsibility-Principle-SRP"><a href="#单一职责原则-Single-Responsibility-Principle-SRP" class="headerlink" title="单一职责原则(Single    Responsibility    Principle,    SRP)"></a>单一职责原则(Single    Responsibility    Principle,    SRP)</h2><blockquote>
 <p>定义</p>
 </blockquote>
@@ -504,7 +504,7 @@
 <li>需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需要设计人员具有较强的分析设计能力和相关实践<br>经验。</li>
 </ul>
 <blockquote>
-<p>例子<br><img src="/.io//2.png"></p>
+<p>例子<br><img src="/2021/01/27/java-design-pattern-basekonwledge/2.png"></p>
 </blockquote>
 <ul>
 <li><p>方法说明和问题</p>
@@ -513,7 +513,7 @@
 <li>不止一个引起它变化的原因</li>
 </ul>
 </li>
-<li><p>单一职责原则对其进行重构<br>  <img src="/.io//3.png"></p>
+<li><p>单一职责原则对其进行重构<br>  <img src="/2021/01/27/java-design-pattern-basekonwledge/3.png"></p>
 <ul>
 <li><p>(1)    DBUtil：负责连接数据库，包含数据库连接方法getConnection()；</p>
 </li>
@@ -531,7 +531,7 @@
 <li>一个软件实体应当对扩展开放，对修改关闭。即软件<br>实体应尽量在不修改原有代码的情况下进行扩展。（软件实体可以指一个软件模块、一个由多个类组成的局部结构或一个独立的类。）</li>
 </ul>
 <blockquote>
-<p>例子<br><img src="/.io//4.png"></p>
+<p>例子<br><img src="/2021/01/27/java-design-pattern-basekonwledge/4.png"></p>
 </blockquote>
 <ul>
 <li>方法说明和问题  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法中存在如下代码片段：
@@ -557,7 +557,7 @@
 <li>在该代码中，如果需要增加一个新的图表类，如折线图LineChart，则需要修改ChartDisplay类的display()方法的源代码，增加新的判断逻辑，违反了开闭原则。</li>
 </ul>
 </li>
-<li>开闭原则对其进行重构<br>  <img src="/.io//5.png"><ul>
+<li>开闭原则对其进行重构<br>  <img src="/2021/01/27/java-design-pattern-basekonwledge/5.png"><ul>
 <li>我们引入了抽象图表类AbstractChart，且ChartDisplay针对抽象图表类进行编程，并<br>通过setChart()方法由客户端来设置实例化的具体图表对象<h2 id="里氏代换原则-Liskov-Substitution-Principle-LSP"><a href="#里氏代换原则-Liskov-Substitution-Principle-LSP" class="headerlink" title="里氏代换原则(Liskov    Substitution    Principle,    LSP)"></a>里氏代换原则(Liskov    Substitution    Principle,    LSP)</h2></li>
 </ul>
 </li>
@@ -570,7 +570,7 @@
 <li>里氏代换原则是实现开闭原则的重要方式之一，由于使用基类对象的地方都可以使用子类对象，因此在程序中尽量使用基类类型来对对象进行定义，而在运行时再确定其子类类型，用子类对象来替换父类对象。</li>
 </ul>
 <blockquote>
-<p>例子<br><img src="/.io//6.png"></p>
+<p>例子<br><img src="/2021/01/27/java-design-pattern-basekonwledge/6.png"></p>
 </blockquote>
 <ul>
 <li>方法说明和问题<ul>
@@ -578,7 +578,7 @@
 <li>发送邮件的过程都是相同的，也就是说两个send()方法中的代码重复</li>
 </ul>
 </li>
-<li>里氏代换原则对其进行重构<br>  <img src="/.io//7.png"><ul>
+<li>里氏代换原则对其进行重构<br>  <img src="/2021/01/27/java-design-pattern-basekonwledge/7.png"><ul>
 <li>里氏代换原则是实现开闭原则的重要方式之一。在本实例中，在传递参数时使用基类对象，除此以<br>外，在定义成员变量、定义局部变量、确定方法返回类型时都可使用里氏代换原则。针对基类编程，<br>在程序运行时再确定具体子类。</li>
 </ul>
 </li>
@@ -603,7 +603,7 @@
 </li>
 </ul>
 <blockquote>
-<p>例子<br><img src="/.io//8.png"></p>
+<p>例子<br><img src="/2021/01/27/java-design-pattern-basekonwledge/8.png"></p>
 </blockquote>
 <ul>
 <li>方法说明和问题<ul>
@@ -612,7 +612,7 @@
 <li>而且在引入并使用新的数据转换类时也不得不修改CustomerDAO的源代码（反了开闭原则）</li>
 </ul>
 </li>
-<li>依赖倒转原则对其进行重构（也包括开闭原则、里氏代换原则）<br>  <img src="/.io//9.png"><ul>
+<li>依赖倒转原则对其进行重构（也包括开闭原则、里氏代换原则）<br>  <img src="/2021/01/27/java-design-pattern-basekonwledge/9.png"><ul>
 <li>CustomerDAO针对抽象类DataConvertor编程，而将具体数据转换类名存储在配置文件中，符合依赖倒转原则</li>
 <li>里氏代换原则，程序运行时，具体数据转换类对象将替换DataConvertor类型的对象，程序不会出现任何问题。</li>
 <li>增加新的具体数据转换类，只要将新增数据转换类作为DataConvertor的子类并修改配置文件即可，原有代码无须做任何修改，满足开闭原则。</li>
@@ -630,7 +630,7 @@
 </li>
 </ul>
 <blockquote>
-<p>例子<br><img src="/.io//10.png"></p>
+<p>例子<br><img src="/2021/01/27/java-design-pattern-basekonwledge/10.png"></p>
 </blockquote>
 <ul>
 <li>方法说明和问题<ul>
@@ -643,7 +643,7 @@
 <li>客户<br>端针对大接口编程，将在一定程序上破坏程序的封装性，客户端看到了不应该看到的方法，没有为客<br>户端定制接口。</li>
 </ul>
 </li>
-<li>接口隔离原则对其进行重构（含单一职责原则）<br>  <img src="/.io//11.png"><ul>
+<li>接口隔离原则对其进行重构（含单一职责原则）<br>  <img src="/2021/01/27/java-design-pattern-basekonwledge/11.png"><ul>
 <li>不能太大（违反接口隔离）、太小（接口泛滥、不好维护）</li>
 <li>接口中仅包含为某一类用户定制的方法即可，不应该强迫客户依赖于那些它们不用<br>的方法。</li>
 </ul>
@@ -666,7 +666,7 @@
 <li>如果两个类之间是“Has-A”的关系应使用组合或聚合，如果是“Is-A”关系可使用继承。”Is-A”是严格的分类学意义上的定义，意思是一个类是另一个类的”一种”；而”Has-A”则不<br>同，它表示某一个角色具有某一项责任</li>
 </ul>
 <blockquote>
-<p>例子<br><img src="/.io//12.png"></p>
+<p>例子<br><img src="/2021/01/27/java-design-pattern-basekonwledge/12.png"></p>
 </blockquote>
 <ul>
 <li>方法说明和问题<ul>
@@ -674,7 +674,7 @@
 <li>随着客户数量的增加，系统决定升级为Oracle数据库，因此需要增加一个新的OracleDBUtil类来<br>连接Oracle数据库 （更换数<br>据库连接方式时需要修改CustomerDAO类的源代码，将CustomerDAO作为OracleDBUtil的子类）违反开闭</li>
 </ul>
 </li>
-<li>合成复用原则对其进行重构<br>  <img src="/.io//13.png"><ul>
+<li>合成复用原则对其进行重构<br>  <img src="/2021/01/27/java-design-pattern-basekonwledge/13.png"><ul>
 <li>CustomerDAO和DBUtil之间的关系由继承关系变为关联关系，采用依赖注入的方式将<br>DBUtil对象注入到CustomerDAO中</li>
 <li>根据里氏代换原则，DBUtil子类的对象可以覆盖DBUtil<br>对象，只需在CustomerDAO中注入子类对象即可使用子类所扩展的方法。</li>
 </ul>
@@ -712,7 +712,7 @@
 </li>
 </ul>
 <blockquote>
-<p>例子<br><img src="/.io//14.png"></p>
+<p>例子<br><img src="/2021/01/27/java-design-pattern-basekonwledge/14.png"></p>
 </blockquote>
 <ul>
 <li>方法说明和问题<ul>
@@ -720,7 +720,7 @@
 <li>由于界面控件之间的交互关系复杂，导致在该窗口中增加新的界面控件时需要修改与之交互<br>的其他控件的源代码，系统扩展性较差，也不便于增加和删除新控件。</li>
 </ul>
 </li>
-<li>迪米特原则对其进行重构<br>  <img src="/.io//15.png"><ul>
+<li>迪米特原则对其进行重构<br>  <img src="/2021/01/27/java-design-pattern-basekonwledge/15.png"><ul>
 <li>引入中间类之后，界面控件之间不再发生直接引用，而是将请求先转发给中间类，再由<br>中间类来完成对其他控件的调用</li>
 <li>当需要增加或删除新的控件时，只需修改中间类即可，无须修改新<br>增控件或已有控件的源代码</li>
 </ul>

@@ -508,7 +508,7 @@
 <li>该系统的设计人员已经开发了一个成绩操作接口ScoreOperation，在该接口中声明了排序方法sort(int[])    和查找方法search(int[],    int)，为了提高排序和查找的效率，开发人员决定重用算法库中的快速排序算法类QuickSort和二分查找算法类BinarySearch</li>
 <li>现在Sunny公司开发人员已经找不到该算法库的源代码，无法直接通过复制和粘贴操作来重用其中的代码；部分开发人员已经针对ScoreOperation接口编程，如果再要求对该接口进行修改或要求大家直接使用QuickSort类和BinarySearch类将导致大量代码需要修改。</li>
 </ul>
-<p><img src="/.io//1.png"></p>
+<p><img src="/2021/02/01/java-design-pattern-structurepattern/1.png"></p>
 <h2 id="适配器模式概述"><a href="#适配器模式概述" class="headerlink" title="适配器模式概述"></a>适配器模式概述</h2><blockquote>
 <p>适配器模式</p>
 </blockquote>
@@ -517,7 +517,7 @@
 <li>在适配器模式定义中所提及的接口是指广义的接口，它可以表示一个方法或者方法的集合。</li>
 </ul>
 <blockquote>
-<p>对象适配器模式结构图<br><img src="/.io//2.png"></p>
+<p>对象适配器模式结构图<br><img src="/2021/02/01/java-design-pattern-structurepattern/2.png"></p>
 </blockquote>
 <ul>
 <li><p>●    Target（目标抽象类）：目标抽象类定义客户所需接口，可以是一个抽象类或接口，也可以是具体类。</p>
@@ -548,7 +548,7 @@
 
 <span class="token number">11.</span>	<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="完整解决方案"><a href="#完整解决方案" class="headerlink" title="完整解决方案"></a>完整解决方案</h2><blockquote>
-<p>对象适配器<br><img src="/.io//3.png"></p>
+<p>对象适配器<br><img src="/2021/02/01/java-design-pattern-structurepattern/3.png"></p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">65.</span>	<span class="token comment">//操作适配器：适配器	</span>
 <span class="token number">66.</span>	<span class="token keyword">class</span>	<span class="token class-name">OperationAdapter</span>	<span class="token keyword">implements</span>	<span class="token class-name">ScoreOperation</span>	<span class="token punctuation">{</span>	
@@ -578,7 +578,7 @@
 
 <span class="token number">82.</span>	<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="类适配器"><a href="#类适配器" class="headerlink" title="类适配器"></a>类适配器</h2><blockquote>
-<p>典型的类适配器<br><img src="/.io//4.png"></p>
+<p>典型的类适配器<br><img src="/2021/02/01/java-design-pattern-structurepattern/4.png"></p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1.</span>	<span class="token keyword">class</span>	<span class="token class-name">Adapter</span>	<span class="token keyword">extends</span>	<span class="token class-name">Adaptee</span>	<span class="token keyword">implements</span>	<span class="token class-name">Target</span>	<span class="token punctuation">{</span>	
 
@@ -593,7 +593,7 @@
 <li>Java、C#等语言不支持多重类继承(如果目标抽象类<br>Target不是接口，而是一个类，就无法使用类适配器；)</li>
 <li>在Java等面向对象编程语言中，大部分情况下我们使用的是对象适配器，类适配器较少使用。</li>
 </ul>
-<h2 id="双向适配器"><a href="#双向适配器" class="headerlink" title="双向适配器"></a>双向适配器</h2><p><img src="/.io//5.png"></p>
+<h2 id="双向适配器"><a href="#双向适配器" class="headerlink" title="双向适配器"></a>双向适配器</h2><p><img src="/2021/02/01/java-design-pattern-structurepattern/5.png"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1.</span>	<span class="token keyword">class</span>	<span class="token class-name">Adapter</span>	<span class="token keyword">implements</span>	<span class="token class-name">Target</span><span class="token punctuation">,</span><span class="token class-name">Adaptee</span>	<span class="token punctuation">{</span>	
 <span class="token number">2.</span>	<span class="token comment">//同时维持对抽象目标类和适配者的引用	</span>
 <span class="token number">3.</span>	<span class="token keyword">private</span>	<span class="token class-name">Target</span>	target<span class="token punctuation">;</span>	
@@ -643,7 +643,7 @@
 <li>当不需要实现一个接口所提供的所有方法时，可先设计一个抽象类实现该接口，并为接口中每个方法提供一个默认实现（空方法），那么该抽象类的子类可以选择性地覆盖父类的某些方法来实现需求，它适用于不想使用一个接口中的所有方法的情<br>况，又称为单接口适配器模式。</li>
 </ul>
 <blockquote>
-<p>缺省适配器模式结构图<br><img src="/.io//6.png"></p>
+<p>缺省适配器模式结构图<br><img src="/2021/02/01/java-design-pattern-structurepattern/6.png"></p>
 </blockquote>
 <h2 id="适配器模式优缺点和使用场景"><a href="#适配器模式优缺点和使用场景" class="headerlink" title="适配器模式优缺点和使用场景"></a>适配器模式优缺点和使用场景</h2><blockquote>
 <p>工厂方法模式是使用频率最高的设计模式之一，是很多开源框架和API类库的核心模式。</p>

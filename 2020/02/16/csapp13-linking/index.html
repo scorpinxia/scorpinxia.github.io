@@ -491,7 +491,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="reason"><a href="#reason" class="headerlink" title="reason"></a>reason</h1><p><img src="/.io//1.png"></p>
+                <h1 id="reason"><a href="#reason" class="headerlink" title="reason"></a>reason</h1><p><img src="/2020/02/16/csapp13-linking/1.png"></p>
 <p>为了模块化（一个模块一个o) 和效率(  对于单独修改 只需单独编译)</p>
 <h1 id="do-what"><a href="#do-what" class="headerlink" title="do what"></a>do what</h1><ul>
 <li><p>解析所有符号（全局变量和函数 定义与引用的唯一位置）</p>
@@ -499,30 +499,30 @@
 <li><p>重定位（Relocation) (把编译过的o文件里面需要重定位的 符号以及函数地址进行具体地址覆盖）</p>
 </li>
 </ul>
-<h1 id="file-format-o-out-so"><a href="#file-format-o-out-so" class="headerlink" title="file format (.o .out .so)"></a>file format (.o .out .so)</h1><p><img src="/.io//2.png"></p>
+<h1 id="file-format-o-out-so"><a href="#file-format-o-out-so" class="headerlink" title="file format (.o .out .so)"></a>file format (.o .out .so)</h1><p><img src="/2020/02/16/csapp13-linking/2.png"></p>
 <p>Key Part</p>
-<p><img src="/.io//3.png"><br>better save space</p>
+<p><img src="/2020/02/16/csapp13-linking/3.png"><br>better save space</p>
 <h1 id="Symbols"><a href="#Symbols" class="headerlink" title="Symbols"></a>Symbols</h1><p>Global symbols 在m模块定义能被其他模块引用 （非static的全局函数和变量）</p>
 <p>Externel symbols 在m模块使用的全局符号但是是被其他模块定义的</p>
 <p>Local symbols 在m模块使用和定义的（只能模块用static 全局函数变量)</p>
 <p>注意：编辑器只对上述三种符号解析 (局部非static 变量 在栈上）</p>
-<h1 id="how-to-deal-with-same-symbols"><a href="#how-to-deal-with-same-symbols" class="headerlink" title="how to deal with same symbols"></a>how to deal with same symbols</h1><p><img src="/.io//4.png"></p>
+<h1 id="how-to-deal-with-same-symbols"><a href="#how-to-deal-with-same-symbols" class="headerlink" title="how to deal with same symbols"></a>how to deal with same symbols</h1><p><img src="/2020/02/16/csapp13-linking/4.png"></p>
 <p>规则1：两个强 不允许</p>
 <p>规则2：一个强 几个弱 取强</p>
 <p>规则3： 几个弱 就随机取一个</p>
-<p><img src="/.io//5.png"></p>
+<p><img src="/2020/02/16/csapp13-linking/5.png"></p>
 <p>对于第三个： 在p2里面对double x  操作 如果linker 随机选到了int x的内存地址 那么就会改8个字节改到y</p>
 <p>第四个：int x=7是强的 所以只会存它  在p2 对double x 修改一定会覆盖y</p>
 <p>第五个： 只是修改变量 </p>
 <h2 id="Advice"><a href="#Advice" class="headerlink" title="Advice"></a>Advice</h2><p>1.尽量避免重名</p>
 <p>2.不能避免就 （看看能不能用static，能不能初始化，在引用外部全局的时候用externel 提示编译器）</p>
-<h1 id="Relocation"><a href="#Relocation" class="headerlink" title="Relocation"></a>Relocation</h1><p><img src="/.io//6.png"></p>
+<h1 id="Relocation"><a href="#Relocation" class="headerlink" title="Relocation"></a>Relocation</h1><p><img src="/2020/02/16/csapp13-linking/6.png"></p>
 <p>定位前的o文件</p>
-<p><img src="/.io//7.png">    </p>
+<p><img src="/2020/02/16/csapp13-linking/7.png">    </p>
 <p>之后的就是把 那个entry红的地方都分配好地址</p>
 <h1 id="Static-Libraries（old-）"><a href="#Static-Libraries（old-）" class="headerlink" title="Static Libraries（old ）"></a>Static Libraries（old ）</h1><p>(.a archive files)</p>
 <p>通过列表查找使用的o</p>
-<p><img src="/.io//8.png"></p>
+<p><img src="/2020/02/16/csapp13-linking/8.png"></p>
 <p>缺点 ： 比如有很多个printf 就需要多次解析prinf.o</p>
 <h1 id="Shared-libraries-so、dll）"><a href="#Shared-libraries-so、dll）" class="headerlink" title="Shared libraries (so、dll）"></a>Shared libraries (so、dll）</h1><p>Dynamic Linking</p>
 <p>可以在运行 的时候加载</p>

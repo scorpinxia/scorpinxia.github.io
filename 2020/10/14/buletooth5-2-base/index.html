@@ -495,9 +495,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Different-Core"><a href="#Different-Core" class="headerlink" title="Different Core"></a>Different Core</h1><p><img src="/.io//1.png"></p>
-<h1 id="Rate-Core-EDR"><a href="#Rate-Core-EDR" class="headerlink" title="Rate Core EDR"></a>Rate Core EDR</h1><p><img src="/.io//2.png"></p>
-<h1 id="总体描述"><a href="#总体描述" class="headerlink" title="总体描述"></a>总体描述</h1><p><img src="/.io//3.gif"></p>
+                <h1 id="Different-Core"><a href="#Different-Core" class="headerlink" title="Different Core"></a>Different Core</h1><p><img src="/2020/10/14/buletooth5-2-base/1.png"></p>
+<h1 id="Rate-Core-EDR"><a href="#Rate-Core-EDR" class="headerlink" title="Rate Core EDR"></a>Rate Core EDR</h1><p><img src="/2020/10/14/buletooth5-2-base/2.png"></p>
+<h1 id="总体描述"><a href="#总体描述" class="headerlink" title="总体描述"></a>总体描述</h1><p><img src="/2020/10/14/buletooth5-2-base/3.gif"></p>
 <blockquote>
 <p>两种形式 BR(basic rate) 和 LE(low energy)</p>
 </blockquote>
@@ -516,7 +516,7 @@
 </li>
 </ul>
 <h1 id="BR-EDR"><a href="#BR-EDR" class="headerlink" title="BR/EDR"></a>BR/EDR</h1><p>跳频收发，多个调频载波</p>
-<h1 id="BR-EDR-generic-packet-structure"><a href="#BR-EDR-generic-packet-structure" class="headerlink" title="BR/EDR generic packet structure"></a>BR/EDR generic packet structure</h1><p><img src="/.io//3.png"></p>
+<h1 id="BR-EDR-generic-packet-structure"><a href="#BR-EDR-generic-packet-structure" class="headerlink" title="BR/EDR generic packet structure"></a>BR/EDR generic packet structure</h1><p><img src="/2020/10/14/buletooth5-2-base/3.png"></p>
 <ul>
 <li><strong>Channel access code</strong>: 所有包都有。这用于识别特定物理信道上的通信，并排除或忽略不同物理信道上碰巧使用物理邻近的相同射频载波的数据包。</li>
 <li><strong>Packet Header</strong>: 大多数包有。BR/EDR数据包结构中没有直接表示或包含与物理链路相关的信息的字段。该信息由包头中携带的逻辑传输地址(LT_ADDR)和信道接入码(CAC)的组合所隐含。BR/EDR数据包报头还携带部分链路控制(LC)协议，该协议在每个逻辑传输上运行(除了在每个逻辑传输上运行共享LC协议的ACL和SCO传输)。</li>
@@ -560,7 +560,7 @@
 <p>使用其寻呼扫描信道的设备保持被动，直到它从另一个蓝牙设备接收到寻呼请求。这由页面扫描通道访问码来识别。然后，这两个设备将按照页面过程建立连接。寻呼过程成功结束后，两个设备都切换到基本微微网信道，其特征是寻呼设备为主设备。</p>
 </blockquote>
 <h1 id="Commnnications"><a href="#Commnnications" class="headerlink" title="Commnnications"></a>Commnnications</h1><h2 id="PICONET-topology"><a href="#PICONET-topology" class="headerlink" title="PICONET topology"></a>PICONET topology</h2><p>任何时候使用蓝牙/EDR控制器创建链路，它都在微微网的上下文中。每条链路连接两个设备，称为“主设备”和“从设备”。<strong>微微网由单个主设备(称为微微网的主设备)和链接到它的所有从设备(称为微微网中的从设备)组成</strong>。连接的BR/EDR设备通过与公共时钟同步和跳频序列在同一物理信道上通信。公共(微微网)时钟与微微网的主设备的蓝牙时钟相同，并且跳跃序列是从主设备的时钟和主设备的蓝牙设备地址导出的(不同的跳跃序列可以用于不同的从设备)。</p>
-<p><img src="/.io//4.png"></p>
+<p><img src="/2020/10/14/buletooth5-2-base/4.png"></p>
 <blockquote>
 <p>展示了一个示例拓扑，展示了下面描述的许多体系结构特性。设备A是以设备B、C、D、E为从的微微网中的主设备(用阴影区表示，称为微微网A)。示出了另外三个微微网:a)一个以设备F为主设备(称为微微网F)和设备E、G、H为从设备的微微网，b)一个以设备D为主设备(称为微微网D)和设备J为从设备的微微网，以及c)一个以设备M为主设备(称为微微网M)和设备E为从设备、多个设备N为从设备的微微网。</p>
 </blockquote>
@@ -593,11 +593,11 @@
 <blockquote>
 <p>两种模式都使用时分双工(TDD)方案。该规范定义了蓝牙无线电对基本速率和增强数据速率模式的要求。</p>
 </blockquote>
-<h2 id="Fre"><a href="#Fre" class="headerlink" title="Fre"></a>Fre</h2><p><img src="/.io//5.png"></p>
+<h2 id="Fre"><a href="#Fre" class="headerlink" title="Fre"></a>Fre</h2><p><img src="/2020/10/14/buletooth5-2-base/5.png"></p>
 <h2 id="BR"><a href="#BR" class="headerlink" title="BR"></a>BR</h2><h3 id="modulation-characteristics"><a href="#modulation-characteristics" class="headerlink" title="modulation characteristics"></a>modulation characteristics</h3><blockquote>
-<p>FSK调制是载波的频率随信息符号成正比的一种调制方式，当发送信息符号1时发射频率向上搬移fdHz，当发送信息符号-1时发射频率向下搬移fdHz。频率的突发切换会引起较大的带外频谱旁瓣，为了减小瞬时相变进而减小带外辐射一般将信息符号先预调制滤波器再进行频率调制。<br><img src="/.io//6.png"></p>
+<p>FSK调制是载波的频率随信息符号成正比的一种调制方式，当发送信息符号1时发射频率向上搬移fdHz，当发送信息符号-1时发射频率向下搬移fdHz。频率的突发切换会引起较大的带外频谱旁瓣，为了减小瞬时相变进而减小带外辐射一般将信息符号先预调制滤波器再进行频率调制。<br><img src="/2020/10/14/buletooth5-2-base/6.png"></p>
 </blockquote>
-<p><img src="/.io//7.png"></p>
+<p><img src="/2020/10/14/buletooth5-2-base/7.png"></p>
 <blockquote>
 <p>调制是GFSK(高斯频移键控)，带宽比特周期乘积BT=0.5。调制指数应在0.28和0.35之间。二进制1应由正频率偏差表示，二进制0应由负频率偏差表示。符号定时应小于20 ppm。</p>
 </blockquote>
@@ -605,9 +605,9 @@
 <p>对于蓝牙协议，调制指数在0.28-0.35之间， 据上面公式可以求出其峰值频率偏移在140kHz到175kHz之间。调制指数反映了一个比特时间内允许的相位变化量。</p>
 </blockquote>
 <blockquote>
-<p>不考虑调制成型滤波器情况下，可以看出当调制指数为0.5时，一个码元符号信号相位变化pi/2；当调制指数为1时，一个码元符号信号相位变化pi。<br><img src="/.io//8.png"></p>
+<p>不考虑调制成型滤波器情况下，可以看出当调制指数为0.5时，一个码元符号信号相位变化pi/2；当调制指数为1时，一个码元符号信号相位变化pi。<br><img src="/2020/10/14/buletooth5-2-base/8.png"></p>
 </blockquote>
-<h3 id="数据包的最大频偏"><a href="#数据包的最大频偏" class="headerlink" title="数据包的最大频偏"></a>数据包的最大频偏</h3><p><img src="/.io//9.png"></p>
+<h3 id="数据包的最大频偏"><a href="#数据包的最大频偏" class="headerlink" title="数据包的最大频偏"></a>数据包的最大频偏</h3><p><img src="/2020/10/14/buletooth5-2-base/9.png"></p>
 <h2 id="EDR"><a href="#EDR" class="headerlink" title="EDR"></a>EDR</h2><blockquote>
 <p>增强数据速率模式的一个关键特征是数据包中的调制模式发生了变化。[第二卷]第二部分第6.1节中定义的接入码和数据包报头以1兆字节/秒的基本速率传输。GFSK调制模式，而后续的同步序列、有效载荷和尾部序列使用增强数据速率PSK调制模式传输。</p>
 </blockquote>
@@ -615,19 +615,19 @@
 <p>在接入码和包头传输期间，应使用基本速率GFSK调制模式。在同步序列、有效载荷和尾部序列的传输过程中，应使用数据速率为2 Mb/s或可选的3 Mb/s的PSK型调制。以下小节说明了该传输的PSK调制。</p>
 </blockquote>
 <blockquote>
-<p>为2 Mb/s传输定义的PSK调制格式应为π/4旋转差分编码四进制相移键控(π/4-DQPSK)。为3 Mb/s传输定义的PSK调制格式应为差分编码8进制相移键控(8DPSK)。调制应采用平方根升余弦脉冲整形，以产生等效的低通信息承载信号v(t)。变送器的输出应为带通信号，可表示为<br><img src="/.io//10.png"></p>
+<p>为2 Mb/s传输定义的PSK调制格式应为π/4旋转差分编码四进制相移键控(π/4-DQPSK)。为3 Mb/s传输定义的PSK调制格式应为差分编码8进制相移键控(8DPSK)。调制应采用平方根升余弦脉冲整形，以产生等效的低通信息承载信号v(t)。变送器的输出应为带通信号，可表示为<br><img src="/2020/10/14/buletooth5-2-base/10.png"></p>
 </blockquote>
 <h4 id="Diff-phase"><a href="#Diff-phase" class="headerlink" title="Diff phase"></a>Diff phase</h4><blockquote>
-<p>对于M进制调制，二进制数据流{bn}，n=1，2，3，…N，应映射到相应的复值信号点序列{Sk}，k=1，2，…N/log2(M)。M=4适用于2 Mb/s，M=8适用于3 Mb/s。如表3.4和表3.5所示，应采用灰色编码。如果二进制数据流的长度N不是log2(M)的整数倍，则序列{Sk}的最后一个符号应通过在适当的长度上附加数据零来形成。信号点Sk应由下式定义:<br><img src="/.io//11.png"></p>
+<p>对于M进制调制，二进制数据流{bn}，n=1，2，3，…N，应映射到相应的复值信号点序列{Sk}，k=1，2，…N/log2(M)。M=4适用于2 Mb/s，M=8适用于3 Mb/s。如表3.4和表3.5所示，应采用灰色编码。如果二进制数据流的长度N不是log2(M)的整数倍，则序列{Sk}的最后一个符号应通过在适当的长度上附加数据零来形成。信号点Sk应由下式定义:<br><img src="/2020/10/14/buletooth5-2-base/11.png"></p>
 </blockquote>
 <blockquote>
-<p>对于2 Mb/s传输，二进制输入bk和相位φk之间的关系应在表3.4中定义，对于3 Mb/s传输，在表3.5中定义。<br><img src="/.io//12.png"></p>
+<p>对于2 Mb/s传输，二进制输入bk和相位φk之间的关系应在表3.4中定义，对于3 Mb/s传输，在表3.5中定义。<br><img src="/2020/10/14/buletooth5-2-base/12.png"></p>
 </blockquote>
 <h4 id="pulse"><a href="#pulse" class="headerlink" title="pulse"></a>pulse</h4><blockquote>
-<p>低通等效信息承载信号v(t)应根据下式产生<br><img src="/.io//13.png"><br>其中符号周期T应为1秒</p>
+<p>低通等效信息承载信号v(t)应根据下式产生<br><img src="/2020/10/14/buletooth5-2-base/13.png"><br>其中符号周期T应为1秒</p>
 </blockquote>
 <blockquote>
-<p>对应于脉冲整形滤波器的平方根升余弦脉冲p(t)的频谱P(f)为:<br><img src="/.io//14.png"></p>
+<p>对应于脉冲整形滤波器的平方根升余弦脉冲p(t)的频谱P(f)为:<br><img src="/2020/10/14/buletooth5-2-base/14.png"></p>
 </blockquote>
 <h4 id="ACC-RMD-DEVM"><a href="#ACC-RMD-DEVM" class="headerlink" title="ACC (RMD DEVM )"></a>ACC (RMD DEVM )</h4><blockquote>
 <p>调制精度的测量利用跟踪载波频率漂移的差分误差矢量幅度(DEVM)。附录C给出了DEVM的定义以及DEVM均方根和峰值测量的推导</p>
@@ -646,35 +646,35 @@
 <li>99% DEVM<br>99% DEVM(定义为99%测量符号的DEVM值较低的DEVM值)对于π/4-DQPSK不得超过0.30，对于8DPSK不得超过0.20。</li>
 <li>Peak DEVM<br>π/4-DQPSK的峰值DEVM不得超过0.35，8DPSK不得超过0.25。</li>
 </ul>
-<h4 id="发送频谱"><a href="#发送频谱" class="headerlink" title="发送频谱"></a>发送频谱</h4><p><img src="/.io//15.png"></p>
-<h4 id="频率误差容忍"><a href="#频率误差容忍" class="headerlink" title="频率误差容忍"></a>频率误差容忍</h4><p><img src="/.io//16.png"></p>
-<h4 id="APPENDIX-C-估计差分机的感知误差（DEVM）"><a href="#APPENDIX-C-估计差分机的感知误差（DEVM）" class="headerlink" title="APPENDIX C 估计差分机的感知误差（DEVM）"></a>APPENDIX C 估计差分机的感知误差（DEVM）</h4><p><img src="/.io//17.png"></p>
+<h4 id="发送频谱"><a href="#发送频谱" class="headerlink" title="发送频谱"></a>发送频谱</h4><p><img src="/2020/10/14/buletooth5-2-base/15.png"></p>
+<h4 id="频率误差容忍"><a href="#频率误差容忍" class="headerlink" title="频率误差容忍"></a>频率误差容忍</h4><p><img src="/2020/10/14/buletooth5-2-base/16.png"></p>
+<h4 id="APPENDIX-C-估计差分机的感知误差（DEVM）"><a href="#APPENDIX-C-估计差分机的感知误差（DEVM）" class="headerlink" title="APPENDIX C 估计差分机的感知误差（DEVM）"></a>APPENDIX C 估计差分机的感知误差（DEVM）</h4><p><img src="/2020/10/14/buletooth5-2-base/17.png"></p>
 <blockquote>
-<p>接受估计DEVM<br><img src="/.io//18.png"></p>
+<p>接受估计DEVM<br><img src="/2020/10/14/buletooth5-2-base/18.png"></p>
 </blockquote>
 <blockquote>
-<p>RMS DEVM<br><img src="/.io//19.png"></p>
+<p>RMS DEVM<br><img src="/2020/10/14/buletooth5-2-base/19.png"></p>
 </blockquote>
 <blockquote>
-<p>PEAK DEVM<br><img src="/.io//20.png"></p>
+<p>PEAK DEVM<br><img src="/2020/10/14/buletooth5-2-base/20.png"></p>
 </blockquote>
 <h1 id="Baseband-Specifcation"><a href="#Baseband-Specifcation" class="headerlink" title="Baseband Specifcation"></a>Baseband Specifcation</h1><h2 id="General-Description-包头"><a href="#General-Description-包头" class="headerlink" title="General Description (包头)"></a>General Description (包头)</h2><blockquote>
-<p>BR<br><img src="/.io//21.png"></p>
+<p>BR<br><img src="/2020/10/14/buletooth5-2-base/21.png"></p>
 </blockquote>
 <blockquote>
-<p>EDR<br><img src="/.io//22.png"></p>
+<p>EDR<br><img src="/2020/10/14/buletooth5-2-base/22.png"></p>
 </blockquote>
 <h3 id="BLUETOOTH-CLOCK"><a href="#BLUETOOTH-CLOCK" class="headerlink" title="BLUETOOTH CLOCK"></a>BLUETOOTH CLOCK</h3><blockquote>
 <p>每个蓝牙设备都应该有一个本机时钟，该时钟应该来自自由运行的参考时钟。可以向参考时钟添加偏移，以使本机时钟与其他非蓝牙系统同步。为了与其他蓝牙设备同步，使用了偏移，当将其添加到本机时钟时，提供相互同步的临时蓝牙时钟。需要注意的是，蓝牙时钟和一天中的时间没有关系；因此，它可以被初始化为任何值。这个钟大约有一天的周期。如果时钟是用计数器实现的，则需要一个28位的计数器，该计数器应该以228-1的速度循环。最低有效位(LSB)应以312.5 μs为单位(即半个时隙)，时钟速率为3.2千赫。</p>
 </blockquote>
-<p><img src="/.io//23.png"></p>
+<p><img src="/2020/10/14/buletooth5-2-base/23.png"></p>
 <blockquote>
 <p>蓝牙系统中有四个重要的周期:312.5 μs、625 μs、1.25 ms、1.28s；这些周期分别对应于定时器位CLK0、CLK1、CLK2和CLK12，</p>
 </blockquote>
 <h3 id="蓝牙设备寻址"><a href="#蓝牙设备寻址" class="headerlink" title="蓝牙设备寻址"></a>蓝牙设备寻址</h3><blockquote>
 <p>蓝牙设备寻址应为每个蓝牙设备分配一个唯一的48位蓝牙设备地址(ADDR)。该地址应为根据第8.2节(“通用地址”)创建的48位扩展唯一标识符(EUI-48)。</p>
 </blockquote>
-<p><img src="/.io//24.png"></p>
+<p><img src="/2020/10/14/buletooth5-2-base/24.png"></p>
 <h3 id="ACCESS-CODES"><a href="#ACCESS-CODES" class="headerlink" title="ACCESS CODES"></a>ACCESS CODES</h3><blockquote>
 <p>在蓝牙系统中，物理信道上的所有传输都以接入码开始。<br>定义了三种不同的访问代码，</p>
 </blockquote>
@@ -684,23 +684,23 @@
 <li>IAC查询访问代码</li>
 </ul>
 <h2 id="PHYSICAL-CHANNEL"><a href="#PHYSICAL-CHANNEL" class="headerlink" title="PHYSICAL CHANNEL"></a>PHYSICAL CHANNEL</h2><blockquote>
-<p>主设备和从设备交替传输时，使用时分双工方案，见图2.1。数据包开始应与插槽开始对齐。数据包可能会超过五个时隙。<br><img src="/.io//25.png"></p>
+<p>主设备和从设备交替传输时，使用时分双工方案，见图2.1。数据包开始应与插槽开始对齐。数据包可能会超过五个时隙。<br><img src="/2020/10/14/buletooth5-2-base/25.png"></p>
 </blockquote>
 <h1 id="GENERAL-FORMAT"><a href="#GENERAL-FORMAT" class="headerlink" title="GENERAL FORMAT"></a>GENERAL FORMAT</h1><h2 id="BR-1"><a href="#BR-1" class="headerlink" title="BR"></a>BR</h2><blockquote>
-<p>访问码是72或68位，报头是54位。有效载荷范围从零到最大2790位。定义了不同的数据包类型。一个数据包可能只包含:缩短的接入码(参见6.5.1.1部分)、接入码和包头、接入码、包头和有效载荷。<br><img src="/.io//26.png"></p>
+<p>访问码是72或68位，报头是54位。有效载荷范围从零到最大2790位。定义了不同的数据包类型。一个数据包可能只包含:缩短的接入码(参见6.5.1.1部分)、接入码和包头、接入码、包头和有效载荷。<br><img src="/2020/10/14/buletooth5-2-base/26.png"></p>
 </blockquote>
 <h2 id="EDR-1"><a href="#EDR-1" class="headerlink" title="EDR"></a>EDR</h2><blockquote>
-<p>接入码和包报头在格式和调制方面与基本速率包相同。增强数据速率数据包在包头后有一个保护时间和同步序列。有效载荷后面是两个尾部符号。第6.6节中定义了保护时间、同步序列和拖车。<br><img src="/.io//27.png"></p>
+<p>接入码和包报头在格式和调制方面与基本速率包相同。增强数据速率数据包在包头后有一个保护时间和同步序列。有效载荷后面是两个尾部符号。第6.6节中定义了保护时间、同步序列和拖车。<br><img src="/2020/10/14/buletooth5-2-base/27.png"></p>
 </blockquote>
 <h2 id="位序"><a href="#位序" class="headerlink" title="位序"></a>位序</h2><p>X=3 b0b1b2=110</p>
 <h2 id="ACESS-CODE"><a href="#ACESS-CODE" class="headerlink" title="ACESS CODE"></a>ACESS CODE</h2><blockquote>
-<p>每个包都以一个访问码开始。如果有一个包头，访问码是72位长，否则访问码是68位长，被称为缩短访问码。缩短的访问代码不包含尾部。该接入码用于同步、DC偏移补偿和识别。访问码标识物理信道上交换的所有数据包:在同一物理信道上发送的所有数据包前面都有相同的访问码。在该设备的接收机中，滑动相关器与接入码相关，并在超过阈值时触发。该触发信号用于确定接收时序。缩短的访问码用于寻呼和查询。在这种情况下，接入码本身被用作信令消息，并且既不存在报头也不存在有效载荷。<br><img src="/.io//28.png"></p>
+<p>每个包都以一个访问码开始。如果有一个包头，访问码是72位长，否则访问码是68位长，被称为缩短访问码。缩短的访问代码不包含尾部。该接入码用于同步、DC偏移补偿和识别。访问码标识物理信道上交换的所有数据包:在同一物理信道上发送的所有数据包前面都有相同的访问码。在该设备的接收机中，滑动相关器与接入码相关，并在超过阈值时触发。该触发信号用于确定接收时序。缩短的访问码用于寻呼和查询。在这种情况下，接入码本身被用作信令消息，并且既不存在报头也不存在有效载荷。<br><img src="/2020/10/14/buletooth5-2-base/28.png"></p>
 </blockquote>
 <blockquote>
 <p>CAC由前导码、同步字和尾部组成，总长度为72位。当用作没有报头的独立消息时，DAC和IAC不包括尾部位，长度为68位。</p>
 </blockquote>
 <blockquote>
-<p>types<br><img src="/.io//29.png"></p>
+<p>types<br><img src="/2020/10/14/buletooth5-2-base/29.png"></p>
 </blockquote>
 <blockquote>
 </blockquote>
@@ -713,8 +713,8 @@
 <li> Generate the codeword;</li>
 <li> XOR the codeword with all 64 bits of the PN overlay sequence;</li>
 </ol>
-<p><img src="/.io//30.png"></p>
-<h3 id="伪随机噪声序列生成"><a href="#伪随机噪声序列生成" class="headerlink" title="伪随机噪声序列生成"></a>伪随机噪声序列生成</h3><h2 id="包头"><a href="#包头" class="headerlink" title="包头"></a>包头</h2><p><img src="/.io//31.png"></p>
+<p><img src="/2020/10/14/buletooth5-2-base/30.png"></p>
+<h3 id="伪随机噪声序列生成"><a href="#伪随机噪声序列生成" class="headerlink" title="伪随机噪声序列生成"></a>伪随机噪声序列生成</h3><h2 id="包头"><a href="#包头" class="headerlink" title="包头"></a>包头</h2><p><img src="/2020/10/14/buletooth5-2-base/31.png"></p>
 <blockquote>
 <p>包括HEC在内的总报头由18位组成，见图6.8，并以1/3的前向纠错率(未显示，但在第7.4节中有描述)进行编码，产生54位报头。LT_ADDR和类型字段应首先发送LSB。</p>
 </blockquote>
@@ -728,7 +728,7 @@
 <p>1.增强的数据速率保护时间。对于增强的数据速率分组，保护时间被定义为从报头的最后一个GFSK符号的结尾开始，到同步序列的参考符号的开头结束的时间段。保护时间的长度应在4.75秒和5.25秒之间。</p>
 </blockquote>
 <blockquote>
-<p>2.增强数据速率同步序列对于增强数据速率数据包，同步序列开始时的符号定时应在数据包报头最后一个GFSK符号的符号定时的s内。同步序列的长度为11秒(11个DPSK符号)，由一个参考符号(任意相位)后跟十个DPSK符号组成。DPSK符号之间的相位变化(如图6.11所示)应为<br><img src="/.io//32.png"></p>
+<p>2.增强数据速率同步序列对于增强数据速率数据包，同步序列开始时的符号定时应在数据包报头最后一个GFSK符号的符号定时的s内。同步序列的长度为11秒(11个DPSK符号)，由一个参考符号(任意相位)后跟十个DPSK符号组成。DPSK符号之间的相位变化(如图6.11所示)应为<br><img src="/2020/10/14/buletooth5-2-base/32.png"></p>
 </blockquote>
 <blockquote>
 <p>Sref是参考符号。ϕ1是参考符号和第一DPSK符号S1之间的相位变化。ϕk是第k-1个符号Sk-1和第k个符号Sk之间的相位变化</p>
