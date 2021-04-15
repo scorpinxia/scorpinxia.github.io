@@ -612,7 +612,7 @@
 </li>
 <li><p>λ从0到当前值直接变化<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/7.png"><br>公式好于线性探测。</p>
 </li>
-<li><p>减低聚集的更随机算法<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/8.png"><br>λ=0.75 插入预计8.5次，λ=2.5 插入平均2.5次探测</p>
+<li><p>减低聚集的更随机算法<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/8.png"><br>λ=0.75 插入预计8.5次，λ=0.5 插入平均2.5次探测</p>
 </li>
 </ul>
 <h3 id="平方探测"><a href="#平方探测" class="headerlink" title="平方探测"></a>平方探测</h3><p>典型的f(i)=i^2</p>
@@ -803,8 +803,9 @@
 <p>定义2，通用族H，任意K对不同项冲突概率至多1/M^k，加入N项后至多N/M或者λ</p>
 </blockquote>
 <blockquote>
-<p>简单通用散列函数 大整数映射到0<del>M-1<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/29.png"><br><font color="red,font" size="4"><br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/30.png"><br>证明：x&gt;y 使H(x)=H(y). (ax+b)mod p=(ay+b)mod p 就有冲突，将他们相减a(x-y)=0(mod p),p需要整除a或者(x-y)但是P是素数，且a和(x-y)属于（1</font></del>p-1) 他们相乘等于素数不可能。一共有r p个值，s p-1个值 p(p-1)对。冲突的概率为 r=s(mod M) 至多(p-1)/M<br> </p>
+<p>简单通用散列函数 大整数映射到0~M-1<br><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/29.png"></p>
 </blockquote>
+<p><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/30.png"><br><font color="red,font" size="4"><br>证明：x&gt;y 使H(x)=H(y). (ax+b)mod p=(ay+b)mod p 就有冲突，将他们相减a(x-y)=0(mod p),p需要整除a或者(x-y)但是P是素数，且a和(x-y)属于（1~p-1) 他们相乘等于素数不可能。一共有r p个值，s p-1个值 p(p-1)对。冲突的概率为 r=s(mod M) 至多(p-1)/M<br></font> </p>
 <h2 id="梅森素数（Mersenne）"><a href="#梅森素数（Mersenne）" class="headerlink" title="梅森素数（Mersenne）"></a>梅森素数（Mersenne）</h2><p>由上可以选择任何计算有利的素数 P=2^31-1 2^5-1 2^61-1.乘以这样的p可以用位运算和减法完成。取模运算也可以用位移运算和加法完成</p>
 <blockquote>
 <p>mod 法则</p>
@@ -926,7 +927,7 @@
 </ul>
 <h2 id="5-11-用新的冲突函数减轻二次聚集"><a href="#5-11-用新的冲突函数减轻二次聚集" class="headerlink" title="5.11 用新的冲突函数减轻二次聚集"></a>5.11 用新的冲突函数减轻二次聚集</h2><p><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/35.png"></p>
 <p>相当于双散列中的函数取新的哈希,计算相对</p>
-<h2 id="5-12-类内含散列值有效的问题"><a href="#5-12-类内含散列值有效的问题" class="headerlink" title="5.12 类内含散列值有效的问题"></a>5.12 类内含散列值有效的问题</h2><p><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/35.png"></p>
+<h2 id="5-12-类内含散列值有效的问题"><a href="#5-12-类内含散列值有效的问题" class="headerlink" title="5.12 类内含散列值有效的问题"></a>5.12 类内含散列值有效的问题</h2><p><img src="/2020/09/02/data-structures-and-algorithms-chap05-hash/36.png"></p>
 <p>只要Employ对象的值不变或者没有重新散列</p>
 <h2 id="5-13-M多项式和N多项式相乘-边计算边排序"><a href="#5-13-M多项式和N多项式相乘-边计算边排序" class="headerlink" title="5.13 M多项式和N多项式相乘 边计算边排序"></a>5.13 M多项式和N多项式相乘 边计算边排序</h2><p>a:实现</p>
 <p>思路：</p>
@@ -2909,7 +2910,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">253.8k</span>&nbsp;字
+                class="white-color">268.6k</span>&nbsp;字
             
             
             

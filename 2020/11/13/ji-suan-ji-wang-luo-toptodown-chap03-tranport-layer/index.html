@@ -476,7 +476,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.8k
+                    7.9k
                 </div>
                 
 
@@ -904,7 +904,7 @@
 <p>序号是该报文段 首字节的字节编号<br><img src="/2020/11/13/ji-suan-ji-wang-luo-toptodown-chap03-tranport-layer/27.png"></p>
 </blockquote>
 <blockquote>
-<p>累积确认： TCP只确认该流中至第一个丢失字节为止。<br>已收到0<del>535 以及900</del>1000 还没收到536~899 会确认536.</p>
+<p>累积确认： TCP只确认该流中至第一个丢失字节为止。<br>已收到0-535 以及900-1000 还没收到536-899 会确认536.</p>
 </blockquote>
 <blockquote>
 <p>收到失序报文段的解决方法</p>
@@ -1024,7 +1024,7 @@
 <ol>
 <li>TCP发送方如何简直它向连接发送流量的速率？<ul>
 <li>TCP连接每一端都是由 接受缓存、发送缓存、几个变量（LastByteRead\rwnd等组成） 添加额外变量 拥塞窗口（congrestion window)cwnd,对TCP发送方向网络发送流量速率进行限制。<font size="4,font" color="red"> 特别是，一个发送方未被确认的数据量仅仅受限于cwnd</font></li>
-<li>为了关注拥塞控制（与流量控制对比）加上TCP接受缓存足够大狐狸接受窗口的现在。发送方未被确认的数据量仅受限于cwnd</li>
+<li>为了关注拥塞控制（与流量控制对比）加上TCP接受缓存足够大以至于可以忽略接受窗口的现在。发送方未被确认的数据量仅受限于cwnd (min(rwnd,cwnd), rwnd很大)</li>
 <li>发送方的速率被调整为cwnd/RTT 字节/s</li>
 </ul>
 </li>
@@ -1886,7 +1886,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">253.8k</span>&nbsp;字
+                class="white-color">268.6k</span>&nbsp;字
             
             
             
