@@ -483,7 +483,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    27 分
+                    28 分
                 </div>
                 
 
@@ -876,6 +876,26 @@
 <blockquote>
 <p>结论：窗口比序号小时无法工作（无法区分是第一个分组的重传还是第五个分组的初次传输），后续证明 窗口长度必须小于序号空间大小的一半</p>
 </blockquote>
+<blockquote>
+<p>例子</p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">SR条件：序号空间为4， 即:0 1 2 3 0 1 2 3 ... , 
+
+假设窗口大小为3(大于序号一半)
+
+1.发送方传012
+2.接收方收到，滑动窗口前进至 3,0,1，接收方发回ack
+3.ack丢失，发送方重传 
+4.0,1,2问题来了，此时接收方如何判断是发送方重传的0,1,2还是发送方传了第二个重复序列的0,1,但第一个序列的3丢失了呢？
+
+
+此时修改窗口大小为序号空间一半，即窗口大小等于2
+1.发送方传0,1
+2.接收方收到，滑动窗口移动至2,3，发回ack
+3.ack丢失，发送方重传0,1
+4.接收方看到发送方发0，1,与当前窗口不符，判断重传<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <h1 id="面向连接的TCP"><a href="#面向连接的TCP" class="headerlink" title="面向连接的TCP"></a>面向连接的TCP</h1><h2 id="TCP连接"><a href="#TCP连接" class="headerlink" title="TCP连接"></a>TCP连接</h2><ul>
 <li>三次握手建立 连接</li>
 <li>数据放到send buffer （三次握手期间设置的）</li>
@@ -1022,7 +1042,7 @@
 <p>三个问题</p>
 </blockquote>
 <ol>
-<li>TCP发送方如何简直它向连接发送流量的速率？<ul>
+<li>TCP发送方如何限制它向连接发送流量的速率？<ul>
 <li>TCP连接每一端都是由 接受缓存、发送缓存、几个变量（LastByteRead\rwnd等组成） 添加额外变量 拥塞窗口（congrestion window)cwnd,对TCP发送方向网络发送流量速率进行限制。<font size="4,font" color="red"> 特别是，一个发送方未被确认的数据量仅仅受限于cwnd</font></li>
 <li>为了关注拥塞控制（与流量控制对比）加上TCP接受缓存足够大以至于可以忽略接受窗口的现在。发送方未被确认的数据量仅受限于cwnd (min(rwnd,cwnd), rwnd很大)</li>
 <li>发送方的速率被调整为cwnd/RTT 字节/s</li>
@@ -1113,9 +1133,6 @@
 
        现在把三次握手改成仅需要两次握手，死锁是可能发生的。作为例子，考虑计算机S和C之间的通信，假定C给S发送一个连接请求分组，S收到了这个分组，并发 送了确认应答分组。按照两次握手的协定，S认为连接已经成功地建立了，可以开始发送数据分组。可是，C在S的应答分组在传输中被丢失的情况下，将不知道S 是否已准备好，不知道S建立什么样的序列号，C甚至怀疑S是否收到自己的连接请求分组。在这种情况下，C认为连接还未建立成功，将忽略S发来的任何数据分 组，只等待连接确认应答分组。而S在发出的分组超时后，重复发送同样的分组。这样就形成了死锁。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li>【问题4】如果已经建立了连接，但是客户端突然出现故障了怎么办？<pre class="line-numbers language-none"><code class="language-none">TCP还设有一个保活计时器，显然，客户端如果出现故障，服务器不能一直等下去，白白浪费资源。服务器每收到一次客户端的请求后都会重新复位这个计时器，时间通常是设置为2小时，若两小时还没有收到客户端的任何数据，服务器就会发送一个探测报文段，以后每隔75秒钟发送一次。若一连发送10个探测报文仍然没反应，服务器就认为客户端出了故障，接着就关闭连接。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>【问题5】如果已经建立了连接，但是客户端突然出现故障了怎么办？<pre class="line-numbers language-none"><code class="language-none">这个不难TCP自己做了保证，TCP默认有个定时器，每次收到客户端的请求后会把定时器设置好，通常设置两小时，超过两小时还没收到数据。
-
-服务端会发送一个探测报文，以后每隔75秒钟发送一次。若一连发送10个探测报文仍然没反应，服务器就认为客户端出了故障，接着就关闭连接。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 
                 
@@ -1704,11 +1721,11 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JAVA/" class="post-category">
-                                    JAVA
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
-                            <a href="/categories/JAVA/Concurrency/" class="post-category">
+                            <a href="/categories/Java/Concurrency/" class="post-category">
                                     Concurrency
                                 </a>
                             
@@ -1886,7 +1903,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">268.6k</span>&nbsp;字
+                class="white-color">271k</span>&nbsp;字
             
             
             
