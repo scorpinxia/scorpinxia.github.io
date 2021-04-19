@@ -566,20 +566,23 @@ ip
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    在线程执行任务串行执行任务
-
-特点
-简单、理论正确
-每次处理一个请求（新连接需等待请求完成）
-性能差，等待I\O操作的时候CPU空闲
-某些情况能带来简单性 安全性显式创建
+                                    
+在线程执行任务
+串行执行任务
+显式创建
+无限制创建线程的问题
 
 
+Executor框架
+基于Executor的Web服务器
+执行策略
+线程池
+Executor的生命周期
 
 
-
-特点
-结构类似单线程版本 （主线程不断交替 接受 和分发）
+找出利用并行性
+例子：页面渲染器 HTML
+携带结果的任务Cal
                                 
                             </div>
                             <div class="publish-info">
@@ -782,10 +785,17 @@ R
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    委托是创建线程安全类最有效的策略，让现有的线程安全类管理所有状态
-同步容器类Vector Hashtable ，他们的线程安全通过状态封装起来，并对每个公有方法同步，每次只有一个线程能访问
+                                    
+同步容器类
 同步容器类的问题
-某些复合操作需要客户端额外的加锁
+迭代器与ConcurrentModificationException
+隐藏的迭代器操作
+
+
+并发容器 （并发性重点）
+Concurrent-HashMap
+额外的原子Map操作
+CopyOnWriteArr
                                 
                             </div>
                             <div class="publish-info">
@@ -995,7 +1005,7 @@ HTTP
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

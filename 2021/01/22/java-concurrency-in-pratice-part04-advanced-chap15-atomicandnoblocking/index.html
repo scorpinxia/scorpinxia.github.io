@@ -476,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    11 分
                 </div>
                 
 
@@ -506,7 +506,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><blockquote>
+                <ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#%E9%94%81%E7%9A%84%E5%8A%A3%E5%8A%BF">锁的劣势</a></li>
+<li><a href="#%E7%A1%AC%E4%BB%B6%E5%AF%B9%E5%B9%B6%E5%8F%91%E7%9A%84%E6%94%AF%E6%8C%81">硬件对并发的支持</a><ul>
+<li><a href="#%E6%AF%94%E8%BE%83%E4%BA%95%E4%BA%A4%E6%8D%A2%E6%8C%87%E4%BB%A4-cas">比较井交换指令 （CAS）</a></li>
+<li><a href="#%E9%9D%9E%E9%98%BB%E5%A1%9E%E7%9A%84%E8%AE%A1%E6%95%B0%E5%99%A8">非阻塞的计数器</a></li>
+<li><a href="#jvm-%E5%AF%B9-cas-%E7%9A%84%E6%94%AF%E6%8C%81-java5%E5%BC%95%E5%85%A5%E5%BA%95%E5%B1%82%E6%94%AF%E6%8C%81">JVM 对 CAS 的支持 （java5引入底层支持）</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F%E7%B1%BB">原子变量类</a><ul>
+<li><a href="#%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F%E6%98%AF%E4%B8%80%E7%A7%8D%E6%9B%B4%E5%A5%BD%E7%9A%84volatile">原子变量是一种“更好的volatile”</a></li>
+<li><a href="#%E6%80%A7%E8%83%BD%E6%AF%94%E8%BE%83%E9%94%81%E4%B8%8E%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F">性能比较：锁与原子变量</a></li>
+</ul>
+</li>
+<li><a href="#%E9%9D%9E%E9%98%BB%E5%A1%9E%E7%AE%97%E6%B3%95">非阻塞算法</a><ul>
+<li><a href="#%E9%9D%9E%E9%98%BB%E5%A1%9E%E7%9A%84%E6%A0%88%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E9%93%BE%E5%BC%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">非阻塞的栈（最简单的链式数据结构）</a></li>
+<li><a href="#%E9%9D%9E%E9%98%BB%E5%A1%9E%E7%9A%84%E9%93%BE%E8%A1%A8">非阻塞的链表</a></li>
+<li><a href="#%E5%8E%9F%E5%AD%90%E7%9A%84%E5%9F%9F%E6%9B%B4%E6%96%B0%E5%99%A8">原子的域更新器</a></li>
+<li><a href="#aba%E9%97%AE%E9%A2%98">ABA问题</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><blockquote>
 <p>非阻塞算法（设计、实现比较复杂）的优势</p>
 </blockquote>
 <ul>
@@ -1510,7 +1534,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

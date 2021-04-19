@@ -424,10 +424,19 @@
                 </a>
                 
                 
+                <a href="/categories/IDEA/" title="IDEA: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #82E0AA;">IDEA
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/JavaBase/" title="JavaBase: 5">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #82E0AA;">JavaBase
+                            style="background-color: #D7BDE2;">JavaBase
                         <span class="tag-length">5</span>
                     </span>
                 </a>
@@ -436,17 +445,8 @@
                 <a href="/categories/JavaAPI/" title="JavaAPI: 4">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D7BDE2;">JavaAPI
+                            style="background-color: #A3E4D7;">JavaAPI
                         <span class="tag-length">4</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/IDEA/" title="IDEA: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #A3E4D7;">IDEA
-                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -541,10 +541,10 @@
                 </a>
                 
                 
-                <a href="/categories/Java/" title="Java: 2">
+                <a href="/categories/CleanCode/" title="CleanCode: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #FFF;">Java
+                            style="background-color: #F8C471;">CleanCode
                         <span class="tag-length">2</span>
                     </span>
                 </a>
@@ -595,11 +595,11 @@
                 </a>
                 
                 
-                <a href="/categories/Java/CleanCode/" title="CleanCode: 2">
+                <a href="/categories/Http/" title="Http: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F8C471;">CleanCode
-                        <span class="tag-length">2</span>
+                            style="background-color: #A3E4D7;">Http
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -608,15 +608,6 @@
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #D7BDE2;">Interview
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/Http/" title="Http: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #A3E4D7;">Http
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -656,14 +647,21 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Overview
-非阻塞算法（设计、实现比较复杂）的优势
+                                
+Overview
+锁的劣势
+硬件对并发的支持
+比较井交换指令 （CAS）
+非阻塞的计数器
+JVM 对 CAS 的支持 （java5引入底层支持）
 
 
-比 synchronized 机制更高的性能和可伸缩性
-多个线程在竞争相同的数据时不会发生阻塞，因此它能在粒度更细的层次上进行协调
-不存在死锁和其他活跃性问题
-基于锁的算法中，如
+原子变量类
+原子变量是一种“更好的volatile”
+性能比较：锁与原子变量
+
+
+非阻塞
                             
                         </div>
                         <div class="publish-info">
@@ -713,18 +711,25 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Overview类库有许多状态依赖类，一般可以用他们，如果没有可以用底层机制。
+                                
+Overview
 状态依赖性的管理
-单线程、多线程对比
-
-
-单线程直接状态不满足就失败
-多线程最好是阻塞到继续（因为可能几条之前是空的，现在非空）
-
 例子：有界缓存
-使用需求
+例1： 前提条件失败传递给调用者
+例2：通过轮询与休眠来实现简单的阻塞
+例3：条件队列
 
 
+
+
+条件队列
+条件谓语
+过早唤醒
+丢失的信号
+通知
+例子：阀门类
+子类的安全问题
+入口协议与出
                             
                         </div>
                         <div class="publish-info">
@@ -774,18 +779,21 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Lock 、Reentrantlock
-java5  提供的显示锁
+                                
+Lock 、Reentrantlock
+轮询锁和定时锁
+可中断的锁获取
+非快结构的加锁
 
 
-ReentranLock
+性能考虑因素
+公平性（优先级）
+什么时候选择ReentranLock
+读-写锁
 
 
-实现Lock接口，提供和synchronized相同的互斥和内存可见
-添加了 所有获取锁模式，提供锁不可用性问题更高的灵活性
-
-
-添加和s
+Lock 、Reentrantlock
+java5  提供的显
                             
                         </div>
                         <div class="publish-info">
@@ -835,21 +843,29 @@ ReentranLock
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                性能和可伸缩性
-性能定义
+                                
+性能和可伸缩性
+Amadahl
+找出框架隐藏的串行
 
 
-可以用多个指标衡量：服务时间、延迟时间、吞吐量、效率、可伸缩性、容量。 
-运行速度：服务时间、延迟时间 （多快完成）
-处理能力：吞吐量 （一定计算资源，完成多少工作）
+线程开销
+上下文切换
+内存同步
+阻塞
 
 
+减少锁竞争
+减少锁范围
+减少锁粒度(多锁)
+锁分段
+避免热点域
+一些替代独占锁的方法
+监测 CPU利用率
+向对象池说不
 
 
-可伸缩性定义
-
-
-增加 计算资源（
+例子：比较Map
                             
                         </div>
                         <div class="publish-info">
@@ -899,23 +915,28 @@ ReentranLock
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                DeadLock
-JVM不像数据库 ，无法自己解决死锁
-
-
-并不是一定发生，死锁往往发生在高负载
-
+                                
+DeadLock
 简单顺序死锁
-例子
-
-
-解决方法
-
-
-如果所有线程以固定的顺序获得锁，程序中就不会出现锁顺序死锁。
-
 动态的锁顺序死锁
-例子1 锁住账户原子
+开放调用 （Open Call）
+资源死锁
+
+
+死锁避免和诊断
+支持定时的锁
+线程转储信息分析死锁（Thread Dump)
+
+
+其他活跃性危险
+饥饿
+糟糕的响应性
+活锁
+
+
+
+
+Dead
                             
                         </div>
                         <div class="publish-info">
@@ -1101,7 +1122,7 @@ JVM不像数据库 ，无法自己解决死锁
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

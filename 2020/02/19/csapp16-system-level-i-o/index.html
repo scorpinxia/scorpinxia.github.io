@@ -476,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    437
+                    526
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -506,7 +506,26 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>一个文件就是一串字节 所有的I/O设备都被当做文件（linux）</p>
+                <ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#type">type</a></li>
+<li><a href="#file-operate">file operate</a><ul>
+<li><a href="#open-%E4%BC%9A%E8%BF%94%E5%9B%9E%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6-int-%E5%9E%8B--%E6%AF%8F%E4%B8%AA%E8%BF%9B%E7%A8%8Blinux-shell-%E9%83%BD%E4%BC%9A%E6%89%93%E5%BC%803%E4%B8%AA%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6%E9%93%BE%E6%8E%A5%E7%BB%88%E7%AB%AF">open 会返回文件描述符 int 型  每个进程linux shell 都会打开3个文件描述符链接终端</a></li>
+<li><a href="#close-%E5%B7%B2%E7%BB%8Fclose-%E7%9A%84%E4%BC%9A%E5%87%BA%E9%94%99%E5%B0%A4%E5%85%B6%E6%98%AF%E5%B9%B6%E5%8F%91%E7%9A%84%E8%BF%99%E7%A7%8D">close 已经close 的会出错（尤其是并发的这种）</a><ul>
+<li><a href="#short-conut%E7%9A%84%E5%87%BA%E7%8E%B0">Short conut的出现</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#rio-package-%E5%AF%B9robust-io%E7%9A%84%E5%B0%81%E8%A3%85%E4%BD%BF%E5%BE%97-%E4%B8%8D%E5%87%BA%E7%8E%B0short-count--%E5%9C%A8socket%E4%B8%AD%E7%89%B9%E5%88%AB%E6%9C%89%E7%94%A8">Rio package (对robust IO的封装使得 不出现short count  在socket中特别有用）</a></li>
+<li><a href="#metedata">metedata</a></li>
+<li><a href="#kernel-response-to-kernel">kernel response to kernel</a></li>
+<li><a href="#redirection">Redirection</a></li>
+<li><a href="#standard-io">Standard IO</a></li>
+<li><a href="#sum-up">Sum up</a></li>
+</ul>
+<!-- /TOC -->
+<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>一个文件就是一串字节 所有的I/O设备都被当做文件（linux）</p>
 <p><img src="/2020/02/19/csapp16-system-level-i-o/1.png"></p>
 <p>unix IO open close read write seek(当前读的位置）</p>
 <h1 id="type"><a href="#type" class="headerlink" title="type"></a>type</h1><ul>
@@ -1316,7 +1335,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

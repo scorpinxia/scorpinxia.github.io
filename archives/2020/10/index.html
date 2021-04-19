@@ -485,16 +485,18 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    接收机生成acesscode wave
+                                    
+接收机
+生成acesscode wave
 Remove 收到的wave DC
 通过跳变检测信号
-用100的窗 检测
-把每100的叠加
-
 初始化decodeInfo
-分步处理每个包时间和频率估计补偿
-和第一个符号卷积
-同样把收到的信号和rcV卷
+分步处理每个包
+时间和频率估计补偿
+
+
+Decode 信号
+Gfsk解码access code packHearL
                                 
                             </div>
                             <div class="publish-info">
@@ -555,25 +557,22 @@ Remove 收到的wave DC
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    load data 初始配置
-采样率、时隙、中心频率、symbol 时间 最小包长
-
-边缘检测包头、包尾最少包长 64symbol
-
+                                    
+load data 初始配置
+边缘检测包头、包尾
 处理包初始化配置
 提取包
-算平均功率
-
 相位检测
-removeDC
-
-fft
-
-得到频谱
 
 
+同步化
+EDR demod
 
-量化到1M
+
+load data 初始配置
+采样率、时隙、中心频率、symbol 时间 最小包长
+
+边缘检测包头、包尾最少包长 6
                                 
                             </div>
                             <div class="publish-info">
@@ -706,9 +705,21 @@ playload作为data生成Buletooth wave
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    base configurationpackage detect
+                                    
+base configuration
+package detect
+对每个 ACP 功率估计
+解包
+同步
+EDR
+
+
+
+
+
+base configurationpackage detect
 获取所有包的start end  总包数
-BDR % BDR payload offset (126) =reamble (4) + access code (64) + t
+BDR
                                 
                             </div>
                             <div class="publish-info">
@@ -769,19 +780,26 @@ BDR % BDR payload offset (126) =reamble (4) + access code (64) + t
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    自上而下 伸展树过程
+                                    
+自上而下 伸展树
+过程
 
 
-
-和自下而上的伸展树一样保持了摊还界O(logN)
-
-红黑树（AVL 变种）图解
-
-https://www.cnblogs.com/skywang12345/p/3245399.html
+红黑树（AVL 变种）
+自底向上的插入
+自顶向下的插入红黑树
+自顶向下的删除红黑树
 
 
+treap树
+后缀数组和后缀树
+后缀数组
+后缀树
+后缀树和后缀数组解决的问题
+线性构造后缀数组 后缀的方法
+CD3
+倍增
 
-性质 也是二叉查找树
                                 
                             </div>
                             <div class="publish-info">
@@ -996,7 +1014,7 @@ https://www.cnblogs.com/skywang12345/p/3245399.html
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

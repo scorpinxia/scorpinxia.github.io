@@ -476,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.6k
+                    3.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    13 分
                 </div>
                 
 
@@ -506,7 +506,44 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>类库有许多状态依赖类，一般可以用他们，如果没有可以用底层机制。</p>
+                <ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#%E7%8A%B6%E6%80%81%E4%BE%9D%E8%B5%96%E6%80%A7%E7%9A%84%E7%AE%A1%E7%90%86">状态依赖性的管理</a><ul>
+<li><a href="#%E4%BE%8B%E5%AD%90%E6%9C%89%E7%95%8C%E7%BC%93%E5%AD%98">例子：有界缓存</a><ul>
+<li><a href="#%E4%BE%8B1-%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6%E5%A4%B1%E8%B4%A5%E4%BC%A0%E9%80%92%E7%BB%99%E8%B0%83%E7%94%A8%E8%80%85">例1： 前提条件失败传递给调用者</a></li>
+<li><a href="#%E4%BE%8B2%E9%80%9A%E8%BF%87%E8%BD%AE%E8%AF%A2%E4%B8%8E%E4%BC%91%E7%9C%A0%E6%9D%A5%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E9%98%BB%E5%A1%9E">例2：通过轮询与休眠来实现简单的阻塞</a></li>
+<li><a href="#%E4%BE%8B3%E6%9D%A1%E4%BB%B6%E9%98%9F%E5%88%97">例3：条件队列</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E6%9D%A1%E4%BB%B6%E9%98%9F%E5%88%97">条件队列</a><ul>
+<li><a href="#%E6%9D%A1%E4%BB%B6%E8%B0%93%E8%AF%AD">条件谓语</a></li>
+<li><a href="#%E8%BF%87%E6%97%A9%E5%94%A4%E9%86%92">过早唤醒</a></li>
+<li><a href="#%E4%B8%A2%E5%A4%B1%E7%9A%84%E4%BF%A1%E5%8F%B7">丢失的信号</a></li>
+<li><a href="#%E9%80%9A%E7%9F%A5">通知</a></li>
+<li><a href="#%E4%BE%8B%E5%AD%90%E9%98%80%E9%97%A8%E7%B1%BB">例子：阀门类</a></li>
+<li><a href="#%E5%AD%90%E7%B1%BB%E7%9A%84%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98">子类的安全问题</a></li>
+<li><a href="#%E5%85%A5%E5%8F%A3%E5%8D%8F%E8%AE%AE%E4%B8%8E%E5%87%BA%E5%8F%A3%E5%8D%8F%E8%AE%AE">入口协议与出口协议</a></li>
+</ul>
+</li>
+<li><a href="#%E6%98%BE%E7%A4%BAcondition">显示Condition</a></li>
+<li><a href="#synchronizer-%E5%89%96%E6%9E%90">Synchronizer 剖析</a></li>
+<li><a href="#abstractqueuedsynchronizeraqs">AbstractQueuedSynchronizer（AQS)</a><ul>
+<li><a href="#%E4%BE%8B%E5%AD%90%E9%97%AD%E9%94%81%E5%AE%9E%E7%8E%B0">例子：闭锁实现</a></li>
+</ul>
+</li>
+<li><a href="#javautilconcurrent-%E4%B8%AD%E7%9A%84aqs">java.util.concurrent 中的AQS</a><ul>
+<li><a href="#reentrantlock">ReentrantLock</a></li>
+<li><a href="#semaphore-countdownlatch">Semaphore CountDownLatch</a></li>
+<li><a href="#futuretask">FutureTask</a></li>
+<li><a href="#reentrantreadwritelock">ReentrantReadWritelock</a></li>
+</ul>
+</li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+<!-- /TOC -->
+<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>类库有许多状态依赖类，一般可以用他们，如果没有可以用底层机制。</p>
 <h1 id="状态依赖性的管理"><a href="#状态依赖性的管理" class="headerlink" title="状态依赖性的管理"></a>状态依赖性的管理</h1><blockquote>
 <p>单线程、多线程对比</p>
 </blockquote>
@@ -1590,7 +1627,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

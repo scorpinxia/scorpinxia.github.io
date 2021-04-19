@@ -476,7 +476,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.5k
                 </div>
                 
 
@@ -506,7 +506,41 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+                <ul>
+<li><a href="#%E6%80%BB%E8%A7%88">总览</a></li>
+<li><a href="#%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0">简单实现</a></li>
+<li><a href="#%E4%BA%8C%E5%8F%89%E5%A0%86binary-heap">二叉堆(binary heap)</a><ul>
+<li><a href="#%E7%BB%93%E6%9E%84">结构</a></li>
+<li><a href="#%E5%A0%86%E5%BA%8F%E6%80%A7%E8%B4%A8">堆序性质</a></li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C">基本操作</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E5%A0%86%E6%93%8D%E4%BD%9C">其他堆操作</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BA%94%E7%94%A8">应用</a><ul>
+<li><a href="#%E9%80%89%E6%8B%A9%E9%97%AE%E9%A2%98">选择问题</a></li>
+<li><a href="#%E4%BA%8B%E4%BB%B6%E6%A8%A1%E6%8B%9F">事件模拟</a></li>
+</ul>
+</li>
+<li><a href="#d-%E5%A0%86">d-堆</a></li>
+<li><a href="#%E5%B7%A6%E5%BC%8F%E5%A0%86%E4%B8%BA%E4%BA%86merge">左式堆（为了Merge)</a></li>
+<li><a href="#%E6%96%9C%E5%A0%86%E8%87%AA%E9%80%82%E5%BA%94%E5%B7%A6%E5%BC%8F%E5%A0%86">斜堆（自适应左式堆）</a></li>
+<li><a href="#%E4%BA%8C%E9%A1%B9%E9%98%9F%E5%88%97-%E4%B9%9F%E6%98%AFmerge">二项队列 (也是Merge)</a></li>
+<li><a href="#%E6%A0%87%E5%87%86%E5%BA%93">标准库</a></li>
+<li><a href="#%E4%B9%A0%E9%A2%98">习题</a><ul>
+<li><a href="#61-insert%E5%92%8Cfindmin-%E9%83%BD%E8%83%BD%E5%B8%B8%E6%95%B0%E5%90%97">6.1 Insert和FindMin 都能常数吗？</a></li>
+<li><a href="#62-%E4%BA%8C%E5%8F%89%E5%A0%86%E6%8F%92%E5%85%A5-%E4%BB%A5%E5%8F%8A%E7%9B%B4%E6%8E%A5%E5%BB%BA%E7%AB%8Bon">6.2 二叉堆插入 以及直接建立O(N)</a></li>
+<li><a href="#63-%E5%AF%B962-3%E6%AC%A1deletemin">6.3 对6.2 3次deleteMin</a></li>
+<li><a href="#64-%E4%B8%8D%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%BB%84%E8%A1%A8%E7%A4%BA">6.4 不完全二叉树数组表示</a></li>
+<li><a href="#65-%E4%BA%8C%E5%8F%89%E5%A0%86%E5%AE%9E%E7%8E%B0">6.5 二叉堆实现</a></li>
+<li><a href="#66-%E5%A0%86%E5%A4%A7%E5%B0%8F">6.6 堆大小</a></li>
+<li><a href="#67-%E8%AF%81%E6%98%8Ebuildheap-%E6%AF%94%E8%BE%83%E4%B8%8A%E7%95%8C">6.7 证明buildHeap 比较上界</a></li>
+<li><a href="#612-buildheap-%E5%92%8C-%E4%B8%80%E9%A1%B9%E9%A1%B9%E6%8F%92%E5%85%A5%E5%AF%B9%E6%AF%94">6.12 Buildheap 和 一项项插入对比</a></li>
+<li><a href="#613-%E5%B0%86%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%BA%94%E7%94%A8%E5%9C%A8deletemin">6.13 将二分查找应用在Deletemin</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
 <li>打印机，一般是队列，想优先处理某个 比如一个1000页，其他就几页</li>
 <li>操作系统调度，某些作业优先权</li>
 </ul>
@@ -1391,7 +1425,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

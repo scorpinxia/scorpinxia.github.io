@@ -476,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.3k
+                    6.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    22 分
+                    23 分
                 </div>
                 
 
@@ -506,7 +506,77 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Different-Core"><a href="#Different-Core" class="headerlink" title="Different Core"></a>Different Core</h1><p><img src="/2020/10/14/buletooth5-2-base/1.png"></p>
+                <ul>
+<li><a href="#different-core">Different Core</a></li>
+<li><a href="#rate-core-edr">Rate Core EDR</a></li>
+<li><a href="#%E6%80%BB%E4%BD%93%E6%8F%8F%E8%BF%B0">总体描述</a></li>
+<li><a href="#bredr">BR/EDR</a></li>
+<li><a href="#bredr-generic-packet-structure">BR/EDR generic packet structure</a></li>
+<li><a href="#bredr-physical-channels">BR/EDR physical channels</a><ul>
+<li><a href="#basic-piconet-channel">basic piconet channel</a></li>
+<li><a href="#adapted-piconet-channel">Adapted piconet channel</a></li>
+<li><a href="#inquiry-scan-channel">Inquiry scan channel</a></li>
+<li><a href="#page-scan-channel">Page scan channel</a></li>
+</ul>
+</li>
+<li><a href="#commnnications">Commnnications</a><ul>
+<li><a href="#piconet-topology">PICONET topology</a></li>
+<li><a href="#operational-procedures-and-modes">OPERATIONAL PROCEDURES AND MODES</a><ul>
+<li><a href="#inquiry-discovering-procedure">Inquiry (discovering) procedure</a></li>
+<li><a href="#paging-connecting-procedure">Paging (connecting) procedure</a></li>
+<li><a href="#connected-mode">Connected mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#bredr-controller">BR/EDR Controller</a><ul>
+<li><a href="#scope">SCOPE</a></li>
+<li><a href="#fre">Fre</a></li>
+<li><a href="#br">BR</a><ul>
+<li><a href="#modulation-characteristics">modulation characteristics</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E5%8C%85%E7%9A%84%E6%9C%80%E5%A4%A7%E9%A2%91%E5%81%8F">数据包的最大频偏</a></li>
+</ul>
+</li>
+<li><a href="#edr">EDR</a><ul>
+<li><a href="#modulation-characteristics-1">modulation characteristics</a><ul>
+<li><a href="#diff-phase">Diff phase</a></li>
+<li><a href="#pulse">pulse</a></li>
+<li><a href="#acc-rmd-devm-">ACC (RMD DEVM )</a></li>
+<li><a href="#%E5%8F%91%E9%80%81%E9%A2%91%E8%B0%B1">发送频谱</a></li>
+<li><a href="#%E9%A2%91%E7%8E%87%E8%AF%AF%E5%B7%AE%E5%AE%B9%E5%BF%8D">频率误差容忍</a></li>
+<li><a href="#appendix-c-%E4%BC%B0%E8%AE%A1%E5%B7%AE%E5%88%86%E6%9C%BA%E7%9A%84%E6%84%9F%E7%9F%A5%E8%AF%AF%E5%B7%AEdevm">APPENDIX C 估计差分机的感知误差（DEVM）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#baseband-specifcation">Baseband Specifcation</a><ul>
+<li><a href="#general-description-%E5%8C%85%E5%A4%B4">General Description (包头)</a><ul>
+<li><a href="#bluetooth-clock">BLUETOOTH CLOCK</a></li>
+<li><a href="#%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87%E5%AF%BB%E5%9D%80">蓝牙设备寻址</a></li>
+<li><a href="#access-codes">ACCESS CODES</a></li>
+</ul>
+</li>
+<li><a href="#physical-channel">PHYSICAL CHANNEL</a></li>
+</ul>
+</li>
+<li><a href="#general-format">GENERAL FORMAT</a><ul>
+<li><a href="#br-1">BR</a></li>
+<li><a href="#edr-1">EDR</a></li>
+<li><a href="#%E4%BD%8D%E5%BA%8F">位序</a></li>
+<li><a href="#acess-code">ACESS CODE</a></li>
+<li><a href="#%E5%90%8C%E6%AD%A5%E5%AD%97">同步字</a><ul>
+<li><a href="#%E4%BC%AA%E9%9A%8F%E6%9C%BA%E5%99%AA%E5%A3%B0%E5%BA%8F%E5%88%97%E7%94%9F%E6%88%90">伪随机噪声序列生成</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8C%85%E5%A4%B4">包头</a></li>
+</ul>
+</li>
+<li><a href="#playload-format">playload format</a></li>
+</ul>
+<!-- /TOC -->
+<h1 id="Different-Core"><a href="#Different-Core" class="headerlink" title="Different Core"></a>Different Core</h1><p><img src="/2020/10/14/buletooth5-2-base/1.png"></p>
 <h1 id="Rate-Core-EDR"><a href="#Rate-Core-EDR" class="headerlink" title="Rate Core EDR"></a>Rate Core EDR</h1><p><img src="/2020/10/14/buletooth5-2-base/2.png"></p>
 <h1 id="总体描述"><a href="#总体描述" class="headerlink" title="总体描述"></a>总体描述</h1><p><img src="/2020/10/14/buletooth5-2-base/3.gif"></p>
 <blockquote>
@@ -1512,7 +1582,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

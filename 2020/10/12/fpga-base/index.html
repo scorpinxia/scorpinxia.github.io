@@ -476,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    453
+                    539
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -506,7 +506,32 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="过程时序控制"><a href="#过程时序控制" class="headerlink" title="过程时序控制"></a>过程时序控制</h1><h2 id="延迟控制"><a href="#延迟控制" class="headerlink" title="延迟控制#"></a>延迟控制#</h2><pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog">a<span class="token operator">=</span><span class="token number">#5</span> b<span class="token punctuation">;</span>
+                <ul>
+<li><a href="#%E8%BF%87%E7%A8%8B%E6%97%B6%E5%BA%8F%E6%8E%A7%E5%88%B6">过程时序控制</a><ul>
+<li><a href="#%E5%BB%B6%E8%BF%9F%E6%8E%A7%E5%88%B6">延迟控制</a></li>
+<li><a href="#%E4%BA%8B%E4%BB%B6%E6%8E%A7%E5%88%B6-posedgenegedge">事件控制 posedge、negedge</a></li>
+<li><a href="#%E9%9A%90%E5%90%AB%E4%BA%8B%E4%BB%B6-always">隐含事件 always@(*)</a></li>
+<li><a href="#%E7%94%B5%E5%B9%B3%E6%95%8F%E6%84%9F%E6%8E%A7%E5%88%B6-wait">电平敏感控制 wait</a></li>
+<li><a href="#%E5%86%85%E9%83%A8%E6%97%B6%E5%BA%8F%E7%9A%84%E7%AD%89%E4%BB%B7%E4%B8%8Erepeat">内部时序的等价与repeat</a></li>
+<li><a href="#%E8%AF%AD%E5%8F%A5%E5%9D%97-%E5%B9%B6%E8%A1%8C%E6%89%A7%E8%A1%8Cfork-join---%E4%B8%B2%E8%A1%8C%E6%89%A7%E8%A1%8Cbegin-end">语句块 并行执行:(fork join )  串行执行:(begin end)</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BB%93%E6%9E%84%E5%8C%96">结构化</a><ul>
+<li><a href="#initial">initial</a></li>
+<li><a href="#always">always</a></li>
+<li><a href="#%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%87%BD%E6%95%B0">任务和函数</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B1%82%E6%AC%A1%E5%8C%96">层次化</a><ul>
+<li><a href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E5%92%8C%E6%A8%A1%E5%9D%97%E4%BE%8B%E5%8C%96">模块化和模块例化</a></li>
+</ul>
+</li>
+<li><a href="#%E7%8A%B6%E6%80%81%E6%9C%BA">状态机</a></li>
+<li><a href="#%E8%AE%A1%E6%95%B0%E5%99%A8%E6%A8%A1%E5%9D%97%E5%8C%96%E8%AE%BE%E8%AE%A1">计数器模块化设计</a></li>
+<li><a href="#les-lut">LES LUT</a></li>
+</ul>
+<!-- /TOC -->
+<h1 id="过程时序控制"><a href="#过程时序控制" class="headerlink" title="过程时序控制"></a>过程时序控制</h1><h2 id="延迟控制"><a href="#延迟控制" class="headerlink" title="延迟控制#"></a>延迟控制#</h2><pre class="line-numbers language-verilog" data-language="verilog"><code class="language-verilog">a<span class="token operator">=</span><span class="token number">#5</span> b<span class="token punctuation">;</span>
 
 等价于
 <span class="token keyword">begin</span>
@@ -1341,7 +1366,7 @@ ffnand <span class="token function">ff</span><span class="token punctuation">(</
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

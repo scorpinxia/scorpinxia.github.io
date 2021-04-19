@@ -476,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.4k
+                    5.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    15 分
+                    18 分
                 </div>
                 
 
@@ -506,7 +506,180 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Base"><a href="#Base" class="headerlink" title="Base"></a>Base</h1><h2 id="URL-URI"><a href="#URL-URI" class="headerlink" title="URL  URI"></a>URL  URI</h2><ul>
+                <ul>
+<li><a href="#base">Base</a><ul>
+<li><a href="#url--uri">URL  URI</a></li>
+<li><a href="#uri%E6%A0%BC%E5%BC%8F">URI格式</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AE%80%E5%8D%95http">简单HTTP</a><ul>
+<li><a href="#get%E8%8E%B7%E5%8F%96%E8%B5%84%E6%BA%90">get:获取资源</a></li>
+<li><a href="#post%E4%BC%A0%E8%BE%93%E5%AE%9E%E4%BD%93%E4%B8%BB%E4%BD%93">post：传输实体主体</a></li>
+<li><a href="#put-%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6">put: 传输文件</a></li>
+<li><a href="#head-%E8%8E%B7%E5%BE%97%E6%8A%A5%E6%96%87%E9%A6%96%E9%83%A8">head: 获得报文首部</a></li>
+<li><a href="#delete%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6">delete:删除文件</a></li>
+<li><a href="#options%E8%AF%A2%E9%97%AE%E6%94%AF%E6%8C%81%E7%9A%84%E6%96%B9%E6%B3%95">options：询问支持的方法</a></li>
+<li><a href="#trace%E8%BF%BD%E8%B8%AA%E8%B7%AF%E5%BE%84">trace：追踪路径</a></li>
+<li><a href="#connect%E8%A6%81%E6%B1%82%E7%94%A8%E9%9A%A7%E9%81%93%E5%8D%8F%E8%AE%AE%E8%BF%9E%E6%8E%A5%E4%BB%A3%E7%90%86">connect：要求用隧道协议连接代理</a></li>
+<li><a href="#%E6%8C%81%E4%B9%85%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%BA%BF%E5%8C%96pipelining">持久连接、管线化（pipelining)</a></li>
+<li><a href="#cookie-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86">Cookie 状态管理</a></li>
+</ul>
+</li>
+<li><a href="#http%E6%8A%A5%E6%96%87%E5%86%85%E7%9A%84http%E4%BF%A1%E6%81%AF">HTTP报文内的HTTP信息</a><ul>
+<li><a href="#%E7%BC%96%E7%A0%81%E6%8F%90%E5%8D%87%E4%BC%A0%E8%BE%93%E6%95%88%E7%8E%87">编码提升传输效率</a></li>
+<li><a href="#%E5%88%86%E5%89%B2%E5%8F%91%E9%80%81%E7%9A%84%E5%88%86%E5%9D%97%E4%BC%A0%E8%BE%93%E7%BC%96%E7%A0%81">分割发送的分块传输编码</a></li>
+<li><a href="#%E5%8F%91%E9%80%81%E5%A4%9A%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%9A%84%E5%A4%9A%E9%83%A8%E5%88%86%E5%AF%B9%E8%B1%A1%E9%9B%86%E5%90%88">发送多种数据的多部分对象集合</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9%E7%9A%84%E8%8C%83%E5%9B%B4%E8%AF%B7%E6%B1%82">获取部分内容的范围请求</a></li>
+<li><a href="#%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86%E8%BF%94%E5%9B%9E%E6%9C%80%E5%90%88%E9%80%82%E7%9A%84%E5%86%85%E5%AE%B9">内容协商返回最合适的内容</a></li>
+</ul>
+</li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%E7%9A%84http%E7%8A%B6%E6%80%81%E7%A0%81">返回结果的http状态码</a><ul>
+<li><a href="#%E7%B1%BB%E5%88%AB">类别</a></li>
+<li><a href="#2xx-%E6%88%90%E5%8A%9F">2xx 成功</a><ul>
+<li><a href="#200-ok">200 ok</a></li>
+<li><a href="#204-no-content">204 No Content</a></li>
+<li><a href="#206-partial-content">206 Partial Content</a></li>
+</ul>
+</li>
+<li><a href="#3xx-%E9%87%8D%E5%AE%9A%E5%90%91">3xx 重定向</a><ul>
+<li><a href="#301-moved-permanently">301 moved permanently</a></li>
+<li><a href="#302-found">302 FOUND</a></li>
+<li><a href="#303-see-other">303 See Other</a></li>
+<li><a href="#304-not-modified-%E4%B8%8E%E9%87%8D%E5%AE%9A%E5%90%91%E6%97%A0%E5%85%B3">304 Not Modified (与重定向无关)</a></li>
+<li><a href="#307-temporary-redirect">307 Temporary Redirect</a></li>
+</ul>
+</li>
+<li><a href="#4xx-%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%94%99%E8%AF%AF">4xx 客户端错误</a><ul>
+<li><a href="#400-bad-request">400 Bad Request</a></li>
+<li><a href="#401-unauthorized">401 Unauthorized</a></li>
+<li><a href="#403-forbidden">403 Forbidden</a></li>
+<li><a href="#404-forbidden">404 Forbidden</a></li>
+</ul>
+</li>
+<li><a href="#5xx-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%94%99%E8%AF%AF">5xx 服务器错误</a><ul>
+<li><a href="#500-internal-server-error">500 Internal Server Error</a></li>
+<li><a href="#503-service-unavailable">503 Service Unavailable</a></li>
+</ul>
+</li>
+<li><a href="#%E7%8A%B6%E6%80%81%E7%A0%81%E5%92%8C%E7%8A%B6%E5%86%B5%E4%B8%8D%E4%B8%80%E8%87%B4">状态码和状况不一致</a></li>
+</ul>
+</li>
+<li><a href="#http%E5%8D%8F%E5%8A%A9%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8">HTTP协助的Web服务器</a><ul>
+<li><a href="#%E5%8D%95%E5%8F%B0%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E5%AE%9E%E7%8E%B0%E5%A4%9A%E4%B8%AA%E5%9F%9F%E5%90%8D">单台虚拟主机实现多个域名</a></li>
+<li><a href="#%E9%80%9A%E4%BF%A1%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91%E7%A8%8B%E5%BA%8F-%E4%BB%A3%E7%90%86%E7%BD%91%E5%85%B3%E9%9A%A7%E9%81%93">通信数据转发程序： 代理、网关、隧道</a><ul>
+<li><a href="#%E4%BB%A3%E7%90%86">代理</a></li>
+<li><a href="#%E7%BD%91%E5%85%B3">网关</a></li>
+<li><a href="#%E9%9A%A7%E9%81%93">隧道</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BC%93%E5%AD%98">缓存</a><ul>
+<li><a href="#%E7%BC%93%E5%AD%98%E7%9A%84%E6%9C%89%E6%95%88%E6%9C%9F">缓存的有效期</a></li>
+<li><a href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%BC%93%E5%AD%98">客户端缓存</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#web%E5%AE%89%E5%85%A8%E7%9A%84https">Web安全的https</a><ul>
+<li><a href="#http-%E7%BC%BA%E7%82%B9">HTTP 缺点</a><ul>
+<li><a href="#%E9%80%9A%E4%BF%A1%E6%98%8E%E6%96%87-%E5%8F%AF%E8%83%BD%E8%A2%AB%E7%AA%83%E5%90%AC">通信明文 可能被窃听</a></li>
+<li><a href="#%E4%B8%8D%E9%AA%8C%E8%AF%81%E8%BA%AB%E4%BB%BD-%E5%8F%AF%E8%83%BD%E4%BC%AA%E8%A3%85">不验证身份 可能伪装</a></li>
+<li><a href="#%E6%8A%A5%E6%96%87%E5%AE%8C%E6%95%B4%E6%80%A7-%E6%97%A0%E6%B3%95%E4%BF%9D%E8%AF%81%E5%8F%AF%E8%83%BD%E7%AF%A1%E6%94%B9">报文完整性 无法保证（可能篡改）</a></li>
+</ul>
+</li>
+<li><a href="#http%E5%8A%A0%E5%AF%86%E8%AE%A4%E8%AF%81%E5%AE%8C%E6%95%B4%E6%80%A7%E4%BF%9D%E6%8A%A4https">HTTP+加密+认证+完整性保护=HTTPS</a><ul>
+<li><a href="#httpshttpssl">HTTPS=HTTP+SSL</a></li>
+<li><a href="#%E7%9B%B8%E4%BA%92%E4%BA%A4%E6%8D%A2%E5%AF%86%E9%92%A5%E7%9A%84%E5%85%AC%E5%BC%80%E5%AF%86%E9%92%A5%E5%8A%A0%E5%AF%86%E6%8A%80%E6%9C%AF">相互交换密钥的公开密钥加密技术</a></li>
+<li><a href="#%E8%AF%81%E6%98%8E%E5%85%AC%E5%BC%80%E5%AF%86%E9%92%A5%E6%AD%A3%E7%A1%AE%E6%80%A7%E7%9A%84%E8%AF%81%E4%B9%A6">证明公开密钥正确性的证书</a></li>
+<li><a href="#http%E7%9A%84%E5%AE%89%E5%85%A8%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6">HTTP的安全通信机制</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E7%A1%AE%E8%AE%A4%E8%AE%BF%E9%97%AE%E7%94%A8%E6%88%B7%E8%BA%AB%E4%BB%BD%E7%9A%84%E8%AE%A4%E8%AF%81">确认访问用户身份的认证</a><ul>
+<li><a href="#basic-%E8%AE%A4%E8%AF%81http10">BASIC 认证（HTTP1.0）</a></li>
+<li><a href="#digest-%E8%AE%A4%E8%AF%81-http11">DIGEST 认证 （HTTP1.1)</a></li>
+<li><a href="#ssl%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AE%A4%E8%AF%81">SSL客户端认证</a></li>
+<li><a href="#%E5%9F%BA%E4%BA%8E%E8%A1%A8%E5%8D%95%E8%AE%A4%E8%AF%81">基于表单认证</a><ul>
+<li><a href="#session-%E7%AE%A1%E7%90%86%E5%92%8Ccookie%E5%BA%94%E7%94%A8">Session 管理和Cookie应用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%9F%BA%E4%BA%8Ehttp%E7%9A%84%E5%8D%8F%E8%AE%AE">基于HTTP的协议</a><ul>
+<li><a href="#http%E7%93%B6%E9%A2%88%E5%A6%82%E4%BD%95%E6%8A%8A%E5%86%85%E5%AE%B9%E5%8F%8A%E6%97%B6%E5%8F%8D%E9%A6%88%E5%88%B0%E5%AE%A2%E6%88%B7%E7%AB%AF">HTTP瓶颈（如何把内容及时反馈到客户端）</a></li>
+<li><a href="#comet-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">Comet 的解决方法</a></li>
+<li><a href="#spdy">SPDY</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BF%9B%E8%A1%8C%E5%85%A8%E5%8F%8C%E5%B7%A5%E9%80%9A%E4%BF%A1%E7%9A%84websocket">使用浏览器进行全双工通信的WebSocket</a><ul>
+<li><a href="#websocket-%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%8A%9F%E8%83%BD">WebSocket 的设计和功能</a></li>
+</ul>
+</li>
+<li><a href="#http20">HTTP2.0</a></li>
+<li><a href="#web%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%A1%E7%90%86%E6%96%87%E4%BB%B6webdav">web服务器管理文件webdav</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9E%84%E5%BB%BAweb%E5%86%85%E5%AE%B9">构建Web内容</a><ul>
+<li><a href="#html">HTML</a><ul>
+<li><a href="#html%E7%89%88%E6%9C%AC">HTML版本</a></li>
+<li><a href="#%E8%AE%BE%E8%AE%A1%E5%BA%94%E7%94%A8-csscascading-style-sheets-%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8">设计应用 CSS(Cascading Style Sheets 层叠样式表)</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8A%A8%E6%80%81html">动态HTML</a><ul>
+<li><a href="#dom">DOM</a></li>
+</ul>
+</li>
+<li><a href="#web-%E5%BA%94%E7%94%A8">Web 应用</a><ul>
+<li><a href="#cgicommon-gateway-interface">CGI（Common Gateway Interface）</a></li>
+<li><a href="#java-%E8%80%8C%E6%99%AE%E5%8F%8A%E7%9A%84servlet">Java 而普及的Servlet</a></li>
+</ul>
+</li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E5%8F%91%E5%B8%83%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8F%8A%E8%AF%AD%E8%A8%80">数据发布的格式及语言</a><ul>
+<li><a href="#xml-extensible-markup-language">XML （eXtensible Markup Language）</a></li>
+<li><a href="#rssatom">RSS、Atom</a></li>
+<li><a href="#javascript-%E8%A1%8D%E7%94%9F%E7%9A%84%E8%BD%BB%E9%87%8F%E7%BA%A7%E6%98%93%E7%94%A8json">JavaScript 衍生的轻量级易用JSON</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#web-%E6%94%BB%E5%87%BB%E6%8A%80%E6%9C%AF">Web 攻击技术</a><ul>
+<li><a href="#%E9%92%88%E5%AF%B9web%E7%9A%84%E6%94%BB%E5%87%BB%E6%8A%80%E6%9C%AF">针对Web的攻击技术</a><ul>
+<li><a href="#%E5%9C%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%8F%AF%E4%BB%A5%E7%AF%A1%E6%94%B9%E8%AF%B7%E6%B1%82">在客户端可以篡改请求</a></li>
+<li><a href="#%E9%92%88%E5%AF%B9web%E5%BA%94%E7%94%A8%E7%9A%84%E6%94%BB%E5%87%BB%E6%A8%A1%E5%BC%8F">针对Web应用的攻击模式</a></li>
+</ul>
+</li>
+<li><a href="#%E8%BE%93%E5%87%BA%E5%80%BC%E8%BD%AC%E4%B9%89%E4%B8%8D%E5%AE%8C%E5%85%A8%E7%9A%84%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E">输出值转义不完全的安全漏洞</a><ul>
+<li><a href="#%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BBxss">跨站脚本攻击（XSS)</a></li>
+<li><a href="#sql%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB%E9%92%88%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93">SQL注入攻击（针对数据库）</a></li>
+<li><a href="#os%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB">OS命令注入攻击</a></li>
+<li><a href="#http%E9%A6%96%E9%83%A8%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB">HTTP首部注入攻击</a></li>
+<li><a href="#%E9%82%AE%E4%BB%B6%E9%A6%96%E9%83%A8%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB">邮件首部注入攻击</a></li>
+<li><a href="#%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86%E6%94%BB%E5%87%BB">目录遍历攻击</a></li>
+<li><a href="#%E8%BF%9C%E7%A8%8B%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E">远程文件包含漏洞</a></li>
+</ul>
+</li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E6%88%96%E8%AE%BE%E8%AE%A1%E7%BC%BA%E9%99%B7%E7%9A%84%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E">设置或设计缺陷的安全漏洞</a><ul>
+<li><a href="#%E5%BC%BA%E5%88%B6%E6%B5%8F%E8%A7%88">强制浏览</a></li>
+<li><a href="#%E4%B8%8D%E6%AD%A3%E7%A1%AE%E7%9A%84%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86">不正确的错误信息处理</a></li>
+<li><a href="#%E5%BC%80%E6%94%BE%E9%87%8D%E5%AE%9A%E5%90%91">开放重定向</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86%E7%96%8F%E5%BF%BD%E5%BC%95%E5%8F%91%E7%9A%84%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E">会话管理疏忽引发的安全漏洞</a><ul>
+<li><a href="#%E4%BC%9A%E8%AF%9D%E5%8A%AB%E6%8C%81">会话劫持</a></li>
+<li><a href="#%E4%BC%9A%E8%AF%9D%E5%9B%BA%E5%AE%9A%E6%94%BB%E5%87%BB">会话固定攻击</a></li>
+<li><a href="#%E8%B7%A8%E7%AB%99%E7%82%B9%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0">跨站点请求伪造</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%B6%E4%BB%96%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E">其他安全漏洞</a><ul>
+<li><a href="#%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3">密码破解</a></li>
+<li><a href="#%E7%82%B9%E5%87%BB%E5%8A%AB%E6%8C%81">点击劫持</a></li>
+<li><a href="#dos%E6%94%BB%E5%87%BB">Dos攻击</a></li>
+<li><a href="#%E5%90%8E%E9%97%A8%E7%A8%8B%E5%BA%8F">后门程序</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="Base"><a href="#Base" class="headerlink" title="Base"></a>Base</h1><h2 id="URL-URI"><a href="#URL-URI" class="headerlink" title="URL  URI"></a>URL  URI</h2><ul>
 <li>URL（Locator) : web 服务器 需要输入网址<br><a target="_blank" rel="noopener" href="http://hacker.jp/">http://hacker.jp</a></li>
 <li>URI (identifier):某一互联网资源,URL是URI子集<ul>
 <li><a href="ftp://xxxx/rfc/rfc1808.txt">ftp://xxxx/rfc/rfc1808.txt</a></li>
@@ -2009,7 +2182,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

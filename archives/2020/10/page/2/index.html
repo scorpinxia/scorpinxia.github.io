@@ -485,16 +485,14 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    Different Core
+                                    
+Different Core
 Rate Core EDR
 总体描述
-
-两种形式 BR(basic rate) 和 LE(low energy)
-
-频率范围是2.400-2.4835 GHz。
-
-basic Rate 
-BR 721.2kb/
+BR/EDR
+BR/EDR generic packet structure
+BR/EDR physical channels
+basic piconet channel
                                 
                             </div>
                             <div class="publish-info">
@@ -555,14 +553,17 @@ BR 721.2kb/
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    过程时序控制延迟控制#a=#5 b;
+                                    
+过程时序控制
+延迟控制
+事件控制 posedge、negedge
+隐含事件 always@(*)
+电平敏感控制 wait
+内部时序的等价与repeat
+语句块 并行执行:(fork join )  串行执行:(begin end)
 
-等价于
-begin
-temp=b;
-#5 a=temp; //过5ns后赋值
-事件控制 posedge、negedgeposedge、negedge
-@r rega=regb //寄存器r 的变化控制
+
+结
                                 
                             </div>
                             <div class="publish-info">
@@ -842,7 +843,7 @@ Huffman 编码 （信息压缩编码）
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

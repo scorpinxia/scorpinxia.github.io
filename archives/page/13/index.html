@@ -569,7 +569,15 @@ PECS 原则
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    虚拟机性能监控、故障处理工具基础故障处理工具jps：虚拟机进程状况工具可以列出正在运行的虚拟机进程，并显示虚拟机执行主类（Main Class，main()函数所在的类）名称以及这些进程的本地虚拟机唯一ID（LVMID，Local Virt
+                                    
+虚拟机性能监控、故障处理工具
+基础故障处理工具
+jps：虚拟机进程状况工具
+jstat：虚拟机统计信息监视工具
+jinfo:JVM配置信息工具
+jmap：Java内存映像工具
+jhat： 虚拟机堆转储快照分析工具(基本不用)
+jstack
                                 
                             </div>
                             <div class="publish-info">
@@ -630,9 +638,29 @@ PECS 原则
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    垃圾收集器与内存分配策略以下只指堆 因为栈内存分配和回收都具备确定性
-垃圾收集算法引用计数法在对象中添加一个引用计数器，每当有一个地方引用它时，计数器值就加一；当引用失效时，计数器值就减一；任何时刻计数器为零的对象就是不可能再被使用的。
-引
+                                    
+垃圾收集器与内存分配策略
+垃圾收集算法
+引用计数法
+引用计数法特点
+
+
+可达性分析法
+可达性分析法特点
+
+
+引用问题
+如何判定需要回收
+方法区回收
+
+
+垃圾收集算法
+分代收集理论
+收集名词
+标记-清除算法
+标记-复制算法
+标记-整理算法
+
                                 
                             </div>
                             <div class="publish-info">
@@ -693,8 +721,16 @@ PECS 原则
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    ASP概述ASP是什么IIS 代表 Internet Information Services （Internet 信息服务）ASP 代表 Active Server Pages （动态服务器页面）
-ASP 和 HTML 有何不同？当浏览器
+                                    
+ASP概述
+ASP是什么
+ASP 和 HTML 有何不同？
+ASP好处
+
+
+
+
+ASP概述ASP是什么IIS 代表 Internet Information Services （Internet 信息服务）ASP 代表 Active Se
                                 
                             </div>
                             <div class="publish-info">
@@ -988,7 +1024,7 @@ HotSpot 虚拟机创建对象
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

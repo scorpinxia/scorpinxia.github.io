@@ -476,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.6k
+                    7.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    28 分
+                    29 分
                 </div>
                 
 
@@ -506,7 +506,37 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><blockquote>
+                <ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#%E5%8D%B3%E6%97%B6%E7%BC%96%E8%AF%91%E5%99%A8just-in-timejit">即时编译器（Just In Time，JIT）</a><ul>
+<li><a href="#%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8">解释器与编译器</a><ul>
+<li><a href="#%E5%88%86%E5%B1%82%E7%BC%96%E8%AF%91">分层编译</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BC%96%E8%AF%91%E5%AF%B9%E8%B1%A1%E4%B8%8E%E8%A7%A6%E5%8F%91%E6%9D%A1%E4%BB%B6">编译对象与触发条件</a></li>
+<li><a href="#%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B">编译过程</a></li>
+<li><a href="#%E5%AE%9E%E6%88%98%E6%9F%A5%E7%9C%8B%E5%8F%8A%E5%88%86%E6%9E%90%E5%8D%B3%E6%97%B6%E7%BC%96%E8%AF%91%E7%BB%93%E6%9E%9C">实战：查看及分析即时编译结果</a></li>
+</ul>
+</li>
+<li><a href="#%E6%8F%90%E5%89%8D%E7%BC%96%E8%AF%91%E5%99%A8ahead-of-timeaot">提前编译器（Ahead Of Time，AOT）</a><ul>
+<li><a href="#%E5%AE%9E%E6%88%98jaotc%E7%9A%84%E6%8F%90%E5%89%8D%E7%BC%96%E8%AF%91">实战：Jaotc的提前编译</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BC%96%E8%AF%91%E5%99%A8%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF">编译器优化技术</a><ul>
+<li><a href="#%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF%E6%A6%82%E8%A7%88">优化技术概览</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95%E5%86%85%E8%81%94">方法内联</a></li>
+<li><a href="#%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90">逃逸分析</a></li>
+<li><a href="#%E5%85%AC%E5%85%B1%E5%AD%90%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B6%88%E9%99%A4">公共子表达式消除</a></li>
+<li><a href="#%E6%95%B0%E7%BB%84%E8%BE%B9%E7%95%8C%E6%A3%80%E6%9F%A5%E6%B6%88%E9%99%A4">数组边界检查消除</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E6%88%98%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3graal%E7%BC%96%E8%AF%91%E5%99%A8">实战：深入理解Graal编译器</a><ul>
+<li><a href="#%E5%8E%86%E5%8F%B2%E8%83%8C%E6%99%AF">历史背景</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><blockquote>
 <p>编译后端的概念</p>
 </blockquote>
 <ul>
@@ -1889,7 +1919,7 @@ istore <span class="token number">4</span><span aria-hidden="true" class="line-n
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

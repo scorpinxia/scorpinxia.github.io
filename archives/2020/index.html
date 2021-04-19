@@ -485,23 +485,28 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    DeadLock
-JVM不像数据库 ，无法自己解决死锁
-
-
-并不是一定发生，死锁往往发生在高负载
-
+                                    
+DeadLock
 简单顺序死锁
-例子
-
-
-解决方法
-
-
-如果所有线程以固定的顺序获得锁，程序中就不会出现锁顺序死锁。
-
 动态的锁顺序死锁
-例子1 锁住账户原子
+开放调用 （Open Call）
+资源死锁
+
+
+死锁避免和诊断
+支持定时的锁
+线程转储信息分析死锁（Thread Dump)
+
+
+其他活跃性危险
+饥饿
+糟糕的响应性
+活锁
+
+
+
+
+Dead
                                 
                             </div>
                             <div class="publish-info">
@@ -698,11 +703,21 @@ Java与线
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    Overview
-编译后端的概念
+                                    
+Overview
+即时编译器（Just In Time，JIT）
+解释器与编译器
+分层编译
 
 
-字节码看作是程序语言的一种中间表示形式（Intermediate Representation，IR）的话，那编译器无论在何时、在何种状态下把Class文件转换成与本地基础设施（硬件指令集、操作系统）相
+编译对象与触发条件
+编译过程
+实战：查看及分析即时编译结果
+
+
+提前编译器（Ahead Of Time，AOT）
+实战：Jaotc的提前编译
+
                                 
                             </div>
                             <div class="publish-info">
@@ -763,11 +778,34 @@ Java与线
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    计数器架构架构八步法计数器规则
-1.初值、加一、结束值
-2.计数初值必须为0
-3.使用某计数值需要同时满足加1条件
-+1 条件add_cnt&amp;&amp;cnt==4 表示计数到5个，而add_cnt==0&amp;&amp;cnt=
+                                    
+计数器架构
+架构八步法
+计数器规则
+
+
+例子问题
+计数结构
+加1 结束条件
+特殊点
+完整性检查
+计数器
+功能代码（完整性  计数器之外）
+
+
+
+
+状态机架构
+状态机八步
+状态机规则
+
+
+
+
+状态机项目实践
+简易报文类型识别器项目
+功能
+输
                                 
                             </div>
                             <div class="publish-info">
@@ -828,15 +866,28 @@ Java与线
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    OverView
-编译期的概念
+                                    
+OverView
+javac编译器
+javac的源码和调试
+解析与填充符号表
+词法、语法分析
+填充符号表
 
 
-前端编译器（叫“编译器的前端”更准确一些）把*.java文件转变成*.class文件的过程；
-JDK的Javac、Eclipse JDT中的增量式编译器（ECJ）[1]。
+注解处理器
+语义分析与字节码生成
+标注检查
+数据及控制流分析
+解语法糖
+字节码生成
 
 
-Java虚拟机的即时编译器（
+
+
+Java语法糖
+泛型
+Java与C#
                                 
                             </div>
                             <div class="publish-info">
@@ -970,7 +1021,7 @@ Java虚拟机的即时编译器（
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

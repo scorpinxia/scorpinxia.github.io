@@ -476,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
 
@@ -506,7 +506,54 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="计数器架构"><a href="#计数器架构" class="headerlink" title="计数器架构"></a>计数器架构</h1><h2 id="架构八步法"><a href="#架构八步法" class="headerlink" title="架构八步法"></a>架构八步法</h2><h3 id="计数器规则"><a href="#计数器规则" class="headerlink" title="计数器规则"></a>计数器规则</h3><ul>
+                <ul>
+<li><a href="#%E8%AE%A1%E6%95%B0%E5%99%A8%E6%9E%B6%E6%9E%84">计数器架构</a><ul>
+<li><a href="#%E6%9E%B6%E6%9E%84%E5%85%AB%E6%AD%A5%E6%B3%95">架构八步法</a><ul>
+<li><a href="#%E8%AE%A1%E6%95%B0%E5%99%A8%E8%A7%84%E5%88%99">计数器规则</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BE%8B%E5%AD%90%E9%97%AE%E9%A2%98">例子问题</a><ul>
+<li><a href="#%E8%AE%A1%E6%95%B0%E7%BB%93%E6%9E%84">计数结构</a></li>
+<li><a href="#%E5%8A%A01-%E7%BB%93%E6%9D%9F%E6%9D%A1%E4%BB%B6">加1 结束条件</a></li>
+<li><a href="#%E7%89%B9%E6%AE%8A%E7%82%B9">特殊点</a></li>
+<li><a href="#%E5%AE%8C%E6%95%B4%E6%80%A7%E6%A3%80%E6%9F%A5">完整性检查</a></li>
+<li><a href="#%E8%AE%A1%E6%95%B0%E5%99%A8">计数器</a></li>
+<li><a href="#%E5%8A%9F%E8%83%BD%E4%BB%A3%E7%A0%81%E5%AE%8C%E6%95%B4%E6%80%A7--%E8%AE%A1%E6%95%B0%E5%99%A8%E4%B9%8B%E5%A4%96">功能代码（完整性  计数器之外）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E7%8A%B6%E6%80%81%E6%9C%BA%E6%9E%B6%E6%9E%84">状态机架构</a><ul>
+<li><a href="#%E7%8A%B6%E6%80%81%E6%9C%BA%E5%85%AB%E6%AD%A5">状态机八步</a><ul>
+<li><a href="#%E7%8A%B6%E6%80%81%E6%9C%BA%E8%A7%84%E5%88%99">状态机规则</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E7%8A%B6%E6%80%81%E6%9C%BA%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5">状态机项目实践</a><ul>
+<li><a href="#%E7%AE%80%E6%98%93%E6%8A%A5%E6%96%87%E7%B1%BB%E5%9E%8B%E8%AF%86%E5%88%AB%E5%99%A8%E9%A1%B9%E7%9B%AE">简易报文类型识别器项目</a><ul>
+<li><a href="#%E5%8A%9F%E8%83%BD">功能</a></li>
+<li><a href="#%E8%BE%93%E5%87%BA%E5%88%86%E6%9E%90">输出分析</a></li>
+<li><a href="#%E7%8A%B6%E6%80%81%E5%90%88%E5%B9%B6">状态合并</a></li>
+<li><a href="#%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB">状态转移</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#fifo%E6%9E%B6%E6%9E%84">FIFO架构</a><ul>
+<li><a href="#fifo%E6%9E%B6%E6%9E%84%E5%85%AB%E6%AD%A5%E6%B3%95">FIFO架构八步法</a><ul>
+<li><a href="#%E6%A6%82%E8%BF%B0">概述</a><ul>
+<li><a href="#fifo%E8%A7%84%E5%88%99">FIFO规则</a></li>
+<li><a href="#%E7%94%9F%E6%88%90fifo%E7%9A%84ip">生成FIFO的IP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="计数器架构"><a href="#计数器架构" class="headerlink" title="计数器架构"></a>计数器架构</h1><h2 id="架构八步法"><a href="#架构八步法" class="headerlink" title="架构八步法"></a>架构八步法</h2><h3 id="计数器规则"><a href="#计数器规则" class="headerlink" title="计数器规则"></a>计数器规则</h3><ul>
 <li>1.初值、加一、结束值</li>
 <li>2.计数初值必须为0</li>
 <li>3.使用某计数值需要同时满足加1条件<ul>
@@ -1630,7 +1677,7 @@ assign  s22idle_start = state_cur==S2 &amp;&amp; <span aria-hidden="true" class=
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

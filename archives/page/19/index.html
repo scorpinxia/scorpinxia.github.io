@@ -549,12 +549,17 @@ public static void main(String[] args) {
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    reason
-为了模块化（一个模块一个o) 和效率(  对于单独修改 只需单独编译)
+                                    
+reason
 do what
-解析所有符号（全局变量和函数 定义与引用的唯一位置）
+file format (.o .out .so)
+Symbols
+how to deal with same symbols
+Advice
 
-重定位（Relocation) (把编译过的o文件里面需要重定位的 符号以及函数地
+
+Relocation
+Static Libraries（old
                                 
                             </div>
                             <div class="publish-info">
@@ -615,11 +620,13 @@ do what
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    Cache Meories
+                                    
+Cache Meories
 典型结构
-Direct Mapped Cache(直接映射寻址) (E=1)直接find set + （valid+标志位相同） =hit  后在返回对应的block
-
-这样的问题  很容易miss（并且是在还有
+Direct Mapped Cache(直接映射寻址) (E=1)
+直接find set + （valid+标志位相同） =hit  后在返回对应的block
+改进
+写命中呢？ （write hit)
                                 
                             </div>
                             <div class="publish-info">
@@ -749,15 +756,17 @@ Direct Mapped Cache(直接映射寻址) (E=1)直接find set + （valid+标志位
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    存储器 RAM ROMRAM random-access memory
-SRAM 每个bit需要 4 到6个晶体管
-
-总线总线的重点是总线上的值 大家都知道 也就是把值放入总线
-System bus  Memory bus
-
+                                    
+存储器 RAM ROM
+总线
 机器硬盘
+固态硬盘 （Solid State disk)  SSD
+各个memory速度比较
+Locality循环 (临时本地性） 和临近访问（空间本地性）
+分层
 
-根
+
+存储器 RAM ROMRAM rando
                                 
                             </div>
                             <div class="publish-info">
@@ -818,15 +827,14 @@ System bus  Memory bus
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    每一次 都strlen
+                                    
+每一次 都strlen
 内存的反复的读取b[i] 和写入
-修改
-
 程序流水线
-除法是比较耗内存的 开源库 都会把除法换成 乘以倒数分之一
-Latency Bound 机器延迟的限制（顺序执行）
 Loop Unrooling  每次处理两个
-
+浮点的话不一定满足结合 和交换 所以优化的时候一般不改结合性
+Throughput 吞吐量极限（硬件限制）
+现代 为了读取
                                 
                             </div>
                             <div class="publish-info">
@@ -961,7 +969,7 @@ Loop Unrooling  每次处理两个
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

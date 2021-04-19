@@ -555,11 +555,13 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    Overview一个文件就是一串字节 所有的I/O设备都被当做文件（linux）
-
-unix IO open close read write seek(当前读的位置）
+                                    
+Overview
 type
-（1）平常的文件  应用程序会区分文本文件（ASCII 或者
+file operate
+open 会返回文件描述符 int 型  每个进程linux shell 都会打开3个文件描述符链接终端
+close 已经close 的会出错（尤其是并发的这种）
+Short conu
                                 
                             </div>
                             <div class="publish-info">
@@ -620,14 +622,19 @@ type
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    signals 是更高层的ECF 利用应用软件和内核软件linux 处理分层初始化一些服务 然后
-Shellshell其实是一个应用程序
+                                    
+signals 是更高层的ECF 利用应用软件和内核软件
+linux 处理分层
+Shell
 signals
-
-
 重点
-1.信号不会排队 一个进程正挂起一种类型的信号（信号发送 但未接受）
-2.相
+
+
+处理信号过程
+信号处理函数
+Block singals method
+safe signals handlers
+信号处
                                 
                             </div>
                             <div class="publish-info">
@@ -762,14 +769,25 @@ signals
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    总述
+                                    
+总述
+exceptions
+system call
+processes
+并发 或者连续
+
+
+processes control
+进程停止了 为何还是消耗系统资源
+
+
+总结
+
+
+总述
 exceptions异常就是系统状态改变了比如
 
-每一种异常对应一个句柄
-
-异步异常（Asynchronous Exceptions (Interrupts))  I/O 或者 timer
-
-同步异常（Synchronous Exce
+每一种
                                 
                             </div>
                             <div class="publish-info">
@@ -968,7 +986,7 @@ public static void main(String[] args) {
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

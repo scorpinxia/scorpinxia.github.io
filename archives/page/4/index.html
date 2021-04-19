@@ -791,12 +791,22 @@ Class文件基础
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    执行任务和执行策略的隐形耦合
-Executor框架解耦了任务提交和执行策略，但是有些类型需要明确指定执行策略
+                                    
+执行任务和执行策略的隐形耦合
+线程饥饿死锁
+运行时间长的任务
 
 
-依赖性任务。
-线程封闭机制任务。单线程的executor能够对并发更强的承诺相比于线程池。（确保任务不会并发，使得放宽代码对线
+设置线程池大小
+计算密集型任务设置线程池
+
+
+配置ThreadPoolExecutor
+创建和销毁
+管理队列任务
+饱和策略
+线程工厂
+调用完构造函数继续定制 ThreadP
                                 
                             </div>
                             <div class="publish-info">
@@ -1008,7 +1018,7 @@ NewTaskFor  封装非标准取消
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

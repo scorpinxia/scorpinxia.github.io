@@ -476,7 +476,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    320
+                    363
                 </div>
                 
 
@@ -506,7 +506,18 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="多核和超线程"><a href="#多核和超线程" class="headerlink" title="多核和超线程"></a>多核和超线程</h1><p><img src="/2020/03/01/csapp26-thread-level-parallelism/1.png"><br>现在的计算机都是并行流水线<br><img src="/2020/03/01/csapp26-thread-level-parallelism/2.png"><br>超线程(hpyerthreading)意味着在单核的情况下多个线程同时走</p>
+                <ul>
+<li><a href="#%E5%A4%9A%E6%A0%B8%E5%92%8C%E8%B6%85%E7%BA%BF%E7%A8%8B">多核和超线程</a></li>
+<li><a href="#%E5%B9%B6%E8%A1%8C%E5%8A%A0%E6%B3%95">并行加法</a></li>
+<li><a href="#amdahls-law%E9%98%BF%E5%A7%86%E8%BE%BE%E5%B0%94%E5%AE%9A%E5%BE%8B">Amdahl’s Law（阿姆达尔定律）</a></li>
+<li><a href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E5%88%A9%E7%94%A8%E5%B9%B6%E8%A1%8C">快速排序（利用并行）</a></li>
+<li><a href="#%E7%BA%BF%E7%A8%8B%E8%BF%9E%E7%BB%AD%E6%80%A7%E6%B3%95%E5%88%99thread-consistency">线程连续性法则（Thread consistency）</a><ul>
+<li><a href="#snoopy-cache%E5%8F%B2%E5%8A%AA%E6%AF%94%E7%BC%93%E5%AD%98">Snoopy Cache(史努比缓存)</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="多核和超线程"><a href="#多核和超线程" class="headerlink" title="多核和超线程"></a>多核和超线程</h1><p><img src="/2020/03/01/csapp26-thread-level-parallelism/1.png"><br>现在的计算机都是并行流水线<br><img src="/2020/03/01/csapp26-thread-level-parallelism/2.png"><br>超线程(hpyerthreading)意味着在单核的情况下多个线程同时走</p>
 <h1 id="并行加法"><a href="#并行加法" class="headerlink" title="并行加法"></a>并行加法</h1><p>目标：加0到n-1<br>想法：使用多个进程用互斥量来加globel sum<br>结果<br><img src="/2020/03/01/csapp26-thread-level-parallelism/3.png"></p>
 <p>改进：信号同步是很慢的，每个进程单独使用数组不同步,主进程等待所有进程结束然后相加<br>结果:<br><img src="/2020/03/01/csapp26-thread-level-parallelism/4.png"></p>
 <p>再改进：不用每次改数组，而是用局部变量（寄存器)累加，最后给数组<br><img src="/2020/03/01/csapp26-thread-level-parallelism/5.png"><br><img src="/2020/03/01/csapp26-thread-level-parallelism/6.png"><br>可以看到这里超线程并没有帮到我们（本身就在很好的使用寄存器)<br><strong>但是实际中的程序复杂的多，并不是这么简单利用</strong></p>
@@ -1280,7 +1291,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

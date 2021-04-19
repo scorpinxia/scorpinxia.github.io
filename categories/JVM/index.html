@@ -424,10 +424,19 @@
                 </a>
                 
                 
+                <a href="/categories/IDEA/" title="IDEA: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #82E0AA;">IDEA
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/JavaBase/" title="JavaBase: 5">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #82E0AA;">JavaBase
+                            style="background-color: #D7BDE2;">JavaBase
                         <span class="tag-length">5</span>
                     </span>
                 </a>
@@ -436,17 +445,8 @@
                 <a href="/categories/JavaAPI/" title="JavaAPI: 4">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D7BDE2;">JavaAPI
+                            style="background-color: #A3E4D7;">JavaAPI
                         <span class="tag-length">4</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/IDEA/" title="IDEA: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #A3E4D7;">IDEA
-                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -541,10 +541,10 @@
                 </a>
                 
                 
-                <a href="/categories/Java/" title="Java: 2">
+                <a href="/categories/CleanCode/" title="CleanCode: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #FFF;">Java
+                            style="background-color: #F8C471;">CleanCode
                         <span class="tag-length">2</span>
                     </span>
                 </a>
@@ -595,11 +595,11 @@
                 </a>
                 
                 
-                <a href="/categories/Java/CleanCode/" title="CleanCode: 2">
+                <a href="/categories/Http/" title="Http: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F8C471;">CleanCode
-                        <span class="tag-length">2</span>
+                            style="background-color: #A3E4D7;">Http
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -608,15 +608,6 @@
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #D7BDE2;">Interview
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/Http/" title="Http: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #A3E4D7;">Http
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -720,11 +711,21 @@ Java与线
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Overview
-编译后端的概念
+                                
+Overview
+即时编译器（Just In Time，JIT）
+解释器与编译器
+分层编译
 
 
-字节码看作是程序语言的一种中间表示形式（Intermediate Representation，IR）的话，那编译器无论在何时、在何种状态下把Class文件转换成与本地基础设施（硬件指令集、操作系统）相
+编译对象与触发条件
+编译过程
+实战：查看及分析即时编译结果
+
+
+提前编译器（Ahead Of Time，AOT）
+实战：Jaotc的提前编译
+
                             
                         </div>
                         <div class="publish-info">
@@ -774,15 +775,28 @@ Java与线
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                OverView
-编译期的概念
+                                
+OverView
+javac编译器
+javac的源码和调试
+解析与填充符号表
+词法、语法分析
+填充符号表
 
 
-前端编译器（叫“编译器的前端”更准确一些）把*.java文件转变成*.class文件的过程；
-JDK的Javac、Eclipse JDT中的增量式编译器（ECJ）[1]。
+注解处理器
+语义分析与字节码生成
+标注检查
+数据及控制流分析
+解语法糖
+字节码生成
 
 
-Java虚拟机的即时编译器（
+
+
+Java语法糖
+泛型
+Java与C#
                             
                         </div>
                         <div class="publish-info">
@@ -832,11 +846,20 @@ Java虚拟机的即时编译器（
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                overview
-无法改变的地方
+                                
+overview
+案例分析
+Tomcat：正统的类加载器架构
+OSGI:灵活的类加载器
+字节码生成技术 动态代理
+Backport工具：Java的时光机器
 
 
-在Class文件格式与执行引擎这部分里，用户的程序能直接参与的内容并不太多，Class文件以何种格式存储，类型何时加载、如何连接，以及虚拟机如何执行字节码指令等都是由虚拟机直接控制的行为，用户程序无法对
+实战：动手实现远程执行功能
+目标
+思路
+实现
+实现“同一个类的代码可以被多次加
                             
                         </div>
                         <div class="publish-info">
@@ -1118,7 +1141,7 @@ Overview
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

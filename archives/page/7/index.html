@@ -485,19 +485,28 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    可见性
-多个线程读写
+                                    
+可见性
+失效数据
+非原子的64位操作
+加锁和可见性
+加锁的意义
 
 
-需要保证多个线程对内存写入同步
+Volatile
+效果
+使用领域
+注意点
+需要满足的条件
 
 
 
-问题
 
-可能无限循环，读线程可能永远看不到ready值
-可能输出0，看到了写入ready 的值确没看到写入number的值 “重排序”现象
-主线程首先写入number 没有同步
+发布(publish)和逸出(escape)
+安全的对象构造
+
+
+线程封闭 （Thread confin
                                 
                             </div>
                             <div class="publish-info">
@@ -718,12 +727,17 @@ Thread is everywhere
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    分组交换的时延
+                                    
+分组交换的时延
+各层消息
+课后习题
+
+
+分组交换的时延
 
 节点处理时延: 导向何处
 排队时延：在链路等待传输 （其他分组传输完）
-传输时延：分组以 先到先服务方式传输–最常见，当已经到达的分组传输后，才能传输刚到达的。（取决于分组长度和链路传输速度） 通常ms 到us级别
-传播时
+传输时延：分组以 先到先服务方式传输–最常见，当已经到达的分组传输后，才能传输刚到达的。（取决于分组长度和链
                                 
                             </div>
                             <div class="publish-info">
@@ -789,16 +803,18 @@ Thread is everywhere
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    接收机生成acesscode wave
+                                    
+接收机
+生成acesscode wave
 Remove 收到的wave DC
 通过跳变检测信号
-用100的窗 检测
-把每100的叠加
-
 初始化decodeInfo
-分步处理每个包时间和频率估计补偿
-和第一个符号卷积
-同样把收到的信号和rcV卷
+分步处理每个包
+时间和频率估计补偿
+
+
+Decode 信号
+Gfsk解码access code packHearL
                                 
                             </div>
                             <div class="publish-info">
@@ -859,25 +875,22 @@ Remove 收到的wave DC
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    load data 初始配置
-采样率、时隙、中心频率、symbol 时间 最小包长
-
-边缘检测包头、包尾最少包长 64symbol
-
+                                    
+load data 初始配置
+边缘检测包头、包尾
 处理包初始化配置
 提取包
-算平均功率
-
 相位检测
-removeDC
-
-fft
-
-得到频谱
 
 
+同步化
+EDR demod
 
-量化到1M
+
+load data 初始配置
+采样率、时隙、中心频率、symbol 时间 最小包长
+
+边缘检测包头、包尾最少包长 6
                                 
                             </div>
                             <div class="publish-info">
@@ -1012,7 +1025,7 @@ fft
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             

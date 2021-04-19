@@ -476,7 +476,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    409
+                    500
                 </div>
                 
 
@@ -506,7 +506,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Cache-Meories"><a href="#Cache-Meories" class="headerlink" title="Cache Meories"></a>Cache Meories</h1><p><img src="/2020/02/15/csapp12-cache-memory/1.png"></p>
+                <ul>
+<li><a href="#cache-meories">Cache Meories</a></li>
+<li><a href="#%E5%85%B8%E5%9E%8B%E7%BB%93%E6%9E%84">典型结构</a></li>
+<li><a href="#direct-mapped-cache%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84%E5%AF%BB%E5%9D%80-e1">Direct Mapped Cache(直接映射寻址) (E=1)</a><ul>
+<li><a href="#%E7%9B%B4%E6%8E%A5find-set--valid%E6%A0%87%E5%BF%97%E4%BD%8D%E7%9B%B8%E5%90%8C-hit--%E5%90%8E%E5%9C%A8%E8%BF%94%E5%9B%9E%E5%AF%B9%E5%BA%94%E7%9A%84block">直接find set + （valid+标志位相同） =hit  后在返回对应的block</a></li>
+<li><a href="#%E6%94%B9%E8%BF%9B">改进</a></li>
+<li><a href="#%E5%86%99%E5%91%BD%E4%B8%AD%E5%91%A2-write-hit">写命中呢？ （write hit)</a></li>
+<li><a href="#write-miss">Write miss?</a></li>
+</ul>
+</li>
+<li><a href="#%E5%91%BD%E4%B8%AD%E7%8E%87%E5%B7%AE-2%E7%99%BE%E5%88%86-%E6%80%A7%E8%83%BD%E5%8F%AF%E8%83%BD%E5%B7%AE%E4%B8%80%E5%80%8D">命中率差 2百分 性能可能差一倍</a></li>
+<li><a href="#%E5%88%A9%E7%94%A8%E5%AF%B9%E7%BC%93%E5%AD%98%E7%9A%84%E4%BA%86%E8%A7%A3%E5%9C%A8%E7%A8%8B%E5%BA%8F%E8%BF%90%E7%94%A8">利用对缓存的了解在程序运用</a></li>
+<li><a href="#%E7%A9%BA%E9%97%B4%E6%9C%AC%E5%9C%B0%E6%80%A7">空间本地性</a><ul>
+<li><a href="#%E9%80%9A%E8%BF%87%E5%88%86%E5%9D%97blocking-%E6%9D%A5%E6%94%B9%E5%96%84%E6%97%B6%E9%97%B4%E6%9C%AC%E5%9C%B0%E6%80%A7">通过分块（BLOCKing 来改善时间本地性）</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="Cache-Meories"><a href="#Cache-Meories" class="headerlink" title="Cache Meories"></a>Cache Meories</h1><p><img src="/2020/02/15/csapp12-cache-memory/1.png"></p>
 <h1 id="典型结构"><a href="#典型结构" class="headerlink" title="典型结构"></a>典型结构</h1><p><img src="/2020/02/15/csapp12-cache-memory/2.png"></p>
 <h1 id="Direct-Mapped-Cache-直接映射寻址-E-1"><a href="#Direct-Mapped-Cache-直接映射寻址-E-1" class="headerlink" title="Direct Mapped Cache(直接映射寻址) (E=1)"></a>Direct Mapped Cache(直接映射寻址) (E=1)</h1><h2 id="直接find-set-（valid-标志位相同）-hit-后在返回对应的block"><a href="#直接find-set-（valid-标志位相同）-hit-后在返回对应的block" class="headerlink" title="直接find set + （valid+标志位相同） =hit  后在返回对应的block"></a>直接find set + （valid+标志位相同） =hit  后在返回对应的block</h2><p><img src="/2020/02/15/csapp12-cache-memory/3.png"></p>
 <p><img src="/2020/02/15/csapp12-cache-memory/4.png"></p>
@@ -1304,7 +1322,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.2k</span>&nbsp;字
+                class="white-color">276.3k</span>&nbsp;字
             
             
             
