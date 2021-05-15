@@ -476,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.5k
+                    5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    22 分
+                    24 分
                 </div>
                 
 
@@ -1001,6 +1001,119 @@
 <blockquote>
 <p>7.18 略</p>
 </blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">chap07</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Arrays</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>stream<span class="token punctuation">.</span></span><span class="token class-name">IntStream</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>stream<span class="token punctuation">.</span></span><span class="token class-name">Stream</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @ClassName MyMergeSort
+ * @Author: Wibur
+ * @Description:
+ * @Date: Created in 10:20 2020/9/19
+ * @Versuin: 1.0
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyMergeSort</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">AnyType</span> <span class="token keyword">extends</span> <span class="token class-name">Comparable</span><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> <span class="token class-name">AnyType</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span>  <span class="token keyword">void</span> <span class="token function">mergeSort</span><span class="token punctuation">(</span><span class="token class-name">AnyType</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">AnyType</span> tmpArr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">AnyType</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token keyword">new</span> <span class="token class-name">Comparable</span><span class="token punctuation">[</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token function">mergeSort</span><span class="token punctuation">(</span>tmpArr<span class="token punctuation">,</span>arr<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>arr<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">AnyType</span> <span class="token keyword">extends</span> <span class="token class-name">Comparable</span><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> <span class="token class-name">AnyType</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span>  <span class="token keyword">void</span> <span class="token function">mergeSort</span><span class="token punctuation">(</span><span class="token class-name">AnyType</span><span class="token punctuation">[</span><span class="token punctuation">]</span>tmpArr<span class="token punctuation">,</span><span class="token class-name">AnyType</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span><span class="token keyword">int</span> left<span class="token punctuation">,</span><span class="token keyword">int</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>left<span class="token operator">&lt;</span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">int</span> center<span class="token operator">=</span><span class="token punctuation">(</span>right<span class="token operator">+</span>left<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
+            <span class="token function">mergeSort</span><span class="token punctuation">(</span>tmpArr<span class="token punctuation">,</span>arr<span class="token punctuation">,</span>left<span class="token punctuation">,</span>center<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">mergeSort</span><span class="token punctuation">(</span>tmpArr<span class="token punctuation">,</span>arr<span class="token punctuation">,</span>center<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">merge</span><span class="token punctuation">(</span>tmpArr<span class="token punctuation">,</span>arr<span class="token punctuation">,</span>left<span class="token punctuation">,</span><span class="token punctuation">(</span>right<span class="token operator">+</span>left<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span>  <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">AnyType</span> <span class="token keyword">extends</span> <span class="token class-name">Comparable</span><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> <span class="token class-name">AnyType</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span>  <span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token class-name">AnyType</span><span class="token punctuation">[</span><span class="token punctuation">]</span>tmpArr<span class="token punctuation">,</span><span class="token class-name">AnyType</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> <span class="token keyword">int</span> left<span class="token punctuation">,</span><span class="token keyword">int</span> center<span class="token punctuation">,</span> <span class="token keyword">int</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> leftBeign<span class="token operator">=</span>left<span class="token punctuation">;</span>
+
+        <span class="token keyword">int</span> rightBeign<span class="token operator">=</span>center<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> rightEnd<span class="token operator">=</span>right<span class="token punctuation">;</span>
+
+        <span class="token keyword">int</span> tmpPos<span class="token operator">=</span>left<span class="token punctuation">;</span>
+
+        <span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;=</span>center<span class="token operator">&amp;&amp;</span>rightBeign<span class="token operator">&lt;=</span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+            <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>rightBeign<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span>
+                tmpArr<span class="token punctuation">[</span>tmpPos<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>left<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">else</span>
+                tmpArr<span class="token punctuation">[</span>tmpPos<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>rightBeign<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>left<span class="token operator">&lt;=</span>center<span class="token punctuation">)</span>
+            tmpArr<span class="token punctuation">[</span>tmpPos<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>left<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>rightBeign<span class="token operator">&lt;=</span>right<span class="token punctuation">)</span>
+            tmpArr<span class="token punctuation">[</span>tmpPos<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>rightBeign<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> leftBeign<span class="token punctuation">;</span> i <span class="token operator">&lt;=</span>rightEnd<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>tmpArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">AnyType</span> <span class="token keyword">extends</span> <span class="token class-name">Comparable</span><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> <span class="token class-name">AnyType</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span>  <span class="token keyword">void</span> <span class="token function">mergeSort1</span><span class="token punctuation">(</span><span class="token class-name">AnyType</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">AnyType</span> tmpArr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">AnyType</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token keyword">new</span> <span class="token class-name">Comparable</span><span class="token punctuation">[</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token function">mergeSort1</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>tmpArr<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>arr<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">AnyType</span> <span class="token keyword">extends</span> <span class="token class-name">Comparable</span><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> <span class="token class-name">AnyType</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span>
+    <span class="token keyword">void</span> <span class="token function">mergeSort1</span><span class="token punctuation">(</span> <span class="token class-name">AnyType</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> <span class="token class-name">AnyType</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> tmpArray<span class="token punctuation">,</span> <span class="token keyword">int</span> left<span class="token punctuation">,</span> <span class="token keyword">int</span> right <span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> subListSize <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> subListSize <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> subListSize <span class="token operator">*=</span> <span class="token number">2</span> <span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> part1Start <span class="token operator">=</span> left<span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span> part1Start <span class="token operator">+</span> subListSize <span class="token operator">&lt;</span> n <span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+
+
+                <span class="token keyword">int</span> part2Start <span class="token operator">=</span> part1Start <span class="token operator">+</span> subListSize<span class="token punctuation">;</span>
+                <span class="token keyword">int</span> part2End <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> part2Start <span class="token operator">+</span> subListSize <span class="token operator">-</span> <span class="token number">1</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token function">merge</span><span class="token punctuation">(</span> tmpArray<span class="token punctuation">,</span> arr<span class="token punctuation">,</span> part1Start<span class="token punctuation">,</span>part2Start<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>part2End <span class="token punctuation">)</span><span class="token punctuation">;</span>
+                part1Start <span class="token operator">=</span> part2End <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+
+<span class="token comment">//    private static &lt;AnyType extends Comparable&lt;? super AnyType&gt;&gt;</span>
+<span class="token comment">//    void merge(AnyType[] tmpArray, AnyType[] arr, int part1Start, int part2Start, int part2End) {</span>
+<span class="token comment">//        merge(tmpArray,arr,part1Start,part2Start);</span>
+<span class="token comment">//        merge(tmpArray,arr,part2Start+1,part2End);</span>
+<span class="token comment">//    }</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">//先将int数组转换为数值流</span>
+        <span class="token class-name">IntStream</span> stream <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//流中的元素全部装箱，转换为流 ----&gt;int转为Integer</span>
+        <span class="token class-name">Stream</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> integerStream <span class="token operator">=</span> stream<span class="token punctuation">.</span><span class="token function">boxed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//将流转换为数组</span>
+        <span class="token class-name">Integer</span><span class="token punctuation">[</span><span class="token punctuation">]</span> integers <span class="token operator">=</span> integerStream<span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">::</span><span class="token keyword">new</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">mergeSort1</span><span class="token punctuation">(</span>integers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Integer</span> i<span class="token operator">:</span>integers
+        <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="7-19-7-22-快速排序1"><a href="#7-19-7-22-快速排序1" class="headerlink" title="7.19~7.22 快速排序1"></a>7.19~7.22 快速排序1</h2><p><img src="/2020/09/15/data-structures-and-algorithms-chap07-sorting/25.png"></p>
 <blockquote>
 <p>7.19 如下代码</p>
@@ -2184,7 +2297,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">276.3k</span>&nbsp;字
+                class="white-color">276.8k</span>&nbsp;字
             
             
             
