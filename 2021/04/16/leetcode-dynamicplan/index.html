@@ -476,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    4.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    20 分
                 </div>
                 
 
@@ -506,7 +506,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="背包近似"><a href="#背包近似" class="headerlink" title="背包近似"></a>背包近似</h1><h2 id="背包-最满-有限次-无val"><a href="#背包-最满-有限次-无val" class="headerlink" title="背包(最满 有限次 无val)"></a>背包(最满 有限次 无val)</h2><pre class="line-numbers language-none"><code class="language-none">描述
+                <ul>
+<li><a href="#%E8%83%8C%E5%8C%85%E8%BF%91%E4%BC%BC">背包近似</a><ul>
+<li><a href="#%E8%83%8C%E5%8C%85%E6%9C%80%E6%BB%A1-%E6%9C%89%E9%99%90%E6%AC%A1-%E6%97%A0val">背包(最满 有限次 无val)</a></li>
+<li><a href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98-ii%E6%9C%80%E6%BB%A1-%E6%9C%89%E9%99%90%E6%AC%A1-%E6%9C%89val">背包问题 II(最满 有限次 有val)</a></li>
+<li><a href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98-iii%E6%9C%80%E6%BB%A1-%E6%97%A0%E9%99%90%E6%AC%A1-%E6%9C%89val">背包问题 III(最满 无限次 有val)</a></li>
+<li><a href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98-iv-%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85-%E6%97%A0%E9%99%90%E6%AC%A1-%E6%96%B9%E6%A1%88%E6%80%BB%E6%95%B0">背包问题 IV (完全背包 无限次 方案总数)</a></li>
+<li><a href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98-v-%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85-%E6%9C%89%E9%99%90%E6%AC%A1-%E6%96%B9%E6%A1%88%E6%80%BB%E6%95%B0">背包问题 V (完全背包 有限次 方案总数)</a></li>
+<li><a href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98-vi-%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85-%E6%97%A0%E9%99%90%E6%AC%A1-%E6%8E%92%E5%88%97%E6%95%B0%E6%96%B9%E6%A1%88%E6%80%BB%E6%95%B0">背包问题 VI (完全背包 无限次 排列数方案总数)</a></li>
+<li><a href="#494-%E7%9B%AE%E6%A0%87%E5%92%8C">494. 目标和</a></li>
+<li><a href="#%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2">零钱兑换</a></li>
+<li><a href="#518-%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2-ii">518. 零钱兑换 II</a></li>
+<li><a href="#518-%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2-ii-1">518. 零钱兑换 II</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BA%8F%E5%88%97">序列</a><ul>
+<li><a href="#300-%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97">300. 最长递增子序列</a></li>
+<li><a href="#45-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F-ii">45. 跳跃游戏 II</a></li>
+</ul>
+</li>
+<li><a href="#%E8%82%A1%E7%A5%A8">股票</a><ul>
+<li><a href="#122-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-%E5%8F%AA%E4%B9%B0%E5%8D%96%E4%B8%80%E6%AC%A1">122 买卖股票的最佳时机 （只买卖一次）</a></li>
+<li><a href="#%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-ii">买卖股票的最佳时机 II</a></li>
+<li><a href="#%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-iii">买卖股票的最佳时机 III</a></li>
+<li><a href="#%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-iv">买卖股票的最佳时机 IV</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="背包近似"><a href="#背包近似" class="headerlink" title="背包近似"></a>背包近似</h1><pre class="line-numbers language-none"><code class="language-none">即f [ i ] [ j ] f[i][j]f[i][j]表示前i ii件物品恰放入一个容量为j jj的背包可以获得的最大价值。则其状态转移方程便是：
+
+f[i][j]=max{f[i-1][j],f[i-1][j-w[i]]+v[i]}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="背包-最满-有限次-无val"><a href="#背包-最满-有限次-无val" class="headerlink" title="背包(最满 有限次 无val)"></a>背包(最满 有限次 无val)</h2><pre class="line-numbers language-none"><code class="language-none">描述
 在n个物品中挑选若干物品装入背包，最多能装多满？假设背包的大小为m，每个物品的大小为A[i]
 
 你不可以将物品进行切割。
@@ -536,15 +567,17 @@
         <span class="token comment">//每次将i加入选择  </span>
         <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token class-name">A</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-            <span class="token comment">//要不和不加一样 要不就加了</span>
+            <span class="token comment">//要不和不加一样 要不就加了 </span>
+            <span class="token comment">//从后往前（因为依赖之前的值） 状态方程</span>
             <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span>m<span class="token punctuation">;</span>j<span class="token operator">&gt;=</span><span class="token class-name">A</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>j<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
                 sum<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>sum<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>sum<span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token class-name">A</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token class-name">A</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
 
         <span class="token keyword">return</span> sum<span class="token punctuation">[</span>m<span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="背包问题-II-最满-有限次-有val"><a href="#背包问题-II-最满-有限次-有val" class="headerlink" title="背包问题 II(最满 有限次 有val)"></a>背包问题 II(最满 有限次 有val)</h2><pre class="line-numbers language-none"><code class="language-none">
 
@@ -591,7 +624,9 @@ A[i], V[i], n, m 均为整数
 <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="背包问题-III-最满-无限次-有val"><a href="#背包问题-III-最满-无限次-有val" class="headerlink" title="背包问题 III(最满 无限次 有val)"></a>背包问题 III(最满 无限次 有val)</h2><pre class="line-numbers language-none"><code class="language-none">
+<h2 id="背包问题-III-最满-无限次-有val"><a href="#背包问题-III-最满-无限次-有val" class="headerlink" title="背包问题 III(最满 无限次 有val)"></a>背包问题 III(最满 无限次 有val)</h2><p>完全背包 不用保证一定从f[i-1]选 可以当前的不选 选之前的</p>
+<pre class="line-numbers language-none"><code class="language-none">f[i][j]=max(f[i−1][j],f[i][j−w[i]]+v[i])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">
 描述
 给定 n 种物品, 每种物品都有无限个. 第 i 个物品的体积为 A[i], 价值为 V[i].
 
@@ -807,6 +842,55 @@ A[i], V[i], n, m 均为整数
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
+<h2 id="零钱兑换"><a href="#零钱兑换" class="headerlink" title="零钱兑换"></a>零钱兑换</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/coin-change/">https://leetcode-cn.com/problems/coin-change/</a></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">322. 零钱兑换
+给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。
+
+你可以认为每种硬币的数量是无限的。
+
+ 
+
+示例 1：
+
+输入：coins = [1, 2, 5], amount = 11
+输出：3 
+解释：11 = 5 + 5 + 1
+示例 2：
+
+输入：coins = [2], amount = 3
+输出：-1
+示例 3：
+
+输入：coins = [1], amount = 0
+输出：0
+示例 4：
+
+输入：coins = [1], amount = 1
+输出：1
+示例 5：
+
+输入：coins = [1], amount = 2
+输出：2
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">coinChange</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> coins<span class="token punctuation">,</span> <span class="token keyword">int</span> amount<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> count<span class="token operator">=</span><span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>amount<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span>count<span class="token punctuation">,</span>amount<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        count<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>coins<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span>coins<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>amount<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>count<span class="token punctuation">[</span>j<span class="token operator">-</span>coins<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">!=</span>amount<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+                    count<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>count<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>count<span class="token punctuation">[</span>j<span class="token operator">-</span>coins<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> count<span class="token punctuation">[</span>amount<span class="token punctuation">]</span><span class="token operator">==</span>amount<span class="token operator">+</span><span class="token number">1</span><span class="token operator">?</span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">:</span>count<span class="token punctuation">[</span>amount<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <h2 id="518-零钱兑换-II"><a href="#518-零钱兑换-II" class="headerlink" title="518. 零钱兑换 II"></a>518. 零钱兑换 II</h2><blockquote>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/coin-change-2/">https://leetcode-cn.com/problems/coin-change-2/</a></p>
 </blockquote>
@@ -846,44 +930,6 @@ A[i], V[i], n, m 均为整数
 
 
 <h2 id="518-零钱兑换-II-1"><a href="#518-零钱兑换-II-1" class="headerlink" title="518. 零钱兑换 II"></a>518. 零钱兑换 II</h2><blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/coin-change-2/">https://leetcode-cn.com/problems/coin-change-2/</a></p>
-</blockquote>
-<pre class="line-numbers language-none"><code class="language-none">
-给定不同面额的硬币和一个总金额。写出函数来计算可以凑成总金额的硬币组合数。假设每一种面额的硬币有无限个。 
-
- 
-
-示例 1:
-
-输入: amount = 5, coins = [1, 2, 5]
-输出: 4
-解释: 有四种方式可以凑成总金额:
-5=5
-5=2+2+1
-5=2+1+1+1
-5=1+1+1+1+1
- <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">change</span><span class="token punctuation">(</span><span class="token keyword">int</span> amount<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> coins<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        
-        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> count<span class="token operator">=</span><span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>amount<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-        <span class="token comment">//amount=0 有一种就是什么都不选</span>
-        count<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-
-        <span class="token comment">//完全背包 无限次</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>coins<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span>coins<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>amount<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                count<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+=</span>count<span class="token punctuation">[</span>j<span class="token operator">-</span>coins<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    
-        <span class="token keyword">return</span> count<span class="token punctuation">[</span>amount<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h2 id="518-零钱兑换-II-2"><a href="#518-零钱兑换-II-2" class="headerlink" title="518. 零钱兑换 II"></a>518. 零钱兑换 II</h2><blockquote>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/coin-change-2/">https://leetcode-cn.com/problems/coin-change-2/</a></p>
 </blockquote>
 <pre class="line-numbers language-none"><code class="language-none">
@@ -1004,6 +1050,184 @@ A[i], V[i], n, m 均为整数
         <span class="token keyword">return</span> count<span class="token punctuation">[</span>nums<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h1 id="股票"><a href="#股票" class="headerlink" title="股票"></a>股票</h1><h2 id="122-买卖股票的最佳时机-（只买卖一次）"><a href="#122-买卖股票的最佳时机-（只买卖一次）" class="headerlink" title="122 买卖股票的最佳时机 （只买卖一次）"></a>122 买卖股票的最佳时机 （只买卖一次）</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/</a></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。
+
+你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。
+
+返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。
+
+ 
+
+示例 1：
+
+输入：[7,1,5,3,6,4]
+输出：5
+解释：在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。
+     注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。
+示例 2：
+
+输入：prices = [7,6,4,3,1]
+输出：0
+解释：在这种情况下, 没有交易完成, 所以最大利润为 0。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxProfit</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> prices<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> buy<span class="token operator">=</span><span class="token class-name">Integer</span><span class="token punctuation">.</span>MIN_VALUE<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> sell<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+
+
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>prices<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token comment">//只能一次就从0买</span>
+            buy<span class="token operator">=</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>buy<span class="token punctuation">,</span><span class="token number">0</span><span class="token operator">-</span>prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            sell<span class="token operator">=</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>sell<span class="token punctuation">,</span>buy<span class="token operator">+</span>prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> sell<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="买卖股票的最佳时机-II"><a href="#买卖股票的最佳时机-II" class="headerlink" title="买卖股票的最佳时机 II"></a>买卖股票的最佳时机 II</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/">https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/</a></p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">给定一个数组 prices ，其中 prices[i] 是一支给定股票第 i 天的价格。
+
+设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。
+
+注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+
+ 
+
+示例 1:
+
+输入: prices = [7,1,5,3,6,4]
+输出: 7
+解释: 在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。
+     随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6-3 = 3 。
+示例 2:
+
+输入: prices = [1,2,3,4,5]
+输出: 4
+解释: 在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。
+     注意你不能在第 1 天和第 2 天接连购买股票，之后再将它们卖出。因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。
+示例 3:
+
+输入: prices = [7,6,4,3,1]
+输出: 0
+解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxProfit</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> prices<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> buy<span class="token operator">=</span><span class="token class-name">Integer</span><span class="token punctuation">.</span>MIN_VALUE<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> sell<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>prices<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token comment">//多次 可以从上次卖的买</span>
+            buy<span class="token operator">=</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>buy<span class="token punctuation">,</span>sell<span class="token operator">-</span>prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            sell<span class="token operator">=</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>sell<span class="token punctuation">,</span>buy<span class="token operator">+</span>prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> sell<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="买卖股票的最佳时机-III"><a href="#买卖股票的最佳时机-III" class="headerlink" title="买卖股票的最佳时机 III"></a>买卖股票的最佳时机 III</h2><pre class="line-numbers language-none"><code class="language-none">给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。
+
+设计一个算法来计算你所能获取的最大利润。你最多可以完成 两笔 交易。
+
+注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+
+ 
+
+示例 1:
+
+输入：prices = [3,3,5,0,0,3,1,4]
+输出：6
+解释：在第 4 天（股票价格 = 0）的时候买入，在第 6 天（股票价格 = 3）的时候卖出，这笔交易所能获得利润 = 3-0 = 3 。
+     随后，在第 7 天（股票价格 = 1）的时候买入，在第 8 天 （股票价格 = 4）的时候卖出，这笔交易所能获得利润 = 4-1 = 3 。
+示例 2：
+
+输入：prices = [1,2,3,4,5]
+输出：4
+解释：在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。   
+     注意你不能在第 1 天和第 2 天接连购买股票，之后再将它们卖出。   
+     因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。
+示例 3：
+
+输入：prices = [7,6,4,3,1] 
+输出：0 
+解释：在这个情况下, 没有交易完成, 所以最大利润为 0。
+示例 4：
+
+输入：prices = [1]
+输出：0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxProfit</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> prices<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> buyOne<span class="token operator">=</span><span class="token class-name">Integer</span><span class="token punctuation">.</span>MIN_VALUE<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> buyTwo<span class="token operator">=</span><span class="token class-name">Integer</span><span class="token punctuation">.</span>MIN_VALUE<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> sellOne<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> sellTwo<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>prices<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token comment">//相当于一次的</span>
+            buyOne<span class="token operator">=</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>buyOne<span class="token punctuation">,</span><span class="token number">0</span><span class="token operator">-</span>prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            sellOne<span class="token operator">=</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>sellOne<span class="token punctuation">,</span>buyOne<span class="token operator">+</span>prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment">//第二次在第一次基础上</span>
+            buyTwo<span class="token operator">=</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>buyTwo<span class="token punctuation">,</span>sellOne<span class="token operator">-</span>prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            sellTwo<span class="token operator">=</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>sellTwo<span class="token punctuation">,</span>buyTwo<span class="token operator">+</span>prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> sellTwo<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="买卖股票的最佳时机-IV"><a href="#买卖股票的最佳时机-IV" class="headerlink" title="买卖股票的最佳时机 IV"></a>买卖股票的最佳时机 IV</h2><pre class="line-numbers language-none"><code class="language-none">给定一个整数数组 prices ，它的第 i 个元素 prices[i] 是一支给定的股票在第 i 天的价格。
+
+设计一个算法来计算你所能获取的最大利润。你最多可以完成 k 笔交易。
+
+注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+
+ 
+
+示例 1：
+
+输入：k = 2, prices = [2,4,1]
+输出：2
+解释：在第 1 天 (股票价格 = 2) 的时候买入，在第 2 天 (股票价格 = 4) 的时候卖出，这笔交易所能获得利润 = 4-2 = 2 。
+示例 2：
+
+输入：k = 2, prices = [3,2,6,5,0,3]
+输出：7
+解释：在第 2 天 (股票价格 = 2) 的时候买入，在第 3 天 (股票价格 = 6) 的时候卖出, 这笔交易所能获得利润 = 6-2 = 4 。
+     随后，在第 5 天 (股票价格 = 0) 的时候买入，在第 6 天 (股票价格 = 3) 的时候卖出, 这笔交易所能获得利润 = 3-0 = 3 。
+ 
+
+提示：
+
+0 &lt;= k &lt;= 100
+0 &lt;= prices.length &lt;= 1000
+0 &lt;= prices[i] &lt;= 1000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxProfit</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> prices<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> buy<span class="token operator">=</span><span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> sell<span class="token operator">=</span><span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span>buy<span class="token punctuation">,</span><span class="token class-name">Integer</span><span class="token punctuation">.</span>MIN_VALUE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span>sell<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>prices<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>k<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token comment">//每次看上次的sell 在花费</span>
+                buy<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>buy<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>sell<span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span>prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">//看这次的买 能不能卖</span>
+                sell<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>sell<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>buy<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span>prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> sell<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -1510,18 +1734,17 @@ A[i], V[i], n, m 均为整数
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/04/16/leetcode-dynamicplan/">
+                <a href="/2021/06/01/interview-questions/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Leetcode-DynamicPlan">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Interview-questions">
                         
-                        <span class="card-title">Leetcode-DynamicPlan</span>
+                        <span class="card-title">Interview-questions</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1531,33 +1754,16 @@ A[i], V[i], n, m 均为整数
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-16
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-01
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Leetcode/" class="post-category">
-                                    Leetcode
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Scorpin Xia
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%87%AA%E5%AD%A6/">
-                        <span class="chip bg-color">自学</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1770,7 +1976,7 @@ A[i], V[i], n, m 均为整数
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">276.8k</span>&nbsp;字
+                class="white-color">282.9k</span>&nbsp;字
             
             
             
