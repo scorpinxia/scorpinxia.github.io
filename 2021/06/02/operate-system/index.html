@@ -476,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    4.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    17 分
                 </div>
                 
 
@@ -506,13 +506,57 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="上下文切换"><a href="#上下文切换" class="headerlink" title="上下文切换"></a>上下文切换</h1><p>补充一下,看了最后的那张图,感觉切换,就是切内核态的 stack/rsp/pc, 这样下一个任务就能找到在哪执行了,以及继续怎么执行, 而内核态共享一片内存空间,所以不需要mm_switch,切换完了,返回用户态,用户态的stack/rsp/pc都被切换了, 而用户态的内存空间需要单独切换</p>
+                <ul>
+<li><a href="#%E5%86%85%E6%A0%B8%E5%88%9B%E5%BB%BA%E4%BA%86%E4%B8%80%E4%BA%9B%E8%BF%9B%E7%A8%8B%E8%BF%99%E4%BA%9B%E8%BF%9B%E7%A8%8B%E9%83%BD%E6%98%AF%E6%94%BE%E5%9C%A8%E4%B8%80%E4%B8%AA%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84">内核创建了一些进程，这些进程都是放在一个列表中的</a></li>
+<li><a href="#free">free</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%83%B5%E6%AD%BB%E8%BF%9B%E7%A8%8B%E5%AD%A4%E5%84%BF%E8%BF%9B%E7%A8%8B">什么是僵死进程？孤儿进程？</a></li>
+<li><a href="#%E7%BA%BF%E7%A8%8B%E5%86%85%E6%A0%B8%E6%A0%88%E7%8B%AC%E7%AB%8B">线程内核栈独立？</a></li>
+<li><a href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2">上下文切换</a></li>
+<li><a href="#%E8%BF%9B%E7%A8%8B%E5%90%84%E7%A7%8D%E4%BF%A1%E6%81%AF%E5%91%BD%E4%BB%A4">进程各种信息命令</a></li>
+<li><a href="#%E8%BF%9B%E7%A8%8B%E7%94%A8%E6%88%B7%E6%A0%88-%E5%86%85%E6%A0%B8%E6%A0%88%E5%A4%A7%E5%B0%8F">进程用户栈 内核栈大小</a></li>
+<li><a href="#%E5%86%85%E6%A0%B8%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E5%92%8C%E7%94%A8%E6%88%B7%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80">内核虚拟地址和用户虚拟地址</a></li>
+<li><a href="#cr3">CR3</a></li>
+<li><a href="#%E8%AF%B7%E7%A0%94%E7%A9%B6%E4%B8%80%E4%B8%8B-page_address%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9E%E7%8E%B0">请研究一下 page_address函数的实现。</a></li>
+<li><a href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%92%8C%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84">虚拟内存和物理内存映射</a></li>
+<li><a href="#24-swap">24 swap</a></li>
+<li><a href="#%E7%89%A9%E7%90%86%E9%A1%B5%E9%9D%A2%E8%BD%AC%E6%8D%A2%E8%99%9A%E6%8B%9F%E9%A1%B5%E9%9D%A2">物理页面转换虚拟页面</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F">文件系统</a><ul>
+<li><a href="#%E4%B8%80%E5%88%87%E9%83%BD%E6%98%AF%E6%96%87%E4%BB%B6">一切都是文件</a></li>
+<li><a href="#%E7%A1%AC%E9%93%BE%E6%8E%A5%E5%92%8C%E8%BD%AF%E8%BF%9E%E6%8E%A5">硬链接和软连接</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B-inode-%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E5%86%85%E5%AE%B9%E5%90%97">如何查看 inode 的内容和文件夹的内容吗？</a></li>
+<li><a href="#%E4%BD%A0%E7%9F%A5%E9%81%93%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E6%AF%8F%E4%B8%AA-cpu-%E9%83%BD%E6%94%B6%E5%88%B0%E4%BA%86%E5%93%AA%E4%BA%9B%E4%B8%AD%E6%96%AD%E5%90%97">你知道如何查看每个 CPU 都收到了哪些中断吗？</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2%E6%B8%85%E9%99%A4%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BC%93%E5%AD%98">查询清除操作系统缓存</a></li>
+<li><a href="#%E7%A3%81%E7%9B%98%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95">磁盘调度算法</a></li>
+<li><a href="#%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1">进程通信</a></li>
+<li><a href="#socket">Socket</a></li>
+<li><a href="#docker">docker</a></li>
+<li><a href="#review">review</a><ul>
+<li><a href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="内核创建了一些进程，这些进程都是放在一个列表中的"><a href="#内核创建了一些进程，这些进程都是放在一个列表中的" class="headerlink" title="内核创建了一些进程，这些进程都是放在一个列表中的"></a>内核创建了一些进程，这些进程都是放在一个列表中的</h1><p>已实现了两种获取方式，一是从连接task_struct结构的双向链表获取；二是遍历进程的家族树获取。还能不能从其它途径收集进程信息，我有个想法是访问进程的运行队列和等待队列来获取所有进程信息</p>
+<h1 id="free"><a href="#free" class="headerlink" title="free"></a>free</h1><p>free：该函数获得指向由 malloc 分配的内存片段的指针，并将其释放，以便以后的程序或操作系统使用（实际上，一些 malloc 实现只能将内存归还给程序，而无法将内存归还给操作系统）。</p>
+<h1 id="什么是僵死进程？孤儿进程？"><a href="#什么是僵死进程？孤儿进程？" class="headerlink" title="什么是僵死进程？孤儿进程？"></a>什么是僵死进程？孤儿进程？</h1><ol>
+<li><p>僵尸进程：一个子进程在父进程还没有调用wait()方法或者waitpid()方法的情况下退出，这个子进程就是僵尸进程；</p>
+</li>
+<li><p>孤儿进程：一个父进程退出，它的一个或多个子进程还在运行，子进程将成为孤儿进程，孤儿进程将被init进程所收养；</p>
+</li>
+<li><p>僵尸进程将会导致资源浪费，而孤儿进程则不会。</p>
+</li>
+</ol>
+<h1 id="线程内核栈独立？"><a href="#线程内核栈独立？" class="headerlink" title="线程内核栈独立？"></a>线程内核栈独立？</h1><p>独立 。不然 执行不了系统调用了 16K 64位</p>
+<h1 id="上下文切换"><a href="#上下文切换" class="headerlink" title="上下文切换"></a>上下文切换</h1><p>补充一下,看了最后的那张图,感觉切换,就是切内核态的 stack/rsp/pc, 这样下一个任务就能找到在哪执行了,以及继续怎么执行, 而内核态共享一片内存空间,所以不需要mm_switch,切换完了,返回用户态,用户态的stack/rsp/pc都被切换了, 而用户态的内存空间需要单独切换</p>
 <h1 id="进程各种信息命令"><a href="#进程各种信息命令" class="headerlink" title="进程各种信息命令"></a>进程各种信息命令</h1><blockquote>
 <p><a target="_blank" rel="noopener" href="https://garlicspace.com/2019/07/03/%E8%8E%B7%E5%8F%96%E8%BF%9B%E7%A8%8B%E4%BF%A1%E6%81%AF%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/">https://garlicspace.com/2019/07/03/%E8%8E%B7%E5%8F%96%E8%BF%9B%E7%A8%8B%E4%BF%A1%E6%81%AF%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/</a></p>
 </blockquote>
 <blockquote>
 <p>查看上下文切换,可以用cat /proc/x/status</p>
 </blockquote>
+<p>从上面可以看出VmRSS才是我们最关心的内存大小，即正在使用的物理内存的大小；而VmSize是进程所拥有的虚拟空间的大小.</p>
 <blockquote>
 <p>可以查看进程内存空间的<br>布局 cat /proc/$pid/map</p>
 </blockquote>
@@ -524,9 +568,14 @@
 <p><a target="_blank" rel="noopener" href="https://garlicspace.com/2020/01/10/%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86-%e9%a1%b5%e9%9d%a2%e5%a4%a7%e5%b0%8f/">https://garlicspace.com/2020/01/10/%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86-%e9%a1%b5%e9%9d%a2%e5%a4%a7%e5%b0%8f/</a></p>
 </blockquote>
 <p>top命令查看进程的动态信息<br>top命令，以动态刷新的方式显示各个进程的状态信息，默认情况下3秒刷新一次，类似于windows中的任务管理器</p>
+<p>要更详细的需要 ps netstat</p>
+<h1 id="进程用户栈-内核栈大小"><a href="#进程用户栈-内核栈大小" class="headerlink" title="进程用户栈 内核栈大小"></a>进程用户栈 内核栈大小</h1><p>用户栈  8M<br>内核栈  16K</p>
 <h1 id="内核虚拟地址和用户虚拟地址"><a href="#内核虚拟地址和用户虚拟地址" class="headerlink" title="内核虚拟地址和用户虚拟地址"></a>内核虚拟地址和用户虚拟地址</h1><blockquote>
 <p>是的，内核对于所有的进程，不但物理内存只有一份，虚拟内存也是只有一份。也就是说A进程用户态访问x虚拟地址和B进程用户态访问x虚拟地址是不同的虚拟地址，也即A进程用户态在x虚拟地址里面放了一个数值w，B进程用户态的x虚拟地址看不到w，对应的也是不同的物理地址。A进程内核态访问的y虚拟地址，和B进程内核态访问的y虚拟地址，是通一个虚拟地址，也对应相同的物理地址。也即A进程内核态在y虚拟地址方一个数值n，B进程的内核态如果能够访问y虚拟地址的话，也能看到n</p>
 </blockquote>
+<h1 id="CR3"><a href="#CR3" class="headerlink" title="CR3"></a>CR3</h1><p>使用MOV指令加载CR3时具有让页高速缓冲无效的副作用。为了减少地址转换所要求的总线周期数量,近几天访问的页目录和页表会被存放在处理器的页高速缓冲器件中，该缓冲器件被称为转换查找缓冲区（Translation Lookaside Buffer，TLB）。只有当TLB中不包含要求的页表项时才会使用额外的总线周期从内存中读取页表项。</p>
+<p>当切换任务时，CR3的内容也会随之改变。但是如果新任务的CR3值与原任务的一样，处理器就无需刷新页高速缓冲。这样共享页表的任务可以执行得更快。</p>
+<h1 id="请研究一下-page-address函数的实现。"><a href="#请研究一下-page-address函数的实现。" class="headerlink" title="请研究一下 page_address函数的实现。"></a>请研究一下 page_address函数的实现。</h1><p>A_HASH_ORDER=7, 所以一共有1&lt;&lt;7（128）个链表，每一个page通过HASH算法后对应一个 page_address_htable链表, 然后再遍历这个链表来找到对应的PAGE和虚拟地址。<br>page通过HASH算法后对应一个 page_address_htable链表的代码如下：</p>
 <h1 id="虚拟内存和物理内存映射"><a href="#虚拟内存和物理内存映射" class="headerlink" title="虚拟内存和物理内存映射"></a>虚拟内存和物理内存映射</h1><blockquote>
 <p><a target="_blank" rel="noopener" href="https://garlicspace.com/2020/04/12/linux%e8%bf%9b%e7%a8%8b%e5%86%85%e5%ad%98%e5%b8%83%e5%b1%80%e5%8f%8a%e6%98%a0%e5%b0%84%e4%bf%a1%e6%81%af/">https://garlicspace.com/2020/04/12/linux%e8%bf%9b%e7%a8%8b%e5%86%85%e5%ad%98%e5%b8%83%e5%b1%80%e5%8f%8a%e6%98%a0%e5%b0%84%e4%bf%a1%e6%81%af/</a></p>
 </blockquote>
@@ -581,7 +630,7 @@
 <blockquote>
 <p>软链接相当于重新创建了一个文件。这个文件也有独立的 inode，只不过打开这个文件看里面内容的时候，内容指向另外的一个文件。</p>
 </blockquote>
-<blockquote>
+<h1 id="如何查看-inode-的内容和文件夹的内容吗？"><a href="#如何查看-inode-的内容和文件夹的内容吗？" class="headerlink" title="如何查看 inode 的内容和文件夹的内容吗？"></a>如何查看 inode 的内容和文件夹的内容吗？</h1><blockquote>
 <p>查看文件inode:stat filename<br>查看目录inode:stat dirname<br>查看磁盘inode:df -i</p>
 </blockquote>
 <blockquote>
@@ -590,13 +639,124 @@
 <blockquote>
 <p>/sys/block/xvda/queue/scheduler 磁盘的调度算法，临时修改：echo noop &gt; /sys/block/xvda/queue/scheduler，永久修改就需要修改内核参数，然后重启。<br>iostat -d -x 中的avgqu-sz是平均I/O队列长度。</p>
 </blockquote>
+<h1 id="你知道如何查看每个-CPU-都收到了哪些中断吗？"><a href="#你知道如何查看每个-CPU-都收到了哪些中断吗？" class="headerlink" title="你知道如何查看每个 CPU 都收到了哪些中断吗？"></a>你知道如何查看每个 CPU 都收到了哪些中断吗？</h1><p>cat /proc/interrupts </p>
+<p> cat /proc/softirqs 「软中断」 128核默认 通过别的命令只看两列</p>
+<h1 id="查询清除操作系统缓存"><a href="#查询清除操作系统缓存" class="headerlink" title="查询清除操作系统缓存"></a>查询清除操作系统缓存</h1><p>sync命令用于强制被改变的内容立刻写入磁盘，更新超块信息。</p>
+<p>To free pagecache:仅清除页面缓存(PageCache)</p>
+<p>echo 1 &gt; /proc/sys/vm/drop_caches</p>
+<p>To free dentries and inodes:清除目录项和inode</p>
+<p>echo 2 &gt; /proc/sys/vm/drop_caches</p>
+<p>To free pagecache, dentries and inodes:清除页面缓存，目录项和inode</p>
+<p>echo 3 &gt; /proc/sys/vm/drop_caches</p>
+<blockquote>
+<p>sudo echo 1 &gt; /proc/sys/vm/drop_caches<br>bash: /proc/sys/vm/drop_caches: Permission denied</p>
+</blockquote>
+<p>bash 拒绝这么做，提示权限不够，是因为重定向符号 “&gt;” 也是 bash 的命令。sudo 只是让 echo 命令具有了 root 权限，<br>但是没有让 “&gt;” 命令也具有root 权限，所以 bash 会认为这个命令没有写入信息的权限。</p>
+<p>“sh -c” 命令,它可以让 bash 将一个字串作为完整的命令来执行<br>sudo sh -c “echo 3 &gt; /proc/sys/vm/drop_caches”</p>
 <h1 id="磁盘调度算法"><a href="#磁盘调度算法" class="headerlink" title="磁盘调度算法"></a>磁盘调度算法</h1><p>/sys/block/xvda/queue/scheduler 磁盘的调度算法，临时修改：echo noop &gt; /sys/block/xvda/queue/scheduler，永久修改就需要修改内核参数，然后重启。<br>iostat -d -x 中的avgqu-sz是平均I/O队列长度。</p>
+<ul>
+<li><p>1、NOOP<br>NOOP算法的全写为No Operation。该算法实现了最最简单的FIFO队列，所有IO请求大致按照先来后到的顺序进行操作。之所以说“大致”，原因是NOOP在FIFO的基础上还做了相邻IO请求的合并，并不是完完全全按照先进先出的规则满足IO请求。<br>假设有如下的io请求序列：<br>100，500，101，10，56，1000<br>NOOP将会按照如下顺序满足：<br>100(101)，500，10，56，1000</p>
+</li>
+<li><p>2、CFQ<br>CFQ算法的全写为Completely Fair Queuing。该算法的特点是按照IO请求的地址进行排序，而不是按照先来后到的顺序来进行响应。<br>假设有如下的io请求序列：<br>100，500，101，10，56，1000<br>CFQ将会按照如下顺序满足：<br>100，101，500，1000，10，56</p>
+</li>
+</ul>
+<p>他们会放入进程自身的请求队列，而所有同优先级的异步请求，无论来自于哪个进程，都会被放入公共的队列，异步请求的队列总共有8(RT)+8(BE)+1(IDLE)=17个。</p>
+<ul>
+<li>3、DEADLINE<br>DEADLINE在CFQ的基础上，解决了IO请求饿死的极端情况。除了CFQ本身具有的IO排序队列之外，DEADLINE额外分别为读IO和写IO提供了FIFO队列。读FIFO队列的最大等待时间为500ms，写FIFO队列的最大等待时间为5s。FIFO队列内的IO请求优先级要比CFQ队列中的高，，而读FIFO队列的优先级又比写FIFO队列的优先级高。优先级可以表示如下：<br>FIFO(Read) &gt; FIFO(Write) &gt; CFQ</li>
+</ul>
+<p>deadline IO 之所以区分读和写是因为设计者认为如果应用程序发了一个读请求，一般就会阻塞到那里，一直等到的结果返回。 而写请求则不是通常是应用请求写到内存即可，由后台进程再写回磁盘。应用程序一般不等写完成就继续往下走。 所以读请求应该比写请求有更高的优先级。</p>
+<ul>
+<li>4、ANTICIPATORY<br>CFQ和DEADLINE考虑的焦点在于满足零散IO请求上。对于连续的IO请求，比如顺序读，并没有做优化。为了满足随机IO和顺序IO混合的场景，Linux还支持ANTICIPATORY调度算法。ANTICIPATORY的在DEADLINE的基础上，为每个读IO都设置了6ms的等待时间窗口。如果在这6ms内OS收到了相邻位置的读IO请求，就可以立即满足。</li>
+</ul>
+<p>总结<br>1.cfq是一种比较通用的调度算法，是一种以进程为出发点考虑的调度算法，保证尽量公平。</p>
+<p>2.deadline是一种以提高机械硬盘吞吐量为思考出发点的调度算法，只有当有IO请求达到最终期限的时候才进行调度，非常适合业务比较单一并且IO压力比较重的业务，比如数据库。</p>
+<p>3.noop在固态硬盘这种场景下，使用noop是最好的，deadline次之，而cfq由于复杂度的原因，效率最低。</p>
 <h1 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h1><p>ipcs -q 管道 消息队列</p>
 <p>ipcs –shmems 如果一个进程想要访问这一段共享内存，需要将这个内存加载到自己的虚拟地址空间的某个位置</p>
 <h1 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h1><blockquote>
 <p>老师。应用层调用socket 接口发送数据是到哪个阶段就返回了？是数据写到qdisc中应用就可以返回了吗？还是要等到写到硬件网卡中？<br>作者回复: 发起软中断就返回</p>
 </blockquote>
 <h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><p>docker run -it –entrypoint bash ubuntu:14.04</p>
+<h1 id="review"><a href="#review" class="headerlink" title="review"></a>review</h1><p>系统调用<br>32 int $0x80 就是触发一个软中断</p>
+<p>64  syscall 指令 我们叫特殊模块寄存器（Model Specific<br>当 syscall 指令调用的时候，会从这个寄存器里面拿出函数地址来调用</p>
+<p>无论是 32 位，还是 64 位，都会到系统调用表 sys_call_table 这里来。</p>
+<p>PID 1 的进程就是我们的 init 进程 systemd，PID 2 的进程是内核线程 kthreadd</p>
+<p>EIP存储着下一条指令的地址，每执行一条指令，该寄存器变化一次。</p>
+<p>EBP存储着当前函数栈底的地址，栈低通常作为基址，我们可以通过栈底地址和偏移相加减来获取变量地址（很重要）。</p>
+<p>ESP就是前面说的，始终指向栈顶，只要ESP指向变了，那么当前栈顶就变了。</p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><blockquote>
+<p>权限<br>我们引入新的机制 capabilities，用位图表示权限</p>
+</blockquote>
+<blockquote>
+<p>调度<br>能够平衡查询和更新速度的是树，在这里使用的是红黑树。<br>红黑树的的节点是应该包括 vruntime 的，称为调度实体。</p>
+</blockquote>
+<p>每个 CPU 都有自己的 struct rq 结构，其用于描述在此 CPU 上所运行其包括一个实时进程队列 rt_rq 和一个 CFS 运行队列 cfs_rq。这个红黑树在 CPU 看起来就是一个队列</p>
+<blockquote>
+<p>线程缓存池<br>其实线程栈是在进程的堆里面创建的。如果一个进程不断地创建和删除线程，我们不可能不断地去申请和清除线程栈使用的内存块，这样就需要有一个缓存。</p>
+</blockquote>
+<blockquote>
+<p>虚拟内存区域<br>这里面一个是单链表，用于将这些区域串起来。另外还有一个红黑树。又是这个数据结构，在进程调度的时候我们用的也是红黑树。它的好处就是查找和修改都很快。这里用红黑树，就是为了快速查找一个内存区域，并在需要改变的时候，能够快速修改。</p>
+</blockquote>
+<blockquote>
+<p>物理小块内存<br>Linux 系统采用了一种被称为slab allocator的技术，用于分配<br>称为 slab 的一小块内存。它的基本原理是从内存管理模块申请一整块页，然后划分成多个小块的存储池，用复杂的队列来维护这些小块的状态（状态包括：被分配了 / 被放回池子 /应该被回收）。</p>
+</blockquote>
+<ul>
+<li>有了这个缓存区，每次创建 task_struct 的时候，我们不用到内存里面去分配，先在缓存里面看看有没有直接可用的，这就是kmem_cache_alloc_node的作用。</li>
+</ul>
+<ul>
+<li><p>对于操作系统来讲，要创建和管理的缓存绝对不止<br>task_struct。难道 mm_struct 就不需要吗？fs_struct 就不需要吗？都需要。因此，所有的缓存最后都会放在一个链表里面，也就是 LIST_HEAD(slab_caches)。</p>
+</li>
+<li><p>这就相当于咱们数据结构里面学的，用数组实现一个可随机插入和删除的链表。</p>
+</li>
+</ul>
+<blockquote>
+<p>物理分配页级别的，可以使用伙伴系统（Buddy System）。</p>
+</blockquote>
+<ul>
+<li>当向内核请求分配 (2^(i-1)，2^i] 数目的页块时，按照 2^i 页块请求处理。如果对应的页块链表中没有空闲页块，那我们就在更大的页块链表中去找</li>
+</ul>
+<blockquote>
+<p>页面换出 LRU</p>
+</blockquote>
+<blockquote>
+<p>文件系统<br>所以在文件系统里面，我们专门弄了一个块来保存 inode 的位<br>图。在这 4k 里面，每一位对应一个 inode。如果是 1，表示这个 inode 已经被用了；如果是 0，则表示没被用。同样，我们也弄了一个块保存 block 的位图。</p>
+</blockquote>
+<blockquote>
+<p>目录缓存<br>Linux 为了提高目录项对象的处理效率，设计与实现了目录项高速缓存 dentry cache，简称 dcache。它主要由两个数据结构组成：</p>
+</blockquote>
+<ul>
+<li><p>哈希表 dentry_hashtable：dcache 中的所有 dentry 对象都通过 d_hash 指针链到相应的 dentry 哈希链表中；</p>
+</li>
+<li><p>未使用的 dentry 对象链表 s_dentry_lru：dentry 对象通过其 d_lru 指针链入 LRU 链表<br>中。</p>
+</li>
+</ul>
+<blockquote>
+<p>缓存页</p>
+</blockquote>
+<ul>
+<li>我们查找的时候，往往需要根据文件中的偏移量找出相应的页面，而基数树 radix tree 这种数据结构能够快速根据一个长整型查找到其相应的对象，因而这里缓存页就放在 radix 基</li>
+</ul>
+<blockquote>
+<p>中断向量</p>
+</blockquote>
+<ul>
+<li>我们可以放在一棵基数树上。我们不是第一次遇到这个数据结构了。这种结构对于从某个整型 key 找到 value 速度很快，中断信号 irq 是这个整数。通过它，我们很快就能定位到对 应的 struct irq_desc。</li>
+</ul>
+<blockquote>
+<p>ipc对象 基数树<br>也就是说，对于 sem_ids、msg_ids、shm_ids 各有一棵基<br>数树。这个函数根据 id，在基数树里面找出来的是 struct<br>kern_ipc_perm。</p>
+</blockquote>
+<blockquote>
+<p>Trie树</p>
+</blockquote>
+<p>之所以每个字符串都加上 #，是希<br>望不要一个字符串成为另外一个字符串的前缀。<br><img src="/2021/06/02/operate-system/1.png"></p>
+<p>对于将 IP 地址转成二进制放入 trie 树，也是同样的道理，可以很快进行路由的查询。</p>
+<blockquote>
+<p>链式哈希<br>ARP列表</p>
+</blockquote>
+<blockquote>
+<p>发包排队 （qdisc 全称是 queueing discipline）</p>
+</blockquote>
+<p>pfifo：先入先出<br>pfifo_fast：三波段</p>
 
                 
             </div>
@@ -1362,7 +1522,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">282.9k</span>&nbsp;字
+                class="white-color">296.5k</span>&nbsp;字
             
             
             

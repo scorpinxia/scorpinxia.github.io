@@ -476,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    3.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    11 分
                 </div>
                 
 
@@ -588,6 +588,15 @@
 <li><a href="#ldpc">LDPC</a></li>
 </ul>
 </li>
+<li><a href="#time-%E8%AE%A1%E7%AE%97">time 计算</a><ul>
+<li><a href="#%E4%BC%A0%E7%BB%9F">传统</a></li>
+<li><a href="#ht-ppdu">HT PPDU</a></li>
+</ul>
+</li>
+<li><a href="#ldpc-1">LDPC</a><ul>
+<li><a href="#%E7%BC%96%E7%A0%81%E8%BF%87%E7%A8%8B">编码过程</a></li>
+</ul>
+</li>
 </ul>
 <!-- /TOC -->
 <h1 id="OFDM（orthogonal-Frequency-division-mutiplexing）"><a href="#OFDM（orthogonal-Frequency-division-mutiplexing）" class="headerlink" title="OFDM（orthogonal Frequency division mutiplexing）"></a>OFDM（orthogonal Frequency division mutiplexing）</h1><p>不同子载波传输<br><img src="/2020/09/20/wifi4-chap02-phy/1.png"></p>
@@ -622,27 +631,44 @@
 <ul>
 <li>STF 短训练字段 初始时间同步、初始频率偏移估计</li>
 <li>LTF 长训练字段 信道估计、精确时间同步、频率偏移估计</li>
-<li>SIG 信令字段 分组速率、长度等</li>
+<li>SIG 信令字段 分组速率、长度等 <ul>
+<li>字节长度</li>
+<li>速率+ 码率</li>
+<li>校验和保留bit 很重要（在802.11MF 在低SNR有问题)</li>
+</ul>
+</li>
 </ul>
 <p><img src="/2020/09/20/wifi4-chap02-phy/19.png"></p>
 <h3 id="STF"><a href="#STF" class="headerlink" title="STF"></a>STF</h3><p>10个 0.8us短训练码元<br><img src="/2020/09/20/wifi4-chap02-phy/21.png"><br>只用了12个子载波</p>
 <p>64位 IFFT =3.2us 序列  产生了0.8us周期 所以重复2.5周期就行</p>
 <p><img src="/2020/09/20/wifi4-chap02-phy/20.png"></p>
 <h3 id="LTF"><a href="#LTF" class="headerlink" title="LTF"></a>LTF</h3><p>两个3.2us长训练码元  1.6us循环前缀 （长训练码元后半)<br><img src="/2020/09/20/wifi4-chap02-phy/23.png"></p>
+<p>LTF的另一个主要目的是用于信道估计。接收机从LTF中提取两个长训练码元。在对码元进行了一个FFT后，训练子载波就被提取出来。来自第一个长训练码元的子载波与来自第二个码元的子载波作平均，将噪声影响减少了3dB。对于随后的每个子载波k，我们都有一个基本的通信系统公式，y = hL + zx。Ln的值由式(4.2）给出。每一个子载波k的信道估</p>
+<p>由于信道估计被用于均衡随后的OFDM码元,信道估计的噪声在数据检测中通过数据包进行传播。为了减少信道估计的噪声，需要应用子载波平滑技术。一个简单的方法是将子载波k的信道估计与其相邻的子载波一起进行加权平均，即</p>
+<p>信道的自然特性必须与子载波平滑-起考虑。在一个低延迟扩散、平坦衰落的信道中，相邻子载波上的信道条带高度相关，子载波平滑也显著地减少了噪声。然而，在一个高频选择性衰竭信道中，相邻信道条带可能并不相关，需要应用更复杂的平滑算法。否则，不当的平均方法将会损坏信道估计。</p>
 <h3 id="SIG"><a href="#SIG" class="headerlink" title="SIG"></a>SIG</h3><p><img src="/2020/09/20/wifi4-chap02-phy/22.png"></p>
 <p>3.2us OFDM码 和0.8us循环前缀 </p>
 <p><img src="/2020/09/20/wifi4-chap02-phy/24.png"></p>
-<h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><ul>
+<p>通过先测量接收信号量并只处理超过某一阈值的信号，这个问题可以部分得到解决。但是，有些制造商额外使用保留比特位进行更多的校验。为了保持设备间的后向兼容，SIG 中的保留比特位将不被用于标志新的802.11n MF 分组。于是便要求在802.11a和802.11n MF分组之间有一个自动监测。我们将在4.2.2.1节中进一步讨论这个问题。</p>
+<h3 id="数据字段"><a href="#数据字段" class="headerlink" title="数据字段"></a>数据字段</h3><p>数据字段由服务字段、数据比特、尾部比特以及需要时才有的填充比特组成。数据字段的前16个比特为服务字段。服务字段的前7个比特为扰码器初始化比特，用来与解扰器进行同步。这些比特设为0，以便估计接收机中扰码器的初始状态。其余的9个比特为保留位，也设为0。</p>
+<p>尾部bit 6个0 （绕码前） 做完绕码后 在替换成6bit0 在加填充bit（对齐长度）</p>
+<ul>
 <li>服务字段（扰码器）、</li>
 <li>数据字段  每个数据码元4us 3.2usOFDM、0.8CUR,和LTF、SIG一样波形使用52子载波 根据SIG速率信息调制到48子载波上，4个子载波 做相位、频率跟踪训练的导频</li>
 </ul>
 <p><img src="/2020/09/20/wifi4-chap02-phy/23.png"></p>
 <p><img src="/2020/09/20/wifi4-chap02-phy/26.png"></p>
-<h3 id="分组编码"><a href="#分组编码" class="headerlink" title="分组编码"></a>分组编码</h3><p><img src="/2020/09/20/wifi4-chap02-phy/25.png"></p>
+<h3 id="分组编码"><a href="#分组编码" class="headerlink" title="分组编码"></a>分组编码</h3><blockquote>
+<p>交织作用<br>已编码的数据分组为包含一定数量比特的码元。每组与两个排列进行分组交织。第一个排列将邻近的编码比特映射到非邻近的子载波上。这样一来，邻近的编码比特便不再受相同频率选择性衰落的影响。第二个排列保证了相邻编码比特分布在调制星座最高位和最低位比特之间。这保证了比特长字符串不会映射到较低可靠性的最低位星座比特上。</p>
+</blockquote>
+<p><img src="/2020/09/20/wifi4-chap02-phy/25.png"></p>
 <p>调制格式，(对载波调制)  ： BPSK、qPSK、16QAM</p>
 <h3 id="接受过程"><a href="#接受过程" class="headerlink" title="接受过程"></a>接受过程</h3><p><img src="/2020/09/20/wifi4-chap02-phy/27.png"></p>
+<p>果校验比特指示有一个错误，接收机便恢复空闲状态。当校验比特没有检测到错误时，接收机便按照信息速率和长度进行配置。速率决定了调制种类和编码率。长度决定了以八进制为单位的数据流的持续时间。</p>
 <h2 id="HT分组"><a href="#HT分组" class="headerlink" title="HT分组"></a>HT分组</h2><p><img src="/2020/09/20/wifi4-chap02-phy/28.png"></p>
-<h3 id="MF前导码-非HT部分-与前面类似"><a href="#MF前导码-非HT部分-与前面类似" class="headerlink" title="MF前导码 非HT部分 与前面类似"></a>MF前导码 非HT部分 与前面类似</h3><h3 id="HT部分"><a href="#HT部分" class="headerlink" title="HT部分"></a>HT部分</h3><h4 id="HT-SIG1-HT-SIG2"><a href="#HT-SIG1-HT-SIG2" class="headerlink" title="HT-SIG1 HT-SIG2"></a>HT-SIG1 HT-SIG2</h4><p><img src="/2020/09/20/wifi4-chap02-phy/29.png"></p>
+<h3 id="MF前导码-非HT部分-与前面类似"><a href="#MF前导码-非HT部分-与前面类似" class="headerlink" title="MF前导码 非HT部分 与前面类似"></a>MF前导码 非HT部分 与前面类似</h3><p>一些字段已被指定保护802.11n 不受802.11a设备的影响。例如，速率字段总是被设为6Mbit/s，长度字段的设置使得802.11a设备可以正确地将发送延迟至少整个HT 分组的持续时间。</p>
+<h3 id="HT部分"><a href="#HT部分" class="headerlink" title="HT部分"></a>HT部分</h3><p>间的自动检测。HT-STF用来重新设置AGC。HT-LTF用于MIMO信道估计。HT数据字段位于HT-LTF之后。</p>
+<h4 id="HT-SIG1-HT-SIG2"><a href="#HT-SIG1-HT-SIG2" class="headerlink" title="HT-SIG1 HT-SIG2"></a>HT-SIG1 HT-SIG2</h4><p><img src="/2020/09/20/wifi4-chap02-phy/29.png"></p>
 <ul>
 <li>前7bit MCS 调制编码方案 <ul>
 <li>（BPSK、……、64QAM)（0~76） code RATE  1/2、2/3/、3/4、5/6   </li>
@@ -650,15 +676,18 @@
 </ul>
 </li>
 </ul>
+<p>两个STBC比特表示STBC操作的维度。此比特值为0时，没有STBC操作。3为保留值。其他值将在6.3节中详细讨论。</p>
+<p>其余的3个信息比特其中一个是FEC编码比特，它的值为О时表示数据为BCC编码，为1时表示数据为LDPC编码。另一个为短GI比特，它的值为1时表示使用400ns短保护间隔，而不是标准的800ns 长度保护间隔。这些特性将在第6章中描述。还有-一个为保留比特，它的值总是设为1。</p>
 <p>通过 阈值区分 传统  和HT MF</p>
 <p><img src="/2020/09/20/wifi4-chap02-phy/30.png"></p>
 <h4 id="HT-STF"><a href="#HT-STF" class="headerlink" title="HT-STF"></a>HT-STF</h4><p>同样空间流、不同发送天线 需要大循环移位解除信号相关性<br><img src="/2020/09/20/wifi4-chap02-phy/32.png"></p>
 <h4 id="HT-LTF"><a href="#HT-LTF" class="headerlink" title="HT-LTF"></a>HT-LTF</h4><p>同样空间流、不同发送天线 需要大循环移位解除信号相关性<br><img src="/2020/09/20/wifi4-chap02-phy/33.png"></p>
 <h4 id="数据字段-1"><a href="#数据字段-1" class="headerlink" title="数据字段"></a>数据字段</h4><p><img src="/2020/09/20/wifi4-chap02-phy/34.png"></p>
-<h5 id="码元数"><a href="#码元数" class="headerlink" title="码元数"></a>码元数</h5><p><img src="/2020/09/20/wifi4-chap02-phy/35.png"></p>
+<h5 id="码元数"><a href="#码元数" class="headerlink" title="码元数"></a>码元数</h5><p>BCC 符号数<br><img src="/2020/09/20/wifi4-chap02-phy/35.png"><br>式中，length为图4.16中所示的HT-SIG 域中长度域的八进制值;NDBPS是每个由其选定的MCS决定的OFDM 码元的数据比特数。  </p>
 <h5 id="扰码和编码"><a href="#扰码和编码" class="headerlink" title="扰码和编码"></a>扰码和编码</h5><h5 id="流解析-（轮流-发给-空间流NSS"><a href="#流解析-（轮流-发给-空间流NSS" class="headerlink" title="流解析 （轮流 发给 空间流NSS"></a>流解析 （轮流 发给 空间流NSS</h5><h5 id="交织-（ISS-《-NSS）"><a href="#交织-（ISS-《-NSS）" class="headerlink" title="交织 （ISS 《=NSS）"></a>交织 （ISS 《=NSS）</h5><h5 id="调制映射"><a href="#调制映射" class="headerlink" title="调制映射"></a>调制映射</h5><p>交织输出的bit流 映射到 复数星座点</p>
 <h5 id="导频子载波"><a href="#导频子载波" class="headerlink" title="导频子载波"></a>导频子载波</h5><p>-21 -7 1 21</p>
 <h3 id="接受机"><a href="#接受机" class="headerlink" title="接受机"></a>接受机</h3><p><img src="/2020/09/20/wifi4-chap02-phy/31.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/56.png"></p>
 <h1 id="HT的"><a href="#HT的" class="headerlink" title="HT的"></a>HT的</h1><p>之前的关键特色  MIMO SDM</p>
 <h2 id="40MHZ信道"><a href="#40MHZ信道" class="headerlink" title="40MHZ信道"></a>40MHZ信道</h2><p>128个子载波 保护带 左边 6个空 右边 5个空 中间 3个空 -1 0 1 ，<br>6个导频 来更精确跟踪相位 </p>
 <h3 id="40mhz信道设计"><a href="#40mhz信道设计" class="headerlink" title="40mhz信道设计"></a>40mhz信道设计</h3><p>相邻结合  NPrimary_ch=36 Secondary=1 代表 36+1*4 次信道</p>
@@ -706,6 +735,19 @@
 <p>数据分组长度越长 有效码率越大</p>
 <p>不需要交织</p>
 <p>与BCC比较<br><img src="/2020/09/20/wifi4-chap02-phy/51.png"></p>
+<ul>
+<li>A: 计算 每个符号</li>
+</ul>
+<h1 id="time-计算"><a href="#time-计算" class="headerlink" title="time 计算"></a>time 计算</h1><h2 id="传统"><a href="#传统" class="headerlink" title="传统"></a>传统</h2><p>HT混合格式前导码被设计为与传统802.11g 与802.11a站点兼容。这种兼容指的是收到该帧的传统站点会根据前导码中与传统格式兼容部分的信令字段（L-SIG）中指定的长度(L_LENGTH）与速率(L_DATARATE）进行后延。图10.10描述了这种情况。<br><img src="/2020/09/20/wifi4-chap02-phy/53.png"></p>
+<p>比如 DATARATE 6Mbit/s 每4us码元 承载3个8位元（24bit) 16server 和6bit尾部 载荷开销一算一个码元（实际22bit 但是floor)</p>
+<p>传统站点（ 载荷时长<br><img src="/2020/09/20/wifi4-chap02-phy/54.png"><br>式中，П表示向上取整到下一个整数值。由于L_LENGTH 的最大值为4095，一个 HT站点可以标示在4us边界上的最大为5.464ms 的 L-SIG 时长。HT站点必须合理设置L_LENGTH与L_DATARATE的值以标示至少为该帧时长的L-SIG时长。</p>
+<h2 id="HT-PPDU"><a href="#HT-PPDU" class="headerlink" title="HT PPDU"></a>HT PPDU</h2><p>对于接收到HT混合格式PPDU的 HT站点来说，其并不需要传统信令字段中的L_LENGTH与L_DATARATE值来解调该帧的HT 部分。这是由于HT信令字段（HT-SIG)</p>
+<p>指定了实际的PSDU长度以及所使用的MCS。因此L_DATARATE与L_LENGTH 可以用来对一个长于实际帧时长的时长作出信令，这样的做法能保护一-个序列，而不只是单个帧。这构成了L-SIG保护的基础。图10.11描述了这一点。</p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/55.png"></p>
+<h1 id="LDPC-1"><a href="#LDPC-1" class="headerlink" title="LDPC"></a>LDPC</h1><p>802.11n引入了使用LDPC码的先进的编码方式，将其作为一种可选模式。LDPC编码由Gallager ( 1962）发明。LDPC编码是一类特殊的线性分组编码，而且是一种特殊形式的校验检测码，其校验检测矩阵的大部分元素为0，只有几个矩阵元素包含1。LDPC名字的“低密度”部分就是源于这种特性。</p>
+<h2 id="编码过程"><a href="#编码过程" class="headerlink" title="编码过程"></a>编码过程</h2><p>在802.11n中，LDPC编码过程的一个关键部分是调整载荷比特，使之同时与OFDM码元的整数和LDPC码字的整数相匹配。这个过程的一部分是决定使用3种不同LDPC码字长度中的哪一种。这3种长度为648bit、1 296bit或1944bit。每个码字包括信息比特和校验比特。信息比特的数量根据来自所选MCS 的码率决定。例如，当码字大小为1944bit，MCS的码率为5/6时，信息比特的数量就是1620bit，校验比特的数量为324bit。</p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/57.png"></p>
+<p><img src="/2020/09/20/wifi4-chap02-phy/58.png"></p>
 
                 
             </div>
@@ -1471,7 +1513,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">282.9k</span>&nbsp;字
+                class="white-color">296.5k</span>&nbsp;字
             
             
             

@@ -606,12 +606,15 @@
 <li><p>使类库的创建者（研发程序员）在不影响后者使用的情况下完善更新工具库。例如，我们开发了一个功能简单的工具类，后来发现可以通过优化代码来提高执行速度。假如工具类的接口和实现部分明确分开并受到保护，那我们就可以轻松地完成改造。</p>
 </li>
 </ul>
-<h2 id="is-a-is-like-a"><a href="#is-a-is-like-a" class="headerlink" title="is-a is-like-a"></a>is-a is-like-a</h2><pre class="line-numbers language-none"><code class="language-none">继承应该只覆盖基类的方法(不应该添加基类中没有的方法)吗？ is a
-
-有时你在派生类添加了新的接口元素，从而扩展接口。虽然新类型仍然可以替代基类，但是这种替代不完美，原因在于基类无法访问新添加的方法。这种关系称为像是一个(is-like-a)关系。
-
-当你看到替代原则时，很容易会认为纯粹替代是唯一可行的方式，并且使用纯粹替代的设计是很好的。但有些时候，你会发现必须得在派生(扩展)类中添加新方法(提供新的接口)。只要仔细审视，你可以很明显地区分两种设计方式的使用场合。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<h2 id="is-a-is-like-a"><a href="#is-a-is-like-a" class="headerlink" title="is-a is-like-a"></a>is-a is-like-a</h2><blockquote>
+<p>继承应该只覆盖基类的方法(不应该添加基类中没有的方法)吗？ is a</p>
+</blockquote>
+<blockquote>
+<p>有时你在派生类添加了新的接口元素，从而扩展接口。虽然新类型仍然可以替代基类，但是这种替代不完美，原因在于基类无法访问新添加的方法。这种关系称为像是一个(is-like-a)关系。</p>
+</blockquote>
+<blockquote>
+<p>当你看到替代原则时，很容易会认为纯粹替代是唯一可行的方式，并且使用纯粹替代的设计是很好的。但有些时候，你会发现必须得在派生(扩展)类中添加新方法(提供新的接口)。只要仔细审视，你可以很明显地区分两种设计方式的使用场合。</p>
+</blockquote>
 <h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h1 id=""><a href="#" class="headerlink" title="== !="></a>== !=</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// operators/Equivalence.java</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Equivalence</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -620,12 +623,21 @@
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>n1 <span class="token operator">==</span> n2<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>n1 <span class="token operator">!=</span> n2<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-表达式 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>n1 <span class="token operator">==</span> n2<span class="token punctuation">)</span> 将会输出比较的结果。因为两个 <span class="token class-name">Integer</span> 对象相同，所以先输出 <span class="token boolean">true</span>，再输出 <span class="token boolean">false</span>。但是，尽管对象的内容一样，对象的引用却不一样。<span class="token operator">==</span> 和 <span class="token operator">!=</span> 比较的是对象引用，所以输出实际上应该是先输出 <span class="token boolean">false</span>，再输出 <span class="token boolean">true</span>（译者注：如果你把 <span class="token number">47</span> 改成 <span class="token number">128</span>，那么打印的结果就是这样，因为 <span class="token class-name">Integer</span> 内部维护着一个 <span class="token class-name">IntegerCache</span> 的缓存，默认缓存范围是 <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">128</span><span class="token punctuation">,</span> <span class="token number">127</span><span class="token punctuation">]</span>，所以 <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">128</span><span class="token punctuation">,</span> <span class="token number">127</span><span class="token punctuation">]</span> 之间的值用 <span class="token operator">==</span> 和 <span class="token operator">!=</span> 比较也能能到正确的结果，但是不推荐用关系运算符比较，具体见 JDK 中的 <span class="token class-name">Integer</span> 类源码）。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>表达式 System.out.println(n1 == n2) 将会输出比较的结果。因为两个 Integer 对象相同，所以先输出 true，再输出 false。</p>
+</blockquote>
+<blockquote>
+<p>但是，尽管对象的内容一样，对象的引用却不一样。== 和 != 比较的是对象引用，所以输出实际上应该是先输出 false，再输出 true（译者注：如果你把 47 改成 128，那么打印的结果就是这样。</p>
+</blockquote>
+<blockquote>
+<p>因为 Integer 内部维护着一个 IntegerCache 的缓存，默认缓存范围是 [-128, 127]，所以 [-128, 127] 之间的值用 == 和 != 比较也能能到正确的结果，但是不推荐用关系运算符比较，具体见 JDK 中的 Integer 类源码）。</p>
+</blockquote>
 <h2 id="短路"><a href="#短路" class="headerlink" title="短路"></a>短路</h2><pre class="line-numbers language-none"><code class="language-none">短路
-逻辑运算符支持一种称为“短路”（short-circuiting）的现象。整个表达式会在运算到可以明确结果时就停止并返回结果，这意味着该逻辑表达式的后半部分不会被执行到。
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+逻辑运算符支持一种称为“短路”（short-circuiting）的现象。
+
+整个表达式会在运算到可以明确结果时就停止并返回结果，这意味着该逻辑表达式的后半部分不会被执行到。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h2><p>Java 7 中有一个深思熟虑的补充：我们可以在数字字面量中包含下划线 _，以使结果更清晰。这对于大数值的分组特别有用。代码示例：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// operators/Underscores.java</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Underscores</span> <span class="token punctuation">{</span>
@@ -2283,7 +2295,7 @@ sub<span class="token punctuation">.</span>field <span class="token operator">=<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">282.9k</span>&nbsp;字
+                class="white-color">296.5k</span>&nbsp;字
             
             
             
